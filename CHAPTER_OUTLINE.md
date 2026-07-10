@@ -41,7 +41,7 @@ here. That is the whole point of the decoupling.
 | 3 | `03-authentication-and-access.qmd` | **Written** | Wk 3 | week-03 |
 | 4 | `04-cryptography.qmd` | **Written** | Wk 4 | week-04 |
 | 5 | `05-risk-management.qmd` | **Written** | Wk 5 | week-05 |
-| 6 | `06-incident-and-disaster-planning.qmd` | Skeleton | Wk 6 | week-06 |
+| 6 | `06-incident-and-disaster-planning.qmd` | **Written** | Wk 6 | week-06 |
 | 7 | `07-network-security.qmd` | Skeleton ⚠️ narration | Wk 8 | week-08 |
 | 8 | `08-vpn-and-firewalls.qmd` | Skeleton ⚠️ narration | Wk 9 | week-09 |
 | 9 | `09-web-security-and-data-protection.qmd` | Skeleton | Wk 10 | week-10 |
