@@ -1,27 +1,122 @@
 # Network Security
 
-> *Everything you send crosses wires you don't control. This week is about what's visible there — and what to do about it.*
+> *Everything you send crosses wires you don't control. This chapter is about what's visible there — and what to do about it.*
+
+Up to now we've mostly defended individual systems. But systems rarely stand alone; they talk to
+each other across networks, and every conversation crosses cables, switches, routers, and radio
+links that you do not own and cannot see. That is a profound shift in the threat model. On a
+network, an attacker doesn't have to break into your machine to learn your secrets — they may only
+have to *listen*. This chapter is about how attackers map and eavesdrop on networks, why a
+surprising amount of traffic gives itself away, and what turns an open wire back into a private
+one.
 
 ## What this chapter covers
 
 By the end you should be able to:
 
 - Explain how **scanning** and **sniffing** work and what they reveal.
-- Read a **packet capture** at a basic level and find something interesting in it.
-- Describe common network attacks (spoofing, man-in-the-middle) and their defences.
-- Explain why **encryption in transit** matters, using what you saw on the wire.
+- Describe what a **packet capture** shows, and why unencrypted traffic is so revealing.
+- Describe common network attacks — **spoofing**, **man-in-the-middle** — and their defences.
+- Explain why **encryption in transit** matters, and what segmentation and monitoring add.
 
-## Outline
+## The network as an attack surface
 
-*(Draft outline. **Note:** this deck has almost no
-speaker notes — the narration must be written into this chapter for it to stand alone. It is
-also the strongest live-demonstration deck; keep the demo, use the chapter as the pre-read.)*
+Recall the phases of an attack from the first chapter: reconnaissance, then scanning, then
+gaining access. Networks are where the first two of those live. Before an attacker can exploit a
+system, they have to *find* it and learn what it's running — and a network, by its nature,
+answers questions. Ask a machine "are you there?" and, unless told otherwise, it politely
+replies. Ask "what services are you running?" and its open ports announce them. Every device you
+connect adds to the attack surface, and every one of them is, by default, a little too willing to
+talk to strangers.
 
-1. The network as attack surface — recap of the scanning phase from *Introduction to Information Security*.
-2. Scanning — hosts, ports, services (ties to Lab 2).
-3. Sniffing — capturing traffic; what plaintext protocols give away.
-4. Attacks — spoofing, man-in-the-middle; ARP/DNS tricks at a high level.
-5. Defences — encryption in transit; segmentation; monitoring.
+## Scanning: mapping the target
+
+**Scanning** is how an attacker (or a defender auditing their own network) turns a vague target
+into a map. It usually happens in layers. First, find the live hosts — a sweep that asks every
+address on a network "are you there?" and notes who answers. Then, for each live host, find the
+open **ports**: a port is a numbered doorway, and each open one usually corresponds to a running
+**service** (a web server, a file share, a remote-login service). Finally, probe those services to
+learn *which software and version* is behind them — because a known version can be matched against
+known vulnerabilities from the software-security chapter.
+
+The result is a blueprint: here are your machines, here are the doors that are open, here's the
+software behind each one. To an attacker, that's a shopping list. To a defender, the same scan is
+an audit — which is why the tools are dual-use, and why the defensive instinct is to *close the
+doors you don't need*. Every service you're not using is a door you can shut, shrinking the
+blueprint an attacker gets to work from.
+
+## Sniffing: reading the wire
+
+Scanning finds the doors. **Sniffing** reads what goes through them. A network interface normally
+ignores traffic not addressed to it, but put it into a listening ("promiscuous") mode and it will
+capture *everything* it can hear — a **packet capture** of the raw conversations crossing the
+wire. A tool to read that capture then reassembles the packets into something human-readable.
+
+Here is the lesson that lands hardest the first time someone sees it: **a great deal of network
+traffic is sent in plain text, and sniffing shows all of it.** Older protocols were designed in a
+more trusting era and send everything unencrypted — the web's original HTTP, file transfer with
+FTP, remote login with Telnet, some email protocols. Capture that traffic and you don't just see
+*that* a conversation happened; you see its contents — the pages requested, the files moved, and,
+devastatingly, the **usernames and passwords typed in the clear**. This is the sniffing that the
+authentication chapter warned about, made concrete: the strongest password in the world is
+worthless if it crosses the network in plain text for anyone listening to read. It is a genuinely
+unsettling thing to witness, and it converts "you should use encryption" from advice into an
+obvious necessity.
+
+## Attacks in the middle
+
+Listening is passive. Network attacks get more dangerous when the attacker stops merely observing
+and starts *interfering*.
+
+**Spoofing** is forging an identity on the network — sending traffic that claims to come from an
+address that isn't yours. An attacker might spoof a trusted machine's address to slip past a
+filter, or forge the source of an attack to hide their tracks. The network's willingness to
+believe what packets *claim* about themselves is the weakness being exploited.
+
+The more powerful move is the **man-in-the-middle** (or on-path) attack: the attacker quietly
+positions themselves *between* two parties, so that everything each side sends passes through them
+first. Now they can read the conversation, and worse, *alter* it — changing a bank account number
+in transit, injecting malicious content, or capturing credentials as they flow past. Two common
+techniques get an attacker into that position on a local network: **ARP spoofing**, which tricks
+nearby machines into routing their traffic through the attacker by lying about which hardware
+address belongs to which machine, and **DNS spoofing**, which answers a name lookup with the
+wrong address so the victim connects to the attacker's server while believing it's the real one.
+The details matter less than the shape: the attacker exploits the small, trusting mechanisms that
+make a network convenient, and turns them into a wiretap.
+
+## Why the local attacker is special
+
+Notice that ARP spoofing and casual sniffing both require the attacker to be *on the same
+network*. This is why an attacker who has gained a foothold on your local network — or who's
+simply sharing the coffee-shop Wi-Fi — can do things a purely remote attacker cannot. They can
+hear the local chatter, impersonate local machines, and slip into the middle of local
+conversations in ways that someone out on the wider internet, several routers away, cannot easily
+manage. It's a concrete reason the *inside* of a network can never be treated as automatically
+safe — the assume-breach mindset applied to your own LAN. (That difference is the second question
+at the end; it's worth being able to explain crisply.)
+
+## Defences: making the wire private again
+
+The good news is that the central weakness — traffic readable by anyone listening — has a
+decisive fix, and you already met it.
+
+**Encryption in transit** is the answer to sniffing. When traffic is encrypted — the web's HTTPS,
+which is HTTP wrapped in the TLS scheme from the cryptography chapter — an eavesdropper still
+captures the packets but sees only unreadable ciphertext. The credentials, the page contents, the
+files: all gibberish to anyone without the key. This single change neutralises passive sniffing,
+which is why the migration of the web from HTTP to HTTPS was one of the most important security
+improvements of the last decade, and why sending anything sensitive over an unencrypted protocol
+is now indefensible.
+
+Two more layers back it up. **Segmentation** divides a network into zones with controlled routes
+between them, so that a foothold in one part doesn't grant free movement across the whole — the
+same idea that starves a worm (from the malware chapter) and contains an incident (from the
+planning chapter). And **monitoring** watches network traffic for the tell-tale signs of trouble —
+a host suddenly scanning its neighbours, traffic to a known-bad address, a volume spike — so that
+the intrusion you couldn't prevent is at least *detected*, feeding straight into the incident
+response of the previous chapter. Encryption hides the contents, segmentation limits the movement,
+and monitoring catches what gets through: no single one is enough, which is the whole book in one
+sentence.
 
 ::: {.callout-tip}
 ## Play it
@@ -34,12 +129,18 @@ lesson in why security is a budget problem as much as a technical one. →
 
 ## Where this connects
 
-- **authentication** — sniffing passwords; **VPNs and firewalls** — firewalls and VPNs as the defences.
+- **Authentication** — the credentials a sniffer harvests are the ones that chapter taught you to
+  protect; encryption in transit is what stops them leaking.
+- **Cryptography** — the encryption that defeats sniffing is the hybrid TLS scheme from that
+  chapter, in action.
+- **VPN & firewalls** — the next chapter is about the two defences that build on this one: a
+  firewall to control what traffic is allowed, and a VPN to protect it end to end.
 
 ## Questions to consider
 
 1. Name one everyday thing you do online that would be **visible in plaintext** to someone
-   sniffing the network — and one that wouldn't. What's the difference?
-2. Why can an attacker on the same network do things a remote attacker can't?
-3. Before the demo: guess what you'd be able to see if you captured your own laptop's traffic
-   for one minute. We'll test your guess live.
+   sniffing the network — and one that wouldn't. What's the difference between them?
+2. Why can an attacker on the *same* network do things a purely remote attacker can't?
+3. Imagine you captured your own device's traffic for one minute. What do you think you'd be
+   able to read, and what would be hidden — and what does that difference tell you about how you
+   should send sensitive information?
