@@ -44,7 +44,7 @@ here. That is the whole point of the decoupling.
 | 6 | `06-incident-and-disaster-planning.qmd` | **Written** | Wk 6 | week-06 |
 | 7 | `07-network-security.qmd` | **Written** (narration captured) | Wk 8 | week-08 |
 | 8 | `08-vpn-and-firewalls.qmd` | **Written** (narration captured) | Wk 9 | week-09 |
-| 9 | `09-web-security-and-data-protection.qmd` | Skeleton | Wk 10 | week-10 |
+| 9 | `09-web-security-and-data-protection.qmd` | **Written** | Wk 10 | week-10 |
 | 10 | `10-cybercrime-and-botnets.qmd` | Skeleton ⚠️ refresh (worst) | Wk 11 | week-11 |
 | 11 | `11-human-factors.qmd` | Skeleton | Wk 12 | week-12 |
 | 12 | `12-the-long-game.qmd` | **Written** | Wk 13 (revision) | — (synthesis) |
