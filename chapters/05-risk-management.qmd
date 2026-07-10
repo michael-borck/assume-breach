@@ -2,6 +2,13 @@
 
 > *You can't protect everything equally, so you don't. Risk management is how a defender decides where the money and effort go.*
 
+Everything before this chapter was about *how* to defend — controls, cryptography, layered
+defence. This chapter is about *where to spend the effort*, and it is the moment security stops
+being a technical subject and becomes a business one. No organisation has unlimited money, time,
+or patience, so a defender who tries to protect everything equally protects nothing well. Risk
+management is the discipline of deciding, honestly and defensibly, what to protect, how much to
+spend, and what to leave alone. It is also where "assume breach" turns into a budget.
+
 ## What this chapter covers
 
 By the end you should be able to:
@@ -13,16 +20,105 @@ By the end you should be able to:
   them to judge whether a control is worth it.
 - Describe the main **risk treatments**: avoid, mitigate, transfer, accept.
 
-## Outline
+## What risk actually is
 
-*(Draft outline. Supplementary reading: *Substantiate,
-Don't Assume*, ch. 02-risk — pitched above this level, scaffold it.)*
+In everyday speech "risk" means danger. In security it means something more precise and more
+useful: risk is the combination of **how likely** something bad is and **how much it would
+hurt** if it happened. A useful shorthand is *risk = likelihood × impact*. Neither alone tells
+you much. A catastrophic event that essentially never happens may be a smaller risk than a minor
+one that happens weekly, and treating them as equal — as a fear-driven approach does — wastes
+effort on the dramatic and ignores the routine.
 
-1. What risk is; likelihood × impact; risk appetite and why it differs.
-2. Valuing assets — intrinsic vs acquired value; cost-benefit analysis.
-3. Quantifying risk — SLE, ARO, ALE; worked examples.
-4. Choosing controls — when a control costs more than the risk it removes.
-5. Treating risk — avoid / mitigate / transfer / accept; residual risk.
+Because risk is about likelihood and impact, it is always relative to a particular organisation,
+and that is where **risk appetite** comes in — how much risk a given organisation is willing to
+accept in pursuit of its goals. A hospital and a social-media start-up face different threats,
+value different things, and answer to different regulators, so they will rationally accept very
+different risks. Risk appetite isn't recklessness or timidity; it's a deliberate statement of how
+much uncertainty an organisation will live with. Two well-run companies facing the identical
+threat can make opposite, equally defensible decisions — which is exactly the first
+question at the end of this chapter.
+
+## What are you protecting, and what's it worth?
+
+You cannot judge a risk without knowing the value of what's at stake, and value is subtler than a
+price tag. An asset has **intrinsic value** — what it is worth in itself, like the replacement
+cost of a server — and **acquired value**, the worth it takes on from its role and context. A
+customer database might contain a few dollars of storage, but the acquired value — the trust,
+the regulatory exposure, the competitive harm if it leaked — can be enormous. Defenders who
+price only the intrinsic value systematically under-protect the things that matter most, because
+the damage from losing information usually dwarfs the cost of the hardware holding it.
+
+Once you can value what's at stake, you can do **cost-benefit analysis**: weigh what a control
+*costs* against the loss it *prevents*. This is the engine of every good security decision, and
+it has an uncomfortable implication people resist — sometimes the right answer is to *not* buy
+the control, because it costs more than the harm it prevents. Security is not about maximum
+protection; it's about protection that's worth what it costs.
+
+## Putting numbers on it: SLE, ARO, ALE
+
+To make cost-benefit concrete, security borrows a simple model from insurance. Three quantities
+do the work:
+
+- **Single Loss Expectancy (SLE)** — how much one occurrence of the event would cost you.
+- **Annualised Rate of Occurrence (ARO)** — how many times a year you expect it to happen (which
+  can be a fraction — 0.2 means once every five years).
+- **Annual Loss Expectancy (ALE)** — the expected cost *per year*, simply `SLE × ARO`.
+
+A worked example. Suppose a breach of your customer database would cost about **\$500,000** to
+clean up, notify, and recover from — that's the SLE. You judge such a breach might happen once
+every five years, so the ARO is **0.2**. The annual loss expectancy is:
+
+`ALE = SLE × ARO = \$500,000 × 0.2 = \$100,000 per year.`
+
+That \$100,000 is what this risk "costs" you in expectation each year, and it's the number a
+control has to beat.
+
+## Is the control worth it?
+
+Now you can judge a control honestly. Say better monitoring and encryption cost **\$40,000 a
+year** and would cut the breach rate to once every twenty years (ARO 0.05). The new annual loss
+expectancy becomes `\$500,000 × 0.05 = \$25,000`. So the control *reduces* your ALE from
+\$100,000 to \$25,000 — a benefit of **\$75,000 a year** — for a cost of \$40,000. It saves you
+\$35,000 net, so it's clearly worth buying.
+
+The rule is that simple, and that powerful: **a control is worth it when the reduction in ALE
+exceeds the cost of the control.** Turn the numbers around and the answer flips — a \$50,000
+control that only reduces an ALE from \$30,000 to \$5,000 *loses* you money, and buying it out of
+a vague sense that "more security is better" is exactly the mistake this chapter exists to
+prevent. (That's the second question at the end — work it through.)
+
+Two honest cautions come with the arithmetic. First, notice that even after the good control,
+\$25,000 of annual risk remains: this is **residual risk**, the risk left over after treatment.
+You almost never reduce risk to zero, and pretending otherwise is how organisations get
+surprised. Second, these numbers are *estimates* — SLE and ARO are educated guesses, and some
+impacts (a ruined reputation, harm to people, loss of life) resist being priced at all. Treat
+quantitative risk analysis as a discipline for thinking clearly, not as a machine that spits out
+the truth. The numbers structure the judgement; they don't replace it.
+
+## The four things you can do with a risk
+
+Once a risk is identified and sized, you have exactly four options — the vocabulary every
+security professional shares:
+
+- **Avoid** — don't do the risky thing at all. Stop offering the feature, don't collect the
+  data, close the exposure. The only way to reduce a risk to zero, and often impractical because
+  the risky activity is the business.
+- **Mitigate** — reduce the likelihood or the impact with controls. This is most of what the
+  rest of this book is about: patch, encrypt, segment, train, monitor. You rarely eliminate the
+  risk; you shrink it to an acceptable size.
+- **Transfer** — make it someone else's problem to bear, most commonly through **insurance**, or
+  by outsourcing the risky function to a provider who takes on the liability. You still own the
+  consequences, but you've shifted the financial hit.
+- **Accept** — decide the risk is small enough, or the fix too costly, to simply live with it.
+  This is a legitimate, deliberate choice — *provided* it's made consciously and by someone with
+  the authority to make it. Accepting a risk you've measured is professional; ignoring one you
+  never looked at is negligence, and the difference between the two is the whole point.
+
+Real organisations do this at scale using structured frameworks — the **ASD Essential Eight**,
+**ISO/IEC 27001**, the **NIST Cybersecurity Framework** — which package hard-won judgement about
+which controls address which risks, so that every organisation doesn't have to reinvent the
+analysis. Underneath the framework, though, the logic is always the one in this chapter: size the
+risk, weigh the control, choose a treatment, and be able to defend the choice.
 
 ::: {.callout-tip}
 ## Play it
@@ -35,7 +131,12 @@ out loud. → [incidentzero.retroverse.studio](https://incidentzero.retroverse.s
 
 ## Where this connects
 
-  maturity audit is applied risk-based control assessment.
+- **Incident & disaster planning** — the next chapter is what you do when a risk you accepted or
+  mitigated happens anyway.
+- **The whole book** — every control in every other chapter is a *mitigation*; this chapter is
+  how you decide which ones are worth deploying.
+- **Frameworks in practice** — a maturity assessment against a standard like the Essential Eight
+  is this chapter's risk-based reasoning, applied control by control.
 
 ## Questions to consider
 
@@ -43,5 +144,5 @@ out loud. → [incidentzero.retroverse.studio](https://incidentzero.retroverse.s
    ignores it. How can both be *rational*?
 2. A control costs \$50k/year and reduces an ALE of \$30k/year to \$5k/year. Should they buy
    it? Show your reasoning.
-3. Give a real risk your own organisation (or the university) probably **accepts** rather than
-   fixes. Why is that a defensible choice?
+3. Give a real risk your own organisation (or somewhere you've studied or worked) probably
+   **accepts** rather than fixes. Why is that a defensible choice?
