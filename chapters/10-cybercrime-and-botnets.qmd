@@ -2,26 +2,117 @@
 
 > *Modern attacks are a business. Understanding the economics — who profits, and how — tells you where the defences have to go.*
 
+It's tempting to picture the attacker as a lone figure in a hoodie, breaking in for the challenge
+of it. That picture is decades out of date. The early viruses really were about mischief and
+notoriety, but the threat that matters today is organised, professional, and overwhelmingly about
+money. Cybercrime has grown into a genuine economy — with suppliers, specialists, marketplaces,
+and its own currencies — and once you see it as an economy, the defences make more sense. You
+stop asking "who would do this?" and start asking "who *profits* from this, and how do I make it
+unprofitable?" This chapter is about the business behind the attacks, and about how investigators
+follow the money and the evidence back to its source.
+
 ## What this chapter covers
 
 By the end you should be able to:
 
-- Explain what a **botnet** is, how one is built and monetised (spam, DDoS, pay-per-install).
+- Explain what a **botnet** is, and how one is built and monetised.
 - Describe the **cybercrime economy** — the division of labour behind modern attacks.
-- Explain, at a high level, a real botnet case (e.g. **Mirai**, Torpig).
-- Connect forensic traces (email headers, document metadata) to attributing an attack.
+- Explain, at a high level, how a real botnet works (credential-stealing and IoT examples).
+- Connect forensic **traces** to the attribution of an attack, and explain chain of custody.
 
-## Outline
+## Cybercrime is a business
 
-*(Draft outline. **Refresh flag — highest
-priority:** the malware-volume statistics are dated 2015/2017/2021 and age every year. Replace
-with a current figure or reframe as "growth over time" so the chapter doesn't rot.)*
+The single most useful shift in thinking is to treat serious cybercrime as *commerce*. Attackers
+have costs, revenues, competitors, and customers. They reinvest profits, offer support, build
+reputations, and specialise — because specialisation is more efficient, just as it is in any
+legitimate economy. The rise of cryptocurrency gave this economy a way to move value that's hard
+to trace, and the result is a mature underground market where almost any capability can be bought.
 
-1. Cybercrime as an economy — motives, markets, division of labour.
-2. Botnets — command-and-control; building and renting them; spam and DDoS.
-3. Monetisation — pay-per-install, ransomware, credential theft.
-4. Case studies — a modern IoT botnet (Mirai) and a classic (Torpig/Zeus).
-5. Forensics and attribution — what traces attacks leave behind.
+Seeing crime as business reframes defence. You don't have to make an attack *impossible* — you
+only have to make it *unprofitable*. Raise the attacker's cost, lower their expected return, and
+much of the volume simply moves to an easier target. A great deal of security is not about being
+impregnable; it's about not being the cheapest victim on the market.
+
+## The division of labour
+
+The defining feature of the modern cybercrime economy is that **no single criminal does the whole
+job.** The work is split among specialists, each selling to the next:
+
+- **Malware developers** write and sell the tools — often as polished kits with updates and
+  customer support.
+- **Initial access brokers** specialise in breaking in, then *sell the foothold* — access to an
+  already-compromised company — to whoever wants to use it.
+- **Infrastructure providers** rent out "bulletproof" hosting and the command servers that run
+  attacks.
+- **Ransomware-as-a-service** operators lease their ransomware to affiliates, who run the actual
+  attacks and hand back a cut.
+- **Money mules and launderers** turn stolen funds into clean, spendable cash.
+
+This specialisation has three consequences, and they explain why cybercrime is so stubborn. It
+**lowers the barrier to entry** — you no longer need to be a skilled hacker to launch an attack;
+you can rent the capability. It makes the ecosystem **resilient** — arrest one malware author and
+the access brokers, hosts, and launderers all carry on, and a competitor fills the gap. And it
+**muddies attribution** — with so many hands touching an attack, working out who is truly
+*responsible* is genuinely hard. That resilience-through-specialisation is the second question at
+the end, and it's the reason takedowns rarely end a threat for long.
+
+## Botnets: crime at scale
+
+A **botnet** is the workhorse of this economy: a network of many compromised machines — the
+"bots" — all under the remote control of one operator through a **command-and-control (C2)**
+channel. The operator infects machines by whatever means works (a trojan, a worm, an exploit),
+and each new victim quietly joins the fleet, waiting for orders.
+
+The power, and the answer to the first question at the end, is that a botnet's value is
+**aggregate**. A single compromised home PC is nearly worthless to a criminal. A *million* of them,
+acting together on command, are a weapon and a revenue stream: they can blast a target off the
+internet with a **distributed denial-of-service** attack (rented out by the hour), send spam and
+phishing at vast scale, mine cryptocurrency on someone else's electricity bill, harvest
+credentials and card numbers, or serve as a haystack of proxies to hide the operator's real
+location. This is exactly why individuals underestimate the cost of being infected — *your*
+machine may hold nothing worth stealing, but your machine plus a million others is the product
+being sold.
+
+## How they work: two patterns
+
+Two well-known cases show the pattern without needing any perishable statistics.
+
+The **Zeus** family was a banking trojan built to steal credentials — it infected huge numbers of
+ordinary PCs, watched for banking logins, and quietly siphoned them off. When its source code
+leaked, it spawned a whole generation of variants, which is a lesson in itself: successful
+malware becomes a *platform* that others build on.
+
+**Mirai** showed a newer front. Instead of PCs, it infected **Internet-of-Things** devices —
+home routers, security cameras, DVRs — by simply trying a short list of *default passwords* the
+owners had never changed. From those humble devices it assembled a botnet powerful enough to
+launch some of the largest DDoS attacks ever seen. The enduring lesson isn't the size of the
+attack; it's that **cheap, insecure, unattended devices with default credentials are now part of
+your threat model** — and that the humblest gadget on a network can become a weapon.
+
+## Following the trail: forensics and attribution
+
+When an attack succeeds, the work shifts to investigation — **digital forensics**, the discipline
+of reconstructing what happened from the traces left behind. And attackers leave more traces than
+they'd like. System and network **logs** record activity; file **timestamps** reveal a sequence of
+events; **email headers** record the path a message actually travelled, betraying an origin the
+sender tried to hide; **document metadata** quietly stores the author, the software, and the times
+a file was created and edited. From fragments like these an investigator builds a **timeline** — a
+defensible account of who did what, and when.
+
+Two ideas make forensics a discipline rather than a rummage. The first is **chain of custody**:
+evidence must be collected and handled so that its integrity is beyond question — who touched it,
+when, and how, in an unbroken record. Mishandle it and you can *know* who did it and still lose the
+case, because you can no longer prove the evidence wasn't altered. (This is the hard lesson the
+game module makes you feel.) The second is that **attribution is genuinely difficult**. The same
+division of labour and the same botnets that power attacks also hide the people behind them:
+traffic routed through a botnet appears to come from innocent victims, infrastructure is rented
+and disposable, and false clues are sometimes planted deliberately. Careful defenders talk about
+attribution in terms of *confidence*, not certainty.
+
+Still, attackers are human and make mistakes — and the thread an investigator pulls first is
+usually the one the attacker *forgot to hide*: a log they didn't clear, a username or server
+reused across jobs, a document's metadata, an email header. Which trace that is, and why it's the
+first thread to pull, is the last question at the end.
 
 ::: {.callout-tip}
 ## Play it
@@ -33,12 +124,17 @@ when you know who did it. → [incidentzero.retroverse.studio](https://incidentz
 
 ## Where this connects
 
-- **software security** — malware and trojans; **network security** — the network traffic botnets generate.
+- **Software security & malware** — the trojans, worms, and ransomware from that chapter are the
+  weapons this economy trades in.
+- **Network security** — a botnet's command-and-control and DDoS traffic are exactly what network
+  monitoring exists to spot.
+- **Incident & disaster planning** — forensics is the investigation stage that follows the
+  containment and recovery of a real incident.
 
 ## Questions to consider
 
 1. Why is a **botnet** so much more valuable to a criminal than a single compromised machine?
-2. Modern cybercrime has a "division of labour" — different people write malware, rent
-   servers, and cash out. Why does that specialisation make attacks harder to stop?
-3. What kind of **trace** does an attacker most often forget to hide? (You'll test this in the
-   lab.)
+2. Modern cybercrime has a "division of labour" — different people write malware, sell access,
+   rent servers, and cash out. Why does that specialisation make attacks so hard to stop?
+3. What kind of **trace** does a careless attacker most often forget to hide — and why is that
+   the thread an investigator pulls first?
