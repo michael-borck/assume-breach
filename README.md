@@ -3,14 +3,16 @@
 *A First Course in Defensive Security*
 
 An open-access Quarto book by **Michael Borck** — a lean, standalone first book on defensive
-security for newcomers, not a comprehensive textbook. Eleven chapters in a deliberate order.
-It reads on its own; a course can also assign it chapter by chapter (the course keeps the
-week → chapter map, not the book). Part of the
+security for newcomers, not a comprehensive textbook. Twelve chapters in a deliberate order,
+closing with a whole-of-life synthesis. It reads on its own; a course can also assign it
+chapter by chapter (the course keeps the week → chapter map, not the book). Part of the
 [books.borck.education](https://books.borck.education) series.
 
-> ⚠️ **Early draft.** Chapter 1 is a full pilot; Chapters 2–3 are seeded; Chapters 4–11 are
-> skeleton stubs marked `*(Draft outline …)*`. The book is **standalone and tool-agnostic by
-> design** — it names no course, week, lab, or tool syntax. See `CHAPTER_OUTLINE.md`.
+> ⚠️ **Early draft.** Chapter 1 and the closing Chapter 12 are written; Chapters 2–3 are
+> seeded; Chapters 4–11 are skeleton stubs marked `*(Draft outline …)*`. The book is
+> **standalone and tool-agnostic by design** — it names no course, week, lab, or tool syntax.
+> Optional **"Play it"** callouts link the free game *Incident Zero* for an experiential
+> dimension. See `CHAPTER_OUTLINE.md`.
 
 ## Structure
 

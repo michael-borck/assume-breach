@@ -47,9 +47,12 @@ here. That is the whole point of the decoupling.
 | 9 | `09-web-security-and-data-protection.qmd` | Skeleton | Wk 10 | week-10 |
 | 10 | `10-cybercrime-and-botnets.qmd` | Skeleton ⚠️ refresh (worst) | Wk 11 | week-11 |
 | 11 | `11-human-factors.qmd` | Skeleton | Wk 12 | week-12 |
+| 12 | `12-the-long-game.qmd` | **Written** | Wk 13 (revision) | — (synthesis) |
 
-Note chapter numbers are sequential (1–11); teaching weeks skip 7 (tuition-free), so from
-Chapter 7 on, chapter number = teaching week − 1. That offset lives only in the course map.
+Chapters 1–11 parallel Weeks 1–12 (teaching weeks skip 7, tuition-free, so from Chapter 7 on,
+chapter = week − 1). **Chapter 12 is a synthesis/closing chapter** — no source deck; it joins
+the whole book into one security lifecycle and pairs naturally with the Week 13 game capstone.
+This offset lives only in the course map.
 
 ## Per-chapter template (standalone)
 
@@ -59,10 +62,31 @@ Every chapter follows the same shape (see the written Chapter 1):
 2. A short standalone lead-in (no "before the lecture", no lab reference).
 3. **What this chapter covers** — 4–5 learning objectives.
 4. The concept prose.
-5. **Try it yourself** — an optional callout naming a *capability* to practise (never tool
+5. **Try it yourself** *(optional)* — a callout naming a *capability* to practise (never tool
    syntax), pointing to the practice-environment appendix.
-6. **Where this connects** — links to *other chapters by name* (never weeks or labs).
-7. **Questions to consider** — 3 reflective/self-test questions.
+6. **Play it** *(optional, only where a module fits)* — a `.callout-tip` pointing readers at
+   the matching *Incident Zero* module for the experiential dimension (see below).
+7. **Where this connects** — links to *other chapters by name* (never weeks or labs).
+8. **Questions to consider** — 3 reflective/self-test questions.
+
+### The "Play it" callouts (Incident Zero)
+
+*Incident Zero* ([incidentzero.retroverse.studio](https://incidentzero.retroverse.studio/)) is
+a free, print-and-play cooperative security game. Where a chapter's concept has a matching game
+module, a **Play it** callout invites the reader to *experience* it — the applied-judgement
+dimension a page can't give. Current placements: Hardening → Ch 2; Audit & Compliance → Ch 5;
+Incident Response + Disaster Recovery → Ch 6; Network Building → Ch 7; Forensics → Ch 10; and
+the **full campaign** → Ch 12 (the lifecycle capstone).
+
+**Two rules (same discipline as everything else):**
+
+- **Reference at a stable level.** Name the *module and the experience* plus the one landing
+  link. **No card names or mechanics** — it's the playtest edition and those will change.
+- **Licence: link and describe, never embed.** The book is CC BY; the game is CC BY-**NC-SA**.
+  Linking and paraphrasing is fine; copying game text/cards in would drag ShareAlike +
+  NonCommercial onto the book. Point at it; don't reproduce it.
+
+Callouts are **optional enrichment** — the book stands alone if the reader never plays.
 
 ## Tools & demos policy (important — keeps the book durable)
 

@@ -24,6 +24,15 @@ Don't Assume*, ch. 02-risk — pitched above this level, scaffold it.)*
 4. Choosing controls — when a control costs more than the risk it removes.
 5. Treating risk — avoid / mitigate / transfer / accept; residual risk.
 
+::: {.callout-tip}
+## Play it
+
+*Incident Zero*'s **Audit & Compliance** module has you score an organisation's controls
+pass/fail against a real framework — and then defend your judgement to the table. It turns the
+abstract choice between *accept, mitigate, transfer, avoid* into a call you have to argue for
+out loud. → [incidentzero.retroverse.studio](https://incidentzero.retroverse.studio/)
+:::
+
 ## Where this connects
 
   maturity audit is applied risk-based control assessment.

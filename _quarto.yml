@@ -33,6 +33,9 @@ book:
       chapters:
         - chapters/10-cybercrime-and-botnets.qmd
         - chapters/11-human-factors.qmd
+    - part: "Part V · Putting It Together"
+      chapters:
+        - chapters/12-the-long-game.qmd
   appendices:
     - appendices/lab-environment.qmd
     - about-author.qmd

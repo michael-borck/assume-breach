@@ -23,6 +23,14 @@ with a current figure or reframe as "growth over time" so the chapter doesn't ro
 4. Case studies — a modern IoT botnet (Mirai) and a classic (Torpig/Zeus).
 5. Forensics and attribution — what traces attacks leave behind.
 
+::: {.callout-tip}
+## Play it
+
+*Incident Zero*'s **Forensics** module has you chase attribution and rebuild a timeline while
+protecting the chain of custody — mishandle the evidence trail and you lose the case, even
+when you know who did it. → [incidentzero.retroverse.studio](https://incidentzero.retroverse.studio/)
+:::
+
 ## Where this connects
 
 - **software security** — malware and trojans; **network security** — the network traffic botnets generate.

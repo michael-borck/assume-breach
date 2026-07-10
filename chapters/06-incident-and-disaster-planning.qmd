@@ -23,6 +23,16 @@ strong pre-reading candidate.)*
 4. Disaster recovery — RTO/RPO; backups; alternate/DR sites.
 5. Testing the plan — why an untested plan is a hope, not a plan.
 
+::: {.callout-tip}
+## Play it
+
+*Incident Zero* has two modules that live in this chapter. **Incident Response** races you to
+uncover a hidden attack chain before time and budget run out; **Disaster Recovery** drops you
+into a live breach with a 72-hour notification clock and the ransom decision on the table.
+Reading about incident response is one thing; running one against a clock is another. →
+[incidentzero.retroverse.studio](https://incidentzero.retroverse.studio/)
+:::
+
 ## Where this connects
 
 - **risk management** — this is what happens when a risk is realised; **web security** — data protection

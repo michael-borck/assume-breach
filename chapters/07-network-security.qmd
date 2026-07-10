@@ -23,6 +23,15 @@ also the strongest live-demonstration deck; keep the demo, use the chapter as th
 4. Attacks — spoofing, man-in-the-middle; ARP/DNS tricks at a high level.
 5. Defences — encryption in transit; segmentation; monitoring.
 
+::: {.callout-tip}
+## Play it
+
+*Incident Zero*'s **Network Building** module makes you buy an architecture you can't fully
+afford — and the gaps you leave come back to bite in later rounds. It's a quick, concrete
+lesson in why security is a budget problem as much as a technical one. →
+[incidentzero.retroverse.studio](https://incidentzero.retroverse.studio/)
+:::
+
 ## Where this connects
 
 - **authentication** — sniffing passwords; **VPNs and firewalls** — firewalls and VPNs as the defences.
