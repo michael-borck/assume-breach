@@ -36,9 +36,9 @@ here. That is the whole point of the decoupling.
 
 | Ch | File | Status | Parallels teaching week | Source deck |
 |----|------|--------|-------------------------|-------------|
-| 1 | `01-introduction.qmd` | **Written (pilot)** | Wk 1 | week-01-introduction |
-| 2 | `02-software-security-and-malware.qmd` | Seeded ⚠️ refresh | Wk 2 | week-02 |
-| 3 | `03-authentication-and-access.qmd` | Seeded | Wk 3 | week-03 |
+| 1 | `01-introduction.qmd` | **Written** | Wk 1 | week-01-introduction |
+| 2 | `02-software-security-and-malware.qmd` | **Written** | Wk 2 | week-02 |
+| 3 | `03-authentication-and-access.qmd` | **Written** | Wk 3 | week-03 |
 | 4 | `04-cryptography.qmd` | Skeleton ⚠️ refresh | Wk 4 | week-04 |
 | 5 | `05-risk-management.qmd` | Skeleton | Wk 5 | week-05 |
 | 6 | `06-incident-and-disaster-planning.qmd` | Skeleton | Wk 6 | week-06 |
