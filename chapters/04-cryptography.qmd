@@ -2,6 +2,13 @@
 
 > *The security of a good cipher rests on the key, not on hiding how it works. That single idea — Kerckhoff's principle — organises the whole field.*
 
+Cryptography is the closest thing security has to a superpower: done right, it lets you protect
+information even when your enemy can see everything you send. It is also the part of the field
+most wrapped in mystique and most often misunderstood. This chapter strips away the mystique.
+You do not need the mathematics to reason about cryptography well — you need to understand what
+each kind of cryptography *guarantees*, what it *doesn't*, and where the real weaknesses lie
+(which, as ever, are rarely in the maths).
+
 ## What this chapter covers
 
 By the end you should be able to:
@@ -14,24 +21,119 @@ By the end you should be able to:
 - Reason about attacks: brute-forcing small key spaces, known-plaintext and chosen-plaintext
   attacks.
 
-## Outline
+## The algorithm and the key
 
-*(Draft outline. **Refresh flag:** references date to
-2000–2006 — modernise examples, e.g. TLS, messaging apps, ransomware key handling.)*
+Every cipher has two parts, and telling them apart is the foundation of everything else. The
+**algorithm** is the method — the fixed procedure for scrambling and unscrambling. The **key**
+is the secret input that steers it — the particular setting that turns readable *plaintext* into
+scrambled *ciphertext* and back. The same algorithm with a different key produces completely
+different output. The set of all possible keys is the **key space**, and its size is one measure
+of a cipher's strength: the more keys an attacker would have to try, the better.
 
-1. Ciphers = algorithm + key space; why keeping the *key* secret (not the algorithm) is the
-   stronger design.
-2. Symmetric cryptography — one key encrypts and decrypts; speed and the key-distribution
-   problem.
-3. Asymmetric cryptography — public/private key pairs; how they solve key distribution;
-   confidentiality vs signing.
-4. Hashing — one-way functions; integrity, and how this links back to password storage (see *Authentication*).
-5. Attacks and limits — small key spaces (Caesar), monoalphabetic substitution, known- vs
-   chosen-plaintext.
+Here is where beginners' intuition usually goes wrong. It feels safer to keep the *algorithm*
+secret too — surely hiding the method helps? **Kerckhoff's principle** says the opposite, and it
+is one of the most important ideas in the whole field:
+
+> A cryptosystem should be secure even if everything about it, except the key, is public
+> knowledge.
+
+In other words, the security must rest **entirely on the secrecy of the key**, never on the
+secrecy of the algorithm. This sounds counter-intuitive until you see why it's a *strength*. A
+secret algorithm has never been examined by anyone but its creators, so no one knows whether it's
+flawed — and once it leaks (it always leaks), your security evaporates. A public algorithm,
+published and attacked by the world's cryptographers for years, has earned its trust the hard
+way. This is why every cipher you should trust — the ones protecting your web traffic, your
+messages, your disk — has an openly published algorithm and keeps only the key secret. "Secret
+sauce" cryptography is a warning sign, not a feature.
+
+## Symmetric cryptography: one shared key
+
+The oldest and simplest arrangement is **symmetric** (or one-key) cryptography: the *same* key
+both encrypts and decrypts. If you and I share a secret key, I encrypt with it, you decrypt with
+it, and anyone without it sees only noise. Symmetric ciphers are fast and efficient, which is why
+they do the heavy lifting of bulk encryption — encrypting a whole disk, a database, or a stream
+of network traffic.
+
+Symmetric cryptography has one stubborn problem, and it's not the maths: **key distribution.**
+Before we can communicate securely, we both need the same secret key — but how do I get it to
+you *securely* in the first place? If we could already send secrets safely, we wouldn't need the
+encryption. For two people who have never met, sharing a key over an untrusted network is
+exactly the problem the whole system was meant to solve. For centuries this was cryptography's
+central limitation.
+
+## Asymmetric cryptography: a key you can publish
+
+The breakthrough that solved it is **asymmetric** (or two-key) cryptography, and it is genuinely
+clever. Instead of one shared secret, each person has a *pair* of mathematically linked keys: a
+**public key** they can hand out to anyone, and a **private key** they keep to themselves. The
+crucial property is that what one key locks, only the *other* can unlock — and knowing the public
+key does not let you work out the private key.
+
+That single trick does two different jobs, and it's worth keeping them apart:
+
+- **Confidentiality.** Anyone can encrypt a message to you using your *public* key, but only your
+  *private* key can decrypt it. Now a stranger can send you a secret without ever sharing a key
+  in advance — the key-distribution problem dissolves, because the encrypting key was never
+  secret.
+- **Authenticity — digital signatures.** Run it the other way: you encrypt (sign) something with
+  your *private* key, and anyone can verify it with your *public* key. Since only you have your
+  private key, a valid signature proves the message came from you and wasn't altered — this is
+  where non-repudiation and integrity come from.
+
+Asymmetric cryptography is slower than symmetric, so real systems use **both**: asymmetric
+cryptography to safely exchange a fresh symmetric key, then fast symmetric encryption for the
+actual conversation. That hybrid is, in essence, what happens every time your browser opens a
+secure connection.
+
+## Hashing: one-way, and not encryption
+
+A **hash function** is often grouped with cryptography but does something different, and the
+difference matters. Encryption is *reversible* — the whole point is that the right key gets the
+original back. A cryptographic hash is deliberately **one-way**: it turns any input into a
+fixed-length fingerprint that cannot be reversed to recover the input. You met this in the last
+chapter, where systems store the hash of a password rather than the password itself.
+
+So the two answer different questions. **Encryption protects confidentiality** — keeping content
+secret from those without the key. **Hashing protects integrity** — proving that content hasn't
+changed, since any alteration produces a completely different fingerprint. If you want to hide a
+message, encrypt it. If you want to prove a file hasn't been tampered with, hash it. Confusing
+the two — "I hashed it so it's secret," "I encrypted it so I'll know if it changed" — is a common
+and revealing mistake.
+
+## Attacks, and the limits of weak crypto
+
+Understanding how ciphers *fail* sharpens the intuition. The simplest failure is a **key space
+too small to matter.** The classic Caesar cipher shifts each letter by a fixed amount — but there
+are only twenty-five possible shifts, so an attacker simply tries them all in seconds. A
+**monoalphabetic substitution** cipher, where each letter maps to another, has an enormous key
+space yet still falls easily, because it leaks the *structure* of the language: letter
+frequencies survive the substitution, and 'e' is still the commonest letter. The lesson is that a
+big key space is necessary but not sufficient; a cipher can be broken by the patterns it fails to
+hide.
+
+Cryptographers also reason about what an attacker gets to *see*. In a **known-plaintext attack**,
+the attacker has some plaintext *and* its matching ciphertext and uses the pair to attack the
+key. In the stronger **chosen-plaintext attack**, they can feed in plaintext of their choosing
+and study the output. A cipher worth trusting must withstand even an adversary with those
+advantages — which, again, is why real ciphers are published and battered by experts rather than
+kept quietly secret and hoped over.
+
+A closing note on reality: modern cryptography is genuinely strong, and attackers know it — so
+they almost never attack the maths. They steal the key from a poorly protected file, trick a user
+into revealing it, exploit a bug in the *implementation* of a sound algorithm, or simply take the
+data before it's encrypted or after it's decrypted. Even ransomware, which weaponises encryption
+*against* you, succeeds through the plumbing — how it gets in and what it can reach — not by
+breaking the cipher. The cryptography is the strongest link. Assume the attacker will go for the
+others.
 
 ## Where this connects
 
-- **authentication** — hashing; **VPNs and firewalls** — VPNs rely on these primitives.
+- **Authentication** — the hashing that stores your password is the integrity side of this
+  chapter.
+- **VPN & firewalls** — the encrypted tunnel a VPN builds rests directly on the symmetric,
+  asymmetric, and key-exchange ideas here.
+- **Web security & data protection** — the secure connection behind every reputable website is
+  the hybrid scheme described above.
 
 ## Questions to consider
 
