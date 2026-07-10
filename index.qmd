@@ -1,6 +1,6 @@
-# Introduction: The Defender's Mindset {.unnumbered}
+# Introduction: Assume Breach {.unnumbered}
 
-> *An attacker has to find one way in. A defender has to think about all of them. This book is about learning to think like both.*
+> *The old question was "how do we keep attackers out?" The better one is "what do we do given that, sooner or later, they get in?" That shift in assumption changes everything.*
 
 ## The unlocked door behind the badge
 
@@ -11,7 +11,14 @@ months, a password four people share, and a staff member about to click a link t
 shouldn't. The claim and the reality are two different things — and the gap between them is
 where information security lives.
 
-This book is a first course in closing that gap. It will not turn you into a hacker or a
+Modern security starts from an uncomfortable premise: **assume breach.** Assume the perimeter
+will fail, the patch will be late, and someone will click the link — because, across a large
+enough system and enough time, they will. A defender who assumes they can keep every attacker
+out builds one wall and trusts it. A defender who assumes breach builds in depth, watches for
+the intrusion, limits how far it spreads, and plans to recover. This is not pessimism; it is
+how real systems are defended.
+
+This book is a first course in that mindset. It will not turn you into a hacker or a
 penetration tester in twelve weeks. It will do something more useful: teach you to *think
 like a defender* — to look at a system and see, before anything goes wrong, where it could,
 what it would cost, and what to do about it. That habit of mind is the thing you take into

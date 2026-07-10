@@ -1,58 +1,158 @@
 # Week 1 — Introduction to Information Security
 
-> *What are we protecting, from whom, and how do we even know when we've succeeded?*
+> *What are we protecting, from whom, and how would we even know if we'd succeeded?*
 
-**Before the lecture, read this chapter.** In the lecture we'll open with a quick poll on the
-questions at the end, then work through the ideas together. Your Week 1 lab puts you into the
-virtual machine environment you'll use all semester.
+**Read this before the lecture.** In class we'll open with a quick poll on the questions at
+the end, then build on these ideas together rather than repeat them. Your first lab sets up
+the environment you'll use all semester.
 
 ## What this chapter covers
 
 By the end you should be able to:
 
-- Define information security and explain the **CIA triad** (confidentiality, integrity,
-  availability).
-- Explain why the three pull against each other, and what "balancing CIA" means in practice.
-- Describe what a **security control** is, and what **defence in depth** buys you.
-- Outline the **phases of an attack** — reconnaissance, scanning, gaining access, maintaining
-  access, clearing tracks — and why understanding them helps a defender.
-- Distinguish **ethical (white-hat)** work from malicious hacking, and where the line sits.
+- Define information security and explain the **CIA triad** — confidentiality, integrity,
+  availability.
+- Explain why those three pull against each other, and what "balancing CIA" means in practice.
+- Say what a **security control** is, and what **defence in depth** buys you.
+- Walk through the **phases of an attack**, and explain why a defender studies them.
+- Distinguish **ethical** security work from malicious hacking, and see where the line sits.
 
-## Outline
+## Security is a property, not a product
 
-*(Draft from `lectures/week-01-introduction-to-information-security.pptx`. Slide flow below is
-the skeleton to write into prose — copyright cleanup: replace embedded screenshots/news images
-with described examples or links.)*
+You cannot buy security in a box. There is no single product, no switch, no certificate that
+makes a system "secure," because security is not a thing a system *has* — it is a property of
+how the whole system behaves, including the people using it. A bank vault with the door
+propped open is not secure no matter how thick the steel. A perfectly configured server whose
+administrator uses "password1" is not secure either. Security is the emergent result of many
+choices, and it holds only as long as the weakest of them holds.
 
-1. **What is security?** Security as a property of a system, not a product you bolt on. The
-   dimensions of security.
-2. **The CIA triad.**
-   - *Confidentiality* — keeping information from those who shouldn't see it.
-   - *Integrity* — keeping information correct and un-tampered.
-   - *Availability* — keeping it there when it's needed; single points of failure.
-   - *Balancing CIA* — why maximising one erodes another, with everyday examples.
-   - *Non-repudiation* — why "you can't deny you did it" matters.
-3. **Security controls and defence in depth.** Controls as the things we put between an asset
-   and a threat; why no single control is trusted alone.
-4. **Understanding the attacker.** The white-hat / black-hat model; a short, honest history
-   (phreaking → viruses/trojans → modern breaches) told to show *why* attacks evolved.
-5. **The phases of an attack.** Reconnaissance → scanning → gaining access → maintaining
-   access → clearing tracks. Framed as: each phase is something a defender can detect or deny.
-   *(This maps directly onto Lab 2 — port scanning is the "scanning" phase.)*
-6. **Ethical hacking.** Doing attacker-style work with permission and purpose; the ethics and
-   the law.
+That is why this book keeps returning to a defender's habit of mind rather than a checklist.
+Checklists go stale; the habit of asking "what am I protecting, from whom, and how would I
+know if it failed?" does not.
+
+## The CIA triad
+
+Almost everything in information security can be traced back to protecting one of three
+properties of information. Together they are called the **CIA triad** — no relation to the
+agency.
+
+**Confidentiality** is keeping information from those who should not see it. When you think of
+"security," this is usually what comes to mind: secrets stay secret. Encryption, access
+controls, and passwords are all, at heart, confidentiality mechanisms. A confidentiality
+failure is a leak — data ending up in the wrong hands.
+
+**Integrity** is keeping information correct and un-tampered. It is less obvious than
+confidentiality but often matters more. If an attacker cannot *read* your bank balance but can
+*change* it, you have a far worse problem than a leak. Integrity mechanisms let you detect or
+prevent unauthorised change — a hospital needs to trust that a patient's recorded blood type
+is the one a doctor entered, not one an attacker altered.
+
+**Availability** is keeping information and systems there when they are needed. A system nobody
+can reach is no more useful than one that was deleted. Availability is the property attacked by
+a denial-of-service, threatened by a **single point of failure**, and protected by backups,
+redundancy, and capacity planning. It is the property people forget until the day the system is
+down and the business stops.
+
+### Balancing CIA
+
+Here is the part that separates a defender from a checklist-follower: **the three properties
+work against each other.** You cannot simply turn all three up to maximum.
+
+Maximise confidentiality — encrypt everything, demand three approvals for every access — and
+you damage availability, because legitimate users now wait, forget keys, and get locked out.
+Maximise availability — copy the data everywhere, let anyone read it instantly — and you have
+just made confidentiality much harder. Lock a system down so hard that no change is ever
+allowed and you have protected integrity at the cost of a system too rigid to use.
+
+Real security is therefore not "more of all three." It is *the right balance for this
+information, this organisation, this risk.* The balance a hospital strikes for patient records
+is not the one a newspaper strikes for tomorrow's front page, and both are defensible. Learning
+to reason about that trade-off — rather than reaching for maximum everything — is the first
+real skill of the subject.
+
+A fourth idea often sits alongside the triad: **non-repudiation**, the property that someone
+cannot credibly deny having done something. When a system can prove *who* made a change and
+*when*, disputes end and accountability begins. It is what turns "someone transferred the
+money" into "this account, at this time, authorised the transfer."
+
+## Controls and defence in depth
+
+A **security control** is anything you put between an asset and a threat to reduce risk — a
+password, a firewall, a locked door, a policy, a training session, a backup. Controls come in
+familiar flavours: some **prevent** (a lock stops entry), some **detect** (an alarm notices
+it), and some **correct** (a backup restores what was lost). A good defence uses all three,
+because prevention always eventually fails.
+
+Which brings us to the idea this book is named for. **Defence in depth** means never trusting a
+single control to be enough. You assume each layer *will* fail, and you put another behind it.
+A castle did not rely on the outer wall alone; it had a moat, then a wall, then a gate, then an
+inner keep, so that breaching one defence still left the attacker facing the next. A modern
+system is the same: a firewall *and* patched software *and* least-privilege accounts *and*
+monitoring *and* backups. No one layer is trusted, so no one failure is fatal.
+
+This is the practical face of **assume breach**. If you genuinely assume the attacker will get
+past your first control, you stop asking "is this wall strong enough?" and start asking "when
+this fails, what catches it?" That question builds far better systems than the search for one
+perfect wall ever could.
+
+## The phases of an attack
+
+To defend against attackers, you have to understand how they work — not to imitate them, but to
+see what each step *needs*, so you can take it away. Most intrusions move through recognisable
+phases:
+
+1. **Reconnaissance** — the attacker gathers information about the target from the outside:
+   who works there, what systems they run, what's exposed. Quiet, often entirely legal, and
+   easy to overlook.
+2. **Scanning** — they probe the target directly for live systems, open ports, and running
+   services, mapping the attack surface. (This is exactly what you'll do, from the defender's
+   side, in an early lab.)
+3. **Gaining access** — they exploit a weakness — a flaw, a weak password, a tricked user — to
+   get a foothold.
+4. **Maintaining access** — they entrench, so a reboot or a changed password doesn't lock them
+   out.
+5. **Clearing tracks** — they cover their trail, deleting logs and hiding activity to delay
+   discovery.
+
+Read that list as a *defender* and each phase becomes an opportunity: reconnaissance can be
+made harder by exposing less; scanning can be detected; access can be denied with patching and
+strong authentication; persistence and track-clearing can be spotted by monitoring that the
+attacker cannot fully erase. Understanding the attacker's process is not idle curiosity — it is
+where a defender's leverage comes from.
+
+## Ethical hacking, and the line
+
+Much of what you'll learn this semester is, in mechanism, identical to what an attacker does:
+scanning systems, cracking passwords, capturing traffic. The difference is not the technique —
+it is **permission and purpose.** An ethical practitioner acts with the owner's authorisation,
+within an agreed scope, to *find and fix* weaknesses before a real attacker exploits them. The
+same action, without permission, is an offence.
+
+That line is sharp and it matters. Everything in this unit is done in a provided, isolated lab
+environment built for the purpose. The skills are dual-use; your professionalism is what makes
+them defensive.
+
+::: {.callout-note}
+## In the lab
+
+This week you set up the practical environment you'll use all semester and get comfortable
+moving around it. No attacks yet — just make sure you can reach the tools, so that from next
+week you can focus on the security work rather than the setup. See the current lab worksheet
+and the [Lab Environment appendix](../appendices/lab-environment.qmd).
+:::
 
 ## Connects to
 
-- **Lab 1** — Introduction to Virtualisation (set up the VM you'll use all semester).
-- **Later weeks** — the attack phases here are the spine: scanning (Wk 2 lab), password
-  attacks (Wk 3), packet capture (Wk 8).
+- **Next week** the attack surface becomes concrete: you'll scan a system for open ports and
+  services — the "scanning" phase, from the defender's chair.
+- The **CIA triad** and **defence in depth** are the lenses for the whole book; almost every
+  later control exists to protect one leg of the triad or to add one more layer.
 
 ## Before the lecture
 
-1. In one sentence each, give a real-world example where **confidentiality**, **integrity**,
-   and **availability** matter — three different situations.
-2. "More security is always better." Give one example where that's false — where tightening
-   one part of CIA made things worse.
-3. Why would a *defender* want to understand the phases of an attack? What do you gain by
-   thinking the way an attacker does?
+1. Give a real situation where **confidentiality** matters most, one where **integrity**
+   matters most, and one where **availability** matters most — three different examples.
+2. "More security is always better." Describe one case where tightening security actually made
+   things *worse*. What was traded away?
+3. Why would a *defender* bother learning the phases of an attack? What specifically do you gain
+   by understanding how an attacker thinks?

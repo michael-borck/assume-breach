@@ -16,12 +16,13 @@ and polls. Design rationale is in the course repo: `docs/teaching-plan.md`.
 - **Rhythm:** read → discuss/see → do. Chapter *N* is read before Week *N*; the lecture is
   interactive; the lab is hands-on.
 
-## Title (provisional — decide before first publish)
+## Title — decided
 
-Working title **"Defence in Depth"** / subtitle *"A First Course in Information Security for the
-Age of AI"*. Chosen to fit the series' "… in the Age of AI" pattern. Alternatives in the
-house "X, Don't Y" / "X, Not Y" style if preferred: *Assume Breach*, *Layer, Don't Trust*,
-*Defend, Don't React*. Rename the directory and `_quarto.yml` title together when decided.
+**"Assume Breach"** / subtitle *"A First Course in Defensive Security"*. Deliberately a lean
+*companion*, not a rival to Stallings/Whitman; the title carries the defensive-security stance
+(assume the perimeter fails; build in depth, detect, contain, recover). It breaks the series'
+two-clause beat ("X, Don't Y") on purpose — it's a stronger standalone security aphorism.
+Directory is `assume-breach/`.
 
 ## Week ↔ chapter map
 
@@ -51,9 +52,33 @@ Every chapter follows the same shape (see the seeded Weeks 1–3):
 1. Title + one-line epigraph.
 2. "Before the lecture, read this chapter" + what the lab is.
 3. **What this chapter covers** — 4–5 learning objectives (from the deck's Objectives slide).
-4. **Outline** — the deck's flow written into prose.
-5. **Connects to** — the lab, and forward/backward links to other weeks.
-6. **Before the lecture** — 3 priming questions that double as the lecture's opening poll.
+4. The concept prose (written from the deck's flow).
+5. **In the lab** — a callout naming the *capability* the lab exercises (not the tool syntax).
+6. **Connects to** — forward/backward links to other weeks.
+7. **Before the lecture** — 3 priming questions that double as the lecture's opening poll.
+
+## Tools & demos policy (important — keeps the book durable)
+
+**The concept chapters are tool-agnostic. No tool syntax, no "click here", no OS-specific
+steps in the body.** Write what is true on any platform ("attackers crack salted hashes with
+dictionary and brute-force attacks"), never "open L0phtCrack and click Run".
+
+- **Where mechanics live:** the lab worksheets (course repo) and the Docker lab repos —
+  environment-specific and freely swappable.
+- **The book's only hooks to the hands-on:** the per-chapter **In the lab** callout (names a
+  *capability*, links to the current lab) and the single **Lab Environment appendix**
+  (`appendices/lab-environment.qmd`) — the one page that changes on migration.
+- **Why:** the environment is moving VM → Docker. A tool-agnostic book carries across that
+  change without edits; a book full of screenshots would rot on day one.
+
+### Environment direction (context for writing, not book content)
+
+This offering: Windows XP VM (locked). Next: **Docker labs**, from the coordinator's existing
+repos (`sec-utils`, `password-lab`, `forensics-docker-lab`, `ethical-hacking-docker-labs`),
+which already provide web-GUI Wireshark/Autopsy and one-command bring-up. The one gap
+(`iNetworkSimulator`, firewall lab) is replaced by **real `iptables`/`nftables` in a
+container** — a better lab than the simulator. Write chapters so *none* of this shows through
+in the concept text.
 
 ## Writing order
 

@@ -1,0 +1,40 @@
+# Appendix — The Lab Environment {.unnumbered}
+
+> This is the **only** part of the book tied to a specific set of tools. The chapters teach
+> concepts and stay tool-agnostic on purpose, so that when the environment changes, only this
+> page does.
+
+The practical work happens in the labs, not in this book. Each chapter ends with an **In the
+lab** note describing the *capability* you'll exercise (for example, "crack real password
+hashes"); this appendix says *how* — which environment and which tools — for the current
+offering.
+
+## This offering
+
+*(Coordinator: keep this section current. It is the single source of environment truth.)*
+
+Practical work runs in a provided **virtual machine** with the tools pre-installed. Set it up
+in Week 1 (see the Week 1 lab). You do not install tools yourself; you use the environment you
+are given.
+
+## Capability → tool map
+
+The concepts in each chapter are exercised with these tools. Tools change between offerings;
+the concept does not.
+
+| Capability (from the chapter) | Current tool(s) |
+|-------------------------------|-----------------|
+| Scan a host for open ports and services | Nmap / Zenmap |
+| Crack password hashes; run a dictionary attack | (password-cracking tools) |
+| Capture and read network traffic | Wireshark |
+| Encrypt / decrypt; generate keys | web crypto tools; PGP |
+| Configure and test a firewall | (network/firewall tool) |
+| Recover and analyse forensic evidence | (forensics toolkit) |
+
+## A note on where this is heading
+
+The environment is expected to move from the current VM to **container-based labs** (Docker),
+which are lighter, reproducible, one-command to launch, and closer to how security work is
+done in industry. Because the chapters name *capabilities* rather than tools, that migration
+will not change a word of them — only this appendix and the lab worksheets. If you are reading
+this in a later offering, trust the table above over any tool named in passing elsewhere.

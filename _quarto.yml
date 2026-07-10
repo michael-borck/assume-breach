@@ -2,11 +2,9 @@ project:
   type: book
   output-dir: _book
 
-# NOTE: title/subtitle are PROVISIONAL — chosen to fit the books.borck.education
-# house style ("… in the Age of AI"). Rename freely; see CHAPTER_OUTLINE.md.
 book:
-  title: "Defence in Depth"
-  subtitle: "A First Course in Information Security for the Age of AI"
+  title: "Assume Breach"
+  subtitle: "A First Course in Defensive Security"
   author: "Michael Borck"
   date: today
   license: "CC BY"
@@ -32,6 +30,8 @@ book:
       chapters:
         - chapters/week-11-cybercrime-and-botnets.qmd
         - chapters/week-12-human-factors.qmd
+  appendices:
+    - appendices/lab-environment.qmd
   other-links:
     - text: "Companion: Conversation, Not Delegation"
       icon: chat-left-text

@@ -1,15 +1,16 @@
-# Defence in Depth
+# Assume Breach
 
-*A First Course in Information Security for the Age of AI* — **provisional title**
+*A First Course in Defensive Security*
 
-An open-access Quarto book by **Michael Borck**, the pre-reading companion for ISYS2012
-Information Security (2nd-year undergraduate). One chapter per teaching week: students read
-chapter *N* before Week *N*'s lecture, so the lecture can be interactive (demos, debate, polls)
-instead of transmission. Part of the [books.borck.education](https://books.borck.education)
-series.
+An open-access Quarto book by **Michael Borck** — a lean **pre-reading companion** for
+ISYS2012 Information Security (2nd-year undergraduate), not a comprehensive textbook. One
+chapter per teaching week: students read chapter *N* before Week *N*'s lecture, so the lecture
+can be interactive (demos, debate, polls) instead of transmission. Part of the
+[books.borck.education](https://books.borck.education) series.
 
-> ⚠️ **Scaffold.** Weeks 1–3 are seeded from the lecture decks; Weeks 4–6 and 8–12 are
-> skeleton stubs marked with `*(Draft from …)*`. See `CHAPTER_OUTLINE.md` before writing.
+> ⚠️ **Early draft.** Week 1 is a full pilot chapter; Weeks 2–3 are seeded from the lecture
+> decks; Weeks 4–6 and 8–12 are skeleton stubs marked `*(Draft from …)*`. The book is
+> **tool-agnostic by design** — see the Tools & demos policy in `CHAPTER_OUTLINE.md`.
 
 ## Structure
 
