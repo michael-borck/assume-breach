@@ -1,0 +1,52 @@
+# About the Author {.unnumbered}
+
+![Photo of Michael Borck](images/author-photo.jpg){fig-alt="Photo of Michael Borck, the author" width=200px fig-align="center"}
+
+**Michael Borck** is a software developer, educator, and auditor-by-training working at the
+intersection of human expertise and artificial intelligence. He teaches information security,
+and this book grew out of the introductory course he wanted to hand students — one that builds
+the *defender's mindset* rather than a checklist of terms.
+
+His book *Substantiate, Don't Assume* takes the same discipline into professional security
+auditing; *Conversation, Not Delegation* argues that AI is most valuable not as a tool you
+delegate to, but as a thinking partner you converse with. *Assume Breach* sits at the entry
+point to that path: the first course, before the audit and before the profession.
+
+Michael builds educational software and resources, and writes about the 80/20 principle in
+learning and professional judgement.
+
+---
+
+\newpage
+
+**Connect**
+
+- [michaelborck.dev](https://michaelborck.dev) — Professional work and projects
+- [michaelborck.education](https://michaelborck.education) — Educational software and resources
+- [8020workshop.com](https://8020workshop.com) — Passion projects and workshops
+- [LinkedIn](https://linkedin.com/in/michaelborck)
+
+---
+
+**Other Books in This Series**
+
+*Security Track:*
+
+- *Assume Breach: A First Course in Defensive Security* — this book
+- *Substantiate, Don't Assume: Why the Auditor's Opinion Matters More Than Ever in the Age of AI*
+
+*AI-Collaboration Track:*
+
+- *Conversation, Not Delegation: How to Think With AI, Not Just Use It*
+- *Partner, Don't Police: AI in the Business Classroom*
+
+*Python Track:*
+
+- *Think Python, Direct AI: Computational Thinking for Beginners*
+- *Code Python, Consult AI: Python Fundamentals for the AI Era*
+- *Ship Python, Orchestrate AI: Professional Python in the AI Era*
+- *Converse Python, Partner AI: The Intentional Prompting Methodology*
+
+*Web Track:*
+
+- *Build Web, Guide AI: Business Web Development with AI*

@@ -1,0 +1,22 @@
+:::: {.content-visible unless-format="pdf"}
+
+# Copyright {.unnumbered .unlisted}
+
+**Assume Breach**\
+A First Course in Defensive Security
+
+Copyright © 2026 Michael Borck.
+
+Published by Michael Borck\
+Perth, Western Australia
+
+**ISBN:** (to be assigned)
+
+This work is licensed under a **Creative Commons Attribution (CC BY)** licence. You are free to share and adapt the material for any purpose, provided you give appropriate credit. The open-access edition is always the most current.
+
+**AI disclosure:** AI tools were used as thinking partners throughout the drafting, iterating, and refining of this book. The author reviewed, challenged, and took responsibility for every sentence.
+
+**Companion website:** [https://michael-borck.github.io/assume-breach](https://michael-borck.github.io/assume-breach)\
+**Source:** [https://github.com/michael-borck/assume-breach](https://github.com/michael-borck/assume-breach)
+
+::::

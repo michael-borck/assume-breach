@@ -8,9 +8,12 @@ book:
   author: "Michael Borck"
   date: today
   license: "CC BY"
+  favicon: favicon.svg
   page-navigation: true
   chapters:
     - index.qmd
+    - copyright.qmd
+    - acknowledgments.qmd
     - part: "Part I · Foundations"
       chapters:
         - chapters/01-introduction.qmd
@@ -32,7 +35,17 @@ book:
         - chapters/11-human-factors.qmd
   appendices:
     - appendices/lab-environment.qmd
+    - about-author.qmd
   other-links:
+    - text: Download PDF
+      icon: file-pdf
+      href: assume-breach.pdf
+    - text: Download EPUB
+      icon: book
+      href: assume-breach.epub
+    - text: GitHub
+      icon: github
+      href: https://github.com/michael-borck/assume-breach
     - text: "Companion: Conversation, Not Delegation"
       icon: chat-left-text
       href: https://michael-borck.github.io/conversation-not-delegation/
@@ -46,13 +59,22 @@ format:
       light: cosmo
       dark: darkly
     css: styles.css
+    include-after-body: chatbot.html
     toc: true
     toc-depth: 3
     number-sections: true
   pdf:
-    documentclass: scrbook
+    documentclass: book
     toc: true
     toc-depth: 1
     number-sections: true
-  epub:
-    toc: true
+    geometry:
+      - paperwidth=6in
+      - paperheight=9in
+      - inner=1in
+      - outer=0.625in
+      - top=0.75in
+      - bottom=0.75in
+    include-in-header: pdf-header.tex
+    include-before-body:
+      - copyright-page.tex

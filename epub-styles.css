@@ -1,0 +1,4 @@
+/* Substantiate, Don't Assume — EPUB styles.
+   Intentionally minimal. We do NOT blanket-invert images in dark mode
+   (this book carries a photographic cover and figures that should keep
+   their colours). Add targeted styling here as needed. */
