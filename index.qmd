@@ -38,28 +38,36 @@ Defenders reason in a particular way, and the whole book is built to grow that h
 - **Never forget the human.** Most breaches do not defeat the technology; they walk past it
   through a person. The human factor is not a footnote — it is often the whole story.
 
-## How this book works
+## Who this is for, and how to read it
 
-The book runs alongside the unit, **one chapter per teaching week**. Read the chapter *before*
-that week's lecture. The chapter carries the knowledge — the definitions, the concepts, the
-worked ideas — so that the lecture does not have to. That frees the two hours in the room for
-the things a page cannot do: watching an attack run live, arguing a judgment call, and testing
-where the whole room actually disagrees. Then the lab puts your hands on the tools.
+This is a first book on defensive security, for anyone meeting the subject for the first time —
+a student, someone moving into security from another part of IT, or a curious professional who
+wants the mental model without the jargon. It assumes no prior security background.
 
-So the rhythm each week is: **read → discuss and see → do.** Each chapter ends with a few
-**Before the lecture** questions. They are not graded; they exist to prime your thinking and
-they are usually where the lecture's opening poll begins. Come with a view, even a wrong one —
-being wrong out loud and finding out why is most of how this subject is learned.
+The chapters build in a deliberate order. The early ones establish the foundations — how
+security is measured, where software goes wrong, how identity and secrets are protected. The
+middle turns to managing risk and surviving incidents. The later ones defend systems and
+networks, and end where security always ends: with people. You will get the most from reading
+in order, because each chapter leans on the ones before it, but each is self-contained enough
+to revisit on its own.
+
+The book carries the *concepts*. It stays deliberately tool-agnostic: it explains what is true
+on any system rather than which button to click, so it doesn't go out of date the moment a tool
+does. Where practice helps, a **Try it yourself** note points you at the kind of hands-on
+exercise the ideas invite, and the [practice-environment appendix](appendices/lab-environment.qmd)
+shows how to set up somewhere safe to do it. Each chapter ends with a few **Questions to
+consider** — not a test, but prompts worth sitting with; several are easier to answer well
+*after* a later chapter, and that's the point.
 
 ## A word on using AI
 
-You are encouraged to use AI freely in this unit, including while you read this book. Ask it
-to explain a concept a second way, to quiz you, to challenge your answer to a Before-the-
-lecture question. What matters is that you stay in the conversation and do the thinking — use
-it to understand faster, not to skip understanding. The unit's companion guide,
-[*Conversation, Not Delegation*](https://michael-borck.github.io/conversation-not-delegation/),
-is about exactly this skill, and the unit's AI policy sets out where AI is encouraged and
-where you work unaided.
+Using AI to learn this material is a good idea, and this book encourages it. Ask an assistant
+to explain a concept a second way, to quiz you, or to challenge your answer to one of the
+end-of-chapter questions. What matters is that you stay in the conversation and do the
+thinking — use it to understand faster, not to skip understanding. If you want to get better at
+that skill itself, the companion volume
+[*Conversation, Not Delegation*](https://michael-borck.github.io/conversation-not-delegation/)
+is about exactly this: thinking *with* AI rather than delegating your thinking to it.
 
 ---
 

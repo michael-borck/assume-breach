@@ -1,9 +1,6 @@
-# Week 5 — Risk Management
+# Risk Management
 
 > *You can't protect everything equally, so you don't. Risk management is how a defender decides where the money and effort go.*
-
-**Before the lecture, read this chapter.** Your Week 5 lab works through the calculations
-below on a real spreadsheet.
 
 ## What this chapter covers
 
@@ -18,7 +15,7 @@ By the end you should be able to:
 
 ## Outline
 
-*(Draft from `lectures/week-05-risk-management.pptx`. Supplementary reading: *Substantiate,
+*(Draft outline. Supplementary reading: *Substantiate,
 Don't Assume*, ch. 02-risk — pitched above this level, scaffold it.)*
 
 1. What risk is; likelihood × impact; risk appetite and why it differs.
@@ -27,13 +24,11 @@ Don't Assume*, ch. 02-risk — pitched above this level, scaffold it.)*
 4. Choosing controls — when a control costs more than the risk it removes.
 5. Treating risk — avoid / mitigate / transfer / accept; residual risk.
 
-## Connects to
+## Where this connects
 
-- **Lab 5** — Risk Control (quantify risk for a sample organisation; SLE/ALE in a spreadsheet).
-- **Week 6** — what happens when a risk is *realised*; **Case Study** — the Essential Eight
-  audit is applied risk-based control assessment.
+  maturity audit is applied risk-based control assessment.
 
-## Before the lecture
+## Questions to consider
 
 1. Two companies face the same threat but treat it differently — one buys insurance, one
    ignores it. How can both be *rational*?

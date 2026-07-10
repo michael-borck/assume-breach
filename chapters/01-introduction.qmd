@@ -1,10 +1,10 @@
-# Week 1 — Introduction to Information Security
+# Introduction to Information Security
 
 > *What are we protecting, from whom, and how would we even know if we'd succeeded?*
 
-**Read this before the lecture.** In class we'll open with a quick poll on the questions at
-the end, then build on these ideas together rather than repeat them. Your first lab sets up
-the environment you'll use all semester.
+This first chapter sets up the ideas the rest of the book builds on. There is nothing to
+install yet — just read it, and hold on to the questions at the end; they are worth returning
+to as the later chapters give you more to answer them with.
 
 ## What this chapter covers
 
@@ -122,33 +122,33 @@ where a defender's leverage comes from.
 
 ## Ethical hacking, and the line
 
-Much of what you'll learn this semester is, in mechanism, identical to what an attacker does:
+Much of what you'll learn in this book is, in mechanism, identical to what an attacker does:
 scanning systems, cracking passwords, capturing traffic. The difference is not the technique —
 it is **permission and purpose.** An ethical practitioner acts with the owner's authorisation,
 within an agreed scope, to *find and fix* weaknesses before a real attacker exploits them. The
 same action, without permission, is an offence.
 
-That line is sharp and it matters. Everything in this unit is done in a provided, isolated lab
-environment built for the purpose. The skills are dual-use; your professionalism is what makes
-them defensive.
+That line is sharp and it matters. Practise only in an environment you own or are explicitly
+authorised to use. The skills are dual-use; your professionalism is what makes them defensive.
 
 ::: {.callout-note}
-## In the lab
+## Try it yourself
 
-This week you set up the practical environment you'll use all semester and get comfortable
-moving around it. No attacks yet — just make sure you can reach the tools, so that from next
-week you can focus on the security work rather than the setup. See the current lab worksheet
-and the [Lab Environment appendix](../appendices/lab-environment.qmd).
+If you want to practise as you read, set up a safe, isolated environment now — a disposable
+virtual machine or a set of containers, kept off your main network — so later chapters'
+exercises have somewhere to run. Never practise on systems you do not own or have explicit
+permission to test. The [practice-environment appendix](../appendices/lab-environment.qmd)
+lists some options.
 :::
 
-## Connects to
+## Where this connects
 
-- **Next week** the attack surface becomes concrete: you'll scan a system for open ports and
-  services — the "scanning" phase, from the defender's chair.
 - The **CIA triad** and **defence in depth** are the lenses for the whole book; almost every
   later control exists to protect one leg of the triad or to add one more layer.
+- The next chapter makes the attack surface concrete — scanning a system for open ports and
+  services, the "scanning" phase seen here from the defender's side.
 
-## Before the lecture
+## Questions to consider
 
 1. Give a real situation where **confidentiality** matters most, one where **integrity**
    matters most, and one where **availability** matters most — three different examples.

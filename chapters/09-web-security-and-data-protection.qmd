@@ -1,9 +1,6 @@
-# Week 10 — Web Security & Data Protection
+# Web Security & Data Protection
 
 > *The web is where most of us are attacked, because it's where most of us are. And behind every web app is data someone is legally obliged to protect.*
-
-**Before the lecture, read this chapter.** Another strong **live-demo** week — expect to see
-an attack like XSS executed. Your Week 10 lab continues the firewall work.
 
 ## What this chapter covers
 
@@ -18,7 +15,7 @@ By the end you should be able to:
 
 ## Outline
 
-*(Draft from `lectures/week-10-web-security-and-data-protection.pptx`. Attack material is
+*(Draft outline. Attack material is
 better watched than read — keep the live demo; use this chapter as the concept pre-read.)*
 
 1. Why the web is the front line — attack surface of a modern app.
@@ -28,12 +25,11 @@ better watched than read — keep the live demo; use this chapter as the concept
    means.
 5. Tying it together — a web flaw is also a privacy incident.
 
-## Connects to
+## Where this connects
 
-- **Case Study** — data protection underpins the Essential Eight audit.
-- **Week 3** — session/authentication; **Week 6** — what happens after a breach.
+- **authentication** — session/authentication; **incident and disaster planning** — what happens after a breach.
 
-## Before the lecture
+## Questions to consider
 
 1. In plain words, how does a **cross-site scripting** attack end up running attacker code in
    *your* browser?

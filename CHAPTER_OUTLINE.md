@@ -24,38 +24,45 @@ and polls. Design rationale is in the course repo: `docs/teaching-plan.md`.
 two-clause beat ("X, Don't Y") on purpose — it's a stronger standalone security aphorism.
 Directory is `assume-breach/`.
 
-## Week ↔ chapter map
+## The book is standalone; the course maps *to* it
 
-Chapters are named by **teaching week** to match the course repo (`lectures/`, `labs/`).
-**There is no Week 7** (tuition-free) — the gap is intentional.
+**The book knows nothing about the course.** No week numbers, no lectures, labs, assessments,
+or "the unit" in the text — so the course can change without the book drifting. Chapters are
+numbered 1–11 in a pedagogical order that *parallels* a sensible teaching sequence, but that's
+all. The week → chapter mapping lives in the **course repo** (`docs/teaching-plan.md`), not
+here. That is the whole point of the decoupling.
 
-| Week | Chapter file | Status | Source deck |
-|------|-------------|--------|-------------|
-| 1 | `week-01-introduction.qmd` | **Seeded** | week-01-introduction-to-information-security |
-| 2 | `week-02-software-security-and-malware.qmd` | **Seeded** ⚠️ refresh | week-02-software-security-and-malware |
-| 3 | `week-03-authentication-and-access.qmd` | **Seeded** | week-03-authentication-and-access |
-| 4 | `week-04-cryptography.qmd` | Skeleton ⚠️ refresh | week-04-cryptography |
-| 5 | `week-05-risk-management.qmd` | Skeleton | week-05-risk-management |
-| 6 | `week-06-incident-and-disaster-planning.qmd` | Skeleton | week-06-incident-and-disaster-planning |
-| 8 | `week-08-network-security.qmd` | Skeleton ⚠️ narration | week-08-network-security |
-| 9 | `week-09-vpn-and-firewalls.qmd` | Skeleton ⚠️ narration | week-09-vpn-and-firewalls |
-| 10 | `week-10-web-security-and-data-protection.qmd` | Skeleton | week-10-web-security-and-data-protection |
-| 11 | `week-11-cybercrime-and-botnets.qmd` | Skeleton ⚠️ refresh (worst) | week-11-cybercrime-and-botnets |
-| 12 | `week-12-human-factors.qmd` | Skeleton | week-12-human-factors |
+## Chapter map
 
-Week 13 is Revision — no chapter (or add a short closing chapter later).
+| Ch | File | Status | Parallels teaching week | Source deck |
+|----|------|--------|-------------------------|-------------|
+| 1 | `01-introduction.qmd` | **Written (pilot)** | Wk 1 | week-01-introduction |
+| 2 | `02-software-security-and-malware.qmd` | Seeded ⚠️ refresh | Wk 2 | week-02 |
+| 3 | `03-authentication-and-access.qmd` | Seeded | Wk 3 | week-03 |
+| 4 | `04-cryptography.qmd` | Skeleton ⚠️ refresh | Wk 4 | week-04 |
+| 5 | `05-risk-management.qmd` | Skeleton | Wk 5 | week-05 |
+| 6 | `06-incident-and-disaster-planning.qmd` | Skeleton | Wk 6 | week-06 |
+| 7 | `07-network-security.qmd` | Skeleton ⚠️ narration | Wk 8 | week-08 |
+| 8 | `08-vpn-and-firewalls.qmd` | Skeleton ⚠️ narration | Wk 9 | week-09 |
+| 9 | `09-web-security-and-data-protection.qmd` | Skeleton | Wk 10 | week-10 |
+| 10 | `10-cybercrime-and-botnets.qmd` | Skeleton ⚠️ refresh (worst) | Wk 11 | week-11 |
+| 11 | `11-human-factors.qmd` | Skeleton | Wk 12 | week-12 |
 
-## Per-chapter template
+Note chapter numbers are sequential (1–11); teaching weeks skip 7 (tuition-free), so from
+Chapter 7 on, chapter number = teaching week − 1. That offset lives only in the course map.
 
-Every chapter follows the same shape (see the seeded Weeks 1–3):
+## Per-chapter template (standalone)
 
-1. Title + one-line epigraph.
-2. "Before the lecture, read this chapter" + what the lab is.
-3. **What this chapter covers** — 4–5 learning objectives (from the deck's Objectives slide).
-4. The concept prose (written from the deck's flow).
-5. **In the lab** — a callout naming the *capability* the lab exercises (not the tool syntax).
-6. **Connects to** — forward/backward links to other weeks.
-7. **Before the lecture** — 3 priming questions that double as the lecture's opening poll.
+Every chapter follows the same shape (see the written Chapter 1):
+
+1. Title (topic only — **no** "Week N") + one-line epigraph.
+2. A short standalone lead-in (no "before the lecture", no lab reference).
+3. **What this chapter covers** — 4–5 learning objectives.
+4. The concept prose.
+5. **Try it yourself** — an optional callout naming a *capability* to practise (never tool
+   syntax), pointing to the practice-environment appendix.
+6. **Where this connects** — links to *other chapters by name* (never weeks or labs).
+7. **Questions to consider** — 3 reflective/self-test questions.
 
 ## Tools & demos policy (important — keeps the book durable)
 
@@ -63,13 +70,14 @@ Every chapter follows the same shape (see the seeded Weeks 1–3):
 steps in the body.** Write what is true on any platform ("attackers crack salted hashes with
 dictionary and brute-force attacks"), never "open L0phtCrack and click Run".
 
-- **Where mechanics live:** the lab worksheets (course repo) and the Docker lab repos —
-  environment-specific and freely swappable.
-- **The book's only hooks to the hands-on:** the per-chapter **In the lab** callout (names a
-  *capability*, links to the current lab) and the single **Lab Environment appendix**
-  (`appendices/lab-environment.qmd`) — the one page that changes on migration.
-- **Why:** the environment is moving VM → Docker. A tool-agnostic book carries across that
-  change without edits; a book full of screenshots would rot on day one.
+- **Where mechanics live:** *outside the book* — in the course's own lab worksheets and the
+  Docker lab repos, which are environment-specific and freely swappable.
+- **The book's only hooks to the hands-on:** the optional per-chapter **Try it yourself**
+  callout (names a *capability* to practise) and the generic **practice-environment appendix**
+  (`appendices/lab-environment.qmd`), which describes VMs/containers in general — not any one
+  course's setup.
+- **Why:** tools and environments change (VM → Docker, and beyond). A tool-agnostic book
+  carries across without edits; a book full of screenshots and tool steps rots on day one.
 
 ### Environment direction (context for writing, not book content)
 
@@ -82,8 +90,9 @@ in the concept text.
 
 ## Writing order
 
-Write **chapter N before Week N** — stay one or two chapters ahead of the cohort, as
-*Substantiate* did. Weeks 1–3 first (start of semester), then keep pace.
+Write in chapter order, staying ahead of wherever the material is being used. Chapters 1–3
+first, then keep pace. (If you're pacing against a course, the week → chapter map in the course
+repo tells you which chapter is needed when.)
 
 ## ⚠️ Copyright cleanup (do on every chapter)
 

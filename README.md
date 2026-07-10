@@ -2,15 +2,15 @@
 
 *A First Course in Defensive Security*
 
-An open-access Quarto book by **Michael Borck** — a lean **pre-reading companion** for
-ISYS2012 Information Security (2nd-year undergraduate), not a comprehensive textbook. One
-chapter per teaching week: students read chapter *N* before Week *N*'s lecture, so the lecture
-can be interactive (demos, debate, polls) instead of transmission. Part of the
+An open-access Quarto book by **Michael Borck** — a lean, standalone first book on defensive
+security for newcomers, not a comprehensive textbook. Eleven chapters in a deliberate order.
+It reads on its own; a course can also assign it chapter by chapter (the course keeps the
+week → chapter map, not the book). Part of the
 [books.borck.education](https://books.borck.education) series.
 
-> ⚠️ **Early draft.** Week 1 is a full pilot chapter; Weeks 2–3 are seeded from the lecture
-> decks; Weeks 4–6 and 8–12 are skeleton stubs marked `*(Draft from …)*`. The book is
-> **tool-agnostic by design** — see the Tools & demos policy in `CHAPTER_OUTLINE.md`.
+> ⚠️ **Early draft.** Chapter 1 is a full pilot; Chapters 2–3 are seeded; Chapters 4–11 are
+> skeleton stubs marked `*(Draft outline …)*`. The book is **standalone and tool-agnostic by
+> design** — it names no course, week, lab, or tool syntax. See `CHAPTER_OUTLINE.md`.
 
 ## Structure
 

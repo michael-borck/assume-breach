@@ -13,23 +13,23 @@ book:
     - index.qmd
     - part: "Part I · Foundations"
       chapters:
-        - chapters/week-01-introduction.qmd
-        - chapters/week-02-software-security-and-malware.qmd
-        - chapters/week-03-authentication-and-access.qmd
-        - chapters/week-04-cryptography.qmd
+        - chapters/01-introduction.qmd
+        - chapters/02-software-security-and-malware.qmd
+        - chapters/03-authentication-and-access.qmd
+        - chapters/04-cryptography.qmd
     - part: "Part II · Managing Risk"
       chapters:
-        - chapters/week-05-risk-management.qmd
-        - chapters/week-06-incident-and-disaster-planning.qmd
+        - chapters/05-risk-management.qmd
+        - chapters/06-incident-and-disaster-planning.qmd
     - part: "Part III · Defending Systems & Networks"
       chapters:
-        - chapters/week-08-network-security.qmd
-        - chapters/week-09-vpn-and-firewalls.qmd
-        - chapters/week-10-web-security-and-data-protection.qmd
+        - chapters/07-network-security.qmd
+        - chapters/08-vpn-and-firewalls.qmd
+        - chapters/09-web-security-and-data-protection.qmd
     - part: "Part IV · People & the Evolving Threat"
       chapters:
-        - chapters/week-11-cybercrime-and-botnets.qmd
-        - chapters/week-12-human-factors.qmd
+        - chapters/10-cybercrime-and-botnets.qmd
+        - chapters/11-human-factors.qmd
   appendices:
     - appendices/lab-environment.qmd
   other-links:

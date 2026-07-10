@@ -1,40 +1,55 @@
-# Appendix — The Lab Environment {.unnumbered}
+# Appendix — Setting Up a Practice Environment {.unnumbered}
 
-> This is the **only** part of the book tied to a specific set of tools. The chapters teach
-> concepts and stay tool-agnostic on purpose, so that when the environment changes, only this
-> page does.
+> The chapters teach concepts and stay tool-agnostic. If you want to *practise* — and you
+> should, because security is a craft — you need somewhere safe to do it. This appendix is
+> about that, and only that.
 
-The practical work happens in the labs, not in this book. Each chapter ends with an **In the
-lab** note describing the *capability* you'll exercise (for example, "crack real password
-hashes"); this appendix says *how* — which environment and which tools — for the current
-offering.
+## The one rule
 
-## This offering
+**Only ever practise on systems you own or have explicit, written permission to test.**
+Scanning, cracking, capturing traffic, probing a web app — these are the same actions an
+attacker takes, and doing them against systems you don't control is, in most countries, a
+crime regardless of intent. The whole point of a practice environment is that everything in it
+is yours to break.
 
-*(Coordinator: keep this section current. It is the single source of environment truth.)*
+## What a good practice environment looks like
 
-Practical work runs in a provided **virtual machine** with the tools pre-installed. Set it up
-in Week 1 (see the Week 1 lab). You do not install tools yourself; you use the environment you
-are given.
+Whatever you use, aim for three properties:
 
-## Capability → tool map
+- **Isolated** — kept off your main network, so a mistake can't reach anything real. A
+  host-only or NAT network is enough for most work.
+- **Disposable** — quick to reset to a clean state when an exercise leaves a mess, so you can
+  experiment without fear.
+- **Reproducible** — easy to rebuild the same way twice, so your results mean something and a
+  broken setup is no disaster.
 
-The concepts in each chapter are exercised with these tools. Tools change between offerings;
-the concept does not.
+## Two common ways to get there
 
-| Capability (from the chapter) | Current tool(s) |
-|-------------------------------|-----------------|
-| Scan a host for open ports and services | Nmap / Zenmap |
-| Crack password hashes; run a dictionary attack | (password-cracking tools) |
+**Virtual machines.** Free hypervisors (for example VirtualBox) let you run a self-contained
+guest operating system in a window. Snapshot it once it's set up; roll back to the snapshot
+whenever you want a clean slate. Heavier to move around, but familiar and entirely graphical.
+
+**Containers.** Tools like Docker package an environment as a small, scriptable image that
+starts in seconds and is described by a file you can version and share. Lighter than a VM and
+trivially reproducible; increasingly how real security tooling is packaged and taught. Some
+graphical tools are exposed through a web browser, so you don't lose the GUI. If you're
+choosing today, this is the direction most of the field is moving.
+
+## Tools you'll meet
+
+You don't need to install these to read the book; they're named so the concepts have concrete
+anchors. Free, widely used examples by capability:
+
+| Capability (from the chapters) | Common free tools |
+|--------------------------------|-------------------|
+| Scan a host for open ports and services | Nmap |
+| Crack password hashes; run a dictionary attack | John the Ripper, Hashcat |
 | Capture and read network traffic | Wireshark |
-| Encrypt / decrypt; generate keys | web crypto tools; PGP |
-| Configure and test a firewall | (network/firewall tool) |
-| Recover and analyse forensic evidence | (forensics toolkit) |
+| Encrypt / decrypt; work with keys | OpenSSL, GnuPG |
+| Configure and test a firewall | iptables / nftables |
+| Recover and analyse forensic evidence | The Sleuth Kit, Autopsy, Volatility |
+| Explore web vulnerabilities safely | Deliberately vulnerable apps (e.g. DVWA, Juice Shop) |
 
-## A note on where this is heading
-
-The environment is expected to move from the current VM to **container-based labs** (Docker),
-which are lighter, reproducible, one-command to launch, and closer to how security work is
-done in industry. Because the chapters name *capabilities* rather than tools, that migration
-will not change a word of them — only this appendix and the lab worksheets. If you are reading
-this in a later offering, trust the table above over any tool named in passing elsewhere.
+Tools change; the capabilities don't. If a tool here has been superseded by the time you read
+this, the concept it served is still in the chapter — find the current tool for that capability
+and carry on.

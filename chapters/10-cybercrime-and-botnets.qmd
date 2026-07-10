@@ -1,9 +1,6 @@
-# Week 11 — Cybercrime & Botnets
+# Cybercrime & Botnets
 
 > *Modern attacks are a business. Understanding the economics — who profits, and how — tells you where the defences have to go.*
-
-**Before the lecture, read this chapter.** Your Week 11 lab is computer forensics (email header
-and document analysis). **Assessment 1 (Report / Passport) is due this week.**
 
 ## What this chapter covers
 
@@ -16,7 +13,7 @@ By the end you should be able to:
 
 ## Outline
 
-*(Draft from `lectures/week-11-cybercrime-and-botnets.pptx`. **Refresh flag — highest
+*(Draft outline. **Refresh flag — highest
 priority:** the malware-volume statistics are dated 2015/2017/2021 and age every year. Replace
 with a current figure or reframe as "growth over time" so the chapter doesn't rot.)*
 
@@ -24,14 +21,13 @@ with a current figure or reframe as "growth over time" so the chapter doesn't ro
 2. Botnets — command-and-control; building and renting them; spam and DDoS.
 3. Monetisation — pay-per-install, ransomware, credential theft.
 4. Case studies — a modern IoT botnet (Mirai) and a classic (Torpig/Zeus).
-5. Forensics and attribution — what traces attacks leave (ties to the lab).
+5. Forensics and attribution — what traces attacks leave behind.
 
-## Connects to
+## Where this connects
 
-- **Lab 10** — Email & Document Analysis (read headers; find the real author/source).
-- **Week 2** — malware and trojans; **Week 8** — the network traffic botnets generate.
+- **software security** — malware and trojans; **network security** — the network traffic botnets generate.
 
-## Before the lecture
+## Questions to consider
 
 1. Why is a **botnet** so much more valuable to a criminal than a single compromised machine?
 2. Modern cybercrime has a "division of labour" — different people write malware, rent

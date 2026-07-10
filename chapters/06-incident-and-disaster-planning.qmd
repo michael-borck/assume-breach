@@ -1,9 +1,6 @@
-# Week 6 — Incident & Disaster Planning
+# Incident & Disaster Planning
 
 > *The question isn't whether something will go wrong, but whether you're ready when it does.*
-
-**Before the lecture, read this chapter.** Week 6 is a catch-up and assignment week — the
-lecture is a good point to launch the Case Study.
 
 ## What this chapter covers
 
@@ -17,7 +14,7 @@ By the end you should be able to:
 
 ## Outline
 
-*(Draft from `lectures/week-06-incident-and-disaster-planning.pptx`. Self-contained knowledge —
+*(Draft outline. Self-contained knowledge —
 strong pre-reading candidate.)*
 
 1. Planning for failure — why prevention is never enough.
@@ -26,13 +23,12 @@ strong pre-reading candidate.)*
 4. Disaster recovery — RTO/RPO; backups; alternate/DR sites.
 5. Testing the plan — why an untested plan is a hope, not a plan.
 
-## Connects to
+## Where this connects
 
-- **Lab 6** — Catch-up + Assignment (use the session to start the Case Study).
-- **Week 5** — this is what happens when a risk is realised; **Week 10** — data protection
+- **risk management** — this is what happens when a risk is realised; **web security** — data protection
   after a breach.
 
-## Before the lecture
+## Questions to consider
 
 1. What's the difference between **business continuity** and **disaster recovery**? Give an
    example of each.

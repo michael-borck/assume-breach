@@ -1,9 +1,6 @@
-# Week 3 — Authentication & Access
+# Authentication & Access
 
 > *A password isn't stored as a password. Understanding what's actually kept — and how it's attacked — is the whole of this week.*
-
-**Before the lecture, read this chapter.** Your Week 3 lab is password attacks: you'll crack
-real hashes and see why some password policies work and others don't.
 
 ## What this chapter covers
 
@@ -15,13 +12,13 @@ By the end you should be able to:
   actually adds.
 - Describe how a system **stores** credentials — cryptographic hashing, and why we add
   **salt**.
-- Explain **Windows / NTLM** authentication at a high level and why it matters for the lab.
+- Explain **Windows / NTLM** authentication at a high level and why it matters in practice.
 - Analyse **password attacks** — dictionary, brute-force, rainbow tables — and the defences
   that beat each one (salting, lockout, length).
 
 ## Outline
 
-*(Draft from `lectures/week-03-authentication-and-access.pptx`.)*
+*(Draft outline. )*
 
 1. **The three ideas people confuse.** Identification vs authentication vs authorization;
    mutual authentication; ID proofing for verification.
@@ -32,7 +29,7 @@ By the end you should be able to:
    biometrics ("something you are") and their trade-offs.
 4. **How systems store credentials.** You don't store the password — you store a
    **cryptographic hash**. Hash algorithms; the general workflow for hash-based registration
-   and login. *(This is the hinge for the lab.)*
+   and login. *(This is the hinge for the practical work.)*
 5. **Windows authentication.** The Windows logon process; where **NTLM** is still used — and
    why that's relevant to the hashes you'll crack.
 6. **Attacking passwords.** Dictionary attacks; brute-force; **rainbow tables** — and the
@@ -40,13 +37,12 @@ By the end you should be able to:
 7. **The other ways in.** Keyloggers, social engineering, sniffing, stealing the password
    file — reminders that the maths is rarely the weakest link.
 
-## Connects to
+## Where this connects
 
-- **Lab 3** — Password Attacks (crack NTLM/LM hashes; run a dictionary attack with a
   wordlist; see salting's effect).
-- **Week 8** — sniffing reappears when we capture packets on the wire.
+- **network security** — sniffing reappears when we capture packets on the wire.
 
-## Before the lecture
+## Questions to consider
 
 1. If a website is breached, why is it so much better for you that they stored a **salted
    hash** of your password rather than the password itself?
