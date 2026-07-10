@@ -1,0 +1,41 @@
+# Week 9 — VPN & Firewalls
+
+> *A firewall decides what traffic to let through. Writing a good rule is harder than it sounds — and that difficulty is the lesson.*
+
+**Before the lecture, read this chapter.** Your Week 9–10 lab spans two sessions on firewalls
+using a network simulator.
+
+## What this chapter covers
+
+By the end you should be able to:
+
+- Explain what a **firewall** does and the difference between packet-filtering, stateful, and
+  application-layer firewalls.
+- Reason about **firewall rules** — default-deny vs default-allow, and why order matters.
+- Explain what a **VPN** provides (confidentiality and integrity over an untrusted network)
+  and how it uses the crypto from Week 4.
+- Describe **defence in depth** in a network context — no single control trusted alone.
+
+## Outline
+
+*(Draft from `lectures/week-09-vpn-and-firewalls.pptx`. **Note:** this deck depends heavily on
+speaker notes (~4,500 characters) — that narration must be written into this chapter before it
+can serve as standalone pre-reading. Highest-priority conversion.)*
+
+1. What a firewall is; where it sits; types (packet filter → stateful → application).
+2. Writing rules — default-deny; the cost of a bad rule; why ordering and specificity matter.
+3. VPNs — tunnelling; what they protect and what they don't; the crypto underneath.
+4. Putting it together — defence in depth across the network.
+
+## Connects to
+
+- **Lab 8 & 9** — Firewalls (build and configure networks in the simulator).
+- **Week 4** — the cryptography a VPN relies on; **Week 8** — the attacks these controls defend
+  against.
+
+## Before the lecture
+
+1. Should a firewall **default to deny** or **default to allow**? Argue the trade-off.
+2. A VPN "makes you anonymous / makes you safe" — what does it actually protect, and what does
+   it *not*?
+3. Give one example of a second layer catching what a firewall alone would miss.

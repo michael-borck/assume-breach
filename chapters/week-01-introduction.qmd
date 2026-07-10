@@ -1,0 +1,58 @@
+# Week 1 — Introduction to Information Security
+
+> *What are we protecting, from whom, and how do we even know when we've succeeded?*
+
+**Before the lecture, read this chapter.** In the lecture we'll open with a quick poll on the
+questions at the end, then work through the ideas together. Your Week 1 lab puts you into the
+virtual machine environment you'll use all semester.
+
+## What this chapter covers
+
+By the end you should be able to:
+
+- Define information security and explain the **CIA triad** (confidentiality, integrity,
+  availability).
+- Explain why the three pull against each other, and what "balancing CIA" means in practice.
+- Describe what a **security control** is, and what **defence in depth** buys you.
+- Outline the **phases of an attack** — reconnaissance, scanning, gaining access, maintaining
+  access, clearing tracks — and why understanding them helps a defender.
+- Distinguish **ethical (white-hat)** work from malicious hacking, and where the line sits.
+
+## Outline
+
+*(Draft from `lectures/week-01-introduction-to-information-security.pptx`. Slide flow below is
+the skeleton to write into prose — copyright cleanup: replace embedded screenshots/news images
+with described examples or links.)*
+
+1. **What is security?** Security as a property of a system, not a product you bolt on. The
+   dimensions of security.
+2. **The CIA triad.**
+   - *Confidentiality* — keeping information from those who shouldn't see it.
+   - *Integrity* — keeping information correct and un-tampered.
+   - *Availability* — keeping it there when it's needed; single points of failure.
+   - *Balancing CIA* — why maximising one erodes another, with everyday examples.
+   - *Non-repudiation* — why "you can't deny you did it" matters.
+3. **Security controls and defence in depth.** Controls as the things we put between an asset
+   and a threat; why no single control is trusted alone.
+4. **Understanding the attacker.** The white-hat / black-hat model; a short, honest history
+   (phreaking → viruses/trojans → modern breaches) told to show *why* attacks evolved.
+5. **The phases of an attack.** Reconnaissance → scanning → gaining access → maintaining
+   access → clearing tracks. Framed as: each phase is something a defender can detect or deny.
+   *(This maps directly onto Lab 2 — port scanning is the "scanning" phase.)*
+6. **Ethical hacking.** Doing attacker-style work with permission and purpose; the ethics and
+   the law.
+
+## Connects to
+
+- **Lab 1** — Introduction to Virtualisation (set up the VM you'll use all semester).
+- **Later weeks** — the attack phases here are the spine: scanning (Wk 2 lab), password
+  attacks (Wk 3), packet capture (Wk 8).
+
+## Before the lecture
+
+1. In one sentence each, give a real-world example where **confidentiality**, **integrity**,
+   and **availability** matter — three different situations.
+2. "More security is always better." Give one example where that's false — where tightening
+   one part of CIA made things worse.
+3. Why would a *defender* want to understand the phases of an attack? What do you gain by
+   thinking the way an attacker does?

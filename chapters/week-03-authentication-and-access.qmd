@@ -1,0 +1,56 @@
+# Week 3 — Authentication & Access
+
+> *A password isn't stored as a password. Understanding what's actually kept — and how it's attacked — is the whole of this week.*
+
+**Before the lecture, read this chapter.** Your Week 3 lab is password attacks: you'll crack
+real hashes and see why some password policies work and others don't.
+
+## What this chapter covers
+
+By the end you should be able to:
+
+- Distinguish **identification**, **authentication**, and **authorization**, and explain
+  mutual authentication and ID proofing.
+- Explain the **three factors** of authentication and what **multi-factor authentication**
+  actually adds.
+- Describe how a system **stores** credentials — cryptographic hashing, and why we add
+  **salt**.
+- Explain **Windows / NTLM** authentication at a high level and why it matters for the lab.
+- Analyse **password attacks** — dictionary, brute-force, rainbow tables — and the defences
+  that beat each one (salting, lockout, length).
+
+## Outline
+
+*(Draft from `lectures/week-03-authentication-and-access.pptx`.)*
+
+1. **The three ideas people confuse.** Identification vs authentication vs authorization;
+   mutual authentication; ID proofing for verification.
+2. **The three factors.** Something you know / have / are. Why passwords dominate despite
+   their problems; complex-password and lockout policies; where authentication is heading
+   (fast/passwordless).
+3. **Multi-factor authentication.** Tokens and key fobs; smart cards and their requirements;
+   biometrics ("something you are") and their trade-offs.
+4. **How systems store credentials.** You don't store the password — you store a
+   **cryptographic hash**. Hash algorithms; the general workflow for hash-based registration
+   and login. *(This is the hinge for the lab.)*
+5. **Windows authentication.** The Windows logon process; where **NTLM** is still used — and
+   why that's relevant to the hashes you'll crack.
+6. **Attacking passwords.** Dictionary attacks; brute-force; **rainbow tables** — and the
+   defence that breaks them: **salting**. Why salt makes precomputation useless.
+7. **The other ways in.** Keyloggers, social engineering, sniffing, stealing the password
+   file — reminders that the maths is rarely the weakest link.
+
+## Connects to
+
+- **Lab 3** — Password Attacks (crack NTLM/LM hashes; run a dictionary attack with a
+  wordlist; see salting's effect).
+- **Week 8** — sniffing reappears when we capture packets on the wire.
+
+## Before the lecture
+
+1. If a website is breached, why is it so much better for you that they stored a **salted
+   hash** of your password rather than the password itself?
+2. MFA asks for a second factor. Give a realistic example where MFA still fails — where the
+   attacker gets in anyway. What does that tell you about relying on it?
+3. Why does adding **salt** defeat a rainbow table, when it doesn't make any single password
+   harder to guess?

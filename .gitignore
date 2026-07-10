@@ -1,0 +1,11 @@
+# Quarto build artifacts
+/_book/
+/.quarto/
+*.pdf
+*.epub
+
+# macOS
+.DS_Store
+._*
+
+**/*.quarto_ipynb

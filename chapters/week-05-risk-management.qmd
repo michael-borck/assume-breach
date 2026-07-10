@@ -1,0 +1,43 @@
+# Week 5 — Risk Management
+
+> *You can't protect everything equally, so you don't. Risk management is how a defender decides where the money and effort go.*
+
+**Before the lecture, read this chapter.** Your Week 5 lab works through the calculations
+below on a real spreadsheet.
+
+## What this chapter covers
+
+By the end you should be able to:
+
+- Define **risk**, **risk appetite**, and explain why appetite varies between organisations.
+- Explain **cost-benefit analysis** and the difference between **intrinsic** and **acquired**
+  value.
+- Calculate **single loss expectancy (SLE)** and **annual loss expectancy (ALE)**, and use
+  them to judge whether a control is worth it.
+- Describe the main **risk treatments**: avoid, mitigate, transfer, accept.
+
+## Outline
+
+*(Draft from `lectures/week-05-risk-management.pptx`. Supplementary reading: *Substantiate,
+Don't Assume*, ch. 02-risk — pitched above this level, scaffold it.)*
+
+1. What risk is; likelihood × impact; risk appetite and why it differs.
+2. Valuing assets — intrinsic vs acquired value; cost-benefit analysis.
+3. Quantifying risk — SLE, ARO, ALE; worked examples.
+4. Choosing controls — when a control costs more than the risk it removes.
+5. Treating risk — avoid / mitigate / transfer / accept; residual risk.
+
+## Connects to
+
+- **Lab 5** — Risk Control (quantify risk for a sample organisation; SLE/ALE in a spreadsheet).
+- **Week 6** — what happens when a risk is *realised*; **Case Study** — the Essential Eight
+  audit is applied risk-based control assessment.
+
+## Before the lecture
+
+1. Two companies face the same threat but treat it differently — one buys insurance, one
+   ignores it. How can both be *rational*?
+2. A control costs \$50k/year and reduces an ALE of \$30k/year to \$5k/year. Should they buy
+   it? Show your reasoning.
+3. Give a real risk your own organisation (or the university) probably **accepts** rather than
+   fixes. Why is that a defensible choice?

@@ -1,0 +1,60 @@
+# Introduction: The Defender's Mindset {.unnumbered}
+
+> *An attacker has to find one way in. A defender has to think about all of them. This book is about learning to think like both.*
+
+## The unlocked door behind the badge
+
+Every organisation says its systems are secure. It puts a padlock icon on the login page, a
+privacy policy in the footer, and an "enterprise-grade encryption" line on the marketing
+site. Then, somewhere behind all of that, there is a server no one has patched in eleven
+months, a password four people share, and a staff member about to click a link they
+shouldn't. The claim and the reality are two different things — and the gap between them is
+where information security lives.
+
+This book is a first course in closing that gap. It will not turn you into a hacker or a
+penetration tester in twelve weeks. It will do something more useful: teach you to *think
+like a defender* — to look at a system and see, before anything goes wrong, where it could,
+what it would cost, and what to do about it. That habit of mind is the thing you take into
+any job, in any industry, for the rest of your career.
+
+## How to think like a defender
+
+Defenders reason in a particular way, and the whole book is built to grow that habit:
+
+- **Assume nothing is safe until it is shown to be.** A control that looks fine on paper is a
+  claim, not a fact, until you have reason to trust it.
+- **Understand the attacker to protect against them.** You cannot defend what you do not
+  understand, so we spend real time on how attacks actually work — not to do them, but to see
+  what they need and take it away.
+- **Weigh the cost.** Perfect security is unaffordable and unusable. Every control is a
+  trade-off, and a defender's real skill is deciding which ones are worth it.
+- **Never forget the human.** Most breaches do not defeat the technology; they walk past it
+  through a person. The human factor is not a footnote — it is often the whole story.
+
+## How this book works
+
+The book runs alongside the unit, **one chapter per teaching week**. Read the chapter *before*
+that week's lecture. The chapter carries the knowledge — the definitions, the concepts, the
+worked ideas — so that the lecture does not have to. That frees the two hours in the room for
+the things a page cannot do: watching an attack run live, arguing a judgment call, and testing
+where the whole room actually disagrees. Then the lab puts your hands on the tools.
+
+So the rhythm each week is: **read → discuss and see → do.** Each chapter ends with a few
+**Before the lecture** questions. They are not graded; they exist to prime your thinking and
+they are usually where the lecture's opening poll begins. Come with a view, even a wrong one —
+being wrong out loud and finding out why is most of how this subject is learned.
+
+## A word on using AI
+
+You are encouraged to use AI freely in this unit, including while you read this book. Ask it
+to explain a concept a second way, to quiz you, to challenge your answer to a Before-the-
+lecture question. What matters is that you stay in the conversation and do the thinking — use
+it to understand faster, not to skip understanding. The unit's companion guide,
+[*Conversation, Not Delegation*](https://michael-borck.github.io/conversation-not-delegation/),
+is about exactly this skill, and the unit's AI policy sets out where AI is encouraged and
+where you work unaided.
+
+---
+
+*This book is open access under a Creative Commons Attribution (CC BY) licence. It is part of
+the [books.borck.education](https://books.borck.education) series.*

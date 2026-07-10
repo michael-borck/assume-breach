@@ -1,0 +1,40 @@
+# Week 11 — Cybercrime & Botnets
+
+> *Modern attacks are a business. Understanding the economics — who profits, and how — tells you where the defences have to go.*
+
+**Before the lecture, read this chapter.** Your Week 11 lab is computer forensics (email header
+and document analysis). **Assessment 1 (Report / Passport) is due this week.**
+
+## What this chapter covers
+
+By the end you should be able to:
+
+- Explain what a **botnet** is, how one is built and monetised (spam, DDoS, pay-per-install).
+- Describe the **cybercrime economy** — the division of labour behind modern attacks.
+- Explain, at a high level, a real botnet case (e.g. **Mirai**, Torpig).
+- Connect forensic traces (email headers, document metadata) to attributing an attack.
+
+## Outline
+
+*(Draft from `lectures/week-11-cybercrime-and-botnets.pptx`. **Refresh flag — highest
+priority:** the malware-volume statistics are dated 2015/2017/2021 and age every year. Replace
+with a current figure or reframe as "growth over time" so the chapter doesn't rot.)*
+
+1. Cybercrime as an economy — motives, markets, division of labour.
+2. Botnets — command-and-control; building and renting them; spam and DDoS.
+3. Monetisation — pay-per-install, ransomware, credential theft.
+4. Case studies — a modern IoT botnet (Mirai) and a classic (Torpig/Zeus).
+5. Forensics and attribution — what traces attacks leave (ties to the lab).
+
+## Connects to
+
+- **Lab 10** — Email & Document Analysis (read headers; find the real author/source).
+- **Week 2** — malware and trojans; **Week 8** — the network traffic botnets generate.
+
+## Before the lecture
+
+1. Why is a **botnet** so much more valuable to a criminal than a single compromised machine?
+2. Modern cybercrime has a "division of labour" — different people write malware, rent
+   servers, and cash out. Why does that specialisation make attacks harder to stop?
+3. What kind of **trace** does an attacker most often forget to hide? (You'll test this in the
+   lab.)

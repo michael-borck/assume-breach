@@ -1,0 +1,46 @@
+# Week 4 — Cryptography
+
+> *The security of a good cipher rests on the key, not on hiding how it works. That single idea — Kerckhoff's principle — organises the whole field.*
+
+**Before the lecture, read this chapter.** Your Week 4 lab is web-based crypto exercises — no
+VM needed.
+
+## What this chapter covers
+
+By the end you should be able to:
+
+- Explain the difference between an **algorithm** and a **key**, and state **Kerckhoff's
+  principle**.
+- Distinguish **symmetric (one-key)** from **asymmetric (two-key)** cryptography and say what
+  each is good for.
+- Explain **hashing** vs **encryption**, and where digital signatures fit.
+- Reason about attacks: brute-forcing small key spaces, known-plaintext and chosen-plaintext
+  attacks.
+
+## Outline
+
+*(Draft from `lectures/week-04-cryptography.pptx`. **Refresh flag:** references date to
+2000–2006 — modernise examples, e.g. TLS, messaging apps, ransomware key handling.)*
+
+1. Ciphers = algorithm + key space; why keeping the *key* secret (not the algorithm) is the
+   stronger design.
+2. Symmetric cryptography — one key encrypts and decrypts; speed and the key-distribution
+   problem.
+3. Asymmetric cryptography — public/private key pairs; how they solve key distribution;
+   confidentiality vs signing.
+4. Hashing — one-way functions; integrity and how this links back to Week 3's password storage.
+5. Attacks and limits — small key spaces (Caesar), monoalphabetic substitution, known- vs
+   chosen-plaintext.
+
+## Connects to
+
+- **Lab 4** — Cryptography (cipher tools, PGP key generation, encrypt/decrypt exercises).
+- **Week 3** — hashing; **Week 9** — VPNs rely on these primitives.
+
+## Before the lecture
+
+1. Why is it a *good* thing that strong ciphers publish their algorithms openly?
+2. Symmetric crypto is faster; asymmetric solves key distribution. Sketch how a real system
+   might use *both*.
+3. What's the practical difference between **hashing** a message and **encrypting** it? When
+   would you want each?

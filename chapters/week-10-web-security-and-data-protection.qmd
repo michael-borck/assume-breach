@@ -1,0 +1,42 @@
+# Week 10 — Web Security & Data Protection
+
+> *The web is where most of us are attacked, because it's where most of us are. And behind every web app is data someone is legally obliged to protect.*
+
+**Before the lecture, read this chapter.** Another strong **live-demo** week — expect to see
+an attack like XSS executed. Your Week 10 lab continues the firewall work.
+
+## What this chapter covers
+
+By the end you should be able to:
+
+- Explain the most common web vulnerabilities (injection, **XSS**, broken authentication,
+  session issues) at a working level.
+- Trace how a real web attack unfolds, step by step.
+- Explain core **data-protection** obligations — the Australian Privacy Principles and the
+  Notifiable Data Breaches scheme — at an introductory level.
+- Connect web weaknesses to the data-protection consequences when they're exploited.
+
+## Outline
+
+*(Draft from `lectures/week-10-web-security-and-data-protection.pptx`. Attack material is
+better watched than read — keep the live demo; use this chapter as the concept pre-read.)*
+
+1. Why the web is the front line — attack surface of a modern app.
+2. Injection and cross-site scripting (XSS) — how they work; the step diagrams; a real case.
+3. Authentication and session weaknesses — stolen tokens, session fixation.
+4. Data protection — the APPs and the NDB scheme; what "protecting customer data" legally
+   means.
+5. Tying it together — a web flaw is also a privacy incident.
+
+## Connects to
+
+- **Case Study** — data protection underpins the Essential Eight audit.
+- **Week 3** — session/authentication; **Week 6** — what happens after a breach.
+
+## Before the lecture
+
+1. In plain words, how does a **cross-site scripting** attack end up running attacker code in
+   *your* browser?
+2. A company is breached and customer data leaks. Under the **NDB scheme**, what are they
+   obliged to do — and why does that obligation exist?
+3. Before the demo: what could an attacker do with a stolen session token? We'll show one live.

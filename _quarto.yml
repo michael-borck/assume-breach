@@ -1,0 +1,58 @@
+project:
+  type: book
+  output-dir: _book
+
+# NOTE: title/subtitle are PROVISIONAL — chosen to fit the books.borck.education
+# house style ("… in the Age of AI"). Rename freely; see CHAPTER_OUTLINE.md.
+book:
+  title: "Defence in Depth"
+  subtitle: "A First Course in Information Security for the Age of AI"
+  author: "Michael Borck"
+  date: today
+  license: "CC BY"
+  page-navigation: true
+  chapters:
+    - index.qmd
+    - part: "Part I · Foundations"
+      chapters:
+        - chapters/week-01-introduction.qmd
+        - chapters/week-02-software-security-and-malware.qmd
+        - chapters/week-03-authentication-and-access.qmd
+        - chapters/week-04-cryptography.qmd
+    - part: "Part II · Managing Risk"
+      chapters:
+        - chapters/week-05-risk-management.qmd
+        - chapters/week-06-incident-and-disaster-planning.qmd
+    - part: "Part III · Defending Systems & Networks"
+      chapters:
+        - chapters/week-08-network-security.qmd
+        - chapters/week-09-vpn-and-firewalls.qmd
+        - chapters/week-10-web-security-and-data-protection.qmd
+    - part: "Part IV · People & the Evolving Threat"
+      chapters:
+        - chapters/week-11-cybercrime-and-botnets.qmd
+        - chapters/week-12-human-factors.qmd
+  other-links:
+    - text: "Companion: Conversation, Not Delegation"
+      icon: chat-left-text
+      href: https://michael-borck.github.io/conversation-not-delegation/
+    - text: All Books
+      icon: collection
+      href: https://books.borck.education
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    number-sections: true
+  pdf:
+    documentclass: scrbook
+    toc: true
+    toc-depth: 1
+    number-sections: true
+  epub:
+    toc: true

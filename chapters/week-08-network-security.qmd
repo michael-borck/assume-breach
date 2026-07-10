@@ -1,0 +1,41 @@
+# Week 8 — Network Security
+
+> *Everything you send crosses wires you don't control. This week is about what's visible there — and what to do about it.*
+
+**Before the lecture, read this chapter.** This is a strong **live-demo** week: expect the
+lecture to run scanning and packet capture in front of you. Your Week 8 lab is packet
+capturing in Wireshark.
+
+## What this chapter covers
+
+By the end you should be able to:
+
+- Explain how **scanning** and **sniffing** work and what they reveal.
+- Read a **packet capture** at a basic level and find something interesting in it.
+- Describe common network attacks (spoofing, man-in-the-middle) and their defences.
+- Explain why **encryption in transit** matters, using what you saw on the wire.
+
+## Outline
+
+*(Draft from `lectures/week-08-network-security.pptx`. **Note:** this deck has almost no
+speaker notes — the narration must be written into this chapter for it to stand alone. It is
+also the strongest live-demonstration deck; keep the demo, use the chapter as the pre-read.)*
+
+1. The network as attack surface — recap of the scanning phase from Week 1.
+2. Scanning — hosts, ports, services (ties to Lab 2).
+3. Sniffing — capturing traffic; what plaintext protocols give away.
+4. Attacks — spoofing, man-in-the-middle; ARP/DNS tricks at a high level.
+5. Defences — encryption in transit; segmentation; monitoring.
+
+## Connects to
+
+- **Lab 7** — Packet Capturing (Wireshark; read real captures).
+- **Week 3** — sniffing passwords; **Week 9** — firewalls and VPNs as the defences.
+
+## Before the lecture
+
+1. Name one everyday thing you do online that would be **visible in plaintext** to someone
+   sniffing the network — and one that wouldn't. What's the difference?
+2. Why can an attacker on the same network do things a remote attacker can't?
+3. Before the demo: guess what you'd be able to see if you captured your own laptop's traffic
+   for one minute. We'll test your guess live.
