@@ -1,37 +1,37 @@
-# Appendix — Setting Up a Practice Environment {.unnumbered}
+# Appendix: Setting Up a Practice Environment {.unnumbered}
 
-> The chapters teach concepts and stay tool-agnostic. If you want to *practise* — and you
-> should, because security is a craft — you need somewhere safe to do it. This appendix is
+> The chapters teach concepts and stay tool-agnostic. If you want to *practise*, and you
+> should because security is a craft, you need somewhere safe to do it. This appendix is
 > about that, and only that.
 
 ## The one rule
 
 **Only ever practise on systems you own or have explicit, written permission to test.**
-Scanning, cracking, capturing traffic, probing a web app — these are the same actions an
-attacker takes, and doing them against systems you don't control is, in most countries, a
-crime regardless of intent. The whole point of a practice environment is that everything in it
-is yours to break.
+Scanning, cracking, capturing traffic, probing a web app: these are the same actions an
+attacker takes. Doing them against systems you don't control is, in most countries, a crime
+regardless of intent. The whole point of a practice environment is that everything in it is
+yours to break.
 
 ## What a good practice environment looks like
 
 Whatever you use, aim for three properties:
 
-- **Isolated** — kept off your main network, so a mistake can't reach anything real. A
+- **Isolated.** Kept off your main network, so a mistake can't reach anything real. A
   host-only or NAT network is enough for most work.
-- **Disposable** — quick to reset to a clean state when an exercise leaves a mess, so you can
+- **Disposable.** Quick to reset to a clean state when an exercise leaves a mess, so you can
   experiment without fear.
-- **Reproducible** — easy to rebuild the same way twice, so your results mean something and a
+- **Reproducible.** Easy to rebuild the same way twice, so your results mean something and a
   broken setup is no disaster.
 
 ## Two common ways to get there
 
 **Virtual machines.** Free hypervisors (for example VirtualBox) let you run a self-contained
 guest operating system in a window. Snapshot it once it's set up; roll back to the snapshot
-whenever you want a clean slate. Heavier to move around, but familiar and entirely graphical.
+whenever you want a clean slate. Heavier to move around, but familiar and graphical.
 
 **Containers.** Tools like Docker package an environment as a small, scriptable image that
 starts in seconds and is described by a file you can version and share. Lighter than a VM and
-trivially reproducible; increasingly how real security tooling is packaged and taught. Some
+easily reproducible, and increasingly how security tooling is packaged and taught. Some
 graphical tools are exposed through a web browser, so you don't lose the GUI. If you're
 choosing today, this is the direction most of the field is moving.
 
@@ -51,5 +51,5 @@ anchors. Free, widely used examples by capability:
 | Explore web vulnerabilities safely | Deliberately vulnerable apps (e.g. DVWA, Juice Shop) |
 
 Tools change; the capabilities don't. If a tool here has been superseded by the time you read
-this, the concept it served is still in the chapter — find the current tool for that capability
+this, the concept it served is still in the chapter. Find the current tool for that capability
 and carry on.

@@ -1,19 +1,24 @@
 # Acknowledgments {.unnumbered}
 
-This book began with the students I have taught. Information security is usually met first as
-a pile of definitions — CIA, controls, threats, frameworks — and it takes a while before those
-pieces click into a way of *thinking*. The moment they do, when someone stops memorising the
-list and starts asking "so where would this actually fail?", is the moment this book is written
-for. Their questions, and their confusion, shaped every chapter.
+This book began with the students I have taught. Information security is usually met first as a
+pile of definitions: CIA, controls, threats, frameworks. It takes a while before those pieces
+click into a way of thinking. The moment they do, when someone stops memorising the list and
+starts asking "so where would this actually fail?", is the moment this book is written for. Their
+questions, and their confusion, shaped every chapter.
 
-I am grateful to the colleagues who reviewed early drafts and pushed back where an explanation
-was still too clever or too vague. The book is clearer for it.
+I am grateful to the colleagues who reviewed early drafts and pushed back where an explanation was
+still too clever or too vague. The book is clearer for it.
 
-The open-source community behind Quarto, Pandoc, and GitHub made it possible to write, build,
-and publish this openly, with tools that are free and transparent.
+The open-source community behind Quarto, Pandoc, and GitHub made it possible to write, build, and
+publish this openly, with tools that are free and transparent.
 
-AI was involved throughout — as a drafting partner, a sounding board, and, usefully, a source
-of confident-sounding mistakes that needed catching. That last role is the one this book quietly
-argues for: the machine drafts; the human supplies the judgement and takes responsibility. Every
-sentence here reflects the author's judgement. The AI made the work faster. It did not do the
-thinking.
+## How this book was written
+
+This book was written with AI, using the method its companion volume describes. That companion,
+[*Conversation, Not Delegation*](https://michael-borck.github.io/conversation-not-delegation/),
+argues that AI is most useful as a thinking partner you converse with, not a tool you hand your
+thinking to. I wrote *Assume Breach* that way. AI helped draft, question, and refine. It also
+produced its share of confident, plausible mistakes, and catching those was part of the work. That
+is the point the book makes about security as well: the machine produces a draft, and the human
+supplies the judgement and takes responsibility. Every sentence here reflects the author's
+judgement. The AI made the work faster. It did not do the thinking.

@@ -1,12 +1,12 @@
 # Authentication & Access
 
-> *A password isn't stored as a password. Understanding what's actually kept — and how it's attacked — is the whole of this chapter.*
+> *A password isn't stored as a password. Understanding what's actually kept, and how it's attacked, is the whole of this chapter.*
 
 Almost every system begins with the same question: *who are you, and are you allowed to be
-here?* Getting that answer right is the foundation of confidentiality and integrity — if the
+here?* Getting that answer right is the foundation of confidentiality and integrity. If the
 system can't tell the real you from an impostor, none of its other protections mean much. This
-chapter is about how systems answer that question, the surprisingly clever way they store the
-secret behind it, and the many ways attackers try to defeat both.
+chapter is about how systems answer that question, the clever way they store the secret behind
+it, and the many ways attackers try to defeat both.
 
 ## What this chapter covers
 
@@ -16,144 +16,144 @@ By the end you should be able to:
   mutual authentication and ID proofing.
 - Explain the **three factors** of authentication and what **multi-factor authentication**
   actually adds.
-- Describe how a system **stores** credentials — cryptographic hashing, and why we add
+- Describe how a system **stores** credentials: cryptographic hashing, and why we add
   **salt**.
 - Explain **Windows / NTLM** authentication at a high level and why it matters in practice.
-- Analyse **password attacks** — dictionary, brute-force, rainbow tables — and the defences
-  that beat each one (salting, lockout, length).
+- Analyse **password attacks** (dictionary, brute-force, rainbow tables) and the defences
+  that beat each one: salting, lockout, length.
 
 ## Three words people mix up
 
 These three terms are used loosely in everyday speech and precisely in security, and the
 precision matters.
 
-**Identification** is a *claim*: you state who you are — a username, an account number, a name.
+**Identification** is a *claim*: you state who you are (a username, an account number, a name).
 It is just an assertion, and on its own it proves nothing.
 
-**Authentication** is the *proof* of that claim: you demonstrate that you really are who you
+**Authentication** is the *proof* of that claim: you demonstrate that you are who you
 said. Typing the password that matches the username is authentication. This is the step
 attackers most want to defeat, because a successful fake here makes everything downstream trust
 them.
 
 **Authorization** is what happens *after*: given that we now believe who you are, what are you
-allowed to do? A verified user is not an all-powerful one — authentication gets you through the
-door; authorization decides which rooms you may enter. Keeping these separate is what lets a
-system trust *who* you are while still limiting *what* you can do — the principle of least
+allowed to do? A verified user is not an all-powerful one. Authentication gets you through the
+door. Authorization decides which rooms you may enter. Keeping these separate lets a
+system trust *who* you are while still limiting *what* you can do. This is the principle of least
 privilege in action.
 
 Two refinements are worth naming. **Mutual authentication** is when *both* sides prove their
-identity — not only does the server check you, but you (or your software) check the server, so
-you're not handing your credentials to an impostor. And **ID proofing** is the harder,
-real-world problem of establishing identity in the first place — how does a bank know the person
+identity. Not only does the server check you, but you (or your software) check the server, so
+you're not handing your credentials to an impostor. **ID proofing** is the harder,
+real-world problem of establishing identity in the first place. How does a bank know the person
 opening an account is who they claim, *before* any password exists? Authentication verifies a
-claim you set up earlier; proofing is how that claim was trusted to begin with.
+claim you set up earlier. Proofing is how that claim was trusted to begin with.
 
 ## The three factors
 
 How can you prove who you are? Every method falls into one of three **factors**:
 
-- **Something you know** — a password, a PIN, the answer to a question.
-- **Something you have** — a phone, a hardware token, a smart card.
-- **Something you are** — a fingerprint, a face, a voice (biometrics).
+- **Something you know**: a password, a PIN, the answer to a question.
+- **Something you have**: a phone, a hardware token, a smart card.
+- **Something you are**: a fingerprint, a face, a voice (biometrics).
 
-Passwords — "something you know" — dominate because they're cheap and need no special hardware,
-and they are also the weakest link in most systems. People choose guessable ones, reuse them
-everywhere, and hand them over when asked nicely. The usual responses — complexity rules,
-minimum lengths, **lockout policies** that stop an account after too many wrong guesses — help
-at the margins, but decades of evidence say a password alone is not enough. That is why the
-industry is steadily moving toward **passwordless** methods, replacing the shared secret with
+Passwords ("something you know") dominate because they're cheap and need no special hardware.
+They are also the weakest link in most systems. People choose guessable ones, reuse them
+everywhere, and hand them over when asked nicely. The usual responses help at the margins:
+complexity rules, minimum lengths, and **lockout policies** that stop an account after too many
+wrong guesses. But decades of evidence say a password alone is not enough. That is why the
+industry is moving toward **passwordless** methods, replacing the shared secret with
 something harder to steal or phish.
 
 ### Multi-factor authentication
 
-The strongest single improvement you can make is to require **more than one factor** —
+The strongest single improvement you can make is to require **more than one factor**:
 **multi-factor authentication (MFA)**. The power comes from *combining categories*: a password
 (know) plus a code from your phone (have) means stealing the password alone is no longer enough.
-The "have" factor takes many forms — a one-time code, a hardware **token** or key fob, or a
+The "have" factor takes many forms: a one-time code, a hardware **token** or key fob, or a
 **smart card** carrying a chip that proves possession. The "are" factor, biometrics, is
 convenient and hard to forget, but carries a permanent trade-off: you can change a breached
-password, but you cannot change your fingerprint. And MFA is strong, not magic — as the
+password, but you cannot change your fingerprint. MFA is strong, but it is not magic. As the
 questions at the end ask you to consider, a determined attacker can still phish a one-time code
-or trick a user into approving a prompt. It raises the bar; it does not remove it.
+or trick a user into approving a prompt. It raises the bar without removing it.
 
 ## What a system actually stores
 
 Here is the idea that surprises most people, and it is the hinge of the whole chapter: **a
-well-built system does not store your password.** If it did, anyone who stole the database —
-or any administrator — would instantly know every user's secret.
+well-built system does not store your password.** If it did, anyone who stole the database (or
+any administrator) would know every user's secret.
 
 Instead, the system stores a **cryptographic hash** of your password. A hash function takes any
 input and produces a fixed-length fingerprint, with two useful properties: the same input always
 gives the same output, and you cannot run it backwards to recover the input from the output. So
 when you register, the system hashes your password and stores only the hash. When you log in
-later, it hashes what you typed and compares the two fingerprints — if they match, you knew the
+later, it hashes what you typed and compares the two fingerprints. If they match, you knew the
 password, and the system verified you *without ever storing the password itself*. A stolen
-database of hashes is far less catastrophic than a stolen database of passwords.
+database of hashes is less catastrophic than a stolen database of passwords.
 
 ### Windows and NTLM
 
 You'll see this in practice with Windows authentication. Rather than keep passwords, Windows
-stores password hashes and uses them in its logon process; the older **NTLM** scheme, still
+stores password hashes and uses them in its logon process. The older **NTLM** scheme, still
 present for compatibility in many environments, is one such mechanism. The relevant point for a
-defender — and the reason password-cracking exercises use these — is that an attacker who reaches
+defender (and the reason password-cracking exercises use these) is that an attacker who reaches
 those stored hashes doesn't have your password *yet*, but they have the raw material to try to
-recover it. Which is exactly what the next section is about.
+recover it. That is what the next section is about.
 
 ## Attacking passwords
 
 If attackers can get the hashes but can't reverse them, how do they recover passwords? They
-don't reverse the hash — they **guess**, hash each guess, and look for a match.
+don't reverse the hash. They **guess**, hash each guess, and look for a match.
 
-A **dictionary attack** works through a list of likely passwords — common words, previously
-leaked passwords, predictable patterns — because real people rarely choose randomly. A
-**brute-force attack** tries every possible combination; it always works *eventually*, but
-"eventually" grows explosively with password length, which is why length beats complexity. The
-clever accelerator is a **rainbow table**: a giant precomputed lookup of hashes for enormous
+A **dictionary attack** works through a list of likely passwords (common words, previously
+leaked passwords, predictable patterns) because real people rarely choose randomly. A
+**brute-force attack** tries every possible combination. It always works *eventually*, but
+"eventually" grows explosively with password length. That is why length beats complexity. The
+accelerator is a **rainbow table**: a giant precomputed lookup of hashes for enormous
 numbers of candidate passwords, so the attacker trades storage for speed and skips the
 recomputation.
 
 ### The fix: salt
 
-Rainbow tables have one fatal weakness, and defeating them is elegant. Before hashing, the
-system adds a unique random value — a **salt** — to each password, and stores the salt alongside
-the hash. Now two users with the same password have *different* hashes, and — crucially — the
+Rainbow tables have one fatal weakness, and the fix is elegant. Before hashing, the
+system adds a unique random value, a **salt**, to each password, and stores the salt alongside
+the hash. Now two users with the same password have *different* hashes, and the
 attacker's precomputed rainbow table, built without your specific salt, is worthless. Salting
-doesn't make any single password harder to *guess*; it makes the attacker's shortcut of
+doesn't make any single password harder to *guess*. It makes the attacker's shortcut of
 precomputation impossible, forcing them back to slow, per-account work. It is a small change
 with an outsized effect, and its absence is one of the clearest signs a system was built without
 care.
 
 ## The maths is rarely the weakest link
 
-Everything above assumes the attacker has to *defeat* authentication. Often they simply go
+Everything above assumes the attacker has to *defeat* authentication. Often they go
 around it. A **keylogger** records the password as you type it, before any hashing happens.
-**Social engineering** just asks — a convincing email or phone call, and the user hands the
+**Social engineering** just asks. A convincing email or phone call, and the user hands the
 secret over. **Sniffing** captures credentials sent in the clear across a network (which returns
 in the network-security chapter). And stealing the **password file** itself gives the attacker
-the hashes to work on at leisure. The recurring lesson of this book is on display: the
-cryptography is rarely what fails; the people and the plumbing around it are.
+the hashes to work on at leisure. The recurring lesson of this book applies here: the
+cryptography is rarely what fails. The people and the plumbing around it are.
 
 ## A word on single sign-on
 
 One more idea you'll meet: **single sign-on (SSO)** lets you authenticate once and gain access to
-many systems, and **reduced sign-on** is a lighter version of the same convenience. Users love it
-and it genuinely improves security in one way — fewer passwords means less reuse and fewer
+many systems, and **reduced sign-on** is a lighter version of the same convenience. Users love it,
+and it improves security in one way: fewer passwords means less reuse and fewer
 sticky notes. But it concentrates risk: that one login now unlocks everything, so it *must* be
-protected accordingly, which is a large part of why SSO and strong MFA almost always travel
+protected accordingly. That is a large part of why SSO and strong MFA almost always travel
 together.
 
 ## Where this connects
 
-- **Cryptography** — the hashing this chapter relies on is the subject of the next chapter.
-- **Network security** — sniffing credentials reappears when we capture packets on the wire.
-- **Software security & malware** — stolen credentials, as in the Target breach, are how many
+- **Cryptography**: the hashing this chapter relies on is the subject of the next chapter.
+- **Network security**: sniffing credentials reappears when we capture packets on the wire.
+- **Software security & malware**: stolen credentials, as in the Target breach, are how many
   intrusions begin.
 
 ## Questions to consider
 
 1. If a website is breached, why is it so much better for you that they stored a **salted
    hash** of your password rather than the password itself?
-2. MFA asks for a second factor. Give a realistic example where MFA still fails — where the
+2. MFA asks for a second factor. Give a realistic example where MFA still fails, where the
    attacker gets in anyway. What does that tell you about relying on it?
 3. Why does adding **salt** defeat a rainbow table, when it doesn't make any single password
    harder to guess?

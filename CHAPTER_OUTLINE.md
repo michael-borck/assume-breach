@@ -118,16 +118,28 @@ Write in chapter order, staying ahead of wherever the material is being used. Ch
 first, then keep pace. (If you're pacing against a course, the week → chapter map in the course
 repo tells you which chapter is needed when.)
 
-## ⚠️ Copyright cleanup (do on every chapter)
+## Copyright review — cleared for CC BY (2026-07-11)
 
-The source decks embed third-party material that **cannot** go into a CC BY book:
-screenshots, news images, vendor cheat-sheets, book figures. On each chapter:
+A review of the completed draft against the copyright concern that this cleanup step was meant
+to catch. **Result: clear. Nothing to remove.**
 
-- Replace embedded screenshots with described examples or your own redrawn diagrams.
-- Link out to cheat-sheets (they live in the course repo `labs/*/resources/`), don't embed.
-- Rewrite case studies in your own words; cite sources rather than reproducing them.
+- **Prose is original.** Chapters were written from the source decks' slide *titles* only (topic
+  and example choices), never their body text or speaker notes, so no verbatim expression could
+  be carried over.
+- **No embedded third-party assets.** The chapters contain **no** screenshots, news images,
+  vendor cheat-sheets, or book figures. The only image in the repo is the author photo (owned).
+  This was the main risk, and it is absent by construction.
+- **Examples are facts, in original words.** Target/BlackPOS, Zeus, Mirai, the Morris worm,
+  Kerckhoff's principle: historical facts and long-public ideas, described in the author's own
+  words. Facts are not copyrightable; the expression here is original.
+- **Frameworks named, not reproduced.** Essential Eight, ISO 27001, NIST CSF, GDPR, the APPs and
+  NDB scheme are referenced and described, never quoted or reproduced.
+- **Incident Zero: linked, not embedded.** The "Play it" callouts describe modules in original
+  words and link out. No game text, cards, or mechanics are reproduced, so the game's
+  CC BY-NC-SA terms are not dragged onto this CC BY book.
 
-This is the main cost of the conversion — budget for it.
+**Only outstanding asset:** the cover must be original or licensed art (the `book-publisher`
+cover step, or your own). Everything in the text is clear.
 
 ## ⚠️ Refresh flags
 

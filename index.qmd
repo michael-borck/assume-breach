@@ -8,66 +8,64 @@ Every organisation says its systems are secure. It puts a padlock icon on the lo
 privacy policy in the footer, and an "enterprise-grade encryption" line on the marketing
 site. Then, somewhere behind all of that, there is a server no one has patched in eleven
 months, a password four people share, and a staff member about to click a link they
-shouldn't. The claim and the reality are two different things — and the gap between them is
+shouldn't. The claim and the reality are two different things. The gap between them is
 where information security lives.
 
 Modern security starts from an uncomfortable premise: **assume breach.** Assume the perimeter
-will fail, the patch will be late, and someone will click the link — because, across a large
-enough system and enough time, they will. A defender who assumes they can keep every attacker
-out builds one wall and trusts it. A defender who assumes breach builds in depth, watches for
-the intrusion, limits how far it spreads, and plans to recover. This is not pessimism; it is
-how real systems are defended.
+will fail, the patch will be late, and someone will click the link. Across a large enough
+system and enough time, they will. A defender who assumes they can keep every attacker out
+builds one wall and trusts it. A defender who assumes breach builds in depth, watches for the
+intrusion, limits how far it spreads, and plans to recover. This is not pessimism. It is how
+real systems are defended.
 
 This book is a first course in that mindset. It will not turn you into a hacker or a
 penetration tester in twelve weeks. It will do something more useful: teach you to *think
-like a defender* — to look at a system and see, before anything goes wrong, where it could,
-what it would cost, and what to do about it. That habit of mind is the thing you take into
-any job, in any industry, for the rest of your career.
+like a defender*. That means looking at a system and seeing, before anything goes wrong,
+where it could go wrong, what it would cost, and what to do about it. That habit of mind is
+the thing you take into any job, in any industry, for the rest of your career.
 
 ## How to think like a defender
 
-Defenders reason in a particular way, and the whole book is built to grow that habit:
-
-- **Assume nothing is safe until it is shown to be.** A control that looks fine on paper is a
-  claim, not a fact, until you have reason to trust it.
-- **Understand the attacker to protect against them.** You cannot defend what you do not
-  understand, so we spend real time on how attacks actually work — not to do them, but to see
-  what they need and take it away.
-- **Weigh the cost.** Perfect security is unaffordable and unusable. Every control is a
-  trade-off, and a defender's real skill is deciding which ones are worth it.
-- **Never forget the human.** Most breaches do not defeat the technology; they walk past it
-  through a person. The human factor is not a footnote — it is often the whole story.
+Defenders reason in a particular way, and the whole book is built to grow that habit. Assume
+nothing is safe until it is shown to be: a control that looks fine on paper is only a claim
+until you have reason to trust it. Understand the attacker in order to protect against them.
+You cannot defend what you do not understand, so we spend time on how attacks work, studying
+them to see what they need so you can take it away. Weigh the cost, because perfect security
+is unaffordable and unusable. Every control is a trade-off, and a defender's skill is deciding
+which ones are worth it. And never forget the human. Most breaches do not defeat the
+technology; they walk past it through a person. The human factor is often the whole story.
 
 ## Who this is for, and how to read it
 
-This is a first book on defensive security, for anyone meeting the subject for the first time —
-a student, someone moving into security from another part of IT, or a curious professional who
-wants the mental model without the jargon. It assumes no prior security background.
+This is a first book on defensive security, for anyone meeting the subject for the first
+time: a student, someone moving into security from another part of IT, or a curious
+professional who wants the mental model without the jargon. It assumes no prior security
+background.
 
-The chapters build in a deliberate order. The early ones establish the foundations — how
+The chapters build in a deliberate order. The early ones establish the foundations: how
 security is measured, where software goes wrong, how identity and secrets are protected. The
 middle turns to managing risk and surviving incidents. The later ones defend systems and
 networks, and end where security always ends: with people. You will get the most from reading
 in order, because each chapter leans on the ones before it, but each is self-contained enough
 to revisit on its own.
 
-The book carries the *concepts*. It stays deliberately tool-agnostic: it explains what is true
-on any system rather than which button to click, so it doesn't go out of date the moment a tool
+The book carries the *concepts*. It stays tool-agnostic: it explains what is true on any
+system rather than which button to click, so it doesn't go out of date the moment a tool
 does. Where practice helps, a **Try it yourself** note points you at the kind of hands-on
 exercise the ideas invite, and the [practice-environment appendix](appendices/lab-environment.qmd)
 shows how to set up somewhere safe to do it. Each chapter ends with a few **Questions to
-consider** — not a test, but prompts worth sitting with; several are easier to answer well
-*after* a later chapter, and that's the point.
+consider**. They are prompts worth sitting with rather than a test. Several are easier to
+answer well *after* a later chapter, which is deliberate.
 
 ## A word on using AI
 
 Using AI to learn this material is a good idea, and this book encourages it. Ask an assistant
 to explain a concept a second way, to quiz you, or to challenge your answer to one of the
 end-of-chapter questions. What matters is that you stay in the conversation and do the
-thinking — use it to understand faster, not to skip understanding. If you want to get better at
-that skill itself, the companion volume
+thinking. Use it to understand faster. Do not use it to skip understanding. If you want to get
+better at that skill itself, the companion volume
 [*Conversation, Not Delegation*](https://michael-borck.github.io/conversation-not-delegation/)
-is about exactly this: thinking *with* AI rather than delegating your thinking to it.
+is about this: thinking *with* AI rather than delegating your thinking to it.
 
 ---
 

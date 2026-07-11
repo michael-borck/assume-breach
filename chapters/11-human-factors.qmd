@@ -2,13 +2,13 @@
 
 > *Most breaches don't defeat the technology. They walk past it, through a person. This is where the whole book comes back to earth.*
 
-Every chapter until now has been, at heart, about machines — flaws, controls, cryptography,
-networks, code. But security fails, far more often than any of those, through *people*. You can
+Every chapter until now has been, at heart, about machines: flaws, controls, cryptography,
+networks, code. But security fails, more often than any of those, through *people*. You can
 patch a server; you cannot patch a person, and attackers know it. The most sophisticated defences
 in this book can be undone by one employee clicking one link, one help-desk worker resetting one
 password for a convincing caller, one executive approving one urgent transfer. This final chapter
-is about that reality — not as an afterthought, but as the place security actually lives or dies —
-and about how the ground is shifting as AI arrives on both sides of the fight.
+is about that reality: the place security lives or dies. It is also about how the ground is
+shifting as AI arrives on both sides of the fight.
 
 ## What this chapter covers
 
@@ -19,108 +19,105 @@ By the end you should be able to:
 - Describe **social engineering** and **phishing**, and the defences that actually work.
 - Reason about how non-technical people make security decisions with the information they're
   given.
-- Discuss **emerging trends** — including AI's double role as both a tool for attackers and a
+- Discuss **emerging trends**, including AI's double role as both a tool for attackers and a
   tool for defenders.
 
-## The weakest link — and why blaming the user fails
+## The weakest link, and why blaming the user fails
 
-It's true, and repeated everywhere, that people are the weakest link in security. What's said far
-less often is that "the users are the weakest link" is a *trap* — a framing that quietly excuses
-bad security. When a well-crafted phishing email fools an employee, the instinct is to blame the
+It's true, and repeated everywhere, that people are the weakest link in security. What's said
+less often is that "the users are the weakest link" is a *trap*: a framing that excuses bad
+security. When a well-crafted phishing email fools an employee, the instinct is to blame the
 employee: they should have known better. But look closer. They were doing their job, quickly,
 inside a system that made the wrong action easy, the right action unclear, and the difference
-between the two nearly invisible. Blaming the person lets the *system* off the hook — and a team
-that blames users stops fixing the thing they could actually fix.
+between the two nearly invisible. Blaming the person lets the *system* off the hook. A team that
+blames users stops fixing the thing they could fix.
 
-The professional stance is the opposite. People will make mistakes; that is not a flaw to be
-trained away but a constant to be designed around. This is *assume breach* applied to human
-beings: assume that, sooner or later, someone will be fooled, and build so the organisation
-survives it. That single shift — from "make users perfect" to "make mistakes survivable" — is the
-difference between security that works and security that just apportions blame after the fact.
-(Whose fault a successful phish really is, is the first question at the end; it's worth sitting
-with.)
+The professional stance is the opposite. People will make mistakes. That is a constant, and good
+security is designed around it rather than trying to train it away. This is *assume breach*
+applied to human beings: assume that, sooner or later, someone will be fooled, and build so the
+organisation survives it. That single shift, from "make users perfect" to "make mistakes
+survivable", is the difference between security that works and security that just apportions
+blame after the fact. (Whose fault a successful phish really is, is the first question at the end;
+it's worth sitting with.)
 
 ## Social engineering and phishing
 
-**Social engineering** is hacking the human instead of the machine — manipulating a person into
+**Social engineering** is hacking the human instead of the machine: manipulating a person into
 doing what the attacker wants. It works because it targets the mental shortcuts we all rely on to
 get through the day. An attacker invokes **authority** ("this is IT, we need your password"),
 **urgency** ("the account will be closed in an hour"), **fear**, **trust**, or plain
-**helpfulness** — and the victim, trying to be efficient and cooperative, complies. Crucially, the
-victim is usually behaving *well* by the ordinary rules of work; the attacker has simply pointed
-those good instincts in the wrong direction.
+**helpfulness**. The victim, trying to be efficient and cooperative, complies. They are usually
+behaving *well* by the ordinary rules of work; the attacker has pointed those good instincts in
+the wrong direction.
 
-**Phishing** is social engineering at scale — the deceptive email or message, cast wide, that
+**Phishing** is social engineering at scale: the deceptive email or message, cast wide, that
 lures people into revealing credentials or running malware. **Spear-phishing** is the targeted,
-personalised version aimed at a specific person, and it is far more convincing. These attacks
-succeed not because their victims are foolish but because they exploit how humans are built to
-work.
+personalised version aimed at a specific person, and it is more convincing. These attacks succeed
+because they exploit how humans are built to work. Their victims are not foolish.
 
-The defences that actually help are instructive, because the obvious one is the weakest.
-**Awareness training** matters, but you cannot train people to be perfect forever, and a defence
-that requires every human to be vigilant every time will eventually fail. The stronger approach is
-to *reduce the reliance on human vigilance*: technical controls that make a mistake less
-catastrophic — multi-factor authentication so a phished password alone isn't enough (exactly the
-point of the authentication chapter), email filtering that stops most lures before they arrive,
-and firm *verification procedures* for high-risk actions, so that no single email can move money
-or hand over data without an independent check. Best of all is to **make the safe path the easy
-path**, so that doing the secure thing is also the convenient thing. The goal is not a workforce
-that never errs; it's a system in which an ordinary human error does not become a disaster.
+The defences that help are instructive, because the obvious one is the weakest. **Awareness
+training** matters, but you cannot train people to be perfect forever, and a defence that
+requires every human to be vigilant every time will eventually fail. The stronger approach is to
+*reduce the reliance on human vigilance*: use technical controls that make a mistake less
+catastrophic. Multi-factor authentication means a phished password alone isn't enough, which is
+the point of the authentication chapter. Email filtering stops most lures before they arrive.
+Firm *verification procedures* for high-risk actions mean no single email can move money or hand
+over data without an independent check. Best of all is to **make the safe path the easy path**,
+so that doing the secure thing is also the convenient thing. The goal is a system in which an
+ordinary human error does not become a disaster, rather than a workforce that never errs.
 
 ## Communicating risk to people who aren't technical
 
-A quieter human-factors failure is that we routinely push security *decisions* onto people who
-have no way to make them well. The classic example is the browser **certificate warning**. When
-your browser says a site's certificate can't be trusted, it is telling you something important —
-that it could not verify you're really talking to who you think you are, using exactly the
-identity-proving cryptography from the cryptography chapter. That warning might be the only thing
-standing between you and a man-in-the-middle attacker.
+A quieter human-factors failure is that we push security *decisions* onto people who have no way
+to make them well. The classic example is the browser **certificate warning**. When your browser
+says a site's certificate can't be trusted, it is telling you something important. It could not
+verify you're talking to who you think you are, using the identity-proving cryptography from the
+cryptography chapter. That warning might be the only thing standing between you and a
+man-in-the-middle attacker.
 
 And yet most people click straight through it. Why? Because the message is written in technical
 language they don't understand, it appears at the moment they're trying to do something else, and
 they've been conditioned by past warnings that felt like false alarms to treat it as noise. This
-is not the user's failure; it's a *design* failure — a life-or-death security decision handed to
+is a *design* failure, not the user's. A life-or-death security decision has been handed to
 someone without the information or context to make it, in words that mean nothing to them. Good
-security gives people clear information and, wherever possible, doesn't force impossible judgements
-on them at all. (Why people click through, and what the warning really means, is the second
+security gives people clear information and, wherever possible, doesn't force impossible
+judgements on them. (Why people click through, and what the warning really means, is the second
 question at the end.)
 
 ## Emerging trends: AI on both sides
 
-The ground under all of this is shifting, and the largest force reshaping it is artificial
-intelligence — which, importantly, is a tool for *both* sides.
+The ground under all of this is shifting. The largest force reshaping it is artificial
+intelligence, a tool for *both* sides.
 
 For **attackers**, AI removes the human bottlenecks that used to limit social engineering. The
-tell-tale signs of a phishing email — clumsy grammar, awkward phrasing, generic greetings — vanish
+tell-tale signs of a phishing email (clumsy grammar, awkward phrasing, generic greetings) vanish
 when AI writes flawless, personalised messages at limitless scale. AI can clone a voice or fake a
 video convincingly enough to impersonate an executive authorising a transfer, automate the
 discovery of vulnerabilities, and lower the skill needed to run an attack to almost nothing. The
-very human-factors attacks this chapter is about get cheaper, faster, and far more convincing.
+human-factors attacks this chapter is about get cheaper, faster, and more convincing.
 
-For **defenders**, the same technology is a genuine force multiplier: AI can sift oceans of logs
-for anomalies, triage the flood of alerts that overwhelms human analysts, flag phishing, analyse
-malware, and extend a small security team's reach. Which side does it favour? The honest answer is
-that it lowers costs for both — but by industrialising deception, it especially empowers the
-human-centred attacks that were already the most effective, which is precisely why the defences in
-this chapter matter *more* now, not less. What doesn't change is the fundamental: AI makes the
-attacks in this book cheaper and more convincing, so designing for fallible humans becomes the
-central task, not a peripheral one. (Which side AI favours, and why, is the last question.)
+For **defenders**, the same technology is a force multiplier: AI can sift oceans of logs for
+anomalies, triage the flood of alerts that overwhelms human analysts, flag phishing, analyse
+malware, and extend a small security team's reach. Which side does it favour? The honest answer
+is that it lowers costs for both. But by industrialising deception, it empowers the human-centred
+attacks that were already the most effective. That is why the defences in this chapter matter
+*more* now, not less. What doesn't change is the fundamental: AI makes the attacks in this book
+cheaper and more convincing, so designing for fallible humans becomes the central task rather
+than a peripheral one. (Which side AI favours, and why, is the last question.)
 
 ## Where this connects
 
-- **Every chapter before this one** — any technical control in the book can be undone by a person,
-  which is why human factors is not a topic *beside* security but a thread running through all of
-  it.
-- **Authentication** — MFA is the clearest example of a technical control that makes a human
-  mistake survivable.
-- **The next chapter** — that thread, the human running through every stage, is part of how the
-  final chapter ties the whole book into a single lifecycle.
+This chapter connects back across everything before it. Any technical control in the book can be
+undone by a person, so human factors runs through all of security rather than sitting beside it.
+Authentication is the clearest case: MFA is a technical control that makes a human mistake
+survivable. And that same thread, the human running through every stage, is part of how the next
+chapter ties the whole book into a single lifecycle.
 
 ## Questions to consider
 
-1. "Users are the weakest link." Argue *against* this framing — whose fault is a successful
+1. "Users are the weakest link." Argue *against* this framing: whose fault is a successful
    phish, really?
-2. When your browser shows a certificate warning, what is it actually telling you — and why do
+2. When your browser shows a certificate warning, what is it actually telling you, and why do
    most people click through it anyway?
 3. Give one way AI helps **attackers** and one way it helps **defenders**. Which side do you
    think it favours, and why?

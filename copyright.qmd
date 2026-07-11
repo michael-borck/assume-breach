@@ -14,7 +14,7 @@ Perth, Western Australia
 
 This work is licensed under a **Creative Commons Attribution (CC BY)** licence. You are free to share and adapt the material for any purpose, provided you give appropriate credit. The open-access edition is always the most current.
 
-**AI disclosure:** AI tools were used as thinking partners throughout the drafting, iterating, and refining of this book. The author reviewed, challenged, and took responsibility for every sentence.
+**AI disclosure:** This book was written with AI as a thinking partner, using the method described in its companion volume, [*Conversation, Not Delegation*](https://michael-borck.github.io/conversation-not-delegation/). The author reviewed, challenged, and took responsibility for every sentence.
 
 **Companion website:** [https://michael-borck.github.io/assume-breach](https://michael-borck.github.io/assume-breach)\
 **Source:** [https://github.com/michael-borck/assume-breach](https://github.com/michael-borck/assume-breach)

@@ -1,57 +1,56 @@
 # The Long Game
 
-> *You do not secure a system the way you paint a fence — once, and it's done. Security has no finish line. That is not bad news; it's the whole idea.*
+> *You do not secure a system the way you paint a fence: once, and it's done. Security has no finish line. That is not bad news; it's the whole idea.*
 
-You've reached the end of the concepts. The temptation now is to leave with a checklist — a
+You've reached the end of the concepts. The temptation now is to leave with a checklist: a
 tidy list of controls to apply and boxes to tick. Resist it, because every chapter of this
-book has quietly argued against the checklist. Confidentiality, integrity, and availability
+book has argued against the checklist. Confidentiality, integrity, and availability
 pull against each other, so there is no setting that maximises all three. Controls fail, so no
 single one can be trusted. People slip, so no technology closes the last gap. Threats evolve,
 so yesterday's defence is not tomorrow's. A checklist assumes the work can be finished. The
-honest picture is different: security is not a state you reach. It's a **cycle you keep
-turning**.
+honest picture is different: security is a **cycle you keep turning**, not a state you reach.
 
 ## Joining the dots
 
 Everything in this book fits into one continuous loop. Walk it once, and watch the chapters
 fall into place:
 
-- You **design** a system and decide what actually matters — which information, which assets,
+- You **design** a system and decide what matters: which information, which assets,
   which trade-offs you're willing to make. *(The CIA triad; network architecture.)*
 - You **harden** it, layer by layer, knowing each layer will eventually fail. *(Defence in
   depth; software security; authentication; cryptography; firewalls; web security.)*
-- You **detect**, because you assumed breach — you watch for the intrusion you could not
+- You **detect**, because you assumed breach: you watch for the intrusion you could not
   prevent, on the wire and in the logs. *(Network security.)*
 - You **respond** when it comes, reading the attack and containing it before it spreads.
   *(Incident response.)*
 - You **recover**, keeping the business alive and meeting your obligations under the clock.
   *(Disaster recovery.)*
-- You **investigate** — what happened, how far it went, and who was behind it — without
+- You **investigate** what happened, how far it went, and who was behind it, without
   destroying the evidence in the process. *(Cybercrime and forensics.)*
 - You **audit and learn**, measuring the gaps honestly and feeding what you find back into the
   design. *(Risk management; the assessment mindset behind frameworks like the Essential
   Eight.)*
-- And running through every one of those stages is the **human** — the analyst making the
+- And running through every one of those stages is the **human**: the analyst making the
   call, the user clicking the link, the board deciding what risk to accept. *(Human factors.)*
 
-Then you begin again — because the system changed, the threats changed, and the last turn of
-the loop taught you something. That is the whole-of-life view: not a list of things to have,
-but a set of things you keep *doing*, in order, forever.
+Then you begin again, because the system changed, the threats changed, and the last turn of
+the loop taught you something. That is the whole-of-life view: a set of things you keep
+*doing*, in order, forever, rather than a list of things to have.
 
 ## Why "assume breach" is not defeatism
 
-It might sound bleak to assume you'll be breached. It isn't — it's the assumption that makes
-the loop turn. If you truly believed you could build one perfect wall, you would stop after
+It might sound bleak to assume you'll be breached. It isn't. It's the assumption that makes
+the loop turn. If you believed you could build one perfect wall, you would stop after
 hardening; detection, response, recovery, and investigation would all be wasted effort on a
 wall that never fails. It's *because* you assume the wall fails that you build the rest. Assume
 breach is not surrender. It is the reason a defender's job is a whole lifecycle and not a single
-act — and it is what separates security that survives contact with reality from security that
+act. And it is what separates security that survives contact with reality from security that
 only looks good on the marketing page.
 
 ::: {.callout-tip}
 ## Play the whole thing
 
-Every stage in that loop is easier to *understand* than to *do* — and doing it, under time and
+Every stage in that loop is easier to *understand* than to *do*. Doing it, under time and
 budget pressure, is where the judgement lives. *Incident Zero*, the free print-and-play game
 referenced throughout these chapters, has a full campaign that runs this entire lifecycle end
 to end: design a network, harden it, detect and respond to a breach, recover from the disaster,
@@ -65,18 +64,18 @@ an afternoon. If this book gave you the map, the campaign lets you walk the grou
 If there is one thing to carry out of a first course in defensive security, it is not the
 contents of any single chapter. It is the shape of the loop, and the discipline to keep it
 turning honestly. Anyone can learn a control. The defender's real skill is holding the whole
-lifecycle in view — designing for failure, watching for the breach, responding without panic,
+lifecycle in view: designing for failure, watching for the breach, responding without panic,
 recovering with obligations met, learning from every incident, and starting the next cycle
 wiser than the last.
 
-That's the long game. It doesn't end, and that's exactly the point.
+That's the long game. It has no finish line, and that is by design.
 
 ## Questions to consider
 
-1. Pick a system you use every day — your phone, a bank app, your workplace network. Walk it
+1. Pick a system you use every day (your phone, a bank app, your workplace network). Walk it
    once around the loop: where is it *designed*, *hardened*, *watched*, and *recovered*? Which
    stage looks weakest?
 2. "Assume breach" changes what you build. Name one thing a team would do differently if they
    assumed they'd be breached, versus one that assumed they could keep everyone out.
-3. Of the eight stages in the loop, which do organisations most often neglect — and why do you
+3. Of the eight stages in the loop, which do organisations most often neglect, and why do you
    think that particular one gets skipped?
