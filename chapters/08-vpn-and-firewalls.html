@@ -494,6 +494,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p><img src="../images/ch08-opener.png" class="img-fluid" alt="Pixel-art illustration: a fortified castle gatehouse with a guarded checkpoint at the gate, a sentry inspecting who passes."></p>
 <blockquote class="blockquote">
 <p><em>A firewall decides what traffic to let through. Writing a good rule is harder than it sounds, and that difficulty is the lesson.</em></p>
 </blockquote>
@@ -512,6 +513,16 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="8.2" class="anchored" data-anchor-id="what-a-firewall-does"><span class="header-section-number">8.2</span> What a firewall does</h2>
 <p>A <strong>firewall</strong> is a checkpoint. It sits at a boundary between networks (classically between a trusted internal network and the untrusted internet) and inspects the traffic trying to cross, allowing what’s permitted and blocking the rest. That’s the whole idea: a gate with a guard who checks each arrival against a set of rules. A firewall does not try to block everything. Firewalls run at network boundaries, on individual hosts, and increasingly in cloud environments, but the job is always the same: decide, packet by packet or connection by connection, what’s allowed through.</p>
 <p>The difficulty, and the reason this chapter exists, is that the guard is only as good as the rules they’re given. A firewall doesn’t understand <em>intent</em>; it applies your policy literally. So the security a firewall provides is the quality of the thinking that went into its rules. It’s a recurring truth in this book: the tool is easy, the judgement is hard.</p>
+<div id="fig-firewall" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Network diagram: a firewall between an inside subnet 10.1.1.0/24 with hosts pc1 to pc4 and a dns server, and an outside subnet 10.1.2.0/24, controlling routing and filtering between the two.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-firewall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/firewall-inside-outside.svg" class="img-fluid figure-img" alt="Network diagram: a firewall between an inside subnet 10.1.1.0/24 with hosts pc1 to pc4 and a dns server, and an outside subnet 10.1.2.0/24, controlling routing and filtering between the two.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-firewall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1: A firewall between two zones: an <em>inside</em> network it protects and an <em>outside</em> it distrusts. Everything crossing between <code>10.1.1.0/24</code> and <code>10.1.2.0/24</code> passes through the firewall’s routes and filters. This is the <em>Firewalls</em> lab from the companion environment.
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="the-three-kinds-of-firewall" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="the-three-kinds-of-firewall"><span class="header-section-number">8.3</span> The three kinds of firewall</h2>
@@ -528,6 +539,16 @@ ul.task-list li input[type="checkbox"] {
 <section id="vpns-a-private-tunnel-over-a-public-network" class="level2" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="vpns-a-private-tunnel-over-a-public-network"><span class="header-section-number">8.5</span> VPNs: a private tunnel over a public network</h2>
 <p>A firewall controls <em>what can pass</em>. A <strong>VPN</strong> (virtual private network) protects <em>what’s already passing</em>. It solves the plaintext problem from the last chapter by building an encrypted <strong>tunnel</strong> between your device and a VPN server: everything you send is encrypted before it leaves your machine and only decrypted at the far end. To anyone listening in between (the attacker on the coffee-shop Wi-Fi, the operator of an untrusted network), your traffic is just ciphertext. The VPN gives you confidentiality and integrity across a network you don’t trust, which is what an untrusted wire otherwise denies you.</p>
+<div id="fig-vpn" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Network diagram: an office subnet 10.11.0.0/24 and a datacentre subnet 10.11.1.0/24 connected through gateways, with an eavesdropper positioned on the path between them.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vpn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/vpn-office-datacentre.svg" class="img-fluid figure-img" alt="Network diagram: an office subnet 10.11.0.0/24 and a datacentre subnet 10.11.1.0/24 connected through gateways, with an eavesdropper positioned on the path between them.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vpn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.2: The problem a VPN solves: a client in the office reaches a server in the datacentre across a path an eavesdropper can read. The tunnel turns that middle section into ciphertext. This is the <em>VPN</em> lab, joining office <code>10.11.0.0/24</code> to datacentre <code>10.11.1.0/24</code>.
+</figcaption>
+</figure>
+</div>
 <p>Under the hood, a VPN is the cryptography chapter made practical: it uses asymmetric cryptography to establish trust and exchange keys, fast symmetric encryption for the bulk of the traffic, and integrity checks to ensure nothing was altered in transit. If that hybrid scheme sounds familiar, it should. It’s the same pattern that secures the web.</p>
 </section>
 <section id="what-a-vpn-does-not-do" class="level2" data-number="8.6">

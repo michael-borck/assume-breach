@@ -494,6 +494,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p><img src="../images/ch07-opener.png" class="img-fluid" alt="Pixel-art illustration: a row of signal-lit watchtowers along a castle rampart road at night."></p>
 <blockquote class="blockquote">
 <p><em>Everything you send crosses wires you don’t control. This chapter is about what’s visible there, and what to do about it.</em></p>
 </blockquote>
@@ -516,6 +517,16 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="7.3" class="anchored" data-anchor-id="scanning-mapping-the-target"><span class="header-section-number">7.3</span> Scanning: mapping the target</h2>
 <p><strong>Scanning</strong> is how an attacker (or a defender auditing their own network) turns a vague target into a map. It usually happens in layers. First, find the live hosts: a sweep that asks every address on a network “are you there?” and notes who answers. Then, for each live host, find the open <strong>ports</strong>. A port is a numbered doorway, and each open one usually corresponds to a running <strong>service</strong> (a web server, a file share, a remote-login service). Finally, probe those services to learn <em>which software and version</em> is behind them, because a known version can be matched against known vulnerabilities from the software-security chapter.</p>
 <p>The result is a blueprint: here are your machines, here are the doors that are open, here’s the software behind each one. To an attacker, that’s a shopping list. To a defender, the same scan is an audit. That is why the tools are dual-use, and why the defensive instinct is to <em>close the doors you don’t need</em>. Every service you’re not using is a door you can shut, shrinking the blueprint an attacker gets to work from.</p>
+<div id="fig-scanning" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Network diagram: an attacker host and three servers labelled web, app, and files, all connected to a shared subnet 10.2.0.0/24 behind a gateway to the internet.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scanning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/lab-network-map.svg" class="img-fluid figure-img" alt="Network diagram: an attacker host and three servers labelled web, app, and files, all connected to a shared subnet 10.2.0.0/24 behind a gateway to the internet.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scanning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: A small network as a scanner sees it: an attacker host and three servers, each answering with the ports it has open. This is the <em>Port Scanning</em> lab from the companion environment, mapping the web, app, and file servers across <code>10.2.0.0/24</code>.
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="sniffing-reading-the-wire" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="sniffing-reading-the-wire"><span class="header-section-number">7.4</span> Sniffing: reading the wire</h2>
