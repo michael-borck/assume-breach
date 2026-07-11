@@ -8,11 +8,11 @@ closing with a whole-of-life synthesis. It reads on its own; a course can also a
 chapter by chapter (the course keeps the week → chapter map, not the book). Part of the
 [books.borck.education](https://books.borck.education) series.
 
-> ⚠️ **Early draft.** Chapter 1 and the closing Chapter 12 are written; Chapters 2–3 are
-> seeded; Chapters 4–11 are skeleton stubs marked `*(Draft outline …)*`. The book is
-> **standalone and tool-agnostic by design** — it names no course, week, lab, or tool syntax.
-> Optional **"Play it"** callouts link the free game *Incident Zero* for an experiential
-> dimension. See `CHAPTER_OUTLINE.md`.
+> ✅ **Complete first draft.** All twelve chapters are written in full prose, plus the preface
+> and the practice-environment appendix. The book is **standalone and tool-agnostic by design** —
+> it names no course, week, lab, or tool syntax. Optional **"Play it"** callouts link the free
+> game *Incident Zero* for an experiential dimension. Still to do: a copyright-cleanup review,
+> the generated assets (cover, `llm.txt`, chatbot), and editorial polish. See `CHAPTER_OUTLINE.md`.
 
 ## Structure
 

@@ -46,7 +46,7 @@ here. That is the whole point of the decoupling.
 | 8 | `08-vpn-and-firewalls.qmd` | **Written** (narration captured) | Wk 9 | week-09 |
 | 9 | `09-web-security-and-data-protection.qmd` | **Written** | Wk 10 | week-10 |
 | 10 | `10-cybercrime-and-botnets.qmd` | **Written** (reframed off stale stats) | Wk 11 | week-11 |
-| 11 | `11-human-factors.qmd` | Skeleton | Wk 12 | week-12 |
+| 11 | `11-human-factors.qmd` | **Written** | Wk 12 | week-12 |
 | 12 | `12-the-long-game.qmd` | **Written** | Wk 13 (revision) | — (synthesis) |
 
 Chapters 1–11 parallel Weeks 1–12 (teaching weeks skip 7, tuition-free, so from Chapter 7 on,
