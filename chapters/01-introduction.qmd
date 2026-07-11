@@ -144,8 +144,8 @@ lists some options.
 
 The **CIA triad** and **defence in depth** are the lenses for the whole book. Almost every
 later control exists to protect one leg of the triad or to add one more layer. The next chapter
-makes the attack surface concrete. It covers scanning a system for open ports and services, the
-"scanning" phase seen here from the defender's side.
+begins the technical detail, looking at where software goes wrong and the malware that walks
+through the gaps.
 
 ## Questions to consider
 

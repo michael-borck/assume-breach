@@ -81,7 +81,7 @@ is where non-repudiation and integrity come from.
 Asymmetric cryptography is slower than symmetric, so real systems use **both**: asymmetric
 cryptography to safely exchange a fresh symmetric key, then fast symmetric encryption for the
 conversation. That hybrid is, in essence, what happens every time your browser opens a
-secure connection.
+secure connection. The web calls this scheme Transport Layer Security, or TLS.
 
 ## Hashing: one-way, and not encryption
 
@@ -124,12 +124,10 @@ cryptography is the strongest link. Assume the attacker will go for the others.
 
 ## Where this connects
 
-- **Authentication**: the hashing that stores your password is the integrity side of this
-  chapter.
-- **VPN & firewalls**: the encrypted tunnel a VPN builds rests on the symmetric,
-  asymmetric, and key-exchange ideas here.
-- **Web security & data protection**: the secure connection behind every reputable website is
-  the hybrid scheme described above.
+The hashing that stores your password is the integrity side of **authentication**. The
+encrypted tunnel a VPN builds rests on the symmetric, asymmetric, and key-exchange ideas here,
+as **VPN and firewalls** will show. And the secure connection behind every reputable website is
+the hybrid scheme described above, which returns in **web security and data protection**.
 
 ## Questions to consider
 

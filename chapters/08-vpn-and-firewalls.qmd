@@ -121,11 +121,10 @@ what the firewall misses?" is always another layer rather than a single better w
 
 ## Where this connects
 
-- **Network security**: these are the two defences against the scanning, sniffing, and
-  man-in-the-middle attacks of the previous chapter.
-- **Cryptography**: a VPN's tunnel is the hybrid encryption scheme from that chapter, deployed.
-- **Incident & disaster planning**: the monitoring that backs up a firewall is what feeds the
-  detection stage of incident response.
+A firewall and a VPN are the two defences against the scanning, sniffing, and man-in-the-middle
+attacks of the previous chapter, **network security**. A VPN's tunnel is the hybrid encryption
+scheme from **cryptography**, deployed. And the monitoring that backs up a firewall feeds the
+detection stage of incident response in **incident and disaster planning**.
 
 ## Questions to consider
 

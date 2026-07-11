@@ -35,8 +35,8 @@ An **incident** is a security event that matters: a confirmed compromise, a brea
 caused by an attack. **Incident response** is the disciplined process of handling it, and a good
 process runs through recognisable stages:
 
-- **Detect.** You cannot respond to what you cannot see, which is why monitoring and logging
-  (from the network chapter) exist. The faster you detect, the less damage is done. The time an
+- **Detect.** You cannot respond to what you cannot see, which is why monitoring and logging,
+  covered in the network chapter, exist. The faster you detect, the less damage is done. The time an
   attacker sits undiscovered ("dwell time") is often measured in weeks, and every day of it costs.
 - **Respond.** Contain the incident before it spreads: isolate the affected systems, cut the
   attacker's access, stop the bleeding. This is triage: the goal is to limit the damage, not yet
@@ -110,7 +110,7 @@ decision: the cost-benefit reasoning of the previous chapter, applied to recover
 
 A modern breach is a legal and reputational problem as much as a technical one, and both run on
 clocks. Many jurisdictions now have **mandatory breach-notification** rules. The best-known, the
-EU's GDPR, requires reporting certain breaches within **72 hours**. Recovery happens under a
+EU's General Data Protection Regulation (GDPR), requires reporting certain breaches within **72 hours**. Recovery happens under a
 regulatory deadline, with penalties for silence. Meanwhile the *crowd* (customers, staff, media,
 regulators) wants to know what happened, and how you communicate under pressure can matter as
 much as the technical fix. Handled well, honest and timely disclosure preserves trust; handled
@@ -146,12 +146,11 @@ Reading about incident response is one thing; running one against a clock is ano
 
 ## Where this connects
 
-- **Risk management.** This chapter is what you do when a risk you mitigated or accepted happens
-  anyway; the hot/warm/cold-site choice is that chapter's cost-benefit reasoning applied.
-- **Cybercrime & forensics.** After you've contained an incident, the investigation of *how* it
-  happened is a discipline of its own.
-- **Web security & data protection.** The breach-notification obligations here are grounded in
-  the data-protection law covered there.
+This chapter is what you do when a risk from **risk management** happens anyway, and the hot,
+warm, and cold-site choice is that chapter's cost-benefit reasoning applied. Once an incident is
+contained, the investigation of *how* it happened is a discipline of its own, taken up in
+**cybercrime, botnets and forensics**. And the breach-notification obligations here are grounded
+in the data-protection law of **web security and data protection**.
 
 ## Questions to consider
 

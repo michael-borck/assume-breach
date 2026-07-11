@@ -12,7 +12,7 @@ it, and the many ways attackers try to defeat both.
 
 By the end you should be able to:
 
-- Distinguish **identification**, **authentication**, and **authorization**, and explain
+- Distinguish **identification**, **authentication**, and **authorisation**, and explain
   mutual authentication and ID proofing.
 - Explain the **three factors** of authentication and what **multi-factor authentication**
   actually adds.
@@ -35,9 +35,9 @@ said. Typing the password that matches the username is authentication. This is t
 attackers most want to defeat, because a successful fake here makes everything downstream trust
 them.
 
-**Authorization** is what happens *after*: given that we now believe who you are, what are you
+**Authorisation** is what happens *after*: given that we now believe who you are, what are you
 allowed to do? A verified user is not an all-powerful one. Authentication gets you through the
-door. Authorization decides which rooms you may enter. Keeping these separate lets a
+door. Authorisation decides which rooms you may enter. Keeping these separate lets a
 system trust *who* you are while still limiting *what* you can do. This is the principle of least
 privilege in action.
 
@@ -93,7 +93,7 @@ database of hashes is less catastrophic than a stolen database of passwords.
 ### Windows and NTLM
 
 You'll see this in practice with Windows authentication. Rather than keep passwords, Windows
-stores password hashes and uses them in its logon process. The older **NTLM** scheme, still
+stores password hashes and uses them in its logon process. The older **NTLM** (NT LAN Manager) scheme, still
 present for compatibility in many environments, is one such mechanism. The relevant point for a
 defender (and the reason password-cracking exercises use these) is that an attacker who reaches
 those stored hashes doesn't have your password *yet*, but they have the raw material to try to
@@ -144,10 +144,10 @@ together.
 
 ## Where this connects
 
-- **Cryptography**: the hashing this chapter relies on is the subject of the next chapter.
-- **Network security**: sniffing credentials reappears when we capture packets on the wire.
-- **Software security & malware**: stolen credentials, as in the Target breach, are how many
-  intrusions begin.
+The hashing this chapter relies on is the subject of the next chapter, **cryptography**.
+Sniffing for credentials reappears in **network security**, when we capture packets on the
+wire. And stolen credentials, as in the Target breach, are how many intrusions begin, a thread
+running back to **software security and malware**.
 
 ## Questions to consider
 

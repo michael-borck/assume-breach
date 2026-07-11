@@ -126,12 +126,11 @@ lesson in why security is a budget problem as much as a technical one. →
 
 ## Where this connects
 
-- **Authentication**: the credentials a sniffer harvests are the ones that chapter taught you to
-  protect; encryption in transit is what stops them leaking.
-- **Cryptography**: the encryption that defeats sniffing is the hybrid TLS scheme from that
-  chapter, in action.
-- **VPN & firewalls**: the next chapter is about the two defences that build on this one: a
-  firewall to control what traffic is allowed, and a VPN to protect it end to end.
+The credentials a sniffer harvests are the ones **authentication** taught you to protect, and
+encryption in transit is what stops them leaking. That encryption is the hybrid TLS scheme from
+**cryptography**, in action. And the next chapter, **VPN and firewalls**, covers the two
+defences that build on this one: a firewall to control what traffic is allowed, and a VPN to
+protect it end to end.
 
 ## Questions to consider
 

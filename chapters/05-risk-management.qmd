@@ -129,12 +129,10 @@ out loud. → [incidentzero.retroverse.studio](https://incidentzero.retroverse.s
 
 ## Where this connects
 
-- **Incident & disaster planning.** The next chapter is what you do when a risk you accepted or
-  mitigated happens anyway.
-- **The whole book.** Every control in every other chapter is a *mitigation*; this chapter is how
-  you decide which ones are worth deploying.
-- **Frameworks in practice.** A maturity assessment against a standard like the Essential Eight
-  is this chapter's risk-based reasoning, applied control by control.
+The next chapter, **incident and disaster planning**, is what you do when a risk you accepted
+or mitigated happens anyway. Every control elsewhere in the book is a *mitigation*, and this
+chapter is how you decide which ones are worth deploying. A maturity assessment against a
+standard like the Essential Eight is this same risk-based reasoning, applied control by control.
 
 ## Questions to consider
 

@@ -1,4 +1,4 @@
-# Cybercrime & Botnets
+# Cybercrime, Botnets & Forensics
 
 > *Modern attacks are a business. Understanding the economics (who profits, and how) tells you where the defences have to go.*
 
@@ -62,7 +62,7 @@ and each new victim joins the fleet, waiting for orders.
 The power, and the answer to the first question at the end, is that a botnet's value is
 **aggregate**. A single compromised home PC is nearly worthless to a criminal. A *million* of them,
 acting together on command, are a weapon and a revenue stream: they can blast a target off the
-internet with a **distributed denial-of-service** attack (rented out by the hour), send spam and
+internet with a **distributed denial-of-service (DDoS)** attack (rented out by the hour), send spam and
 phishing at vast scale, mine cryptocurrency on someone else's electricity bill, harvest
 credentials and card numbers, or serve as a haystack of proxies to hide the operator's
 location. This is why individuals underestimate the cost of being infected. *Your*
@@ -78,7 +78,7 @@ ordinary PCs, watched for banking logins, and siphoned them off. When its source
 leaked, it spawned a generation of variants. Successful
 malware becomes a *platform* that others build on.
 
-**Mirai** showed a newer front. Instead of PCs, it infected **Internet-of-Things** devices
+**Mirai** showed a newer front. Instead of PCs, it infected **Internet-of-Things (IoT)** devices
 (home routers, security cameras, DVRs) by trying a short list of *default passwords* the
 owners had never changed. From those humble devices it assembled a botnet powerful enough to
 launch some of the largest DDoS attacks ever seen. The lesson is that **cheap, insecure, unattended
@@ -123,8 +123,8 @@ when you know who did it. → [incidentzero.retroverse.studio](https://incidentz
 This chapter connects to several others. **Software security & malware** supplies the weapons this
 economy trades in: the trojans, worms, and ransomware from that chapter. **Network security**
 matters because a botnet's command-and-control and DDoS traffic are what network monitoring exists
-to spot. **Incident & disaster planning** covers forensics, the investigation stage that follows
-the containment and recovery of an incident.
+to spot. Forensics, the investigation stage in this chapter, follows on from the containment and
+recovery in **incident and disaster planning**.
 
 ## Questions to consider
 
