@@ -8,6 +8,7 @@ book:
   author: "Michael Borck"
   date: today
   license: "CC BY"
+  cover-image: images/cover.png
   favicon: favicon.svg
   page-navigation: true
   chapters:
@@ -80,4 +81,5 @@ format:
       - bottom=0.75in
     include-in-header: pdf-header.tex
     include-before-body:
+      - cover-page.tex
       - copyright-page.tex
