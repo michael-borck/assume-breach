@@ -1,5 +1,7 @@
 # Authentication & Access
 
+![](../images/ch03-opener.png){fig-alt="Pixel-art illustration: a guard at a torch-lit castle gatehouse checking a traveller's keys and sealed pass at the portcullis."}
+
 > *A password isn't stored as a password. Understanding what's actually kept, and how it's attacked, is the whole of this chapter.*
 
 Almost every system begins with the same question: *who are you, and are you allowed to be

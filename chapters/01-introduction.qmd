@@ -1,5 +1,7 @@
 # Introduction to Information Security
 
+![](../images/ch01-opener.png){fig-alt="Pixel-art illustration: a great stone fortress with concentric rings of walls and a lone watchman on the outer rampart at dusk."}
+
 > *What are we protecting, from whom, and how would we even know if we'd succeeded?*
 
 This first chapter sets up the ideas the rest of the book builds on. There is nothing to

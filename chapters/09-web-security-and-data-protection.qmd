@@ -1,5 +1,7 @@
 # Web Security & Data Protection
 
+![](../images/ch09-opener.png){fig-alt="Pixel-art illustration: a bustling medieval market square just inside an open castle gate."}
+
 > *The web is where most of us are attacked, because it's where most of us are. And behind every web app is data someone is legally obliged to protect.*
 
 Almost everything now runs through a web browser: banking, work, government, shopping, social

@@ -1,5 +1,7 @@
 # Network Security
 
+![](../images/ch07-opener.png){fig-alt="Pixel-art illustration: a row of signal-lit watchtowers along a castle rampart road at night."}
+
 > *Everything you send crosses wires you don't control. This chapter is about what's visible there, and what to do about it.*
 
 Up to now we've mostly defended individual systems. But systems rarely stand alone. They talk to
@@ -43,6 +45,8 @@ software behind each one. To an attacker, that's a shopping list. To a defender,
 an audit. That is why the tools are dual-use, and why the defensive instinct is to *close the
 doors you don't need*. Every service you're not using is a door you can shut, shrinking the
 blueprint an attacker gets to work from.
+
+![A small network as a scanner sees it: an attacker host and three servers, each answering with the ports it has open. This is the *Port Scanning* lab from the companion environment, mapping the web, app, and file servers across `10.2.0.0/24`.](../images/lab-network-map.svg){#fig-scanning fig-alt="Network diagram: an attacker host and three servers labelled web, app, and files, all connected to a shared subnet 10.2.0.0/24 behind a gateway to the internet."}
 
 ## Sniffing: reading the wire
 

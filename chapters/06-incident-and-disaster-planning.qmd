@@ -1,5 +1,7 @@
 # Incident & Disaster Planning
 
+![](../images/ch06-opener.png){fig-alt="Pixel-art illustration: guards forming a bucket-brigade line against a fire burning inside a castle keep at night."}
+
 > *The question isn't whether something will go wrong, but whether you're ready when it does.*
 
 This is the chapter where *assume breach* stops being a slogan and becomes a plan. Everything so

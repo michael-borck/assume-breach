@@ -1,5 +1,7 @@
 # Risk Management
 
+![](../images/ch05-opener.png){fig-alt="Pixel-art illustration: an overhead view of a war-room table with a parchment map and bowls of counting tokens by candlelight."}
+
 > *You can't protect everything equally, so you don't. Risk management is how a defender decides where the money and effort go.*
 
 Everything before this chapter was about *how* to defend: controls, cryptography, layered

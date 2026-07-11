@@ -1,5 +1,7 @@
 # Cybercrime, Botnets & Forensics
 
+![](../images/ch10-opener.png){fig-alt="Pixel-art illustration: a crowded underground thieves' guild hall packed with hooded rogues, a criminal economy at scale."}
+
 > *Modern attacks are a business. Understanding the economics (who profits, and how) tells you where the defences have to go.*
 
 It's tempting to picture the attacker as a lone figure in a hoodie, breaking in for the challenge

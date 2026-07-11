@@ -1,5 +1,7 @@
 # Human Factors & Emerging Trends
 
+![](../images/ch11-opener.png){fig-alt="Pixel-art illustration: at a lamplit castle gate, a cloaked stranger hands a forged sealed document to a guard who reads it."}
+
 > *Most breaches don't defeat the technology. They walk past it, through a person. This is where the whole book comes back to earth.*
 
 Every chapter until now has been, at heart, about machines: flaws, controls, cryptography,

@@ -1,0 +1,18 @@
+{
+  "prompt": "pixel, detailed pixel art, 16-bit retro game art, a lone armoured watchman standing on a high castle rampart at dawn overlooking a vast realm of hills and distant walls, first light breaking on the horizon, calm and resolute, cold grey stone and warm orange torchlight, moody high-contrast lighting, limited palette, crisp pixels, subtle dithering",
+  "provider": "swarmui",
+  "model": "juggernautXL_v9",
+  "size": [
+    1216,
+    832
+  ],
+  "negative": "blurry, jpeg artifacts, smooth gradients, 3d render, photorealistic, soft focus, text, letters, watermark, signature, extra limbs, deformed, cluttered, modern",
+  "loras": [
+    "pixel-art-xl:0.9",
+    "detail-tweaker-xl:0.8"
+  ],
+  "cfg_scale": 7.0,
+  "steps": 36,
+  "sampler": "dpmpp_2m",
+  "scheduler": "karras"
+}

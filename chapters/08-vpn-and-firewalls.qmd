@@ -1,5 +1,7 @@
 # VPN & Firewalls
 
+![](../images/ch08-opener.png){fig-alt="Pixel-art illustration: a fortified castle gatehouse with a guarded checkpoint at the gate, a sentry inspecting who passes."}
+
 > *A firewall decides what traffic to let through. Writing a good rule is harder than it sounds, and that difficulty is the lesson.*
 
 The last chapter left us with two problems: networks let attackers *reach* systems they
@@ -34,6 +36,8 @@ The difficulty, and the reason this chapter exists, is that the guard is only as
 rules they're given. A firewall doesn't understand *intent*; it applies your policy literally. So
 the security a firewall provides is the quality of the thinking that went into its rules. It's a
 recurring truth in this book: the tool is easy, the judgement is hard.
+
+![A firewall between two zones: an *inside* network it protects and an *outside* it distrusts. Everything crossing between `10.1.1.0/24` and `10.1.2.0/24` passes through the firewall's routes and filters. This is the *Firewalls* lab from the companion environment.](../images/firewall-inside-outside.svg){#fig-firewall fig-alt="Network diagram: a firewall between an inside subnet 10.1.1.0/24 with hosts pc1 to pc4 and a dns server, and an outside subnet 10.1.2.0/24, controlling routing and filtering between the two."}
 
 ## The three kinds of firewall
 
@@ -87,6 +91,8 @@ leaves your machine and only decrypted at the far end. To anyone listening in be
 attacker on the coffee-shop Wi-Fi, the operator of an untrusted network), your traffic is just
 ciphertext. The VPN gives you confidentiality and integrity across a network you don't trust,
 which is what an untrusted wire otherwise denies you.
+
+![The problem a VPN solves: a client in the office reaches a server in the datacentre across a path an eavesdropper can read. The tunnel turns that middle section into ciphertext. This is the *VPN* lab, joining office `10.11.0.0/24` to datacentre `10.11.1.0/24`.](../images/vpn-office-datacentre.svg){#fig-vpn fig-alt="Network diagram: an office subnet 10.11.0.0/24 and a datacentre subnet 10.11.1.0/24 connected through gateways, with an eavesdropper positioned on the path between them."}
 
 Under the hood, a VPN is the cryptography chapter made practical: it uses asymmetric cryptography
 to establish trust and exchange keys, fast symmetric encryption for the bulk of the traffic, and
