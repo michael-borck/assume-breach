@@ -129,6 +129,11 @@ purpose.** An ethical practitioner acts with the owner's authorisation, within a
 to *find and fix* weaknesses before a real attacker exploits them. The same action, without
 permission, is an offence.
 
+This is where the old "hats" come from. A **white hat** works with authorisation, to find and
+fix. A **black hat** breaks in for their own gain or to cause harm. A **grey hat** acts without
+permission while believing the intent is good. Good intentions do not move the line. What
+separates the three is authorisation.
+
 That line is sharp and it matters. Practise only in an environment you own or are explicitly
 authorised to use. The skills are dual-use. Your professionalism is what makes them defensive.
 
