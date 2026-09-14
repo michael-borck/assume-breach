@@ -162,3 +162,36 @@ through the gaps.
    things *worse*. What was traded away?
 3. Why would a *defender* bother learning the phases of an attack? What specifically do you gain
    by understanding how an attacker thinks?
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask the AI to argue that **availability** is the most important leg of the triad, then to
+   argue the same for **integrity**. Which case is stronger, and does the answer change once you
+   name the organisation?
+2. Describe a system you use daily and ask where its defence in depth is thinnest. Then ask what
+   evidence it used. Much of it will be inference from the category rather than from your system.
+3. Ask for the strongest case *against* "assume breach" as a design principle. A real answer
+   costs something, so reject the version that concedes immediately.
+
+**Keywords to steer with.** CIA triad · non-repudiation · security control · preventive,
+detective, corrective · defence in depth · attack surface · least privilege · reconnaissance ·
+dual-use · authorisation
+
+**A starting prompt.**
+
+> **Role:** You are a security architect who reviews system designs for a mid-sized
+> organisation.
+>
+> **Task:** Take the system I describe and tell me which leg of the CIA triad its design
+> favours, and what it gave up to get there.
+>
+> **Context:** I have just read an introductory chapter on the CIA triad, security controls,
+> defence in depth, and the phases of an attack. I want to practise seeing the trade-off rather
+> than reciting the three words. The system is [describe it: what it holds, who uses it, what
+> happens if it is down for a day].
+>
+> **Format:** One paragraph naming the favoured property and the evidence for it. Then a table:
+> Property | How it is protected | What was traded away. End with the single question you would
+> ask the system's owner.

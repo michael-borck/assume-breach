@@ -159,3 +159,36 @@ running back to **software security and malware**.
    attacker gets in anyway. What does that tell you about relying on it?
 3. Why does adding **salt** defeat a rainbow table, when it doesn't make any single password
    harder to guess?
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask the AI to explain why a system stores a hash rather than a password. Then ask it to
+   explain the same thing to someone who says "but that site emailed me my own password, so
+   clearly it works fine."
+2. MFA fails in specific ways. Ask for three documented MFA bypasses, then ask which ones
+   *defeated* the second factor and which simply went around it. The distinction is the whole
+   point.
+3. Passwordless is sold as the end of the password. Ask what it actually replaces, and which
+   problem it inherits unchanged.
+
+**Keywords to steer with.** identification, authentication, authorisation · mutual
+authentication · ID proofing · three factors · MFA fatigue · NTLM · hash · salt · rainbow table ·
+credential stuffing · single sign-on · passkeys
+
+**A starting prompt.**
+
+> **Role:** You are a security engineer explaining authentication design to a developer who is
+> about to build a login system for the first time.
+>
+> **Task:** Talk me out of three tempting shortcuts a developer takes when storing and checking
+> credentials, and say what each one costs on the day the database leaks.
+>
+> **Context:** I have read a chapter on identification, authentication and authorisation, the
+> three factors, hashing and salting, and the standard password attacks. I want to test whether
+> I could spot a carelessly built login system from the outside, as an ordinary user.
+>
+> **Format:** One short section per shortcut: what it looks like in the code, what it costs on
+> breach, what to do instead. Then finish with three things a user can observe from the outside
+> that hint the system was built without care.

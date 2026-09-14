@@ -1,5 +1,10 @@
 # Editorial Style — Assume Breach
 
+> **Note:** the workspace-level [`../STYLE.md`](../STYLE.md) is now the house style for the
+> whole series. This file is kept because **Rule 2 (no decorative emoji) applies to this
+> book alone**, because three other books use emoji as a declared navigation system. Everything
+> else here matches the root guide; read that one first.
+
 House style for the prose, and the brief for the editorial pass. Apply to every chapter, the
 preface (`index.qmd`), and the appendix. This is a **line edit for style, not a rewrite of
 substance**: preserve all meaning, structure, headings, examples, cross-references, callouts, and

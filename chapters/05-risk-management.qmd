@@ -144,3 +144,35 @@ standard like the Essential Eight is this same risk-based reasoning, applied con
    it? Show your reasoning.
 3. Give a real risk your own organisation (or somewhere you've studied or worked) probably
    **accepts** rather than fixes. Why is that a defensible choice?
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Give the AI an SLE and an ARO and ask whether a control is worth buying. Then change the
+   impact to something that cannot be priced, such as a death or a ruined reputation, and ask it
+   to redo the analysis. Watch what it does with the number it cannot get.
+2. Ask it to argue that a risk your organisation currently accepts *should* be accepted. A good
+   answer names who holds the authority to accept it, not just why it is cheap.
+3. Ask where quantitative risk analysis is used as theatre rather than as reasoning, and press
+   for the tells you could spot in someone else's risk register.
+
+**Keywords to steer with.** likelihood times impact · risk appetite · intrinsic and acquired
+value · SLE · ARO · ALE · residual risk · avoid, mitigate, transfer, accept · risk register ·
+Essential Eight · ISO/IEC 27001 · NIST Cybersecurity Framework
+
+**A starting prompt.**
+
+> **Role:** You are a risk analyst who has had cost-benefit cases rejected by a sceptical
+> finance director.
+>
+> **Task:** Build the business case for one security control, then attack your own case the way
+> that finance director would.
+>
+> **Context:** I have read a chapter on risk as likelihood times impact, the SLE, ARO and ALE
+> arithmetic, residual risk, and the four risk treatments. The control I am considering is [name
+> it], for an organisation that [describe its size, sector, and what it holds].
+>
+> **Format:** A short case with explicit numbers and stated assumptions. Then a rebuttal section
+> listing every number you would challenge and why. End by naming the single figure the whole
+> case turns on, and how you would go about getting a better estimate of it.

@@ -131,3 +131,37 @@ breach-notification clock here, the same one that drives a real breach response.
    what are they obliged to do, and why does that obligation exist at all?
 3. If an attacker steals your active **session token**, what can they do that they couldn't with
    just your username, and what, if anything, can they still *not* do?
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask the AI to explain session hijacking to someone who has just changed their password and
+   believes they are now safe.
+2. Ask what a mandatory breach-notification regime requires, then ask where the judgement calls
+   sit. The phrase "likely to result in serious harm" is doing most of the work, and it is not
+   self-explanatory.
+3. Ask it to argue that data-protection law has improved security, then that it mostly produces
+   paperwork. Ask which case rests on evidence and which on assertion.
+
+**Keywords to steer with.** untrusted input · SQL injection · parameterised query · output
+encoding · stored and reflected XSS · content security policy · session token · HttpOnly ·
+session fixation · Australian Privacy Principles · GDPR · Notifiable Data Breaches · data
+minimisation
+
+**A starting prompt.**
+
+> **Role:** You are a privacy officer who also reads code, briefing a product team the morning
+> after a vulnerability report lands.
+>
+> **Task:** Take one web vulnerability and trace it all the way to its legal consequences. Show
+> me the exact point where a technical failure becomes a reportable event.
+>
+> **Context:** I have read a chapter linking web vulnerabilities (injection, cross-site
+> scripting, session attacks) to data-protection obligations and mandatory breach notification.
+> The vulnerability is [pick one, or ask me]. The organisation holds [describe the personal data]
+> and operates in [jurisdiction].
+>
+> **Format:** A step-by-step chain from the flaw to the notification decision, naming who has to
+> act at each step. End with the moment the clock starts, and why that moment is harder to pin
+> down than the rules make it sound.

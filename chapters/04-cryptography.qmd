@@ -138,3 +138,34 @@ the hybrid scheme described above, which returns in **web security and data prot
    might use *both*.
 3. What's the practical difference between **hashing** a message and **encrypting** it? When
    would you want each?
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. If modern ciphers are effectively unbreakable, why do encrypted systems still get breached?
+   Ask for three real cases, then check for yourself whether the failure was the maths or the
+   plumbing around it.
+2. "I hashed it, so it is secret." Ask the AI to defend that sentence as convincingly as it can,
+   then to demolish it. The defence will read well, which is the lesson.
+3. Ask what post-quantum cryptography actually breaks. Push back if it treats symmetric and
+   asymmetric as equally doomed, because they are not.
+
+**Keywords to steer with.** key space · Kerckhoffs's principle · known-plaintext ·
+chosen-plaintext · key exchange · hybrid encryption · salt · rainbow table · forward secrecy ·
+harvest-now-decrypt-later · key management
+
+**A starting prompt.**
+
+> **Role:** You are a security engineer who has had to explain cryptographic failures to
+> non-technical executives.
+>
+> **Task:** Walk me through three real breaches where strong cryptography was in place and the
+> data still leaked. For each, name the layer that actually failed.
+>
+> **Context:** I have just read a chapter on symmetric and asymmetric encryption, hashing, and
+> why attackers go around the maths rather than through it. I want to test whether that claim
+> survives contact with real incidents.
+>
+> **Format:** A paragraph per breach, then a table: Incident | What was encrypted | What actually
+> failed | What would have prevented it. Flag any case where the public reporting is disputed.

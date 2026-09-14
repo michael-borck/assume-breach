@@ -162,3 +162,35 @@ in the data-protection law of **web security and data protection**.
    and what would you change?
 3. Why do so many disaster-recovery plans fail at the moment they're needed? What single
    practice would most reduce that?
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask the AI to write a recovery plan for a small business, then ask it which parts of its own
+   plan are untested hope rather than verified capability. It should be able to tell the
+   difference, and the exercise is more useful than the plan.
+2. Stated RPOs and actual backup schedules come apart constantly. Ask for five ways that happens
+   in real organisations, and which one it has seen described most often.
+3. Ask it to argue for paying a ransom, then against. Sort the arguments into those about this
+   incident and those about what happens the next time.
+
+**Keywords to steer with.** incident response · business continuity · disaster recovery · dwell
+time · RTO · RPO · 3-2-1 backup · immutable backup · hot, warm and cold site · tabletop exercise ·
+breach notification · 72-hour clock
+
+**A starting prompt.**
+
+> **Role:** You are the incident commander running a tabletop exercise for a company that has
+> never rehearsed one.
+>
+> **Task:** Take me through a ransomware scenario hour by hour, stopping at every point where a
+> decision has to be made and telling me who should be making it.
+>
+> **Context:** I have read a chapter on incident response, continuity versus recovery, RTO and
+> RPO, the 3-2-1 rule, and the ransom decision under a notification clock. The organisation is
+> [describe it]. Assume its backups exist but have never been restore-tested.
+>
+> **Format:** A timeline in hours. At each decision point give the choice, who owns it, what they
+> need to know, and what goes wrong if they get it wrong. End with the three questions this
+> company should answer before an incident rather than during one.

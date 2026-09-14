@@ -139,3 +139,35 @@ detection stage of incident response in **incident and disaster planning**.
 2. A VPN "makes you anonymous / makes you safe." What does it actually protect, and what does it
    *not*?
 3. Give one example of a second layer catching something a firewall alone would miss.
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask the AI to write a small firewall rule set, then ask it to find the hole in its own rules.
+   Order and over-broad specificity are where the mistakes hide, and it will have made at least
+   one.
+2. Take a consumer VPN advertisement and ask the AI to assess it claim by claim: what the
+   product can deliver, what it cannot, and which claims are true but irrelevant.
+3. Default-deny is the professional answer and it generates support tickets. Ask where that
+   friction is worth paying and where a team is fooling itself.
+
+**Keywords to steer with.** packet filtering · stateful inspection · application-layer firewall ·
+default-deny · rule order · implicit deny · egress filtering · tunnel · split tunnelling · trust
+relocation · port 443 · web application firewall
+
+**A starting prompt.**
+
+> **Role:** You are a firewall administrator reviewing a colleague's rule set before it goes
+> live.
+>
+> **Task:** Find every rule that is redundant, mis-ordered, or broader than it needs to be, and
+> say exactly what each mistake would let through.
+>
+> **Context:** I have read a chapter on packet-filtering, stateful and application-layer
+> firewalls, default-deny versus default-allow, and why rule order matters. The rules are for
+> [describe the network and what it must allow]. My rule set is: [paste it].
+>
+> **Format:** One line per finding: rule number, the problem, what gets through, the corrected
+> rule. Then give me the rewritten set in the order you would deploy it, with a one-line reason
+> for the ordering.

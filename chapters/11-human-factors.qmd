@@ -123,3 +123,36 @@ chapter ties the whole book into a single lifecycle.
    most people click through it anyway?
 3. Give one way AI helps **attackers** and one way it helps **defenders**. Which side do you
    think it favours, and why?
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Take a phishing email you have actually received, paste it in, and ask which psychological
+   levers it pulls. Then ask which defence would have caught it *without* relying on you noticing
+   anything.
+2. Ask the AI to argue against "users are the weakest link" as hard as it can, then ask what that
+   framing costs an organisation that believes it. The second answer is where the value is.
+3. AI is claimed to help both sides. Ask for the strongest case that it favours attackers, then
+   the strongest case for defenders, and sort which parts rest on evidence and which on
+   projection.
+
+**Keywords to steer with.** social engineering · authority, urgency, scarcity · pretexting ·
+spear-phishing · business email compromise · MFA fatigue · alert fatigue · certificate warning ·
+warning blindness · making the safe path the easy path · deepfake · voice cloning
+
+**A starting prompt.**
+
+> **Role:** You are a security awareness lead who thinks most awareness training is a waste of
+> money.
+>
+> **Task:** Design a phishing defence for a 200-person company that *assumes* people will be
+> fooled, and explain what each layer catches that the others miss.
+>
+> **Context:** I have read a chapter arguing that blaming users excuses bad system design, and
+> that the goal is to make mistakes survivable rather than to train them away. The company holds
+> [describe the data] and would be targeted by [describe who and why].
+>
+> **Format:** Layers in the order you would fund them, each with its cost and its failure mode.
+> End with the one thing you would spend nothing on, and why you would defend that decision to a
+> board.

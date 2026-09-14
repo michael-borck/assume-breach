@@ -144,3 +144,37 @@ protect it end to end.
 3. Imagine you captured your own device's traffic for one minute. What do you think you'd be
    able to read, and what would be hidden? What does that difference tell you about how you
    should send sensitive information?
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask what someone sniffing your network could read ten years ago and what has since gone dark.
+   Then ask what remains visible *even under* HTTPS, because that answer is longer than most
+   people expect.
+2. Ask the AI to explain ARP spoofing to someone who believes "I am on my own Wi-Fi, so I am
+   fine."
+3. Segmentation is recommended everywhere and implemented badly everywhere. Ask why it is hard
+   in practice rather than in principle, and make it answer about organisations rather than
+   about the technology.
+
+**Keywords to steer with.** port scan · service fingerprinting · promiscuous mode · packet
+capture · plaintext protocols · Telnet, FTP, HTTP · spoofing · ARP spoofing · DNS spoofing ·
+man-in-the-middle · encryption in transit · TLS · SNI · traffic metadata · segmentation
+
+**A starting prompt.**
+
+> **Role:** You are a network security analyst who teaches packet capture to people seeing it
+> for the first time.
+>
+> **Task:** Describe what one minute of my device's traffic would reveal to someone else on the
+> same network, and what would stay hidden from them.
+>
+> **Context:** I have read a chapter on scanning, sniffing, spoofing and man-in-the-middle
+> attacks, and on how encryption in transit removes most of what a passive listener can read.
+> Assume a laptop on public Wi-Fi doing ordinary things: browsing, email, messaging, a video
+> call.
+>
+> **Format:** A table: What I do | What a sniffer sees | What stays hidden | Why. Then a
+> paragraph on the metadata that survives encryption, and what someone could infer from that
+> alone.

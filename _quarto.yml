@@ -47,9 +47,15 @@ book:
     - text: Download EPUB
       icon: book
       href: assume-breach.epub
+    - text: Download llm.txt
+      icon: robot
+      href: llm.txt
     - text: GitHub
       icon: github
       href: https://github.com/michael-borck/assume-breach
+    - text: DeepWiki
+      icon: search
+      href: https://deepwiki.com/michael-borck/assume-breach
     - text: "Companion: Conversation, Not Delegation"
       icon: chat-left-text
       href: https://michael-borck.github.io/conversation-not-delegation/
@@ -83,3 +89,7 @@ format:
     include-before-body:
       - cover-page.tex
       - copyright-page.tex
+  epub:
+    toc: true
+    toc-depth: 1
+    css: epub-styles.css

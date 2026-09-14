@@ -62,7 +62,18 @@ answer well *after* a later chapter, which is deliberate.
 Using AI to learn this material is a good idea, and this book encourages it. Ask an assistant
 to explain a concept a second way, to quiz you, or to challenge your answer to one of the
 end-of-chapter questions. What matters is that you stay in the conversation and do the
-thinking. Use it to understand faster. Do not use it to skip understanding. If you want to get
+thinking. Use it to understand faster. Do not use it to skip understanding.
+
+Every chapter therefore ends with a **Take it to the AI** section. It gives you a few questions
+worth arguing about, the keywords that let you steer a conversation you cannot yet phrase, and
+a starting prompt written out in full. Those prompts spell out four things: the role the
+assistant should take, the task, the context it needs, and the format you want back. Write all
+four if you are running a small model on your own machine, the kind with a few billion
+parameters that fits on a laptop. Its defaults come from a narrower range, and the structure is
+doing work the model will not do for you. On a current frontier model the task and context
+lines are usually enough on their own, and the rest is a checklist for your own thinking. Either
+way, the first answer is where the conversation starts. Push back on it, ask for the evidence,
+and make it defend the parts that sounded most confident. If you want to get
 better at that skill itself, the companion volume
 [*Conversation, Not Delegation*](https://michael-borck.github.io/conversation-not-delegation/)
 is about this: thinking *with* AI rather than delegating your thinking to it.

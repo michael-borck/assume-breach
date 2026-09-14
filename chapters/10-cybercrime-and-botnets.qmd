@@ -135,3 +135,35 @@ recovery in **incident and disaster planning**.
    rent servers, and cash out. Why does that specialisation make attacks so hard to stop?
 3. What kind of **trace** does a careless attacker most often forget to hide, and why is that
    the thread an investigator pulls first?
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask the AI to cost out a ransomware operation as a business: what the operator spends, what
+   they earn, where the margin sits. Then ask which defence attacks the margin rather than the
+   attack.
+2. Ask why takedowns rarely end a threat for long, and then what a takedown *does* achieve.
+   The second answer is the harder one.
+3. Attribution is stated in terms of confidence. Ask what kind of evidence moves that confidence
+   and what only appears to.
+
+**Keywords to steer with.** initial access broker · ransomware-as-a-service · bulletproof
+hosting · command-and-control · DDoS-for-hire · money mule · Zeus · Mirai · default credentials ·
+chain of custody · timeline reconstruction · attribution confidence · false flag
+
+**A starting prompt.**
+
+> **Role:** You are a threat intelligence analyst briefing executives who want a name to blame
+> by the end of the meeting.
+>
+> **Task:** Explain what we can and cannot know about who was behind a particular attack, and how
+> confident anyone is entitled to be.
+>
+> **Context:** I have read a chapter on the cybercrime economy, botnets, digital forensics, chain
+> of custody, and why attribution is hard. Use a real attack you can describe accurately, and be
+> explicit wherever the public reporting is contested.
+>
+> **Format:** Three clearly separated sections: what the evidence supports, what it suggests, and
+> what is speculation. Then one paragraph on what a false flag would look like in this case, and
+> how anyone would tell the difference.

@@ -81,3 +81,35 @@ That's the long game. It has no finish line, and that is by design.
    assumed they'd be breached, versus one that assumed they could keep everyone out.
 3. Of the eight stages in the loop, which do organisations most often neglect, and why do you
    think that particular one gets skipped?
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Walk a system you use every day around the eight-stage loop with the AI, then ask which stage
+   it had the *least* evidence for. Its confidence and its evidence will not match, and noticing
+   that gap is the skill.
+2. Ask which stage organisations skip most, then ask it to name the incentive that makes them
+   skip it. Push back on any answer that blames individuals rather than the incentive.
+3. Ask what "assume breach" would look like taken seriously where you work, and what it would
+   cost. A cost-free version has not been taken seriously.
+
+**Keywords to steer with.** security lifecycle · design, harden, detect, respond, recover,
+investigate, audit · maturity assessment · residual risk · continuous improvement · security
+debt · shift left · Essential Eight maturity levels
+
+**A starting prompt.**
+
+> **Role:** You are a security consultant doing a first-day walkthrough of an organisation you
+> know nothing about.
+>
+> **Task:** Ask me the questions you would need answered to place this organisation on the
+> design, harden, detect, respond, recover, investigate and audit loop, one stage at a time.
+>
+> **Context:** I have finished a first course in defensive security and want to test whether I
+> can hold the whole lifecycle in view rather than reciting controls. Ask one question at a time
+> and wait for my answer before moving to the next stage.
+>
+> **Format:** One question per turn, nothing else. After the final stage, give me your assessment
+> of the weakest stage, the evidence you based it on, and what you would want to verify before
+> trusting your own conclusion.
