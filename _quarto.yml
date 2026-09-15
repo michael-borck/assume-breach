@@ -1,6 +1,10 @@
 project:
   type: book
   output-dir: _book
+  resources:
+    - LICENSE
+    - LICENSE-CONTENT.md
+    - LICENSE-CODE.md
 
 book:
   title: "Assume Breach"

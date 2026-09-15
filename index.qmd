@@ -76,5 +76,5 @@ selected regimes as checked in September 2026; applicability and facts matter.
 For an actual incident, involve the authorised technical and legal advisers.
 
 This book is open access under the author's stated Creative Commons
-Attribution (CC BY) licence. The free edition is the focus, and the
+Attribution 4.0 International (CC BY 4.0 International) licence; original code examples use MIT. The free edition is the focus, and the
 [series catalogue](https://books.borck.education) links the related books.

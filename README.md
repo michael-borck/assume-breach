@@ -57,3 +57,11 @@ The author confirmed permission to use the existing artwork on 2026-09-15;
 this is an author attestation, not an independent provenance audit.
 Metadata and both copyright sources name that version. Do not copy third-party game cards, lecture images
 or vendor materials into the book.
+
+## Licence
+
+Book content is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0 International)](https://creativecommons.org/licenses/by/4.0/). Original code examples and accompanying software are licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+These grants cover material the author has authority to license. Separately credited third-party material retains its stated terms. Give appropriate credit, link the content licence and indicate changes; retain the MIT notice when reusing code.
+
+See [LICENSE](LICENSE), [LICENSE-CONTENT.md](LICENSE-CONTENT.md) and [LICENSE-CODE.md](LICENSE-CODE.md) for scope and full terms.
