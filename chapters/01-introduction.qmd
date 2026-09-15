@@ -4,9 +4,9 @@
 
 > *What are we protecting, from whom, and how would we even know if we'd succeeded?*
 
-This first chapter sets up the ideas the rest of the book builds on. There is nothing to
-install yet. Just read it, and hold on to the questions at the end. They are worth returning
-to as the later chapters give you more to answer them with.
+Begin with a system you can describe, then ask what a failure would harm.
+This chapter gives names to the protection goals and introduces the learning
+map used throughout the book. The first paper task starts your dossier.
 
 ## What this chapter covers
 
@@ -14,7 +14,7 @@ By the end you should be able to:
 
 - Define information security and explain the **CIA triad**: confidentiality, integrity,
   availability.
-- Explain why those three pull against each other, and what "balancing CIA" means in practice.
+- Explain when those three can conflict, and what "balancing CIA" means in practice.
 - Say what a **security control** is, and what **defence in depth** buys you.
 - Walk through the **phases of an attack**, and explain why a defender studies them.
 - Distinguish **ethical** security work from malicious hacking, and see where the line sits.
@@ -25,8 +25,8 @@ You cannot buy security in a box. There is no single product, no switch, no cert
 makes a system "secure." Security is not a thing a system *has*. It is a property of how the
 whole system behaves, including the people using it. A bank vault with the door propped open is
 not secure no matter how thick the steel. A perfectly configured server whose administrator
-uses "password1" is not secure either. Security is the emergent result of many choices, and it
-holds only as long as the weakest of them holds.
+uses "password1" is not secure either. Security depends on how those choices interact. A weakness may expose one asset
+while other controls limit the damage.
 
 That is why this book keeps returning to a defender's habit of mind rather than a checklist.
 Checklists go stale. The habit of asking "what am I protecting, from whom, and how would I know
@@ -57,24 +57,23 @@ down and the business stops.
 
 ### Balancing CIA
 
-Here is the part that separates a defender from a checklist-follower: **the three properties
-work against each other.** You cannot turn all three up to maximum.
+The CIA properties can conflict, but they do not inevitably work against
+each other. A tested backup can improve both integrity and availability.
+Well-managed access can protect confidentiality while helping authorised
+users find the right information.
 
-Maximise confidentiality (encrypt everything, demand three approvals for every access) and you
-damage availability, because legitimate users now wait, forget keys, and get locked out.
-Maximise availability (copy the data everywhere, let anyone read it instantly) and you have
-made confidentiality much harder. Lock a system down so hard that no change is ever allowed,
-and you have protected integrity at the cost of a system too rigid to use.
-
-Real security is about the right balance for this information, this organisation, this risk.
-The balance a hospital strikes for patient records is not the one a newspaper strikes for
-tomorrow's front page, and both are defensible. Learning to reason about that trade-off, rather
-than reaching for maximum everything, is the first real skill of the subject.
+Trade-offs arise in particular designs. Extra approval steps may delay
+urgent access. More replicas improve availability but create more copies to
+protect. Preventing every change would preserve an old record while making
+a booking system unusable. Ask which harm matters, who is affected, and
+what evidence shows the control meets the need. A hospital's emergency-access
+arrangement can be different from a newspaper's embargo process without
+either abandoning security.
 
 A fourth idea often sits alongside the triad: **non-repudiation**, the property that someone
-cannot credibly deny having done something. When a system can prove *who* made a change and
-*when*, disputes end and accountability begins. It is what turns "someone transferred the
-money" into "this account, at this time, authorised the transfer."
+cannot credibly deny having done something. An audit trail and a digital signature can support a claim about an action.
+They still depend on trustworthy identity binding, key control and records.
+An account identifier alone does not prove which human acted or settle a dispute.
 
 ## Controls and defence in depth
 
@@ -89,7 +88,8 @@ control to be enough. You assume each layer *will* fail, and you put another beh
 castle did not rely on the outer wall alone. It had a moat, then a wall, then a gate, then an
 inner keep, so that breaching one defence still left the attacker facing the next. A modern
 system is the same: a firewall *and* patched software *and* least-privilege accounts *and*
-monitoring *and* backups. No one layer is trusted, so no one failure is fatal.
+monitoring *and* backups. Layers reduce dependence on any one control. Shared credentials, a common
+administrator or a shared power supply can still defeat several layers together.
 
 This is the practical face of **assume breach**. If you assume the attacker will get past your
 first control, you stop asking "is this wall strong enough?" and start asking "when this fails,
@@ -106,8 +106,8 @@ intrusions move through recognisable phases:
    who works there, what systems they run, what's exposed. Quiet, often legal, and easy to
    overlook.
 2. **Scanning.** They probe the target directly for live systems, open ports, and running
-   services, mapping the attack surface. (This is what you'll do, from the defender's side, in
-   an early lab.)
+   services, mapping the attack surface. In this book you can reason from supplied
+   observations without probing any real system.
 3. **Gaining access.** They exploit a weakness (a flaw, a weak password, a tricked user) to
    get a foothold.
 4. **Maintaining access.** They entrench, so a reboot or a changed password doesn't lock them
@@ -126,8 +126,8 @@ comes from.
 Much of what you'll learn in this book is, in mechanism, identical to what an attacker does:
 scanning systems, cracking passwords, capturing traffic. The difference is **permission and
 purpose.** An ethical practitioner acts with the owner's authorisation, within an agreed scope,
-to *find and fix* weaknesses before a real attacker exploits them. The same action, without
-permission, is an offence.
+to *find and fix* weaknesses before a real attacker exploits them. Unapproved testing may be unlawful and can harm others. Treat explicit
+permission and agreed scope as prerequisites, not optional courtesy.
 
 This is where the old "hats" come from. A **white hat** works with authorisation, to find and
 fix. A **black hat** breaks in for their own gain or to cause harm. A **grey hat** acts without
@@ -140,12 +140,22 @@ authorised to use. The skills are dual-use. Your professionalism is what makes t
 ::: {.callout-note}
 ## Try it yourself
 
-If you want to practise as you read, set up a safe, isolated environment now: a disposable
-virtual machine or a set of containers, kept off your main network, so later chapters'
-exercises have somewhere to run. Never practise on systems you do not own or have explicit
-permission to test. The [practice-environment appendix](../appendices/lab-environment.qmd)
-lists some options.
+Begin with the fictional, paper-based [Harbour case](../appendices/defender-dossier.qmd).
+Optional technical practice requires an explicitly authorised environment with
+checked boundaries. The [practice appendix](../appendices/lab-environment.qmd)
+explains why a VM, NAT connection or container does not itself establish isolation.
+
 :::
+
+## A lifecycle to revisit
+
+Use seven activities as a learning map: design, harden, detect, respond,
+recover, investigate, and audit/learn. People and decisions run through all
+seven. Activities overlap: evidence collection can begin during response,
+and a recovery test can reveal a design flaw before any breach occurs.
+This is the book's teaching map, not a mandated sequence.
+[NIST's incident-response guidance](https://csrc.nist.gov/pubs/sp/800/61/r3/final)
+places incident work within continuing risk management.
 
 ## Where this connects
 
@@ -163,35 +173,11 @@ through the gaps.
 3. Why would a *defender* bother learning the phases of an attack? What specifically do you gain
    by understanding how an attacker thinks?
 
-## Take it to the AI
+## Map an asset
 
-**Where to start.** Three questions worth arguing about rather than looking up:
+Read Harbour's facts. In 10 minutes, choose one asset and write a four-column
+row: harm, plausible threat, control, and evidence that the control works.
+Then name one residual failure. A good row connects a specific harm to a test;
+“use encryption” without saying what it protects is not enough.
 
-1. Ask the AI to argue that **availability** is the most important leg of the triad, then to
-   argue the same for **integrity**. Which case is stronger, and does the answer change once you
-   name the organisation?
-2. Describe a system you use daily and ask where its defence in depth is thinnest. Then ask what
-   evidence it used. Much of it will be inference from the category rather than from your system.
-3. Ask for the strongest case *against* "assume breach" as a design principle. A real answer
-   costs something, so reject the version that concedes immediately.
-
-**Keywords to steer with.** CIA triad · non-repudiation · security control · preventive,
-detective, corrective · defence in depth · attack surface · least privilege · reconnaissance ·
-dual-use · authorisation
-
-**A starting prompt.**
-
-> **Role:** You are a security architect who reviews system designs for a mid-sized
-> organisation.
->
-> **Task:** Take the system I describe and tell me which leg of the CIA triad its design
-> favours, and what it gave up to get there.
->
-> **Context:** I have just read an introductory chapter on the CIA triad, security controls,
-> defence in depth, and the phases of an attack. I want to practise seeing the trade-off rather
-> than reciting the three words. The system is [describe it: what it holds, who uses it, what
-> happens if it is down for a day].
->
-> **Format:** One paragraph naming the favoured property and the evidence for it. Then a table:
-> Property | How it is protected | What was traded away. End with the single question you would
-> ask the system's owner.
+Case inputs and checks: [Harbour dossier](../appendices/defender-dossier.qmd).

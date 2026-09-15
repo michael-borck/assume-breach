@@ -7,7 +7,7 @@ book:
   subtitle: "A First Course in Defensive Security"
   author: "Michael Borck"
   date: today
-  license: "CC BY"
+  license: "CC BY 4.0 International"
   cover-image: images/cover.png
   favicon: favicon.svg
   page-navigation: true
@@ -39,14 +39,16 @@ book:
         - chapters/12-the-long-game.qmd
   appendices:
     - appendices/lab-environment.qmd
+    - appendices/defender-dossier.qmd
+    - appendices/further-reading.qmd
     - about-author.qmd
   other-links:
     - text: Download PDF
       icon: file-pdf
-      href: assume-breach.pdf
+      href: /assume-breach.pdf
     - text: Download EPUB
       icon: book
-      href: assume-breach.epub
+      href: /assume-breach.epub
     - text: Download llm.txt
       icon: robot
       href: llm.txt

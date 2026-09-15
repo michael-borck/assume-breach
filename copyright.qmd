@@ -12,7 +12,7 @@ Perth, Western Australia
 
 **ISBN:** (to be assigned)
 
-This work is licensed under a **Creative Commons Attribution (CC BY)** licence. You are free to share and adapt the material for any purpose, provided you give appropriate credit. The open-access edition is always the most current.
+This work is licensed under [**Creative Commons Attribution 4.0 International (CC BY 4.0)**](https://creativecommons.org/licenses/by/4.0/). You may share and adapt it, including commercially, subject to the licence terms: credit the author, link to the licence and indicate changes. The open-access edition is always the most current.
 
 **AI disclosure:** This book was written with AI as a thinking partner, using the method described in its companion volume, [*Conversation, Not Delegation*](https://michael-borck.github.io/conversation-not-delegation/). The author reviewed, challenged, and took responsibility for every sentence.
 

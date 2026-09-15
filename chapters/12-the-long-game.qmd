@@ -2,52 +2,70 @@
 
 ![](../images/ch12-opener.png){fig-alt="Pixel-art illustration: an armoured watchman on a high rampart overlooking a castle and distant hills at sunset."}
 
-> *You do not secure a system the way you paint a fence: once, and it's done. Security has no finish line. That is not bad news; it's the whole idea.*
+> *A defence plan should make its limits as visible as its controls.*
 
-You've reached the end of the concepts. The temptation now is to leave with a checklist: a
-tidy list of controls to apply and boxes to tick. Resist it, because every chapter of this
-book has argued against the checklist. Confidentiality, integrity, and availability
-pull against each other, so there is no setting that maximises all three. Controls fail, so no
-single one can be trusted. People slip, so no technology closes the last gap. Threats evolve,
-so yesterday's defence is not tomorrow's. A checklist assumes the work can be finished. The
-honest picture is different: security is a **cycle you keep turning**, not a state you reach.
+You now have the pieces of a defender's dossier. The final test changes the
+budget and recovery target. It asks whether you can recognise an unresolved
+risk and explain it to the person authorised to decide. A polished plan
+that hides a failed test is less useful than a short one that exposes it.
+
+## What this chapter covers
+
+By the end you should be able to:
+
+- Connect assets, controls, evidence and recovery decisions in one plan.
+- Check whether a changed requirement invalidates an earlier answer.
+- Distinguish a justified decision from a claim that everything is secure.
+- Assign responsibility for unresolved risk and future review.
 
 ## Joining the dots
 
-Everything in this book fits into one continuous loop. Walk it once, and watch the chapters
-fall into place:
+Return to the seven activities introduced in chapter 1: design, harden,
+detect, respond, recover, investigate, and audit/learn. Human decisions
+run through every activity. These are overlapping tasks, not seven
+departments that hand an incident along in a fixed sequence.
 
-- You **design** a system and decide what matters: which information, which assets,
-  which trade-offs you're willing to make. *(The CIA triad; network architecture.)*
-- You **harden** it, layer by layer, knowing each layer will eventually fail. *(Defence in
-  depth; software security; authentication; cryptography; firewalls; web security.)*
-- You **detect**, because you assumed breach: you watch for the intrusion you could not
-  prevent, on the wire and in the logs. *(Network security.)*
-- You **respond** when it comes, reading the attack and containing it before it spreads.
-  *(Incident response.)*
-- You **recover**, keeping the business alive and meeting your obligations under the clock.
-  *(Disaster recovery.)*
-- You **investigate** what happened, how far it went, and who was behind it, without
-  destroying the evidence in the process. *(Cybercrime and forensics.)*
-- You **audit and learn**, measuring the gaps honestly and feeding what you find back into the
-  design. *(Risk management; the assessment mindset behind frameworks like the Essential
-  Eight.)*
-- And running through every one of those stages is the **human**: the analyst making the
-  call, the user clicking the link, the board deciding what risk to accept. *(Human factors.)*
+At Harbour, permissions influence whether a login can become a bulk export.
+Logging affects what the response lead can establish. Recovery credentials
+affect whether backups survive. A notification assessment may still be open
+after the service is restored. Those connections are what the dossier should
+make visible.
 
-Then you begin again, because the system changed, the threats changed, and the last turn of
-the loop taught you something. That is the whole-of-life view: a set of things you keep
-*doing*, in order, forever, rather than a list of things to have.
+A checklist can help an authorised responder avoid missing a necessary step.
+It needs an owner, a context and testing. The failure is treating checked
+boxes as proof that the service can meet its obligations under changed
+conditions.
 
-## Why "assume breach" is not defeatism
+## Complete the independent case
 
-It might sound bleak to assume you'll be breached. It isn't. It's the assumption that makes
-the loop turn. If you believed you could build one perfect wall, you would stop after
-hardening; detection, response, recovery, and investigation would all be wasted effort on a
-wall that never fails. It's *because* you assume the wall fails that you build the rest. Assume
-breach is not surrender. It is the reason a defender's job is a whole lifecycle and not a single
-act. And it is what separates security that survives contact with reality from security that
-only looks good on the marketing page.
+Use [Harbour's weekend programme](../appendices/defender-dossier.qmd#sec-transfer).
+Allow 30–45 minutes, working alone without AI. The appendix supplies every
+changed fact and an eight-point check. Write your answer before reading
+the comparison.
+
+Your one-page decision needs the assets and permissions, an affordable
+control choice, risk arithmetic, allowed and denied tests, both recovery
+checks, an evidence-preserving response and a privacy escalation. End with
+what is ready, what is not, who can decide, and what evidence is needed next.
+
+You are not required to make the constraints fit. If the stated recovery
+time misses the target or the budget leaves a known boundary weakness,
+say so. Do not create an imaginary free control to make the answer look
+complete. An explicit request for a changed budget, a tested improvement
+or a deferred launch is a legitimate result.
+
+## Check and transfer
+
+Compare your answer with the
+[reasoning check](../appendices/defender-dossier.qmd#sec-transfer-check).
+Aim for seven of eight criteria, with no unsafe testing, unsupported readiness
+claim or missed recovery-target failure. If you disagree with the worked
+choice, identify the constraint and evidence that make your alternative
+defensible.
+
+For a second attempt, ask another reader to change one supplied constraint.
+Predict which section of your dossier must change before recalculating it.
+That is a stronger test of understanding than repeating the original answer.
 
 ::: {.callout-tip}
 ## Play the whole thing
@@ -61,55 +79,20 @@ an afternoon. If this book gave you the map, the campaign lets you walk the grou
 [incidentzero.retroverse.studio](https://incidentzero.retroverse.studio/)
 :::
 
-## The skill that matters
-
-If there is one thing to carry out of a first course in defensive security, it is not the
-contents of any single chapter. It is the shape of the loop, and the discipline to keep it
-turning honestly. Anyone can learn a control. The defender's real skill is holding the whole
-lifecycle in view: designing for failure, watching for the breach, responding without panic,
-recovering with obligations met, learning from every incident, and starting the next cycle
-wiser than the last.
-
-That's the long game. It has no finish line, and that is by design.
+The game is optional group enrichment. Its current
+[landing page](https://incidentzero.retroverse.studio/) describes the player,
+printing and time requirements. The paper dossier above is a complete solo
+route and does not reproduce the game's materials.
 
 ## Questions to consider
 
-1. Pick a system you use every day (your phone, a bank app, your workplace network). Walk it
-   once around the loop: where is it *designed*, *hardened*, *watched*, and *recovered*? Which
-   stage looks weakest?
-2. "Assume breach" changes what you build. Name one thing a team would do differently if they
-   assumed they'd be breached, versus one that assumed they could keep everyone out.
-3. Of the eight stages in the loop, which do organisations most often neglect, and why do you
-   think that particular one gets skipped?
+1. Which supplied fact most changed your control choice, and why?
+2. Which conclusion depends on evidence you do not yet have?
+3. What should trigger a new review after an initially acceptable plan?
 
-## Take it to the AI
+## Carry the decision forward
 
-**Where to start.** Three questions worth arguing about rather than looking up:
-
-1. Walk a system you use every day around the eight-stage loop with the AI, then ask which stage
-   it had the *least* evidence for. Its confidence and its evidence will not match, and noticing
-   that gap is the skill.
-2. Ask which stage organisations skip most, then ask it to name the incentive that makes them
-   skip it. Push back on any answer that blames individuals rather than the incentive.
-3. Ask what "assume breach" would look like taken seriously where you work, and what it would
-   cost. A cost-free version has not been taken seriously.
-
-**Keywords to steer with.** security lifecycle · design, harden, detect, respond, recover,
-investigate, audit · maturity assessment · residual risk · continuous improvement · security
-debt · shift left · Essential Eight maturity levels
-
-**A starting prompt.**
-
-> **Role:** You are a security consultant doing a first-day walkthrough of an organisation you
-> know nothing about.
->
-> **Task:** Ask me the questions you would need answered to place this organisation on the
-> design, harden, detect, respond, recover, investigate and audit loop, one stage at a time.
->
-> **Context:** I have finished a first course in defensive security and want to test whether I
-> can hold the whole lifecycle in view rather than reciting controls. Ask one question at a time
-> and wait for my answer before moving to the next stage.
->
-> **Format:** One question per turn, nothing else. After the final stage, give me your assessment
-> of the weakest stage, the evidence you based it on, and what you would want to verify before
-> trusting your own conclusion.
+Keep the dossier as a record of a decision under stated conditions. When
+the system, staff, evidence or obligations change, revisit it. The useful
+habit is to explain what a control does, demonstrate it where possible,
+and make the remaining uncertainty visible to the right decision-maker.

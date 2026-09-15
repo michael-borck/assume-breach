@@ -1,84 +1,80 @@
 # Introduction: Assume Breach {.unnumbered}
 
-> *The old question was "how do we keep attackers out?" The better one is "what do we do given that, sooner or later, they get in?" That shift in assumption changes everything.*
+A security control can fail. A supplier account can be misused, a patch can
+arrive late, or a colleague can approve an unexpected login request. A defender
+plans for those possibilities while still trying to prevent them. **Assume
+breach** means designing detection, containment and recovery into the system.
 
-## The unlocked door behind the badge
+## Who this book is for
 
-Every organisation says its systems are secure. It puts a padlock icon on the login page, a
-privacy policy in the footer, and an "enterprise-grade encryption" line on the marketing
-site. Then, somewhere behind all of that, there is a server no one has patched in eleven
-months, a password four people share, and a staff member about to click a link they
-shouldn't. The claim and the reality are two different things. The gap between them is
-where information security lives.
+This is a first course for students, people moving into security, and curious
+professionals. It assumes basic familiarity with a browser and files, but no
+security background or programming. The core reading and exercises require
+no software installation, paid service, AI account or group.
 
-Modern security starts from an uncomfortable premise: **assume breach.** Assume the perimeter
-will fail, the patch will be late, and someone will click the link. Across a large enough
-system and enough time, they will. A defender who assumes they can keep every attacker out
-builds one wall and trusts it. A defender who assumes breach builds in depth, watches for the
-intrusion, limits how far it spreads, and plans to recover. This is not pessimism. It is how
-real systems are defended.
+By the end, you should be able to take a small system description, identify
+important assets and plausible threats, choose layered controls within a
+budget, specify tests of those controls, and defend a response/recovery
+decision with its uncertainties. This is introductory judgement, not
+authorisation to test other people's systems or a qualification to run a
+production incident alone.
 
-This book is a first course in that mindset. It will not turn you into a hacker or a
-penetration tester in twelve weeks. It will do something more useful: teach you to *think
-like a defender*. That means looking at a system and seeing, before anything goes wrong,
-where it could go wrong, what it would cost, and what to do about it. That habit of mind is
-the thing you take into any job, in any industry, for the rest of your career.
+## How the chapters build
 
-## How to think like a defender
+Read in order on your first pass. Each part contributes to a short
+**defender's dossier**, using the fictional Harbour Community Centre in
+[The Defender's Dossier](appendices/defender-dossier.qmd).
 
-Defenders reason in a particular way, and the whole book is built to grow that habit. Assume
-nothing is safe until it is shown to be: a control that looks fine on paper is only a claim
-until you have reason to trust it. Understand the attacker in order to protect against them.
-You cannot defend what you do not understand, so we spend time on how attacks work, studying
-them to see what they need so you can take it away. Weigh the cost, because perfect security
-is unaffordable and unusable. Every control is a trade-off, and a defender's skill is deciding
-which ones are worth it. And never forget the human. Most breaches do not defeat the
-technology; they walk past it through a person. The human factor is often the whole story.
+| Part | What you should be able to do afterwards |
+|---|---|
+| I: Foundations | Identify assets, threats, permissions and appropriate protection mechanisms |
+| II: Managing Risk | Justify a control choice and check a recovery plan against stated targets |
+| III: Systems and Networks | Trace a trust boundary and test permitted and forbidden actions |
+| IV: People and Threats | Separate evidence from inference and design a usable verification process |
+| V: Putting It Together | Defend a complete plan for a changed case and identify what is not ready |
 
-## Who this is for, and how to read it
+Every chapter has questions to consider and a short applied task. Try the
+task before reading the worked dossier. The final chapter gives an
+independent variant and success criteria. Definitions alone are not evidence
+that you can use them.
 
-This is a first book on defensive security, for anyone meeting the subject for the first
-time: a student, someone moving into security from another part of IT, or a curious
-professional who wants the mental model without the jargon. It assumes no prior security
-background.
+The network primer is in chapter 7. NTLM, cryptographic attack models and
+named tools provide optional depth; you do not need to configure them to
+complete the dossier. The [practice appendix](appendices/lab-environment.qmd)
+explains boundaries for optional hands-on work. It does not claim that a
+generic VM or container setting creates a safe lab.
 
-The chapters build in a deliberate order. The early ones establish the foundations: how
-security is measured, where software goes wrong, how identity and secrets are protected. The
-middle turns to managing risk and surviving incidents. The later ones defend systems and
-networks, and end where security always ends: with people. You will get the most from reading
-in order, because each chapter leans on the ones before it, but each is self-contained enough
-to revisit on its own.
+Several chapters link *Incident Zero*, an optional print-and-play group
+game. It offers a different experience of making decisions under pressure.
+The book's solo exercises provide a complete route if you never play.
 
-The book carries the *concepts*. It stays tool-agnostic: it explains what is true on any
-system rather than which button to click, so it doesn't go out of date the moment a tool
-does. Where practice helps, a **Try it yourself** note points you at the kind of hands-on
-exercise the ideas invite, and the [practice-environment appendix](appendices/lab-environment.qmd)
-shows how to set up somewhere safe to do it. Each chapter ends with a few **Questions to
-consider**. They are prompts worth sitting with rather than a test. Several are easier to
-answer well *after* a later chapter, which is deliberate.
+## Optional AI conversations
 
-## A word on using AI
+An assistant can explain a term, challenge a proposed control or quiz you.
+Try your own answer first, then ask it to identify an assumption you missed.
+Keep the evidence trail: a fluent explanation or invented incident is not
+a verified source. Three chapters include longer conversation prompts;
+other chapters use calculation, annotation and evidence checks.
 
-Using AI to learn this material is a good idea, and this book encourages it. Ask an assistant
-to explain a concept a second way, to quiz you, or to challenge your answer to one of the
-end-of-chapter questions. What matters is that you stay in the conversation and do the
-thinking. Use it to understand faster. Do not use it to skip understanding.
+Use fictional inputs from this book. Do not paste real phishing emails,
+credentials, session tokens, personal information, internal logs or production
+firewall rules into a public assistant. If you adapt an example, remove
+sensitive details and follow your organisation's approved data-handling rules.
+A generated configuration is a draft to test in an authorised environment,
+never a ready-to-deploy answer.
 
-Every chapter therefore ends with a **Take it to the AI** section. It gives you a few questions
-worth arguing about, the keywords that let you steer a conversation you cannot yet phrase, and
-a starting prompt written out in full. Those prompts spell out four things: the role the
-assistant should take, the task, the context it needs, and the format you want back. Write all
-four if you are running a small model on your own machine, the kind with a few billion
-parameters that fits on a laptop. Its defaults come from a narrower range, and the structure is
-doing work the model will not do for you. On a current frontier model the task and context
-lines are usually enough on their own, and the rest is a checklist for your own thinking. Either
-way, the first answer is where the conversation starts. Push back on it, ask for the evidence,
-and make it defend the parts that sounded most confident. If you want to get
-better at that skill itself, the companion volume
-[*Conversation, Not Delegation*](https://michael-borck.github.io/conversation-not-delegation/)
-is about this: thinking *with* AI rather than delegating your thinking to it.
+For more on this method, see
+[*Conversation, Not Delegation*](https://michael-borck.github.io/conversation-not-delegation/).
+No companion book is required here.
 
----
+## Reading claims and sources
 
-*This book is open access under a Creative Commons Attribution (CC BY) licence. It is part of
-the [books.borck.education](https://books.borck.education) series.*
+Examples labelled fictional are teaching inputs. Historical incidents and
+consequential technical claims have nearby sources, with a curated trail in
+[Further Reading](appendices/further-reading.qmd). Legal summaries describe
+selected regimes as checked in September 2026; applicability and facts matter.
+For an actual incident, involve the authorised technical and legal advisers.
+
+This book is open access under the author's stated Creative Commons
+Attribution (CC BY) licence. The free edition is the focus, and the
+[series catalogue](https://books.borck.education) links the related books.

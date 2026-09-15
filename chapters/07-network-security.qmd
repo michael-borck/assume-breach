@@ -2,14 +2,13 @@
 
 ![](../images/ch07-opener.png){fig-alt="Pixel-art illustration: a row of signal-lit watchtowers along a castle rampart road at night."}
 
-> *Everything you send crosses wires you don't control. This chapter is about what's visible there, and what to do about it.*
+> *What an observer can learn from traffic depends on where they can see it and how it is protected.*
 
-Up to now we've mostly defended individual systems. But systems rarely stand alone. They talk to
-each other across networks, and every conversation crosses cables, switches, routers, and radio
-links you do not own and cannot see. That is a shift in the threat model. On a network, an
-attacker doesn't have to break into your machine to learn your secrets. They may only have to
-*listen*. This chapter is about how attackers map and eavesdrop on networks, why a surprising
-amount of traffic gives itself away, and what turns an open wire back into a private one.
+Harbour's booking service depends on several network paths: customers reach
+the web application, staff use a VPN, and the application queries a database.
+Some traffic crosses infrastructure the centre does not control. An observer
+on a path may learn from traffic without compromising either endpoint.
+This chapter explains those observation limits and how to protect a connection.
 
 ## What this chapter covers
 
@@ -20,15 +19,26 @@ By the end you should be able to:
 - Describe common network attacks (**spoofing**, **man-in-the-middle**) and their defences.
 - Explain why **encryption in transit** matters, and what segmentation and monitoring add.
 
+## A small network primer
+
+A **host** is a device or system connected to a network. Its **IP address**
+helps route packets to it; a **port** helps identify a service on that host.
+A service is a listening application, such as a web server. **DNS** maps
+names to addresses. A switch connects devices locally; a router moves traffic
+between networks. A **subnet** groups addresses for routing purposes.
+
+A **trust boundary** is where rules about access or trust change, such as
+between guest Wi-Fi and staff systems. A line on a drawing does not enforce
+that boundary: routing, filtering and access controls must implement it.
+
 ## The network as an attack surface
 
 Recall the phases of an attack from the first chapter: reconnaissance, then scanning, then
 gaining access. Networks are where the first two of those live. Before an attacker can exploit a
 system, they have to *find* it and learn what it's running. A network, by its nature, answers
 questions. Ask a machine "are you there?" and, unless told otherwise, it politely replies. Ask
-"what services are you running?" and its open ports announce them. Every device you connect adds
-to the attack surface, and every one of them is, by default, a little too willing to talk to
-strangers.
+"what services are you running?" and its open ports announce them. Each reachable service adds an exposure to examine. Defaults vary, and a lack
+of response does not prove a device or service is absent.
 
 ## Scanning: mapping the target
 
@@ -46,17 +56,25 @@ an audit. That is why the tools are dual-use, and why the defensive instinct is 
 doors you don't need*. Every service you're not using is a door you can shut, shrinking the
 blueprint an attacker gets to work from.
 
-![A small network as a scanner sees it: an attacker host and three servers, each answering with the ports it has open. This is the *Port Scanning* lab from the companion environment, mapping the web, app, and file servers across `10.2.0.0/24`.](../images/lab-network-map.svg){#fig-scanning fig-alt="Network diagram: an attacker host and three servers labelled web, app, and files, all connected to a shared subnet 10.2.0.0/24 behind a gateway to the internet."}
+![A small network as a scanner sees it: an attacker host and three servers, each answering with the ports it has open. This illustrative network maps web, app and file services across `10.2.0.0/24`; no companion lab is required.](../images/lab-network-map.svg){#fig-scanning fig-alt="Network diagram: an attacker host and three servers labelled web, app, and files, all connected to a shared subnet 10.2.0.0/24 behind a gateway to the internet."}
 
 ## Sniffing: reading the wire
 
 Scanning finds the doors. **Sniffing** reads what goes through them. A network interface normally
 ignores traffic not addressed to it, but put it into a listening ("promiscuous") mode and it will
 capture *everything* it can hear: a **packet capture** of the raw conversations crossing the
-wire. A tool to read that capture then reassembles the packets into something human-readable.
+wire. A tool can decode supported protocols from the captured packets.
 
-One thing lands hardest the first time someone sees it: **a great deal of network traffic is sent
-in plain text, and sniffing shows all of it.** Older protocols were designed in a more trusting
+The phrase *it can hear* matters. On a switched network, another host's
+unicast traffic may never reach your capture interface. Promiscuous mode
+does not make the switch send it there. Wi-Fi capture also depends on the
+adapter, access-point settings and link protection. Explain the observation
+point before claiming what a capture reveals.
+[Wireshark's Ethernet guidance](https://wiki.wireshark.org/capturesetup/Ethernet)
+sets out these limits.
+
+One thing lands hardest the first time someone sees it: **unencrypted application traffic can expose its contents to a listener at
+a suitable capture point.** Older protocols were designed in a more trusting
 era and send everything unencrypted: the web's original HTTP, file transfer with FTP, remote login
 with Telnet, some email protocols. Capture that traffic and you don't just see *that* a
 conversation happened. You see its contents: the pages requested, the files moved, and the
@@ -77,7 +95,8 @@ believe what packets *claim* about themselves is the weakness being exploited.
 
 The more powerful move is the **man-in-the-middle** (or on-path) attack: the attacker positions
 themselves *between* two parties, so that everything each side sends passes through them first.
-Now they can read the conversation, and worse, *alter* it: changing a bank account number in
+If the protocol lacks effective authenticated protection, they may read or
+alter the conversation: changing a bank account number in
 transit, injecting malicious content, or capturing credentials as they flow past. Two common
 techniques get an attacker into that position on a local network. **ARP spoofing** tricks nearby
 machines into routing their traffic through the attacker by lying about which hardware address
@@ -94,8 +113,7 @@ sharing the coffee-shop Wi-Fi, can do things a purely remote attacker cannot. Th
 local chatter, impersonate local machines, and slip into the middle of local conversations in ways
 that someone out on the wider internet, several routers away, cannot manage. It's a concrete
 reason the *inside* of a network can never be treated as automatically safe. This is the
-assume-breach mindset applied to your own LAN. (That difference is the second question at the end;
-it's worth being able to explain crisply.)
+assume-breach mindset applied to your own LAN.
 
 ## Defences: making the wire private again
 
@@ -105,7 +123,10 @@ fix, and you already met it.
 **Encryption in transit** is the answer to sniffing. When traffic is encrypted (the web's HTTPS,
 which is HTTP wrapped in the TLS scheme from the cryptography chapter), an eavesdropper still
 captures the packets but sees only unreadable ciphertext. The credentials, the page contents, the
-files: all gibberish to anyone without the key. This single change neutralises passive sniffing.
+files: all gibberish to anyone without the key. It protects the encrypted contents, but packet timing, sizes and some addressing
+information remain observable. Protocol and configuration choices determine
+what else is visible. TLS must also authenticate the intended endpoint to
+resist an active impostor; ignoring certificate errors undermines that check.
 That is why the migration of the web from HTTP to HTTPS was one of the most important security
 improvements of the last decade, and why sending anything sensitive over an unencrypted protocol
 is now indefensible.
@@ -134,7 +155,7 @@ The credentials a sniffer harvests are the ones **authentication** taught you to
 encryption in transit is what stops them leaking. That encryption is the hybrid TLS scheme from
 **cryptography**, in action. And the next chapter, **VPN and firewalls**, covers the two
 defences that build on this one: a firewall to control what traffic is allowed, and a VPN to
-protect it end to end.
+protect traffic within its configured tunnel.
 
 ## Questions to consider
 
@@ -145,36 +166,12 @@ protect it end to end.
    able to read, and what would be hidden? What does that difference tell you about how you
    should send sensitive information?
 
-## Take it to the AI
+## State what an observer can see
 
-**Where to start.** Three questions worth arguing about rather than looking up:
+In 10 minutes, draw Harbour's public, staff, guest and database boundaries.
+For a passive observer at the guest access point, distinguish encrypted
+content from routing/timing information and unknown visibility. Do not
+assume the observer receives every staff packet. Name a boundary test you
+would request from an authorised administrator; do not run it yourself.
 
-1. Ask what someone sniffing your network could read ten years ago and what has since gone dark.
-   Then ask what remains visible *even under* HTTPS, because that answer is longer than most
-   people expect.
-2. Ask the AI to explain ARP spoofing to someone who believes "I am on my own Wi-Fi, so I am
-   fine."
-3. Segmentation is recommended everywhere and implemented badly everywhere. Ask why it is hard
-   in practice rather than in principle, and make it answer about organisations rather than
-   about the technology.
-
-**Keywords to steer with.** port scan · service fingerprinting · promiscuous mode · packet
-capture · plaintext protocols · Telnet, FTP, HTTP · spoofing · ARP spoofing · DNS spoofing ·
-man-in-the-middle · encryption in transit · TLS · SNI · traffic metadata · segmentation
-
-**A starting prompt.**
-
-> **Role:** You are a network security analyst who teaches packet capture to people seeing it
-> for the first time.
->
-> **Task:** Describe what one minute of my device's traffic would reveal to someone else on the
-> same network, and what would stay hidden from them.
->
-> **Context:** I have read a chapter on scanning, sniffing, spoofing and man-in-the-middle
-> attacks, and on how encryption in transit removes most of what a passive listener can read.
-> Assume a laptop on public Wi-Fi doing ordinary things: browsing, email, messaging, a video
-> call.
->
-> **Format:** A table: What I do | What a sniffer sees | What stays hidden | Why. Then a
-> paragraph on the metadata that survives encryption, and what someone could infer from that
-> alone.
+Case inputs and checks: [Harbour dossier](../appendices/defender-dossier.qmd).

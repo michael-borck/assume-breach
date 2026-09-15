@@ -1,0 +1,250 @@
+# The Defender's Dossier {#sec-dossier}
+
+This is an original, fictional case. All people, records, prices, observations
+and risk estimates below are invented for teaching. No real system needs to
+be contacted. A notebook is enough; the tables are the complete exercise
+inputs, not extracts from a missing lab.
+
+## Harbour Community Centre {#sec-harbour}
+
+Harbour runs public workshops. Eight staff use a hosted booking application.
+It holds 600 participant records: names, contact details and workshop choices.
+It holds no payment-card data. A public web service talks to a private booking
+database. Staff administer the application through a VPN gateway. Guest Wi-Fi
+should provide internet access without access to the database or staff devices.
+
+Mara, the manager, approves bulk exports and account changes. Rae, the
+receptionist, needs to view and amend individual bookings, but does not need
+bulk export or account-administration rights. Volunteers need only the
+attendance list for their assigned workshop. The current system mistakenly
+gives every staff account bulk-export permission. Customers should see only
+their own booking. A shared administrator password is another current weakness.
+
+The centre director owns the risk decision. Mara coordinates an incident;
+the service provider handles technical containment and recovery under an
+agreed scope. A designated privacy adviser determines applicable legal duties.
+For this exercise assume the centre is covered by Australia's NDB scheme.
+There is no assumption that every real small community organisation is covered.
+
+The booking service has a recovery time objective of four hours and a recovery
+point objective of one hour. Disruption starts at 09:20 in the exercise.
+Backups currently run at 23:00 each night using the application's administrator
+credentials. A previous restore test took two hours, excluding containment and
+validation. A successful backup job is not evidence of a successful restore.
+
+### A bounded budget
+
+The director can spend **\$3,000 per year** on additional controls. These are
+fictional annual costs including setup amortisation and staff time. Existing
+basic application logs and staff reporting remain available with any choice.
+
+| Option | Annual cost | What it changes |
+|---|---:|---|
+| A: account and access repair | \$1,000 | Individual accounts, administrative phishing-resistant MFA, reviewed permissions, recovery checks and session revocation procedure |
+| B: network boundary repair | \$800 | Guest isolation, restricted database paths, reviewed firewall policy and allowed/denied connection tests |
+| C: recovery repair | \$1,200 | Hourly recovery points, separate backup administration, off-site immutable copies and scheduled restore tests |
+| D: managed alert review | \$1,000 | A staffed alert-review service with an agreed escalation time; does not change access rights or backup protection |
+
+: {tbl-colwidths="[25,15,60]"}
+
+A, B and C cost exactly \$3,000. D cannot be added to that combination within
+the budget. The centre must still assign someone to review its existing logs
+and reports if it does not buy D. None of the options guarantees prevention.
+
+For a *separate* expected-loss calculation, use an incident loss of
+\$50,000 and an estimated annual occurrence rate of 0.10. Suppose option A
+reduces that rate to 0.04, without changing loss per incident. These are
+scenario assumptions, not measured product effectiveness.
+
+### A paper firewall model {#sec-rule-model}
+
+Use zone names rather than real addresses. All rows below describe **new**
+connections. For this exercise only, the first matching rule decides; an
+unmatched connection is denied. Return traffic for an allowed established
+connection is allowed. Do not copy this teaching notation into a firewall.
+
+| Rule | Source | Destination | Service | Action |
+|---|---|---|---|---|
+| 1 | Any | Booking database | Any | Allow |
+| 2 | Guest | Booking database | Any | Deny |
+| 3 | Public | Web | HTTPS | Allow |
+| 4 | Web | Booking database | Database | Allow |
+| 5 | Staff | VPN gateway | VPN | Allow |
+
+“Any” includes every named zone and service. The four legitimate new flows
+are Public to Web using HTTPS, Web to Booking database using Database,
+Staff to VPN gateway using VPN, and Guest to Internet using HTTPS.
+All other new flows should be denied in this simplified model. DNS and
+other supporting flows are deliberately outside the model; a production
+policy would need them specified and tested.
+
+### Evidence cards {#sec-evidence-cards}
+
+These are supplied observations, not a capture or an invitation to investigate
+a live service. Application events and the manager's notes share the same
+clock in this exercise. Real investigations must check clock offsets.
+
+| Time | Supplied observation |
+|---|---|
+| 09:10 | Application log records a successful login to Rae's account from a previously unseen network address |
+| 09:12 | Application log records a completed export of 600 participant records under Rae's session |
+| 09:15 | Rae reports approving an unexpected login prompt after receiving an urgent message |
+| 09:20 | Mara declares a suspected incident and suspends booking access; service disruption begins |
+| 09:25 | Provider preserves an access-controlled copy of relevant logs, records who collected it and its digest |
+| 09:30 | Provider revokes sessions and begins a two-hour restoration rehearsal in an isolated recovery environment |
+| 11:30 | Rehearsal restore finishes; technical checks continue |
+| 11:50 | Integrity and access checks finish; the rehearsal is accepted |
+
+: {tbl-colwidths="[15,85]"}
+
+The export event supports investigation of personal-data exposure. It does
+not identify the person operating the session or establish the destination
+or subsequent use of the exported records. A new address alone is not proof
+of compromise. The reported prompt approval is relevant evidence, not a
+complete explanation. No evidence card proves the source system is clean
+or authorises reconnecting it.
+
+## A worked dossier {#sec-worked-dossier}
+
+Read this after attempting the chapter tasks. It is one defensible answer,
+not the only possible policy.
+
+### Protection and access
+
+My first asset is participant information. An account with excess export
+rights could expose many records in one action. I choose individual accounts,
+restricted exports and an alert on bulk export. The residual risk includes
+misuse of a legitimately authorised manager account. A permission test should
+show Rae can update a booking but cannot export all records, and that a
+volunteer cannot view another workshop's attendance list.
+
+Availability matters when people arrive for a class. Integrity matters when
+a booking or contact detail changes. Encryption in transit and at rest helps
+protect disclosure through particular paths; it does not prevent an authorised
+application session from exporting readable data. A hash stored next to an
+editable export is not independent proof that the export is genuine. A trusted
+digest or signature must be checked through a separately trusted channel.
+
+### Spending and uncertainty
+
+I choose A, B and C at \$3,000. This repairs known access, guest-boundary and
+recovery weaknesses. I defer D, retain basic logging, and have Mara assign
+daily log review and an immediate staff reporting route. That leaves a
+detection-delay risk which the director must review, not forget.
+
+The separate arithmetic for A is:
+
+- Before: \$50,000 × 0.10 = **\$5,000** annual expected loss.
+- After: \$50,000 × 0.04 = **\$2,000**.
+- Reduction: \$3,000; less \$1,000 annual cost = **\$2,000** estimated net benefit.
+
+The break-even post-control rate is 0.08. At 0.09, the reduction is only
+\$500 and the net financial benefit is negative \$500. At 0.02 it is
+positive \$3,000. The choice therefore depends on an uncertain estimate.
+I cannot add up claimed reductions for several overlapping controls as if
+they were independent. Legal duties and unacceptable harm also constrain
+the decision, even when expected monetary benefit is negative.
+
+### Testing a boundary
+
+The original rule 1 permits Guest to Booking database before rule 2 is
+considered. It also admits Public to Booking database. Remove that broad
+permission. A corrected teaching policy allows only the four legitimate
+flows named above, then denies every other new connection.
+
+Test all four permitted flows and at least these three denied flows:
+Guest to Booking database using Database, Public to Booking database using
+Database, and Public to Web using Database. Expected results are four
+allows and three denies. A policy that blocks everything fails the
+legitimate-service tests. Testing only a successful website visit would
+miss the database exposure.
+
+### Responding and recovering
+
+Mara can escalate at 09:15 without waiting for an attribution verdict. The
+provider preserves evidence while containing access, documenting any conflict
+between preservation and stopping damage. A log digest helps detect later
+change; the collector, time, storage location and handling record establish
+context. A digest alone does not prove who created the original log.
+
+The rehearsal completes **150 minutes** after disruption:
+10 minutes to restoration start, 120 minutes restoring, and 20 minutes
+validating. That fits the four-hour RTO in this exercise. It is one test,
+not a guarantee of future recovery.
+
+With the original 23:00 recovery point, a 09:20 failure could lose
+**620 minutes** of work, which fails the one-hour RPO. If option C supplies
+a validated, unaffected 09:00 recovery point, the gap is **20 minutes**.
+For this comparison assume those recovery points are available and tested.
+In a real incident, the newest backup might contain compromised data;
+the provider must establish an acceptable recovery point before reconnecting.
+
+Backups do not undo the export. Mara records what is known, preserves the
+report, and asks the privacy adviser to assess coverage, information involved,
+likely harm and remedial action. The adviser records the applicable
+notification decision and timing. Neither a successful restore nor an
+unconfirmed actor identity closes that assessment.
+
+### Human process and review
+
+Staff get a known reporting channel for unexpected prompts and requests.
+A high-risk account reset or export approval uses a second, independent
+verification route. Staff should not call a number supplied in the suspicious
+message. The aim is quick reporting and constrained damage, without requiring
+perfect suspicion from everyone.
+
+The dossier ends with owners and evidence: Mara checks access tests and
+reporting arrangements; the provider supplies boundary and recovery results;
+the privacy adviser owns notification advice; the director reviews residual
+risk and the deferred alert service. Revisit after a permissions change,
+a failed restore test or a new service, as well as at the scheduled review.
+
+## Independent transfer: weekend opening {#sec-transfer}
+
+Work for 30–45 minutes without AI or the worked answer. All facts stay the
+same except these changes:
+
+- Budget is **\$2,200**. Option prices stay unchanged.
+- The director requires **option A** before the new programme opens because
+  bulk-export permissions are unacceptable. This is a supplied constraint.
+- The RTO is now **two hours**; the RPO stays one hour.
+- Restore takes **100 minutes**, preceded by 10 minutes of response and
+  followed by 20 minutes of validation.
+- If C is selected, the latest validated recovery point is 09:00 for a
+  09:20 disruption. Without C it is still 23:00 the previous day.
+- The changed loss estimate is \$80,000, initial annual rate 0.10 and
+  estimated rate after A of 0.06.
+
+Write a one-page decision: assets, control choices and annual cost; one
+permission and one boundary test; expected-loss arithmetic; RTO/RPO checks;
+incident ownership and evidence; privacy escalation; and the unresolved
+decision about opening. You may say “not ready”. Do not invent a free control,
+a faster restore, an extra budget or proof that a breach did not happen.
+
+```{=latex}
+\newpage
+```
+
+### Check your reasoning {#sec-transfer-check}
+
+A and C use the full \$2,200. A and B cost \$1,800 but leave the stated
+backup problem. A and D cost \$2,000 but repair neither recovery nor the
+network boundary. With A required, no affordable combination fixes all three.
+
+For A, the changed expected loss is \$8,000 before and \$4,800 after;
+the \$3,200 reduction gives **\$2,200 net benefit** after its cost.
+The proposed recovery needs **130 minutes**, so it misses the two-hour
+RTO by **10 minutes**, even if C meets the RPO at 20 minutes.
+A+C leaves the network weakness unresolved. A defensible answer escalates
+the launch decision, identifies the missing boundary repair and demands
+a tested recovery improvement or an explicitly authorised change of target.
+It does not quietly claim the service is ready.
+
+Score one point for each of eight checks: correct assets and permissions;
+affordable choices satisfying the A constraint; correct expected-loss maths;
+both allow and deny tests; correct RTO and RPO findings; evidence-preserving
+response with owners; a qualified privacy escalation; and an explicit
+unresolved launch decision. Aim for at least seven, with no safety failure,
+no claim that the 130-minute recovery meets a 120-minute target, and no
+unsupported “ready” conclusion. A different control choice can pass if its
+limitations and consequences are honestly defended.

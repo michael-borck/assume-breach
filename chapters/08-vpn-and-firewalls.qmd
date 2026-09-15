@@ -37,7 +37,7 @@ rules they're given. A firewall doesn't understand *intent*; it applies your pol
 the security a firewall provides is the quality of the thinking that went into its rules. It's a
 recurring truth in this book: the tool is easy, the judgement is hard.
 
-![A firewall between two zones: an *inside* network it protects and an *outside* it distrusts. Everything crossing between `10.1.1.0/24` and `10.1.2.0/24` passes through the firewall's routes and filters. This is the *Firewalls* lab from the companion environment.](../images/firewall-inside-outside.svg){#fig-firewall fig-alt="Network diagram: a firewall between an inside subnet 10.1.1.0/24 with hosts pc1 to pc4 and a dns server, and an outside subnet 10.1.2.0/24, controlling routing and filtering between the two."}
+![A firewall between two zones: an *inside* network it protects and an *outside* it distrusts. Everything crossing between `10.1.1.0/24` and `10.1.2.0/24` passes through the firewall's routes and filters. This is an illustrative topology, not a required companion lab.](../images/firewall-inside-outside.svg){#fig-firewall fig-alt="Network diagram: a firewall between an inside subnet 10.1.1.0/24 with hosts pc1 to pc4 and a dns server, and an outside subnet 10.1.2.0/24, controlling routing and filtering between the two."}
 
 ## The three kinds of firewall
 
@@ -58,24 +58,23 @@ more useful, and it's the modern default for most purposes.
 An **application-layer** firewall (or proxy) goes deeper still: it understands the actual
 protocol (the structure of an HTTP request, for instance) and can make decisions based on the
 *content*, not just the addresses. A web application firewall that blocks a malicious-looking
-request is working at this level. It's the most powerful and the slowest, because understanding
-traffic costs more than routing it.
+request is working at this level. Deeper inspection has processing and configuration costs. Capabilities and
+performance depend on implementation, and encrypted content may be unavailable
+unless the design explicitly provides authorised inspection.
 
 ## Writing the rules
 
 The single most important decision in a firewall policy is its **default stance**, and it comes
 in two flavours. **Default-deny** blocks everything and permits only what you explicitly allow: a
 guest list. **Default-allow** permits everything and blocks only what you explicitly forbid: a
-banned list. Default-deny is more secure and is the professional's choice, for a subtle but
-decisive reason: with a banned list you can only block the threats you *thought of*, and
+banned list. Default-deny limits unexpected access at a defined boundary: with a banned list you can only block the threats you *thought of*, and
 attackers make their living on the ones you didn't. A guest list fails safe: anything unforeseen
 is denied by default. A banned list fails open, letting the unforeseen straight through. The
 trade-off is friction: default-deny means every legitimate need must be anticipated and allowed,
-which is more work and more support tickets. That tension, security versus convenience, is the
-first question at the end, and it never goes away.
+which is more work and more support tickets. Test necessary service use as well as prohibited access.
 
-Two more subtleties bite people constantly. **Order matters:** firewalls evaluate rules top to
-bottom and usually act on the first match, so a broad "allow" placed above a specific "deny"
+Two more subtleties bite people constantly. **Order matters:** in the first-match model used for our paper exercise, rules are evaluated top
+to bottom, so a broad "allow" placed above a specific "deny"
 silently defeats the deny. The packet matches the allow first and is waved through before the
 deny is ever considered. And **specificity matters:** one rule written too broadly can open a
 hole nobody notices, and a large rule set becomes so complex that mistakes hide in it. The cost
@@ -86,50 +85,53 @@ exposed while everyone believes the firewall has them covered.
 
 A firewall controls *what can pass*. A **VPN** (virtual private network) protects *what's already
 passing*. It solves the plaintext problem from the last chapter by building an encrypted
-**tunnel** between your device and a VPN server: everything you send is encrypted before it
-leaves your machine and only decrypted at the far end. To anyone listening in between (the
+**tunnel** between configured endpoints. Traffic selected for that tunnel is
+protected until it reaches the other endpoint. A full-tunnel configuration and
+split tunnelling cover different traffic; do not assume every application,
+DNS request or fallback path is included. To anyone listening in between (the
 attacker on the coffee-shop Wi-Fi, the operator of an untrusted network), your traffic is just
 ciphertext. The VPN gives you confidentiality and integrity across a network you don't trust,
 which is what an untrusted wire otherwise denies you.
 
-![The problem a VPN solves: a client in the office reaches a server in the datacentre across a path an eavesdropper can read. The tunnel turns that middle section into ciphertext. This is the *VPN* lab, joining office `10.11.0.0/24` to datacentre `10.11.1.0/24`.](../images/vpn-office-datacentre.svg){#fig-vpn fig-alt="Network diagram: an office subnet 10.11.0.0/24 and a datacentre subnet 10.11.1.0/24 connected through gateways, with an eavesdropper positioned on the path between them."}
+![The problem a VPN solves: a client in the office reaches a server in the datacentre across a path an eavesdropper can read. The tunnel turns that middle section into ciphertext. This illustration joins office `10.11.0.0/24` to datacentre `10.11.1.0/24`; it is not an instruction to connect a lab.](../images/vpn-office-datacentre.svg){#fig-vpn fig-alt="Network diagram: an office subnet 10.11.0.0/24 and a datacentre subnet 10.11.1.0/24 connected through gateways, with an eavesdropper positioned on the path between them."}
 
-Under the hood, a VPN is the cryptography chapter made practical: it uses asymmetric cryptography
-to establish trust and exchange keys, fast symmetric encryption for the bulk of the traffic, and
-integrity checks to ensure nothing was altered in transit. If that hybrid scheme sounds familiar,
-it should. It's the same pattern that secures the web.
+A secure VPN protocol authenticates peers, establishes keys and protects
+selected traffic against disclosure and undetected alteration. The mechanisms
+vary by protocol and configuration; some use pre-shared credentials. The cryptography chapter explains why authentication and integrity matter
+alongside confidentiality.
 
 ## What a VPN does not do
 
 VPNs are also the most over-sold tool in consumer security, so it's worth being precise about
-their limits. The second question at the end turns on this.
+their limits.
 
 A VPN protects the link between you and the VPN server. It does **not** make you anonymous: your
 traffic still emerges from the VPN server toward its real destination, and that destination still
 knows what you did there. It does **not** secure your device: malware already on your machine is
 unaffected by an encrypted tunnel. And it does **not** protect the leg *beyond* the VPN server. If
-that onward traffic is unencrypted, it's exposed again once it leaves the tunnel (which is why a
-VPN is not a substitute for HTTPS; you want both). A VPN also doesn't remove trust; it *relocates*
-it. You've stopped trusting the local network and started trusting the VPN provider, who can now
-see your traffic. That can be a good trade on hostile Wi-Fi and a bad one with a shady provider,
+that onward traffic is unencrypted, it's exposed again once it leaves the tunnel. A VPN is not a substitute for HTTPS. Whether a separate VPN is useful depends
+on the access requirement and threat model. A VPN also doesn't remove trust; it *relocates*
+it. You've stopped trusting the local network and started trusting the VPN provider, which sees routing information and any unencrypted onward
+traffic. Properly protected HTTPS content remains encrypted to the website;
+leaving the VPN tunnel does not itself reveal that content. That can be a good trade on hostile Wi-Fi and a bad one with a shady provider,
 but "a VPN makes you safe" is a marketing line rather than a security fact.
 
 ## Defence in depth, again
 
-Neither tool is sufficient alone, and by now you can predict the conclusion. A firewall controls
+Consider what each tool leaves outside its scope. A firewall controls
 what traffic is allowed but can't judge the intent behind traffic it permits. Malware happily
 tunnels out over the same port 443 your firewall allows for ordinary web browsing. A VPN protects
 traffic in transit but does nothing about what happens at either end. So they join the layers from
 the last chapter: the firewall decides what's allowed, the VPN protects what's in motion,
 segmentation limits how far a foothold spreads, and monitoring catches the malicious traffic that
-slips through a permitted door. Each covers a gap the others leave. The answer to "what catches
-what the firewall misses?" is always another layer rather than a single better wall.
+slips through a permitted door. Check that these controls fail independently where possible, and test the
+paths between them. More layers do not help if they share the same unchecked
+administrator access.
 
 ## Where this connects
 
 A firewall and a VPN are the two defences against the scanning, sniffing, and man-in-the-middle
-attacks of the previous chapter, **network security**. A VPN's tunnel is the hybrid encryption
-scheme from **cryptography**, deployed. And the monitoring that backs up a firewall feeds the
+attacks of the previous chapter, **network security**. A secure tunnel applies the key and authentication ideas from **cryptography**. And the monitoring that backs up a firewall feeds the
 detection stage of incident response in **incident and disaster planning**.
 
 ## Questions to consider
@@ -140,34 +142,12 @@ detection stage of incident response in **incident and disaster planning**.
    *not*?
 3. Give one example of a second layer catching something a firewall alone would miss.
 
-## Take it to the AI
+## Test both directions of the policy
 
-**Where to start.** Three questions worth arguing about rather than looking up:
+In 15 minutes, trace all seven flows in Harbour's paper firewall exercise.
+Explain the rule that decides each one. Repair the policy and repeat the
+tests, including legitimate service use. Success means four expected allows
+and three expected denies, with no broad rule defeating a later restriction.
+This notation is for reasoning only, not deployment.
 
-1. Ask the AI to write a small firewall rule set, then ask it to find the hole in its own rules.
-   Order and over-broad specificity are where the mistakes hide, and it will have made at least
-   one.
-2. Take a consumer VPN advertisement and ask the AI to assess it claim by claim: what the
-   product can deliver, what it cannot, and which claims are true but irrelevant.
-3. Default-deny is the professional answer and it generates support tickets. Ask where that
-   friction is worth paying and where a team is fooling itself.
-
-**Keywords to steer with.** packet filtering · stateful inspection · application-layer firewall ·
-default-deny · rule order · implicit deny · egress filtering · tunnel · split tunnelling · trust
-relocation · port 443 · web application firewall
-
-**A starting prompt.**
-
-> **Role:** You are a firewall administrator reviewing a colleague's rule set before it goes
-> live.
->
-> **Task:** Find every rule that is redundant, mis-ordered, or broader than it needs to be, and
-> say exactly what each mistake would let through.
->
-> **Context:** I have read a chapter on packet-filtering, stateful and application-layer
-> firewalls, default-deny versus default-allow, and why rule order matters. The rules are for
-> [describe the network and what it must allow]. My rule set is: [paste it].
->
-> **Format:** One line per finding: rule number, the problem, what gets through, the corrected
-> rule. Then give me the rewritten set in the order you would deploy it, with a one-line reason
-> for the ordering.
+Case inputs and checks: [Harbour dossier](../appendices/defender-dossier.qmd).

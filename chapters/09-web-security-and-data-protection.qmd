@@ -2,15 +2,13 @@
 
 ![](../images/ch09-opener.png){fig-alt="Pixel-art illustration: a bustling medieval market square just inside an open castle gate."}
 
-> *The web is where most of us are attacked, because it's where most of us are. And behind every web app is data someone is legally obliged to protect.*
+> *A web request should expose only the data and actions its user is authorised to access.*
 
-Almost everything now runs through a web browser: banking, work, government, shopping, social
-life. That makes web applications the single largest attack surface most organisations have. It is
-also the place where ordinary people are most likely to meet an attack. This chapter has two halves
-that turn out to be one story. The first is *how web applications get attacked*, the handful of
-flaws behind a huge share of real breaches. The second is *what the law requires of the data
-behind them*. When a web flaw leaks personal information, it stops being only a technical
-problem and becomes a legal one. A web vulnerability is also a privacy incident.
+Harbour lets customers view bookings through a browser. A mistake in how
+the application handles a request could expose someone else's information.
+This chapter connects web weaknesses to access controls and personal-data
+responsibilities. A vulnerability can lead to a privacy incident; discovering a flaw alone
+does not establish that personal data was compromised or notification is required.
 
 ## What this chapter covers
 
@@ -27,9 +25,8 @@ By the end you should be able to:
 
 A web application is, almost by definition, exposed: it exists to accept requests from strangers
 over the internet. Every input field, URL, and uploaded file is a place where untrusted data
-enters your system, and the browser on the other end is a universal client you don't control. The
-core weakness behind most web attacks is a single recurring mistake: **trusting input that
-should never be trusted.** Data arriving from a user is treated as if it were safe, and the
+enters your system, and the browser on the other end is a universal client you don't control. One recurring weakness is **trusting input that should never be trusted**.
+Another is failing to check what an authenticated user is allowed to do. Data arriving from a user is treated as if it were safe, and the
 attacker's craft is to make that data do something it was never meant to.
 
 ## Injection: when data becomes commands
@@ -61,11 +58,14 @@ displays it back to other users. If the site fails to treat that content as untr
 attacker can submit a small **script** instead of ordinary text. When another user views the page,
 their browser receives that script *as part of the trusted site's page* and runs it in the
 site's context, with the victim's session. Now the attacker's code, executing as if it were the
-site itself, can read the victim's session token, act as them, redirect them, or deface
+site itself, may read an accessible session token, act as them, redirect them, or deface
 what they see. The victim did nothing wrong except visit a page they had every reason to trust.
-(Tracing that path in your own words is the first question at the end. It is the clearest way to
-show you understand XSS.) The defence mirrors injection: treat all user content as untrusted, and
-**encode it on the way out** so the browser renders it as text to display rather than code to run.
+The defence mirrors injection: treat all user content as untrusted, and
+**encode it for the output context** so the browser treats it as data.
+HTML text, attributes, URLs and scripts have different rules; safe framework
+facilities and sanitisation are needed where rich content is deliberately allowed.
+[OWASP's XSS guidance](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+explains why one universal escaping function is insufficient.
 
 ## Authentication and session weaknesses
 
@@ -78,8 +78,22 @@ is **session hijacking**, and it's why the sniffing and XSS attacks in this book
 they're often after the token rather than the password. A related trick, **session fixation**, has the
 attacker plant a session identifier they already know, then wait for the victim to log in under
 it. The defences are concrete: send tokens only over HTTPS so they can't be sniffed, flag cookies
-so scripts can't read them and they don't leak, issue a fresh token at login, and expire sessions
-so a stolen one doesn't last forever.
+so scripts can't read them and they don't leak, issue a fresh token at login, and expire and revoke sessions so a stolen one does not remain useful indefinitely.
+An HttpOnly cookie prevents JavaScript reading that cookie; injected code may
+still cause authenticated actions. Cookie flags do not make an XSS flaw harmless.
+
+## A valid login is not permission
+
+Suppose Harbour's customer page accepts a booking identifier. A customer
+changes that identifier and receives another person's booking. The login may
+be genuine and the query parameter safely handled; the missing check is
+whether this customer is allowed to access that record.
+
+Enforce ownership and role checks server-side on every relevant request.
+Hiding a button is not access control. Test both a permitted action and an
+attempt by a different account that should be denied.
+[OWASP's access-control guidance](https://top10.owasp.org/2025/A01_2025-Broken_Access_Control/)
+describes this distinction.
 
 ## The other side: protecting the data
 
@@ -91,29 +105,52 @@ it longer than necessary; and let people see and correct what you hold about the
 codifies these as the **Australian Privacy Principles (APPs)** under its Privacy Act; the EU's
 **GDPR** is another version of the same pattern; other countries have their own. The names differ;
 the shape is consistent. The point for a defender is that *security is
-written into the law*. Failing to protect personal data breaches a legal obligation.
+written into the law*. The applicable duties depend on the organisation, data and jurisdiction.
+A breach warrants investigation; its occurrence alone does not establish
+that every relevant legal duty was violated.
 
 ### When it breaks: breach notification
 
-The law also dictates what happens when protection fails. Most modern regimes include a
-**mandatory breach-notification** duty: if personal data is compromised in a way likely to cause
-serious harm, the organisation *must* tell the regulator and the affected people, often within a
-tight deadline. Australia's **Notifiable Data Breaches (NDB)** scheme requires it; the GDPR sets a
-**72-hour** clock, which is why the incident-planning chapter's crisis ran against that
-deadline. These rules exist for two reasons: so affected people can *protect themselves* (change
-passwords, watch their accounts, freeze their credit) and to create an *incentive* for
-organisations to secure data properly, since a breach can no longer be buried. The second question
-at the end asks about this. Notification turns a private failure into a public,
-accountable one by design.
+A technical finding starts an assessment, not an automatic notification
+verdict. Identify the information, the affected people, what occurred, and
+which laws cover the organisation. Record uncertainty and involve the
+responsible privacy adviser promptly.
 
-## A web flaw is a privacy incident
+**Australia: NDB scheme.** For covered entities, an eligible breach generally
+involves unauthorised access or disclosure, or loss likely to lead to it,
+where serious harm to an individual is likely. Successful remedial action
+and exceptions can affect notification. Suspected eligible breaches need
+assessment: take all reasonable steps to complete it within 30 calendar
+days. Once there are reasonable grounds to believe an eligible breach
+occurred, notify the OAIC and relevant individuals as soon as practicable.
+Thirty days is not a general waiting period.
+[OAIC's guidance](https://www.oaic.gov.au/privacy/notifiable-data-breaches/preventing-preparing-for-and-responding-to-data-breaches/data-breach-preparation-and-response/part-4-notifiable-data-breach-ndb-scheme)
 
-A single injection or XSS flaw that spills a customer database
-is, in the same instant, a technical failure *and* a legal event: it triggers the notification
-clock, exposes the organisation to regulatory penalty, and damages the trust that is the
-acquired value from the risk chapter. This is why web security and data protection belong in one
-chapter. The vulnerability and the consequence are two faces of one event. A defender who
-sees only the code half, or only the legal half, misses how the whole thing plays out.
+**EU: GDPR.** A controller notifies the supervisory authority without undue
+delay and, where feasible, within 72 hours of becoming aware of a
+personal-data breach, unless it is unlikely to pose a risk to people's
+rights and freedoms. A likely *high risk* generally requires communication
+to affected individuals without undue delay, subject to exceptions.
+Processors notify the controller without undue delay. Document breaches
+and decisions even where regulator notification is not required.
+[EDPB's notification guidance](https://www.edpb.europa.eu/documents/guideline/guidelines-92022-on-personal-data-breach-notification-under-gdpr_en)
+
+These educational summaries were checked in September 2026. They are not a
+complete statement of the law; other sectoral or contractual obligations
+may also apply. For a real incident, use the current rules and authorised
+legal advice.
+
+## From a web flaw to a decision
+
+A report that one customer can read another's booking establishes an access
+control problem. Logs showing an unauthorised bulk export add evidence of
+exposure. Whether notification is required still depends on coverage,
+information involved, risk or harm thresholds and remedial action.
+
+At Harbour, preserve the export evidence and escalate to the privacy adviser.
+Do not equate a successful restore with resolution of disclosure, or a lack
+of actor attribution with a lack of harm. The task is to make a supported,
+timely decision while technical investigation continues.
 
 ## Where this connects
 
@@ -132,36 +169,24 @@ breach-notification clock here, the same one that drives a real breach response.
 3. If an attacker steals your active **session token**, what can they do that they couldn't with
    just your username, and what, if anything, can they still *not* do?
 
+## Separate three decisions
+
+In 15 minutes, distinguish a reported access-control flaw, the supplied
+bulk-export evidence, and a legally notifiable breach. Record what Harbour's
+privacy adviser knows and must still establish. Then contrast the Australian
+and EU paths using the sources above. Success means no automatic 72-hour
+rule for every incident, and no claim that a restore resolves disclosure.
+
+Case inputs and checks: [Harbour dossier](../appendices/defender-dossier.qmd).
+
 ## Take it to the AI
 
-**Where to start.** Three questions worth arguing about rather than looking up:
+Optional: attempt the paper task first. Use only the fictional case, never
+real messages, credentials, personal information or internal logs. Check any
+external claims against the primary sources; do not deploy generated rules.
 
-1. Ask the AI to explain session hijacking to someone who has just changed their password and
-   believes they are now safe.
-2. Ask what a mandatory breach-notification regime requires, then ask where the judgement calls
-   sit. The phrase "likely to result in serious harm" is doing most of the work, and it is not
-   self-explanatory.
-3. Ask it to argue that data-protection law has improved security, then that it mostly produces
-   paperwork. Ask which case rests on evidence and which on assertion.
-
-**Keywords to steer with.** untrusted input · SQL injection · parameterised query · output
-encoding · stored and reflected XSS · content security policy · session token · HttpOnly ·
-session fixation · Australian Privacy Principles · GDPR · Notifiable Data Breaches · data
-minimisation
-
-**A starting prompt.**
-
-> **Role:** You are a privacy officer who also reads code, briefing a product team the morning
-> after a vulnerability report lands.
->
-> **Task:** Take one web vulnerability and trace it all the way to its legal consequences. Show
-> me the exact point where a technical failure becomes a reportable event.
->
-> **Context:** I have read a chapter linking web vulnerabilities (injection, cross-site
-> scripting, session attacks) to data-protection obligations and mandatory breach notification.
-> The vulnerability is [pick one, or ask me]. The organisation holds [describe the personal data]
-> and operates in [jurisdiction].
->
-> **Format:** A step-by-step chain from the flaw to the notification decision, naming who has to
-> act at each step. End with the moment the clock starts, and why that moment is harder to pin
-> down than the rules make it sound.
+> Act as a reviewer of an educational notification decision, not as my legal
+> adviser. Use Harbour's fictional facts. Separate what is known, what remains
+> uncertain, and which current regulator source addresses the uncertainty.
+> Do not turn a vulnerability report into proof of a notifiable breach.
+> Ask me to justify my decision before offering your assessment.

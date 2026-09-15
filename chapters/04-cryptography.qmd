@@ -2,14 +2,13 @@
 
 ![](../images/ch04-opener.png){fig-alt="Pixel-art illustration: a candlelit stone table with a locked strongbox, a wax-sealed scroll, and a brass cipher wheel."}
 
-> *The security of a good cipher rests on the key, not on hiding how it works. That single idea, Kerckhoff's principle, organises the whole field.*
+> *A sound cipher should remain secure when its design is public and only the key is secret.*
 
-Cryptography is the closest thing security has to a superpower: done right, it lets you protect
-information even when your enemy can see everything you send. It is also the part of the field
-most wrapped in mystique and most often misunderstood. This chapter strips away the mystique.
-You do not need the mathematics to reason about cryptography well. You need to understand what
-each kind of cryptography *guarantees*, what it *doesn't*, and where the real weaknesses lie
-(which, as ever, are rarely in the maths).
+Cryptography can protect information sent through an untrusted network,
+but different operations solve different problems. Encrypting a booking,
+hashing an export and signing a message do not provide interchangeable
+assurances. You do not need to derive the algorithms here; you need to
+identify the protection, its assumptions and the systems it depends on.
 
 ## What this chapter covers
 
@@ -40,9 +39,8 @@ is one of the most important ideas in the whole field:
 > knowledge.
 
 In other words, the security must rest **entirely on the secrecy of the key**, never on the
-secrecy of the algorithm. This sounds counter-intuitive until you see why it's a *strength*. A
-secret algorithm has never been examined by anyone but its creators, so no one knows whether it's
-flawed. Once it leaks (it always leaks), your security evaporates. A public algorithm,
+secrecy of the algorithm. This sounds counter-intuitive until you see why it's a *strength*. Keeping a design secret can limit independent review without demonstrating
+that the design is sound. If secrecy of the algorithm is the only protection, disclosure removes it. A public algorithm,
 published and attacked by the world's cryptographers for years, has earned its trust the hard
 way. This is why every cipher you should trust (the ones protecting your web traffic, your
 messages, your disk) has an openly published algorithm and keeps only the key secret. "Secret
@@ -65,40 +63,57 @@ central limitation.
 
 ## Asymmetric cryptography: a key you can publish
 
-The breakthrough that solved it is **asymmetric** (or two-key) cryptography. Instead of one
-shared secret, each person has a *pair* of mathematically linked keys: a **public key** they can
-hand out to anyone, and a **private key** they keep to themselves. The crucial property is that
-what one key locks, only the *other* can unlock. Knowing the public key does not let you work
-out the private key.
+**Asymmetric cryptography** uses a mathematically related public/private
+key pair. The public key can be shared; the private key must be protected.
+Different schemes perform different jobs. Do not assume every pair can
+encrypt, decrypt and sign interchangeably.
 
-That single trick does two different jobs, and it's worth keeping them apart. The first is
-confidentiality. Anyone can encrypt a message to you using your *public* key, but only your
-*private* key can decrypt it. Now a stranger can send you a secret without ever sharing a key in
-advance. The key-distribution problem dissolves, because the encrypting key was never secret. The
-second is authenticity, through digital signatures. Run it the other way: you encrypt (sign)
-something with your *private* key, and anyone can verify it with your *public* key. Since only you
-have your private key, a valid signature proves the message came from you and wasn't altered. This
-is where non-repudiation and integrity come from.
+With a public-key encryption scheme, a sender encrypts to the recipient's
+public key and the recipient decrypts using the private key. But the sender
+must establish that this really is the recipient's key. Publishing a key
+does not by itself solve the problem of authenticating it.
 
-Asymmetric cryptography is slower than symmetric, so real systems use **both**: asymmetric
-cryptography to safely exchange a fresh symmetric key, then fast symmetric encryption for the
-conversation. That hybrid is, in essence, what happens every time your browser opens a
-secure connection. The web calls this scheme Transport Layer Security, or TLS.
+A **digital signature** is a separate operation: a signing algorithm uses a
+private key, and a verification algorithm uses the corresponding public key.
+Signing is not generally “encrypting with the private key”. Verification
+checks the signature against the message. A valid signature supports a claim
+about the signing key, subject to trustworthy key identity and control;
+it does not by itself prove a human's intent.
+[NIST's Digital Signature Standard](https://csrc.nist.gov/pubs/fips/186-5/final)
+describes these distinct signing and verification operations.
+
+Real systems often combine public-key techniques with fast symmetric
+protection. In a certificate-authenticated TLS connection, the browser checks
+the server's certificate and name, the parties establish traffic keys, and
+symmetric authenticated encryption protects the traffic. Modern key agreement
+can derive a shared secret rather than sending a symmetric key encrypted
+with the server's public key.
+[TLS 1.3](https://www.rfc-editor.org/rfc/rfc8446.html) separates these steps.
+If certificate validation fails, do not bypass the warning just to continue.
 
 ## Hashing: one-way, and not encryption
 
 A **hash function** is often grouped with cryptography but does something different, and the
-difference matters. Encryption is *reversible*. The whole point is that the right key gets the
-original back. A cryptographic hash is deliberately **one-way**: it turns any input into a
+difference matters. Encryption is *reversible*. With the right key, decryption recovers the original. A cryptographic hash is deliberately **one-way**: it turns any input into a
 fixed-length fingerprint that cannot be reversed to recover the input. You met this in the last
 chapter, where systems store the hash of a password rather than the password itself.
 
-So the two answer different questions. **Encryption protects confidentiality**: keeping content
-secret from those without the key. **Hashing protects integrity**: proving that content hasn't
-changed, since any alteration produces a different fingerprint. If you want to hide a
-message, encrypt it. If you want to prove a file hasn't been tampered with, hash it. Confusing
-the two is a common and revealing mistake: "I hashed it so it's secret," or "I encrypted it so
-I'll know if it changed."
+Encryption aims to protect confidentiality. A cryptographic hash gives a
+compact comparison value designed to make it infeasible to find a different
+input with the same digest. Collisions are mathematically possible; “every
+change must produce a different hash” is not the guarantee.
+
+To check a downloaded file, compare its digest with an expected value obtained
+through a trusted channel. If an attacker replaces both the file and its
+advertised digest, comparison alone proves nothing about authenticity.
+A keyed message authentication code or a signature can add authentication
+under the relevant key assumptions.
+
+Encryption alone also need not detect tampering. **Authenticated encryption**
+combines confidentiality with an integrity check, rejecting altered protected
+data. Use a maintained protocol or library rather than assembling your own
+combination. Key theft, a compromised endpoint or an authorised but malicious
+application session can still expose the plaintext.
 
 ## Attacks, and the limits of weak crypto
 
@@ -117,16 +132,17 @@ and study the output. A cipher worth trusting must withstand even an adversary w
 advantages. That is why real ciphers are published and battered by experts rather than kept
 secret and hoped over.
 
-Modern cryptography is strong, and attackers know it, so they almost never attack the maths.
+Well-chosen modern cryptography can make direct cryptanalytic attacks
+impractical. Attackers may instead exploit the surrounding system.
 They steal the key from a poorly protected file, trick a user into revealing it, exploit a bug
 in the *implementation* of a sound algorithm, or take the data before it's encrypted or after
 it's decrypted. Even ransomware, which weaponises encryption *against* you, succeeds through the
-plumbing (how it gets in and what it can reach) rather than by breaking the cipher. The
-cryptography is the strongest link. Assume the attacker will go for the others.
+plumbing (how it gets in and what it can reach) rather than by breaking the cipher. The defender must examine both the cryptographic choice and its operating
+conditions; neither should be assumed correct merely because encryption is present.
 
 ## Where this connects
 
-The hashing that stores your password is the integrity side of **authentication**. The
+Password verification uses the hashing ideas introduced in **authentication**. The
 encrypted tunnel a VPN builds rests on the symmetric, asymmetric, and key-exchange ideas here,
 as **VPN and firewalls** will show. And the secure connection behind every reputable website is
 the hybrid scheme described above, which returns in **web security and data protection**.
@@ -139,33 +155,12 @@ the hybrid scheme described above, which returns in **web security and data prot
 3. What's the practical difference between **hashing** a message and **encrypting** it? When
    would you want each?
 
-## Take it to the AI
+## Choose the protection
 
-**Where to start.** Three questions worth arguing about rather than looking up:
+In 10 minutes, decide what protects Harbour's traffic, stored records and
+backup comparison values. Explain one limitation of each choice. Your answer
+should recognise that an application can export plaintext after login, and
+that a hash beside an editable file needs a separately trusted reference.
+Compare with the worked dossier only after making your choices.
 
-1. If modern ciphers are effectively unbreakable, why do encrypted systems still get breached?
-   Ask for three real cases, then check for yourself whether the failure was the maths or the
-   plumbing around it.
-2. "I hashed it, so it is secret." Ask the AI to defend that sentence as convincingly as it can,
-   then to demolish it. The defence will read well, which is the lesson.
-3. Ask what post-quantum cryptography actually breaks. Push back if it treats symmetric and
-   asymmetric as equally doomed, because they are not.
-
-**Keywords to steer with.** key space · Kerckhoffs's principle · known-plaintext ·
-chosen-plaintext · key exchange · hybrid encryption · salt · rainbow table · forward secrecy ·
-harvest-now-decrypt-later · key management
-
-**A starting prompt.**
-
-> **Role:** You are a security engineer who has had to explain cryptographic failures to
-> non-technical executives.
->
-> **Task:** Walk me through three real breaches where strong cryptography was in place and the
-> data still leaked. For each, name the layer that actually failed.
->
-> **Context:** I have just read a chapter on symmetric and asymmetric encryption, hashing, and
-> why attackers go around the maths rather than through it. I want to test whether that claim
-> survives contact with real incidents.
->
-> **Format:** A paragraph per breach, then a table: Incident | What was encrypted | What actually
-> failed | What would have prevented it. Flag any case where the public reporting is disputed.
+Case inputs and checks: [Harbour dossier](../appendices/defender-dossier.qmd).

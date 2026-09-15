@@ -4,13 +4,11 @@
 
 > *The question isn't whether something will go wrong, but whether you're ready when it does.*
 
-This is the chapter where *assume breach* stops being a slogan and becomes a plan. Everything so
-far has been about lowering the odds: hardening, controls, cryptography, spending where the risk
-is highest. But the honest premise of this whole book is that, sooner or later, across a large
-enough system and enough time, a defence fails and something gets through. The organisations that
-survive that moment are not the ones that believed it couldn't happen; they're the ones that
-decided *in advance* what they would do when it did. Planning for failure is the most practical
-form of optimism there is.
+At Harbour, an unexpected login prompt and a bulk-export event arrive within
+minutes of each other. Who can suspend access, preserve the logs, talk to the
+service provider and decide what the centre tells participants? This chapter
+turns those questions into a response plan. Preparation and recovery tests
+belong before the first incident.
 
 ## What this chapter covers
 
@@ -24,31 +22,38 @@ By the end you should be able to:
 
 ## When prevention runs out
 
-A defender who assumes they can keep every attacker out will, reasonably, put every dollar into
-prevention and none into what happens after. That is a trap. Prevention has a ceiling. Zero-days
-exist, people slip, controls fail. Past that ceiling, the only thing that helps is *preparation
-to respond*. This is why the security lifecycle has a second half: because you assumed breach,
-you build detection, response, and recovery *before* you need them, when you're calm and thinking
-clearly, rather than inventing them at 3 a.m. during the worst day of the company's year.
+Patching and access controls lower the chance of compromise. Detection,
+response and recovery reduce harm when prevention fails. They also help
+with mistakes and outages unrelated to an attacker.
+
+Preparation means deciding authority, keeping contact information available,
+and testing recovery while there is time to correct a failure. A response
+plan should work when the usual administrator is absent and the primary
+communication system is unavailable.
 
 ## Incident response: the lifecycle
 
-An **incident** is a security event that matters: a confirmed compromise, a breach, an outage
-caused by an attack. **Incident response** is the disciplined process of handling it, and a good
-process runs through recognisable stages:
+An **incident** involves an actual or imminent threat to security. A suspicious
+event needs triage; staff should not wait for certainty before reporting it.
+A response process turns incomplete observations into proportionate action:
 
-- **Detect.** You cannot respond to what you cannot see, which is why monitoring and logging,
-  covered in the network chapter, exist. The faster you detect, the less damage is done. The time an
-  attacker sits undiscovered ("dwell time") is often measured in weeks, and every day of it costs.
-- **Respond.** Contain the incident before it spreads: isolate the affected systems, cut the
-  attacker's access, stop the bleeding. This is triage: the goal is to limit the damage, not yet
-  to understand every detail.
-- **Recover.** Restore normal operations safely: rebuild compromised systems (remember the
-  rootkit: deeply compromised machines are rebuilt, not cleaned), restore data, and verify the
-  attacker is gone before reconnecting.
-- **Learn.** This is the stage everyone skips and no one should. Afterwards, honestly review what
-  happened, what worked, and what didn't, then feed those lessons back into your defences. An
-  incident you learn nothing from is one you've paid for twice.
+- **Detect and assess.** Record the observation, time and affected service.
+  Decide urgency and scope, distinguishing facts from assumptions.
+- **Respond.** Contain damage under assigned authority. Preserve useful
+  evidence where feasible while restricting compromised access. Record
+  actions that change or destroy evidence and why they were necessary.
+- **Recover.** Address the cause and persistence, restore or rebuild from
+  an acceptable state, and validate access and integrity before reconnecting.
+  A successful restore is not proof the attacker has been removed.
+- **Learn.** Review controls, decisions and communication. Assign improvements
+  and check that they are completed.
+
+These activities overlap. Evidence collection and analysis begin during
+response, not only after restoration. Do not indiscriminately wipe a system
+before consulting the response lead; equally, do not leave serious harm
+continuing solely to obtain perfect evidence.
+[NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final)
+places incident response within continuing risk management.
 
 Two things make or break response in practice, and neither is technical. **Roles** must be
 decided in advance (who declares an incident, who talks to whom, who has the authority to take a
@@ -77,30 +82,42 @@ organisation needs both.
 Disaster recovery turns on two deceptively simple targets, and getting them straight is the most
 useful thing in this chapter.
 
-**Recovery Time Objective (RTO)** is *how long you can afford to be down*: the maximum tolerable
-time to get a system back before the harm becomes unacceptable. A trading platform's RTO might be
+**Recovery Time Objective (RTO)** is the target elapsed time for restoring
+an agreed service level after disruption. Set it within the organisation's
+maximum tolerable disruption, allowing for dependencies and validation. A trading platform's RTO might be
 minutes; an internal wiki's might be days.
 
 **Recovery Point Objective (RPO)** is *how much data you can afford to lose*: the maximum
 tolerable gap between your last good backup and the moment of failure. An RPO of one hour means
 you can lose at most an hour's work; an RPO of a day means losing a day's is acceptable.
 
-The RPO, in particular, *dictates your backup schedule*. This is where plans contradict
+The RPO constrains your recovery design, including backup or replication
+frequency and the availability of usable recovery points. This is where plans contradict
 themselves. If a company declares an RPO of one hour but backs up only once a night, the plan is
 broken on its face: a failure just before the nightly backup could lose nearly twenty-four hours
 of data, not one. The stated goal and the actual practice don't match, and no one notices until
-the day it matters. (That mismatch is the second question at the end. It's a trap worth
-internalising, because real organisations fall into it constantly.)
+the day it matters. Test the gap using a failure time near the end of the backup interval.
+A copied but corrupt or compromised backup does not meet the target.
+[NIST's contingency-planning guidance](https://www.nist.gov/privacy-framework/nist-sp-800-34)
+helps distinguish recovery objectives from tolerable disruption.
 
 ## Backups and alternate sites
 
-Backups are the foundation of recovery, and the durable rule of thumb is **3-2-1**: keep at least
-**three** copies of important data, on **two** different types of media, with **one** kept
-off-site (or offline). The off-site, offline copy is the one that matters most against modern
-threats. Ransomware that can reach your backups can encrypt them too, and a backup the attacker
-can also destroy is no backup at all. This is the concrete payoff of the ransomware threat from
-the malware chapter: the organisation with good, tested, isolated backups can refuse to pay and
-restore; the one without them is at the attacker's mercy.
+Backups support recovery. The **3-2-1** rule of thumb means three copies,
+on two types of media, with one off-site. Geographic separation protects
+against a local disaster. **Offline or appropriately immutable protection**
+addresses a different problem: an attacker modifying or deleting backups.
+
+An off-site copy reachable with the same compromised administrator account
+may still be lost. Separate administration, retention controls and tested
+restoration matter. Check that recovery documentation and required keys remain
+available during an outage. Neither a backup job's success message nor a
+provider's promise substitutes for an observed restore test.
+
+Good backups can reduce pressure to pay for decryption. They do not erase
+data already stolen, resolve legal obligations or guarantee a clean recovery.
+[CISA's ransomware guide](https://www.cisa.gov/stopransomware/ransomware-guide)
+covers prevention, data theft and recovery together.
 
 For systems that can't tolerate much downtime, recovery relies on an **alternate site**, a second
 location ready to take over. These come in flavours by cost and readiness: a **hot site** is
@@ -110,20 +127,25 @@ decision: the cost-benefit reasoning of the previous chapter, applied to recover
 
 ## The clock and the crowd
 
-A modern breach is a legal and reputational problem as much as a technical one, and both run on
-clocks. Many jurisdictions now have **mandatory breach-notification** rules. The best-known, the
-EU's General Data Protection Regulation (GDPR), requires reporting certain breaches within **72 hours**. Recovery happens under a
-regulatory deadline, with penalties for silence. Meanwhile the *crowd* (customers, staff, media,
-regulators) wants to know what happened, and how you communicate under pressure can matter as
-much as the technical fix. Handled well, honest and timely disclosure preserves trust; handled
-badly, a cover-up turns a breach into a scandal.
+A response plan needs separate owners for technical recovery, communication
+and legal assessment. Do not promise that “every breach has a 72-hour clock”.
+Under GDPR, the controller's regulator-notification deadline generally runs
+from awareness of a personal-data breach, with a risk-based exception;
+communication to affected people has a different threshold. Australia's
+NDB scheme uses its own coverage, serious-harm and assessment rules.
+[Web Security and Data Protection](09-web-security-and-data-protection.qmd)
+sets out the distinction and primary sources.
 
-The sharpest version of this pressure is the **ransom decision**: pay the attacker for the
-decryption key, or refuse? It looks like a simple cost calculation, but it is not. Paying funds
-criminal enterprises and may be illegal, offers no guarantee the data comes back, and marks you as
-willing to pay again. Refusing may mean a longer, costlier recovery, bearable only if your backups
-are good. There is rarely a clean answer, which is why it must be thought through *before* the
-moment arrives, not decided in a panic with the clock running.
+Record when relevant facts became known and escalate promptly to the
+responsible adviser. Investigation may continue while notification duties
+are addressed. Customers need accurate information about what is known,
+what is uncertain and what they should do.
+
+A ransom demand adds pressure. Payment does not guarantee restored data or
+deletion of stolen copies, and legal restrictions may apply. The authorised
+decision-makers need technical and legal advice for the actual circumstances.
+This book's exercises do not ask the reader to negotiate or decide a real
+ransom payment.
 
 ## Testing the plan
 
@@ -149,8 +171,8 @@ Reading about incident response is one thing; running one against a clock is ano
 ## Where this connects
 
 This chapter is what you do when a risk from **risk management** happens anyway, and the hot,
-warm, and cold-site choice is that chapter's cost-benefit reasoning applied. Once an incident is
-contained, the investigation of *how* it happened is a discipline of its own, taken up in
+warm, and cold-site choice is that chapter's cost-benefit reasoning applied. Investigation
+starts alongside containment; its evidence and attribution methods are taken up in
 **cybercrime, botnets and forensics**. And the breach-notification obligations here are grounded
 in the data-protection law of **web security and data protection**.
 
@@ -163,34 +185,12 @@ in the data-protection law of **web security and data protection**.
 3. Why do so many disaster-recovery plans fail at the moment they're needed? What single
    practice would most reduce that?
 
-## Take it to the AI
+## Rehearse the first decisions
 
-**Where to start.** Three questions worth arguing about rather than looking up:
+Use Harbour's evidence cards for a 15-minute paper tabletop. Decide who
+acts at 09:15, 09:20 and 09:25; distinguish reporting from attribution.
+Calculate the rehearsal's recovery time and both printed recovery-point
+gaps. State what still needs checking before reconnecting. Success requires
+preservation alongside containment and separate treatment of exported data.
 
-1. Ask the AI to write a recovery plan for a small business, then ask it which parts of its own
-   plan are untested hope rather than verified capability. It should be able to tell the
-   difference, and the exercise is more useful than the plan.
-2. Stated RPOs and actual backup schedules come apart constantly. Ask for five ways that happens
-   in real organisations, and which one it has seen described most often.
-3. Ask it to argue for paying a ransom, then against. Sort the arguments into those about this
-   incident and those about what happens the next time.
-
-**Keywords to steer with.** incident response · business continuity · disaster recovery · dwell
-time · RTO · RPO · 3-2-1 backup · immutable backup · hot, warm and cold site · tabletop exercise ·
-breach notification · 72-hour clock
-
-**A starting prompt.**
-
-> **Role:** You are the incident commander running a tabletop exercise for a company that has
-> never rehearsed one.
->
-> **Task:** Take me through a ransomware scenario hour by hour, stopping at every point where a
-> decision has to be made and telling me who should be making it.
->
-> **Context:** I have read a chapter on incident response, continuity versus recovery, RTO and
-> RPO, the 3-2-1 rule, and the ransom decision under a notification clock. The organisation is
-> [describe it]. Assume its backups exist but have never been restore-tested.
->
-> **Format:** A timeline in hours. At each decision point give the choice, who owns it, what they
-> need to know, and what goes wrong if they get it wrong. End with the three questions this
-> company should answer before an incident rather than during one.
+Case inputs and checks: [Harbour dossier](../appendices/defender-dossier.qmd).

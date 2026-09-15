@@ -1,55 +1,72 @@
 # Appendix: Setting Up a Practice Environment {.unnumbered}
 
-> The chapters teach concepts and stay tool-agnostic. If you want to *practise*, and you
-> should because security is a craft, you need somewhere safe to do it. This appendix is
-> about that, and only that.
+The complete core route is the paper-based
+[Defender's Dossier](defender-dossier.qmd). Its observations and rules are
+fictional. You can learn the reasoning without scanning a device, cracking
+a password or capturing anyone's traffic.
 
-## The one rule
+## Permission before practice
 
-**Only ever practise on systems you own or have explicit, written permission to test.**
-Scanning, cracking, capturing traffic, probing a web app: these are the same actions an
-attacker takes. Doing them against systems you don't control is, in most countries, a crime
-regardless of intent. The whole point of a practice environment is that everything in it is
-yours to break.
+For optional hands-on work, obtain explicit written permission for the
+systems, accounts, techniques and time window involved. Owning a laptop does
+not authorise testing the shared network, a cloud provider or other users.
+If scope is unclear, stop and ask the responsible owner.
 
-## What a good practice environment looks like
+Use synthetic data and test accounts. This book does not ask you to handle
+live malware, attack a public website or upload real logs to an assistant.
 
-Whatever you use, aim for three properties:
+## Isolation is a property to check
 
-- **Isolated.** Kept off your main network, so a mistake can't reach anything real. A
-  host-only or NAT network is enough for most work.
-- **Disposable.** Quick to reset to a clean state when an exercise leaves a mess, so you can
-  experiment without fear.
-- **Reproducible.** Easy to rebuild the same way twice, so your results mean something and a
-  broken setup is no disaster.
+A VM is a separate guest operating system. A container shares more of its
+host's underlying environment. Either can be useful; neither name proves
+that a mistake cannot reach real systems.
 
-## Two common ways to get there
+With VirtualBox, **NAT allows outbound access to the host/LAN and internet**.
+**Host-only connects guests to the host**. An internal network can connect
+selected guests without attaching that network to the host or outside world.
+Additional adapters, routing, forwarding and shared resources can change
+the boundary. These distinctions are explicit in
+[Oracle's networking table](https://docs.oracle.com/en/virtualization/virtualbox/7.1/user/networkingdetails.html).
 
-**Virtual machines.** Free hypervisors (for example VirtualBox) let you run a self-contained
-guest operating system in a window. Snapshot it once it's set up; roll back to the snapshot
-whenever you want a clean slate. Heavier to move around, but familiar and graphical.
+Before using a deliberately vulnerable environment, check every adapter,
+published port, shared folder and credential. Keep personal files and
+production credentials outside it. Use only an environment whose maintainer
+documents the isolation and reset procedure for your platform. A container
+with a published port or mounted host directory is not an isolated playground
+merely because it starts in a container.
 
-**Containers.** Tools like Docker package an environment as a small, scriptable image that
-starts in seconds and is described by a file you can version and share. Lighter than a VM and
-easily reproducible, and increasingly how security tooling is packaged and taught. Some
-graphical tools are exposed through a web browser, so you don't lose the GUI. If you're
-choosing today, this is the direction most of the field is moving.
+## A safe optional route
 
-## Tools you'll meet
+Choose a maintained teaching environment with explicit authorisation and
+setup instructions. [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/)
+is one example of an intentionally insecure training application; read its
+own setup and safety documentation before installing anything. Do not treat
+its public demonstration or someone else's installation as an authorised target.
 
-You don't need to install these to read the book; they're named so the concepts have concrete
-anchors. Free, widely used examples by capability:
+Write down the intended boundary, confirm what can reach what using the
+environment's documented checks, and verify its reset procedure before an
+exercise. If a service is exposed beyond that boundary, a test reveals real
+data, or you cannot explain a connection, stop. Disconnect the exercise
+environment and ask its maintainer or your instructor for help.
 
-| Capability (from the chapters) | Common free tools |
-|--------------------------------|-------------------|
-| Scan a host for open ports and services | Nmap |
-| Crack password hashes; run a dictionary attack | John the Ripper, Hashcat |
-| Capture and read network traffic | Wireshark |
-| Encrypt / decrypt; work with keys | OpenSSL, GnuPG |
-| Configure and test a firewall | iptables / nftables |
-| Recover and analyse forensic evidence | The Sleuth Kit, Autopsy, Volatility |
-| Explore web vulnerabilities safely | Deliberately vulnerable apps (e.g. DVWA, Juice Shop) |
+A snapshot helps reset state; it does not remove data that has already escaped.
+Record the environment version and your observations so another authorised
+learner can reproduce the exercise. Tool-specific installation is deliberately
+outside this book; if you cannot establish the boundary, use the paper route.
 
-Tools change; the capabilities don't. If a tool here has been superseded by the time you read
-this, the concept it served is still in the chapter. Find the current tool for that capability
-and carry on.
+## Tools by capability
+
+Names provide anchors, not required installations.
+
+| Capability | Examples |
+|---|---|
+| Inspect authorised host/service exposure | Nmap |
+| Study synthetic password hashes | John the Ripper, Hashcat |
+| Inspect supplied or authorised packet captures | Wireshark |
+| Work with keys and signatures | OpenSSL, GnuPG |
+| Test a permitted firewall policy | nftables |
+| Examine supplied forensic evidence | Autopsy, Volatility |
+
+Follow the official documentation and scope for the chosen environment.
+Successful setup is not the learning outcome: explaining an observation,
+its limitations and the defensive decision it supports is.

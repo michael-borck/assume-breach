@@ -2,22 +2,23 @@
 
 ![](../images/ch11-opener.png){fig-alt="Pixel-art illustration: at a lamplit castle gate, a cloaked stranger hands a forged sealed document to a guard who reads it."}
 
-> *Most breaches don't defeat the technology. They walk past it, through a person. This is where the whole book comes back to earth.*
+> *A useful defence makes mistakes easier to report and less costly to survive.*
 
-Every chapter until now has been, at heart, about machines: flaws, controls, cryptography,
-networks, code. But security fails, more often than any of those, through *people*. You can
-patch a server; you cannot patch a person, and attackers know it. The most sophisticated defences
-in this book can be undone by one employee clicking one link, one help-desk worker resetting one
-password for a convincing caller, one executive approving one urgent transfer. This final chapter
-is about that reality: the place security lives or dies. It is also about how the ground is
-shifting as AI arrives on both sides of the fight.
+Security depends on people using and maintaining systems under ordinary
+working pressures. A login prompt, an urgent request or an unclear warning
+can put the wrong decision within easy reach. The design question is what
+happens next: can the person get help, and do other controls limit the harm?
+
+This chapter brings together usable procedures, independent verification and
+a cautious assessment of AI's effects. The final chapter applies those ideas
+to the complete defender's dossier.
 
 ## What this chapter covers
 
 By the end you should be able to:
 
-- Explain why the **human** is so often the weakest link, and why blaming users is the wrong
-  response.
+- Explain how **human** decisions interact with system design, and why blame
+  alone does not repair a weakness.
 - Describe **social engineering** and **phishing**, and the defences that actually work.
 - Reason about how non-technical people make security decisions with the information they're
   given.
@@ -26,21 +27,21 @@ By the end you should be able to:
 
 ## The weakest link, and why blaming the user fails
 
-It's true, and repeated everywhere, that people are the weakest link in security. What's said
-less often is that "the users are the weakest link" is a *trap*: a framing that excuses bad
+Calling people the weakest link treats a complex system as a single chain.
+More usefully, ask what the interface, permissions and work process made likely.
+The claim that "the users are the weakest link" is a *trap*: a framing that excuses bad
 security. When a well-crafted phishing email fools an employee, the instinct is to blame the
 employee: they should have known better. But look closer. They were doing their job, quickly,
 inside a system that made the wrong action easy, the right action unclear, and the difference
 between the two nearly invisible. Blaming the person lets the *system* off the hook. A team that
 blames users stops fixing the thing they could fix.
 
-The professional stance is the opposite. People will make mistakes. That is a constant, and good
+A more useful stance examines the system. People will make mistakes. That is a constant, and good
 security is designed around it rather than trying to train it away. This is *assume breach*
 applied to human beings: assume that, sooner or later, someone will be fooled, and build so the
 organisation survives it. That single shift, from "make users perfect" to "make mistakes
 survivable", is the difference between security that works and security that just apportions
-blame after the fact. (Whose fault a successful phish really is, is the first question at the end;
-it's worth sitting with.)
+blame after the fact.
 
 ## Social engineering and phishing
 
@@ -62,7 +63,7 @@ training** matters, but you cannot train people to be perfect forever, and a def
 requires every human to be vigilant every time will eventually fail. The stronger approach is to
 *reduce the reliance on human vigilance*: use technical controls that make a mistake less
 catastrophic. Multi-factor authentication means a phished password alone isn't enough, which is
-the point of the authentication chapter. Email filtering stops most lures before they arrive.
+the point of the authentication chapter. Email filtering can remove some lures before they reach a person.
 Firm *verification procedures* for high-risk actions mean no single email can move money or hand
 over data without an independent check. Best of all is to **make the safe path the easy path**,
 so that doing the secure thing is also the convenient thing. The goal is a system in which an
@@ -77,40 +78,42 @@ verify you're talking to who you think you are, using the identity-proving crypt
 cryptography chapter. That warning might be the only thing standing between you and a
 man-in-the-middle attacker.
 
-And yet most people click straight through it. Why? Because the message is written in technical
-language they don't understand, it appears at the moment they're trying to do something else, and
-they've been conditioned by past warnings that felt like false alarms to treat it as noise. This
-is a *design* failure, not the user's. A life-or-death security decision has been handed to
+Some users bypass warnings when the language is unclear, the warning interrupts
+urgent work, or past experience has taught them to discount it. Behaviour
+varies with the warning and context; do not assume most users always ignore it. This
+is a *design* failure, not the user's. A consequential security decision has been handed to
 someone without the information or context to make it, in words that mean nothing to them. Good
 security gives people clear information and, wherever possible, doesn't force impossible
-judgements on them. (Why people click through, and what the warning really means, is the second
-question at the end.)
+judgements on them.
 
 ## Emerging trends: AI on both sides
 
-The ground under all of this is shifting. The largest force reshaping it is artificial
-intelligence, a tool for *both* sides.
+AI can assist both attackers and defenders, but capability claims need a
+date, a task and evidence. It can lower the effort of drafting messages,
+summarising data or producing code. That does not make every message flawless,
+every exploit effective or an operation limitless.
 
-For **attackers**, AI removes the human bottlenecks that used to limit social engineering. The
-tell-tale signs of a phishing email (clumsy grammar, awkward phrasing, generic greetings) vanish
-when AI writes flawless, personalised messages at limitless scale. AI can clone a voice or fake a
-video convincingly enough to impersonate an executive authorising a transfer, automate the
-discovery of vulnerabilities, and lower the skill needed to run an attack to almost nothing. The
-human-factors attacks this chapter is about get cheaper, faster, and more convincing.
+For attackers, plausible personalised language and synthetic audio can make
+familiar verification shortcuts less reliable. For defenders, models may help
+triage reports and interpret logs, but false alarms, missed attacks and
+untrusted inputs still need evaluation. Logs and messages can contain hostile
+instructions as well as sensitive information, so an assistant must not be
+given authority merely because it produced a confident answer.
 
-For **defenders**, the same technology is a force multiplier: AI can sift oceans of logs for
-anomalies, triage the flood of alerts that overwhelms human analysts, flag phishing, analyse
-malware, and extend a small security team's reach. Which side does it favour? The honest answer
-is that it lowers costs for both. But by industrialising deception, it empowers the human-centred
-attacks that were already the most effective. That is why the defences in this chapter matter
-*more* now, not less. What doesn't change is the fundamental: AI makes the attacks in this book
-cheaper and more convincing, so designing for fallible humans becomes the central task rather
-than a peripheral one. (Which side AI favours, and why, is the last question.)
+The [NCSC assessment of AI and cyber threats to 2027](https://www.ncsc.gov.uk/report/impact-ai-cyber-threat-now-2027)
+describes expected changes in attacker capability. Treat it as a dated
+assessment with uncertainty, not proof that every forecast has occurred.
+
+At Harbour, an apparent manager's voice is not enough to approve an account
+reset or bulk export. Use a known contact route and the agreed approval
+process. This remains useful whether the message was written by a person
+or generated by a model. Give staff a reporting path that does not punish
+them for raising a concern that turns out to be harmless.
 
 ## Where this connects
 
-This chapter connects back across everything before it. Any technical control in the book can be
-undone by a person, so human factors runs through all of security rather than sitting beside it.
+This chapter connects back across everything before it. Human decisions influence the design, operation and recovery of technical
+controls, so human factors belongs throughout the book.
 Authentication is the clearest case: MFA is a technical control that makes a human mistake
 survivable. And that same thread, the human running through every stage, is part of how the next
 chapter ties the whole book into a single lifecycle.
@@ -119,40 +122,28 @@ chapter ties the whole book into a single lifecycle.
 
 1. "Users are the weakest link." Argue *against* this framing: whose fault is a successful
    phish, really?
-2. When your browser shows a certificate warning, what is it actually telling you, and why do
-   most people click through it anyway?
+2. What does a browser certificate warning tell you? Explain why someone might
+   bypass it and propose a safer route the organisation could offer.
 3. Give one way AI helps **attackers** and one way it helps **defenders**. Which side do you
    think it favours, and why?
 
+## Make reporting usable
+
+In 10 minutes, write a response to this fictional message: “Mara here.
+Approve the login prompt now so I can finish the bookings.” Use a known
+contact route and the agreed approval process. Add a non-blaming report
+for someone who already approved it. Success means prompt escalation and
+independent verification, without using contact details supplied by the message.
+
+Case inputs and checks: [Harbour dossier](../appendices/defender-dossier.qmd).
+
 ## Take it to the AI
 
-**Where to start.** Three questions worth arguing about rather than looking up:
+Optional: attempt the paper task first. Use only the fictional case, never
+real messages, credentials, personal information or internal logs. Check any
+external claims against the primary sources; do not deploy generated rules.
 
-1. Take a phishing email you have actually received, paste it in, and ask which psychological
-   levers it pulls. Then ask which defence would have caught it *without* relying on you noticing
-   anything.
-2. Ask the AI to argue against "users are the weakest link" as hard as it can, then ask what that
-   framing costs an organisation that believes it. The second answer is where the value is.
-3. AI is claimed to help both sides. Ask for the strongest case that it favours attackers, then
-   the strongest case for defenders, and sort which parts rest on evidence and which on
-   projection.
-
-**Keywords to steer with.** social engineering · authority, urgency, scarcity · pretexting ·
-spear-phishing · business email compromise · MFA fatigue · alert fatigue · certificate warning ·
-warning blindness · making the safe path the easy path · deepfake · voice cloning
-
-**A starting prompt.**
-
-> **Role:** You are a security awareness lead who thinks most awareness training is a waste of
-> money.
->
-> **Task:** Design a phishing defence for a 200-person company that *assumes* people will be
-> fooled, and explain what each layer catches that the others miss.
->
-> **Context:** I have read a chapter arguing that blaming users excuses bad system design, and
-> that the goal is to make mistakes survivable rather than to train them away. The company holds
-> [describe the data] and would be targeted by [describe who and why].
->
-> **Format:** Layers in the order you would fund them, each with its cost and its failure mode.
-> End with the one thing you would spend nothing on, and why you would defend that decision to a
-> board.
+> Act as a reviewer of Harbour's reporting procedure. Use only the fictional
+> message and case facts. Ask me what someone who already approved a prompt
+> should do next. Then identify one obstacle in my procedure and one change
+> that makes reporting easier without bypassing verification.

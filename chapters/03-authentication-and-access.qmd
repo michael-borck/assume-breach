@@ -2,13 +2,13 @@
 
 ![](../images/ch03-opener.png){fig-alt="Pixel-art illustration: a guard at a torch-lit castle gatehouse checking a traveller's keys and sealed pass at the portcullis."}
 
-> *A password isn't stored as a password. Understanding what's actually kept, and how it's attacked, is the whole of this chapter.*
+> *A successful login establishes an identity claim. The next question is what that account is allowed to do.*
 
-Almost every system begins with the same question: *who are you, and are you allowed to be
-here?* Getting that answer right is the foundation of confidentiality and integrity. If the
-system can't tell the real you from an impostor, none of its other protections mean much. This
-chapter is about how systems answer that question, the clever way they store the secret behind
-it, and the many ways attackers try to defeat both.
+At Harbour, Rae needs to amend a booking but should not be able to export
+every participant's details. Checking who signs in and limiting what they
+can do are separate controls. This chapter follows both, including how
+systems protect password verifiers, recover accounts and end compromised
+sessions.
 
 ## What this chapter covers
 
@@ -58,25 +58,29 @@ How can you prove who you are? Every method falls into one of three **factors**:
 - **Something you have**: a phone, a hardware token, a smart card.
 - **Something you are**: a fingerprint, a face, a voice (biometrics).
 
-Passwords ("something you know") dominate because they're cheap and need no special hardware.
-They are also the weakest link in most systems. People choose guessable ones, reuse them
-everywhere, and hand them over when asked nicely. The usual responses help at the margins:
-complexity rules, minimum lengths, and **lockout policies** that stop an account after too many
-wrong guesses. But decades of evidence say a password alone is not enough. That is why the
-industry is moving toward **passwordless** methods, replacing the shared secret with
-something harder to steal or phish.
+Passwords are widely used because they need little special hardware, but
+guessing, reuse and phishing make them risky on their own. Long, unique
+passwords generated and stored with a password manager reduce guessing and
+reuse. Arbitrary complexity rules can encourage predictable substitutions;
+rate limiting addresses repeated online guesses. Neither stops a user
+submitting a password to an impostor.
 
 ### Multi-factor authentication
 
-The strongest single improvement you can make is to require **more than one factor**:
+One important improvement is to require **more than one factor**:
 **multi-factor authentication (MFA)**. The power comes from *combining categories*: a password
 (know) plus a code from your phone (have) means stealing the password alone is no longer enough.
 The "have" factor takes many forms: a one-time code, a hardware **token** or key fob, or a
 **smart card** carrying a chip that proves possession. The "are" factor, biometrics, is
 convenient and hard to forget, but carries a permanent trade-off: you can change a breached
-password, but you cannot change your fingerprint. MFA is strong, but it is not magic. As the
-questions at the end ask you to consider, a determined attacker can still phish a one-time code
-or trick a user into approving a prompt. It raises the bar without removing it.
+password, but you cannot change your fingerprint. MFA is strong, but it is not magic. An attacker may still phish a one-time code
+or trick a user into approving a prompt. The type of MFA matters. **Passkeys** and suitable security keys bind an
+authentication response to the legitimate service, resisting a fake login
+site in a way a relayed one-time code does not. Their enrolment, device
+protection and recovery paths still need care. A biometric often unlocks
+an authenticator locally rather than being sent to the website as a password.
+[NIST's authenticator guidance](https://pages.nist.gov/800-63-4/sp800-63b/authenticators/)
+distinguishes these mechanisms.
 
 ## What a system actually stores
 
@@ -84,22 +88,29 @@ Here is the idea that surprises most people, and it is the hinge of the whole ch
 well-built system does not store your password.** If it did, anyone who stole the database (or
 any administrator) would know every user's secret.
 
-Instead, the system stores a **cryptographic hash** of your password. A hash function takes any
-input and produces a fixed-length fingerprint, with two useful properties: the same input always
-gives the same output, and you cannot run it backwards to recover the input from the output. So
-when you register, the system hashes your password and stores only the hash. When you log in
-later, it hashes what you typed and compares the two fingerprints. If they match, you knew the
-password, and the system verified you *without ever storing the password itself*. A stolen
-database of hashes is less catastrophic than a stolen database of passwords.
+Instead, the system stores a **password verifier** produced by a purpose-built
+password-hashing scheme. At login it derives a verifier from the supplied
+password and stored parameters, then compares the result. A cryptographic
+hash is designed to resist inversion, but attackers can still guess inputs.
+
+The scheme must make each guess expensive through a suitable work factor,
+and often memory cost. A fast general-purpose hash alone is not appropriate
+password storage. Libraries implementing schemes such as Argon2id handle
+these details; do not invent a scheme from hash primitives.
+[OWASP's password-storage guidance](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
+explains the choice and parameters.
 
 ### Windows and NTLM
 
-You'll see this in practice with Windows authentication. Rather than keep passwords, Windows
-stores password hashes and uses them in its logon process. The older **NTLM** (NT LAN Manager) scheme, still
-present for compatibility in many environments, is one such mechanism. The relevant point for a
-defender (and the reason password-cracking exercises use these) is that an attacker who reaches
-those stored hashes doesn't have your password *yet*, but they have the raw material to try to
-recover it. That is what the next section is about.
+Windows' legacy **NTLM** authentication is useful optional background.
+It uses password-derived credential material in a challenge/response scheme.
+Stolen NTLM hash material may enable **pass-the-hash** authentication without
+recovering the plaintext password. Treat it as a credential, not as harmless
+scrambled data. It is not a model for designing a new password store.
+[Microsoft's NTLM overview](https://learn.microsoft.com/en-us/windows/win32/secauthn/microsoft-ntlm)
+describes the protocol, and
+[NIST's threat guidance](https://pages.nist.gov/800-63-4/sp800-63b/security/)
+includes reuse of stolen authentication material.
 
 ## Attacking passwords
 
@@ -108,8 +119,9 @@ don't reverse the hash. They **guess**, hash each guess, and look for a match.
 
 A **dictionary attack** works through a list of likely passwords (common words, previously
 leaked passwords, predictable patterns) because real people rarely choose randomly. A
-**brute-force attack** tries every possible combination. It always works *eventually*, but
-"eventually" grows explosively with password length. That is why length beats complexity. The
+**brute-force attack** tries every possible combination. For a finite candidate space it can exhaust every candidate, but the work may
+be infeasible. Length helps when it adds unpredictability; a long, well-known
+phrase can still be guessed early. The
 accelerator is a **rainbow table**: a giant precomputed lookup of hashes for enormous
 numbers of candidate passwords, so the attacker trades storage for speed and skips the
 recomputation.
@@ -120,10 +132,14 @@ Rainbow tables have one fatal weakness, and the fix is elegant. Before hashing, 
 system adds a unique random value, a **salt**, to each password, and stores the salt alongside
 the hash. Now two users with the same password have *different* hashes, and the
 attacker's precomputed rainbow table, built without your specific salt, is worthless. Salting
-doesn't make any single password harder to *guess*. It makes the attacker's shortcut of
-precomputation impossible, forcing them back to slow, per-account work. It is a small change
-with an outsized effect, and its absence is one of the clearest signs a system was built without
-care.
+doesn't make any single password harder to *guess*. It prevents useful reuse of the same precomputed table across different salts.
+The attacker must work separately for each salt. The password-hashing scheme's
+cost settings, not the salt alone, make each guess expensive.
+
+Distinguish **online** guessing against a login service from **offline**
+guessing against stolen verifiers. Login rate limits and lockouts do not
+slow an attacker working on their own copy. Long unique passwords, proper
+verifier storage and protection of the database address that different threat.
 
 ## The maths is rarely the weakest link
 
@@ -140,9 +156,21 @@ cryptography is rarely what fails. The people and the plumbing around it are.
 One more idea you'll meet: **single sign-on (SSO)** lets you authenticate once and gain access to
 many systems, and **reduced sign-on** is a lighter version of the same convenience. Users love it,
 and it improves security in one way: fewer passwords means less reuse and fewer
-sticky notes. But it concentrates risk: that one login now unlocks everything, so it *must* be
-protected accordingly. That is a large part of why SSO and strong MFA almost always travel
-together.
+sticky notes. But it concentrates risk: a compromised identity provider or session may expose several services.
+SSO must still enforce per-service permissions, restricted administration
+and revocation; it need not give every account access to everything. Protect the identity provider and recovery process with appropriate MFA.
+
+## Permissions and recovery are part of the design
+
+A receptionist may need to amend one booking without being allowed to export
+every participant's details. Enforce that rule on the server for each action,
+not just by hiding a button. Review access when duties change or people leave.
+
+Recovery is another entry path. A help desk that bypasses all checks when a
+caller sounds urgent can undermine strong login controls. Plan an independent
+identity check, recovery credentials where appropriate, and revocation of
+affected sessions. Changing a password alone does not prove that every
+existing session has ended.
 
 ## Where this connects
 
@@ -160,35 +188,11 @@ running back to **software security and malware**.
 3. Why does adding **salt** defeat a rainbow table, when it doesn't make any single password
    harder to guess?
 
-## Take it to the AI
+## Separate login from permission
 
-**Where to start.** Three questions worth arguing about rather than looking up:
+In 10 minutes, write the actions Mara, Rae and a volunteer should be allowed
+to perform at Harbour. Include one denied action for each role. Add a test
+for account recovery and session revocation. Success means a legitimate
+login does not silently confer bulk-export or administrator rights.
 
-1. Ask the AI to explain why a system stores a hash rather than a password. Then ask it to
-   explain the same thing to someone who says "but that site emailed me my own password, so
-   clearly it works fine."
-2. MFA fails in specific ways. Ask for three documented MFA bypasses, then ask which ones
-   *defeated* the second factor and which simply went around it. The distinction is the whole
-   point.
-3. Passwordless is sold as the end of the password. Ask what it actually replaces, and which
-   problem it inherits unchanged.
-
-**Keywords to steer with.** identification, authentication, authorisation · mutual
-authentication · ID proofing · three factors · MFA fatigue · NTLM · hash · salt · rainbow table ·
-credential stuffing · single sign-on · passkeys
-
-**A starting prompt.**
-
-> **Role:** You are a security engineer explaining authentication design to a developer who is
-> about to build a login system for the first time.
->
-> **Task:** Talk me out of three tempting shortcuts a developer takes when storing and checking
-> credentials, and say what each one costs on the day the database leaks.
->
-> **Context:** I have read a chapter on identification, authentication and authorisation, the
-> three factors, hashing and salting, and the standard password attacks. I want to test whether
-> I could spot a carelessly built login system from the outside, as an ordinary user.
->
-> **Format:** One short section per shortcut: what it looks like in the code, what it costs on
-> breach, what to do instead. Then finish with three things a user can observe from the outside
-> that hint the system was built without care.
+Case inputs and checks: [Harbour dossier](../appendices/defender-dossier.qmd).

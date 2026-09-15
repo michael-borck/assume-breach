@@ -37,8 +37,7 @@ in pursuit of its goals. A hospital and a social-media start-up face different t
 different things, and answer to different regulators, so they will rationally accept different
 risks. Risk appetite is a deliberate statement of how much uncertainty an organisation will live
 with. It is neither recklessness nor timidity. Two well-run companies facing the same threat can
-make opposite, equally defensible decisions. That is the first question at the end of this
-chapter.
+make opposite, equally defensible decisions. They should be able to explain the constraints behind those choices.
 
 ## What are you protecting, and what's it worth?
 
@@ -51,10 +50,10 @@ the intrinsic value under-protect the things that matter most, because the damag
 information usually dwarfs the cost of the hardware holding it.
 
 Once you can value what's at stake, you can do **cost-benefit analysis**: weigh what a control
-*costs* against the loss it *prevents*. This is the engine of every good security decision. It
+*costs* against the loss it *prevents*. This provides one input to a security decision. It
 has an uncomfortable implication people resist: sometimes the right answer is to *not* buy the
-control, because it costs more than the harm it prevents. Security is about protection that's
-worth what it costs.
+control, because it costs more than the harm it prevents. That judgement is constrained by legal duties, safety and the organisation's
+stated limits. A positive financial return is not the only reason to protect people.
 
 ## Putting numbers on it: SLE, ARO, ALE
 
@@ -81,11 +80,11 @@ expectancy becomes `\$500,000 × 0.05 = \$25,000`. So the control *reduces* your
 \$100,000 to \$25,000, a benefit of **\$75,000 a year**, for a cost of \$40,000. It saves you
 \$35,000 net, so it is worth buying.
 
-The rule is that simple, and that powerful: **a control is worth it when the reduction in ALE
-exceeds the cost of the control.** Turn the numbers around and the answer flips. A \$50,000
+For this financial model, **a control has positive expected net benefit when
+the reduction in ALE exceeds its annual cost.** That is not a complete
+acceptance rule for safety, privacy or regulatory obligations. Turn the numbers around and the answer flips. A \$50,000
 control that only reduces an ALE from \$30,000 to \$5,000 *loses* you money, and buying it out of
-a vague sense that "more security is better" is the mistake this chapter exists to prevent. (That
-is the second question at the end. Work it through.)
+a vague sense that "more security is better" is the mistake this chapter exists to prevent.
 
 Two honest cautions come with the arithmetic. First, notice that even after the good control,
 \$25,000 of annual risk remains: this is **residual risk**, the risk left over after treatment.
@@ -101,24 +100,26 @@ Once a risk is identified and sized, you have four options. They are the vocabul
 security professional shares:
 
 - **Avoid.** Don't do the risky thing at all. Stop offering the feature, don't collect the
-  data, close the exposure. This is the only way to reduce a risk to zero, and often impractical
-  because the risky activity is the business.
+  data, close the exposure. This can remove the particular exposure, but may introduce other risks.
+  It is often impractical because the activity is part of the business.
 - **Mitigate.** Reduce the likelihood or the impact with controls. This is most of what the
   rest of this book is about: patch, encrypt, segment, train, monitor. You rarely eliminate the
   risk; you shrink it to an acceptable size.
-- **Transfer.** Make it someone else's problem to bear, most commonly through **insurance**, or
-  by outsourcing the risky function to a provider who takes on the liability. You still own the
-  consequences, but you've shifted the financial hit.
+- **Transfer.** Share specified financial consequences through **insurance** or a contract.
+  Coverage, exclusions and provider obligations matter. Outsourcing does not
+  automatically transfer your responsibility for customers or legal compliance.
 - **Accept.** Decide the risk is small enough, or the fix too costly, to live with it. This is a
   legitimate, deliberate choice, *provided* it's made consciously and by someone with the
-  authority to make it. Accepting a risk you've measured is professional; ignoring one you never
-  looked at is negligence.
+  authority to make it. Record the owner, reasoning, residual exposure and review date. An unexamined
+  risk is not the same as deliberate acceptance.
 
-Real organisations do this at scale using structured frameworks (the **ASD Essential Eight**,
-**ISO/IEC 27001**, the **NIST Cybersecurity Framework**) that package hard-won judgement about
-which controls address which risks, so that every organisation doesn't have to reinvent the
-analysis. Underneath the framework, though, the logic is always the one in this chapter: size the
-risk, weigh the control, choose a treatment, and be able to defend the choice.
+Organisations use resources with different purposes: the **ASD Essential Eight**
+sets out mitigation strategies and maturity expectations; **ISO/IEC 27001**
+specifies an information-security management system; the **NIST Cybersecurity
+Framework** organises cybersecurity outcomes. They are not interchangeable
+pass/fail checklists. The [NIST CSF](https://www.nist.gov/cyberframework)
+provides a starting point for understanding outcomes and governance. Use the framework to structure evidence and responsibilities, then explain
+how the chosen treatment addresses the organisation's actual exposure.
 
 ::: {.callout-tip}
 ## Play it
@@ -139,40 +140,29 @@ standard like the Essential Eight is this same risk-based reasoning, applied con
 ## Questions to consider
 
 1. Two companies face the same threat but treat it differently. One buys insurance, one
-   ignores it. How can both be *rational*?
+   consciously accepts it. How can both be *rational*?
 2. A control costs \$50k/year and reduces an ALE of \$30k/year to \$5k/year. Should they buy
    it? Show your reasoning.
 3. Give a real risk your own organisation (or somewhere you've studied or worked) probably
    **accepts** rather than fixes. Why is that a defensible choice?
 
+## Calculate, then challenge
+
+In 15 minutes, calculate Harbour's expected-loss reduction and net benefit
+for option A. Repeat for post-control annual rates 0.02 and 0.09. Then
+choose an affordable set of controls and record what it leaves unresolved.
+Success requires correct arithmetic, stated assumptions and a named risk
+owner; a positive estimate alone is not approval to ignore binding duties.
+
+Case inputs and checks: [Harbour dossier](../appendices/defender-dossier.qmd).
+
 ## Take it to the AI
 
-**Where to start.** Three questions worth arguing about rather than looking up:
+Optional: attempt the paper task first. Use only the fictional case, never
+real messages, credentials, personal information or internal logs. Check any
+external claims against the primary sources; do not deploy generated rules.
 
-1. Give the AI an SLE and an ARO and ask whether a control is worth buying. Then change the
-   impact to something that cannot be priced, such as a death or a ruined reputation, and ask it
-   to redo the analysis. Watch what it does with the number it cannot get.
-2. Ask it to argue that a risk your organisation currently accepts *should* be accepted. A good
-   answer names who holds the authority to accept it, not just why it is cheap.
-3. Ask where quantitative risk analysis is used as theatre rather than as reasoning, and press
-   for the tells you could spot in someone else's risk register.
-
-**Keywords to steer with.** likelihood times impact · risk appetite · intrinsic and acquired
-value · SLE · ARO · ALE · residual risk · avoid, mitigate, transfer, accept · risk register ·
-Essential Eight · ISO/IEC 27001 · NIST Cybersecurity Framework
-
-**A starting prompt.**
-
-> **Role:** You are a risk analyst who has had cost-benefit cases rejected by a sceptical
-> finance director.
->
-> **Task:** Build the business case for one security control, then attack your own case the way
-> that finance director would.
->
-> **Context:** I have read a chapter on risk as likelihood times impact, the SLE, ARO and ALE
-> arithmetic, residual risk, and the four risk treatments. The control I am considering is [name
-> it], for an organisation that [describe its size, sector, and what it holds].
->
-> **Format:** A short case with explicit numbers and stated assumptions. Then a rebuttal section
-> listing every number you would challenge and why. End by naming the single figure the whole
-> case turns on, and how you would go about getting a better estimate of it.
+> Act as a reviewer of my fictional Harbour risk decision. Identify the
+> assumption most likely to change my conclusion. Use only the printed costs
+> and estimates; do not invent product effectiveness. Ask one question, wait
+> for my answer, then explain how I could obtain better evidence.

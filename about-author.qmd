@@ -21,8 +21,8 @@ learning and professional judgement.
 
 **Connect**
 
-- [michaelborck.dev](https://michaelborck.dev): Professional work and projects
-- [michaelborck.education](https://michaelborck.education): Educational software and resources
+- [GitHub](https://github.com/michael-borck): Software and open-source projects
+- [Free book catalogue](https://books.borck.education): Books and learning resources
 - [8020workshop.com](https://8020workshop.com): Passion projects and workshops
 - [LinkedIn](https://linkedin.com/in/michaelborck)
 

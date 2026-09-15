@@ -1,167 +1,72 @@
-# Chapter Outline & Build Blueprint — *Defence in Depth*
+# Assume Breach: chapter blueprint
 
-The blueprint for writing this book. Read before drafting a chapter.
+Updated 2026-09-15 for the approved developmental revision. The title is
+*Assume Breach: A First Course in Defensive Security*. The audience is a
+newcomer; the scope is defensive judgement rather than a technical lab manual.
 
-## What this book is
+## Stable order
 
-The **pre-reading companion** for ISYS2012 Information Security. It carries the *knowledge*
-layer so the 2-hour lecture can be spent on what a page can't do — live demonstrations, debate,
-and polls. Design rationale is in the course repo: `docs/teaching-plan.md`.
+| Chapter | Job |
+|---|---|
+| 1 Introduction | Assets, CIA, controls, permission and the lifecycle map |
+| 2 Software and malware | Flaws, malware vocabulary and a sourced historical chain |
+| 3 Authentication and access | Login, permissions, verifier protection and recovery |
+| 4 Cryptography | Protection guarantees, keys, signatures and trusted comparisons |
+| 5 Risk | Costs, estimates, obligations, ownership and residual exposure |
+| 6 Incident and disaster planning | Triage, preservation, containment and tested recovery |
+| 7 Network security | Network primer, capture limits and trust boundaries |
+| 8 VPN and firewalls | Tunnel scope and policy tests |
+| 9 Web security and data protection | Input/session/access failures and notification assessment |
+| 10 Cybercrime and forensics | Economics, evidence and attribution limits |
+| 11 Human factors | Usable reporting and verification; bounded AI claims |
+| 12 The long game | Independent dossier and a supported readiness decision |
 
-- **Audience:** 2nd-year undergraduates, no prior security background. Keep the register
-  accessible — explain, don't assume. (Contrast the postgrad register of *Substantiate, Don't
-  Assume*.)
-- **Spine:** *think like a defender* — understand the attack to remove what it needs; weigh
-  every control's cost; never forget the human.
-- **Rhythm:** read → discuss/see → do. Chapter *N* is read before Week *N*; the lecture is
-  interactive; the lab is hands-on.
+The chapters use numbered topic filenames. The original course relationship
+was pre-reading for ISYS2012; any week, lecture or assessment mapping belongs
+in the course repository, not in published chapter promises.
 
-## Title — decided
+## Learning route
 
-**"Assume Breach"** / subtitle *"A First Course in Defensive Security"*. Deliberately a lean
-*companion*, not a rival to Stallings/Whitman; the title carries the defensive-security stance
-(assume the perimeter fails; build in depth, detect, contain, recover). It breaks the series'
-two-clause beat ("X, Don't Y") on purpose — it's a stronger standalone security aphorism.
-Directory is `assume-breach/`.
+Read, attempt the chapter's paper task, then consult the worked dossier.
+The Harbour Community Centre case supplies all required facts and prices.
+The final variant changes the budget and recovery target. The tasks reward
+correct limits and escalation as well as calculations and control choices.
 
-## The book is standalone; the course maps *to* it
+The preface states observable part outcomes. Three chapters retain optional
+extended AI prompts using fictional inputs; the core route is AI-free.
+NTLM, cryptographic attack models and technical installation are optional depth.
 
-**The book knows nothing about the course.** No week numbers, no lectures, labs, assessments,
-or "the unit" in the text — so the course can change without the book drifting. Chapters are
-numbered 1–11 in a pedagogical order that *parallels* a sensible teaching sequence, but that's
-all. The week → chapter mapping lives in the **course repo** (`docs/teaching-plan.md`), not
-here. That is the whole point of the decoupling.
+## Resources and assets
 
-## Chapter map
+Three appendices cover safe optional practice, the complete dossier and
+further reading. Twelve chapter opener PNGs, three network SVG diagrams,
+a cover and author image are already present; the older “author photo only”
+inventory no longer describes the repository.
 
-| Ch | File | Status | Parallels teaching week | Source deck |
-|----|------|--------|-------------------------|-------------|
-| 1 | `01-introduction.qmd` | **Written** | Wk 1 | week-01-introduction |
-| 2 | `02-software-security-and-malware.qmd` | **Written** | Wk 2 | week-02 |
-| 3 | `03-authentication-and-access.qmd` | **Written** | Wk 3 | week-03 |
-| 4 | `04-cryptography.qmd` | **Written** | Wk 4 | week-04 |
-| 5 | `05-risk-management.qmd` | **Written** | Wk 5 | week-05 |
-| 6 | `06-incident-and-disaster-planning.qmd` | **Written** | Wk 6 | week-06 |
-| 7 | `07-network-security.qmd` | **Written** (narration captured) | Wk 8 | week-08 |
-| 8 | `08-vpn-and-firewalls.qmd` | **Written** (narration captured) | Wk 9 | week-09 |
-| 9 | `09-web-security-and-data-protection.qmd` | **Written** | Wk 10 | week-10 |
-| 10 | `10-cybercrime-and-botnets.qmd` | **Written** (reframed off stale stats) | Wk 11 | week-11 |
-| 11 | `11-human-factors.qmd` | **Written** | Wk 12 | week-12 |
-| 12 | `12-the-long-game.qmd` | **Written** | Wk 13 (revision) | — (synthesis) |
+The existing images are retained, not newly licensed or redesigned by this
+revision. The author confirmed permission to use them on 2026-09-15; detailed
+asset provenance was not independently audited. The author also confirmed
+CC BY 4.0 International, now named in metadata and copyright pages.
+The previous draft's copyright-clearance
+note was not a review of all current assets.
 
-Chapters 1–11 parallel Weeks 1–12 (teaching weeks skip 7, tuition-free, so from Chapter 7 on,
-chapter = week − 1). **Chapter 12 is a synthesis/closing chapter** — no source deck; it joins
-the whole book into one security lifecycle and pairs naturally with the Week 13 game capstone.
-This offset lives only in the course map.
+Incident Zero remains optional linked enrichment. Describe and link it;
+do not embed its CC BY-NC-SA cards or rules in this CC BY book. No game
+purchase or participation is necessary to finish the solo dossier.
 
-## Per-chapter template (standalone)
+## Editorial instructions
 
-Every chapter follows the same shape (see the written Chapter 1):
+The house style still governs prose. The author's approved developmental
+plan permits substantive corrections, new tasks and reduced repeated endings;
+the older line-edit-only preservation brief does not prohibit these approved
+changes. Keep stable chapter filenames and useful existing diagrams.
 
-1. Title (topic only — **no** "Week N") + one-line epigraph.
-2. A short standalone lead-in (no "before the lecture", no lab reference).
-3. **What this chapter covers** — 4–5 learning objectives.
-4. The concept prose.
-5. **Try it yourself** *(optional)* — a callout naming a *capability* to practise (never tool
-   syntax), pointing to the practice-environment appendix.
-6. **Play it** *(optional, only where a module fits)* — a `.callout-tip` pointing readers at
-   the matching *Incident Zero* module for the experiential dimension (see below).
-7. **Where this connects** — links to *other chapters by name* (never weeks or labs).
-8. **Questions to consider** — 3 reflective/self-test questions.
+## Build and release
 
-### The "Play it" callouts (Incident Zero)
+The publisher creates disposable preprocessed copies for PDF/EPUB and renders
+HTML from the source. Keep copyright information in EPUB while PDF uses its
+TeX page. Validate local downloads from nested pages.
 
-*Incident Zero* ([incidentzero.retroverse.studio](https://incidentzero.retroverse.studio/)) is
-a free, print-and-play cooperative security game. Where a chapter's concept has a matching game
-module, a **Play it** callout invites the reader to *experience* it — the applied-judgement
-dimension a page can't give. Current placements: Hardening → Ch 2; Audit & Compliance → Ch 5;
-Incident Response + Disaster Recovery → Ch 6; Network Building → Ch 7; Forensics → Ch 10; and
-the **full campaign** → Ch 12 (the lifecycle capstone).
-
-**Two rules (same discipline as everything else):**
-
-- **Reference at a stable level.** Name the *module and the experience* plus the one landing
-  link. **No card names or mechanics** — it's the playtest edition and those will change.
-- **Licence: link and describe, never embed.** The book is CC BY; the game is CC BY-**NC-SA**.
-  Linking and paraphrasing is fine; copying game text/cards in would drag ShareAlike +
-  NonCommercial onto the book. Point at it; don't reproduce it.
-
-Callouts are **optional enrichment** — the book stands alone if the reader never plays.
-
-## Tools & demos policy (important — keeps the book durable)
-
-**The concept chapters are tool-agnostic. No tool syntax, no "click here", no OS-specific
-steps in the body.** Write what is true on any platform ("attackers crack salted hashes with
-dictionary and brute-force attacks"), never "open L0phtCrack and click Run".
-
-- **Where mechanics live:** *outside the book* — in the course's own lab worksheets and the
-  Docker lab repos, which are environment-specific and freely swappable.
-- **The book's only hooks to the hands-on:** the optional per-chapter **Try it yourself**
-  callout (names a *capability* to practise) and the generic **practice-environment appendix**
-  (`appendices/lab-environment.qmd`), which describes VMs/containers in general — not any one
-  course's setup.
-- **Why:** tools and environments change (VM → Docker, and beyond). A tool-agnostic book
-  carries across without edits; a book full of screenshots and tool steps rots on day one.
-
-### Environment direction (context for writing, not book content)
-
-This offering: Windows XP VM (locked). Next: **Docker labs**, from the coordinator's existing
-repos (`sec-utils`, `password-lab`, `forensics-docker-lab`, `ethical-hacking-docker-labs`),
-which already provide web-GUI Wireshark/Autopsy and one-command bring-up. The one gap
-(`iNetworkSimulator`, firewall lab) is replaced by **real `iptables`/`nftables` in a
-container** — a better lab than the simulator. Write chapters so *none* of this shows through
-in the concept text.
-
-## Writing order
-
-Write in chapter order, staying ahead of wherever the material is being used. Chapters 1–3
-first, then keep pace. (If you're pacing against a course, the week → chapter map in the course
-repo tells you which chapter is needed when.)
-
-## Copyright review — cleared for CC BY (2026-07-11)
-
-A review of the completed draft against the copyright concern that this cleanup step was meant
-to catch. **Result: clear. Nothing to remove.**
-
-- **Prose is original.** Chapters were written from the source decks' slide *titles* only (topic
-  and example choices), never their body text or speaker notes, so no verbatim expression could
-  be carried over.
-- **No embedded third-party assets.** The chapters contain **no** screenshots, news images,
-  vendor cheat-sheets, or book figures. The only image in the repo is the author photo (owned).
-  This was the main risk, and it is absent by construction.
-- **Examples are facts, in original words.** Target/BlackPOS, Zeus, Mirai, the Morris worm,
-  Kerckhoff's principle: historical facts and long-public ideas, described in the author's own
-  words. Facts are not copyrightable; the expression here is original.
-- **Frameworks named, not reproduced.** Essential Eight, ISO 27001, NIST CSF, GDPR, the APPs and
-  NDB scheme are referenced and described, never quoted or reproduced.
-- **Incident Zero: linked, not embedded.** The "Play it" callouts describe modules in original
-  words and link out. No game text, cards, or mechanics are reproduced, so the game's
-  CC BY-NC-SA terms are not dragged onto this CC BY book.
-
-**Only outstanding asset:** the cover must be original or licensed art (the `book-publisher`
-cover step, or your own). Everything in the text is clear.
-
-## ⚠️ Refresh flags
-
-- **Week 11** — malware-volume stats (2015/2017/2021) age every year. Highest priority.
-- **Week 2** — examples 2007–2013; keep the genuinely historical, update the rest.
-- **Week 4** — references 2000–2006; modernise.
-- **Weeks 8 & 9** — decks rely on speaker notes; that narration must be written *into* the
-  chapter or the pre-read won't stand alone. Week 9 is the heaviest.
-
-## Later additions (parity with the series)
-
-- `llm.txt` (for NotebookLM / podcast use) and a grounded `chatbot.html` — generate once the
-  text stabilises; both reinforce the unit's "use AI to learn" stance.
-- Cover image, favicon, PDF/LaTeX front matter, GitHub Pages deploy (`.github/workflows`).
-- Link back from the course repo once published.
-
-## Build & deploy
-
-```bash
-quarto preview        # while writing
-quarto render         # HTML + PDF + EPUB → _book/
-```
-
-Publish to GitHub Pages as the other series books do (repo → `gh-pages`), then add the
-public URL to the course README and the assessment specs.
+See README for commands and EDITORIAL-REVISION.md for tests, observed build
+results and remaining author/fresh-reader gates. Building locally does not
+publish to GitHub Pages or KDP.

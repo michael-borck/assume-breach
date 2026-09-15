@@ -2,16 +2,17 @@
 
 ![](../images/ch10-opener.png){fig-alt="Pixel-art illustration: a crowded underground thieves' guild hall packed with hooded rogues, a criminal economy at scale."}
 
-> *Modern attacks are a business. Understanding the economics (who profits, and how) tells you where the defences have to go.*
+> *Many attacks are a business. Understanding who profits, and how, helps explain the choices defenders face.*
 
-It's tempting to picture the attacker as a lone figure in a hoodie, breaking in for the challenge
-of it. That picture is decades out of date. The early viruses were about mischief and
-notoriety, but the threat that matters today is organised, professional, and about
-money. Cybercrime has grown into an economy, with suppliers, specialists, marketplaces,
-and its own currencies. Once you see it as an economy, the defences make more sense. You
-stop asking "who would do this?" and start asking "who *profits* from this, and how do I make it
-unprofitable?" This chapter is about the business behind the attacks, and about how investigators
-follow the money and the evidence back to its source.
+Many financially motivated attacks involve a market of specialists selling
+access, malware and services. Understanding that market helps explain why
+a compromised ordinary device can matter. Other adversaries may seek
+espionage, disruption or personal harm, so financial incentives are one
+lens, not a complete threat model.
+
+This chapter uses the malware vocabulary from chapter 2, then concentrates
+on evidence: what an observation supports, what it merely suggests, and
+what additional information an investigator would need.
 
 ## What this chapter covers
 
@@ -27,18 +28,18 @@ By the end you should be able to:
 The single most useful shift in thinking is to treat serious cybercrime as *commerce*. Attackers
 have costs, revenues, competitors, and customers. They reinvest profits, offer support, build
 reputations, and specialise. Specialisation is more efficient, just as in any
-legitimate economy. The rise of cryptocurrency gave this economy a way to move value that is hard
-to trace. The result is a mature underground market where almost any capability can be bought.
+legitimate economy. Cryptocurrency can help move value across borders, but public-ledger
+transactions may also provide an investigative trail. Traceability depends
+on the system and available evidence. The result is a mature underground market where almost any capability can be bought.
 
-Seeing crime as business reframes defence. You don't have to make an attack *impossible*. You
-only have to make it *unprofitable*. Raise the attacker's cost, lower their expected return, and
+Seeing crime as business reframes defence. You don't have to make an attack *impossible*. For opportunistic profit-driven attacks, raising costs and reducing returns
+can discourage targeting. That does not guarantee deterrence. Raise the attacker's cost, lower their expected return, and
 much of the volume moves to an easier target. A great deal of security is about not being the
 cheapest victim on the market.
 
 ## The division of labour
 
-The defining feature of the modern cybercrime economy is that **no single criminal does the whole
-job.** The work is split among specialists, each selling to the next. **Malware developers** write
+The defining feature of the modern cybercrime economy is that **participants can specialise rather than doing the whole job.** The work is split among specialists, each selling to the next. **Malware developers** write
 and sell the tools, often as polished kits with updates and customer support. **Initial access
 brokers** specialise in breaking in, then *sell the foothold*, access to an already-compromised
 company, to whoever wants to use it. **Infrastructure providers** rent out "bulletproof" hosting
@@ -51,66 +52,68 @@ This specialisation has three consequences, and they explain why cybercrime is s
 you can rent the capability. It makes the ecosystem **resilient**: arrest one malware author and
 the access brokers, hosts, and launderers all carry on, and a competitor fills the gap. And it
 **muddies attribution**: with so many hands touching an attack, working out who is
-*responsible* is hard. That resilience-through-specialisation is the second question at
-the end, and it's the reason takedowns rarely end a threat for long.
+*responsible* is hard. A disruption may leave other participants able to rebuild or reuse parts
+of the operation.
 
 ## Botnets: crime at scale
 
-A **botnet** is the workhorse of this economy: a network of many compromised machines (the
-"bots") all under the remote control of one operator through a **command-and-control (C2)**
-channel. The operator infects machines by whatever means works (a trojan, a worm, an exploit),
-and each new victim joins the fleet, waiting for orders.
+Chapter 2 introduced a **botnet**: compromised devices under remote control
+through a command-and-control channel. Here the important distinction is
+between a device's own data and its value as infrastructure. A device can
+supply traffic, computing capacity or a relay even when its owner believes
+it has nothing worth stealing.
 
-The power, and the answer to the first question at the end, is that a botnet's value is
-**aggregate**. A single compromised home PC is nearly worthless to a criminal. A *million* of them,
-acting together on command, are a weapon and a revenue stream: they can blast a target off the
-internet with a **distributed denial-of-service (DDoS)** attack (rented out by the hour), send spam and
-phishing at vast scale, mine cryptocurrency on someone else's electricity bill, harvest
-credentials and card numbers, or serve as a haystack of proxies to hide the operator's
-location. This is why individuals underestimate the cost of being infected. *Your*
-machine may hold nothing worth stealing, but your machine plus a million others is the product
-being sold.
+A single device can still be valuable, for example because of its accounts
+or network position. Scale adds other uses such as distributed denial of
+service. A defender should consider both individual compromise and the
+harm a fleet can cause to others.
 
 ## How they work: two patterns
 
 Two well-known cases show the pattern without needing any perishable statistics.
 
-The **Zeus** family was a banking trojan built to steal credentials. It infected huge numbers of
-ordinary PCs, watched for banking logins, and siphoned them off. When its source code
-leaked, it spawned a generation of variants. Successful
-malware becomes a *platform* that others build on.
+**Gameover Zeus**, a member of the Zeus family, was used for credential theft
+and fraud. The [FBI's 2014 account of its disruption](https://www.fbi.gov/news/stories/gameover-zeus-botnet-disrupted)
+shows why a response can involve investigators, service providers and affected
+device owners. Disrupting infrastructure and cleaning infected devices are
+different parts of the work.
 
-**Mirai** showed a newer front. Instead of PCs, it infected **Internet-of-Things (IoT)** devices
-(home routers, security cameras, DVRs) by trying a short list of *default passwords* the
-owners had never changed. From those humble devices it assembled a botnet powerful enough to
-launch some of the largest DDoS attacks ever seen. The lesson is that **cheap, insecure, unattended
-devices with default credentials are now part of your threat model**. The humblest gadget on a
-network can become a weapon.
+**Mirai** recruited internet-connected devices, including cameras and routers,
+using weak or default credentials. The
+[US Department of Justice's account of the 2017 guilty pleas](https://www.justice.gov/archives/opa/pr/justice-department-announces-charges-and-guilty-pleas-three-computer-crime-cases-involving)
+provides a historical source. For a defender, unmanaged devices and default
+credentials belong in the asset inventory even when their owners do not
+think of them as computers.
 
 ## Following the trail: forensics and attribution
 
 When an attack succeeds, the work shifts to investigation: **digital forensics**, the discipline
 of reconstructing what happened from the traces left behind. And attackers leave more traces than
-they'd like. System and network **logs** record activity. File **timestamps** reveal a sequence of
-events. **Email headers** record the path a message travelled, betraying an origin the
-sender tried to hide. **Document metadata** stores the author, the software, and the times
-a file was created and edited. From fragments like these an investigator builds a **timeline**: a
+they'd like. System and network **logs** may record activity. File **timestamps** and
+**document metadata** can suggest a sequence, but can be modified. Some
+**email headers** are trustworthy only as far as the systems that added
+them; sender-supplied fields can be forged. Check clock offsets, collection
+context and corroborating observations. From fragments like these an investigator builds a **timeline**: a
 defensible account of who did what, and when.
 
 Two ideas make forensics a discipline rather than a rummage. The first is **chain of custody**:
-evidence must be collected and handled so that its integrity is beyond question: who touched it,
-when, and how, in an unbroken record. Mishandle it and you can *know* who did it and still lose the
-case, because you can no longer prove the evidence wasn't altered. (This is the hard lesson the
+evidence handling should make integrity and provenance open to examination: who touched it,
+when, and how, in an unbroken record. Poor handling can undermine confidence and admissibility. A digest shows
+whether a captured item changed relative to a recorded value; it does not
+prove the original item was truthful or identify its author. (This is the hard lesson the
 game module makes you feel.) The second is that **attribution is difficult**. The same
 division of labour and the same botnets that power attacks also hide the people behind them:
 traffic routed through a botnet appears to come from innocent victims, infrastructure is rented
 and disposable, and false clues are sometimes planted deliberately. Careful defenders talk about
 attribution in terms of *confidence*, not certainty.
 
-Still, attackers are human and make mistakes. The thread an investigator pulls first is
-usually the one the attacker *forgot to hide*: a log they didn't clear, a username or server
-reused across jobs, a document's metadata, an email header. Which trace that is, and why it's the
-first thread to pull, is the last question at the end.
+Choose the next investigative step for its relevance and reliability, not
+because one kind of trace is always the clue attackers forget. Preserve
+the supplied material and document collection, access and interpretation.
+Investigation supports containment and recovery as well as later attribution;
+it need not wait until systems are restored.
+[NIST's incident-response guidance](https://csrc.nist.gov/pubs/sp/800/61/r3/final)
+provides the wider operational context.
 
 ::: {.callout-tip}
 ## Play it
@@ -125,45 +128,23 @@ when you know who did it. → [incidentzero.retroverse.studio](https://incidentz
 This chapter connects to several others. **Software security & malware** supplies the weapons this
 economy trades in: the trojans, worms, and ransomware from that chapter. **Network security**
 matters because a botnet's command-and-control and DDoS traffic are what network monitoring exists
-to spot. Forensics, the investigation stage in this chapter, follows on from the containment and
-recovery in **incident and disaster planning**.
+to spot. Forensics supports the containment and recovery decisions in
+**incident and disaster planning**, as well as subsequent review.
 
 ## Questions to consider
 
 1. Why is a **botnet** so much more valuable to a criminal than a single compromised machine?
 2. Modern cybercrime has a "division of labour": different people write malware, sell access,
    rent servers, and cash out. Why does that specialisation make attacks so hard to stop?
-3. What kind of **trace** does a careless attacker most often forget to hide, and why is that
-   the thread an investigator pulls first?
+3. Choose one **trace** from Harbour's evidence cards. What does it support,
+   what can it not establish, and what would you check next?
 
-## Take it to the AI
+## Annotate an evidence trail
 
-**Where to start.** Three questions worth arguing about rather than looking up:
+In 15 minutes, annotate Harbour's evidence cards as observation, inference
+or unknown. Explain what supports concern about an export and why an account
+name is not an actor identity. Write a handling record with collector, time,
+item, digest reference and access history. Success means a defensible
+timeline with uncertainty visible, not a confident name to blame.
 
-1. Ask the AI to cost out a ransomware operation as a business: what the operator spends, what
-   they earn, where the margin sits. Then ask which defence attacks the margin rather than the
-   attack.
-2. Ask why takedowns rarely end a threat for long, and then what a takedown *does* achieve.
-   The second answer is the harder one.
-3. Attribution is stated in terms of confidence. Ask what kind of evidence moves that confidence
-   and what only appears to.
-
-**Keywords to steer with.** initial access broker · ransomware-as-a-service · bulletproof
-hosting · command-and-control · DDoS-for-hire · money mule · Zeus · Mirai · default credentials ·
-chain of custody · timeline reconstruction · attribution confidence · false flag
-
-**A starting prompt.**
-
-> **Role:** You are a threat intelligence analyst briefing executives who want a name to blame
-> by the end of the meeting.
->
-> **Task:** Explain what we can and cannot know about who was behind a particular attack, and how
-> confident anyone is entitled to be.
->
-> **Context:** I have read a chapter on the cybercrime economy, botnets, digital forensics, chain
-> of custody, and why attribution is hard. Use a real attack you can describe accurately, and be
-> explicit wherever the public reporting is contested.
->
-> **Format:** Three clearly separated sections: what the evidence supports, what it suggests, and
-> what is speculation. Then one paragraph on what a false flag would look like in this case, and
-> how anyone would tell the difference.
+Case inputs and checks: [Harbour dossier](../appendices/defender-dossier.qmd).

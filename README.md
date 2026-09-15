@@ -1,40 +1,59 @@
 # Assume Breach
 
-*A First Course in Defensive Security*
+*A First Course in Defensive Security*, by Michael Borck.
 
-An open-access Quarto book by **Michael Borck** — a lean, standalone first book on defensive
-security for newcomers, not a comprehensive textbook. Twelve chapters in a deliberate order,
-closing with a whole-of-life synthesis. It reads on its own; a course can also assign it
-chapter by chapter (the course keeps the week → chapter map, not the book). Part of the
-[books.borck.education](https://books.borck.education) series.
+A lean, open-access introduction for readers without a security background.
+Twelve chapters build toward a self-contained fictional defender's dossier.
+The core route needs no AI account, lab installation or game group.
 
-> ✅ **Complete first draft.** All twelve chapters are written in full prose, plus the preface
-> and the practice-environment appendix. The book is **standalone and tool-agnostic by design** —
-> it names no course, week, lab, or tool syntax. Optional **"Play it"** callouts link the free
-> game *Incident Zero* for an experiential dimension. Still to do: a copyright-cleanup review,
-> the generated assets (cover, `llm.txt`, chatbot), and editorial polish. See `CHAPTER_OUTLINE.md`.
+## Reading and resources
 
-## Structure
+- [Free online book](https://michael-borck.github.io/assume-breach/)
+- [DeepWiki](https://deepwiki.com/michael-borck/assume-breach)
+- [Book series](https://books.borck.education)
+- `appendices/defender-dossier.qmd`: printed case inputs, worked reasoning,
+  paper firewall tests and independent transfer task.
+- `appendices/lab-environment.qmd`: optional practice boundaries.
+- `appendices/further-reading.qmd`: primary-source trail.
 
-- `index.qmd` — Introduction: the defender's mindset, how the book works, the AI stance.
-- `chapters/week-NN-*.qmd` — one chapter per teaching week (Week 7 is tuition-free; there is
-  no Week 7 chapter — this is intentional).
-- `CHAPTER_OUTLINE.md` — the blueprint: title decision, week↔chapter map, per-chapter status,
-  and the writing/copyright/build notes. **Read this first.**
-- `_quarto.yml` — book configuration (HTML / PDF / EPUB).
+The existing cover and chapter artwork are unchanged. Source chapters use
+stable `chapters/01-...` through `chapters/12-...` filenames, not week numbers.
+A course may map its schedule to them without the book requiring that course.
 
-## Build
+## Local build and checks
+
+Requires Quarto and a LaTeX toolchain for PDF. From this repository:
 
 ```bash
-quarto preview       # live HTML preview while writing
-quarto render        # build all formats into _book/
+python scripts/check_manuscript.py
+quarto render --to html
 ```
 
-Requires [Quarto](https://quarto.org). No other dependencies for the HTML build; PDF needs a
-LaTeX toolchain (TinyTeX: `quarto install tinytex`).
+From the parent books workspace, the publisher builds HTML from the live
+source and PDF/EPUB from disposable preprocessed copies:
 
-## Licence
+```bash
+python book-publisher/publish.py --book ab --llm --preprocess --render
+python book-publisher/tools/check_rendered_book.py assume-breach
+```
 
-Creative Commons Attribution (CC BY). The technical content is the coordinator's own writing;
-**third-party images and cheat-sheets from the source lecture decks must not be pasted in** —
-see the copyright note in `CHAPTER_OUTLINE.md`.
+Do not use the publisher's all-steps option merely to proof a revision;
+publishing and source-control steps are separate actions. Generated
+`_book/`, `_print_source/` and `llm.txt` are not manuscript sources.
+
+## Editorial and publication status
+
+The approved September 2026 developmental revision keeps the chapter order
+and focuses on safety, accuracy and independent practice.
+[EDITORIAL-REVISION.md](EDITORIAL-REVISION.md) records validation and remaining
+human release gates. No ISBN has been assigned in local metadata; do not
+treat a local render as an Amazon/KDP publication.
+
+## Licence and assets
+
+The author confirmed [Creative Commons Attribution 4.0 International
+(CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) on 2026-09-15.
+The author confirmed permission to use the existing artwork on 2026-09-15;
+this is an author attestation, not an independent provenance audit.
+Metadata and both copyright sources name that version. Do not copy third-party game cards, lecture images
+or vendor materials into the book.
