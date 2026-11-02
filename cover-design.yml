@@ -1,0 +1,13 @@
+version: 1
+style: editorial-c
+art: cover-art.png
+family: SECURITY / DEFENSIVE PRACTICE
+accent: '#A0D1C6'
+background: '#172A29'
+title_lines:
+- Assume
+- Breach
+dark: true
+pixel: true
+scene: pixel
+art_origin: Crop of existing images/cover-art.png; original pixel art retained.

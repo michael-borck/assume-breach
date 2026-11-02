@@ -12,7 +12,7 @@ book:
   author: "Michael Borck"
   date: today
   license: "CC BY 4.0 International"
-  cover-image: images/cover.png
+  cover-image: cover.png
   favicon: favicon.svg
   page-navigation: true
   chapters:
@@ -74,12 +74,15 @@ format:
     theme:
       light: cosmo
       dark: darkly
-    css: styles.css
+    css: [styles.css, book-design.css]
     include-after-body: chatbot.html
     toc: true
     toc-depth: 3
     number-sections: true
   pdf:
+    pdf-engine: lualatex
+    fontsize: 11pt
+    linestretch: 1.08
     documentclass: book
     toc: true
     toc-depth: 1
@@ -91,11 +94,12 @@ format:
       - outer=0.625in
       - top=0.75in
       - bottom=0.75in
-    include-in-header: pdf-header.tex
+    include-in-header: [pdf-header.tex, book-design.tex]
     include-before-body:
       - cover-page.tex
       - copyright-page.tex
   epub:
+    epub-cover-image: cover.png
     toc: true
     toc-depth: 1
-    css: epub-styles.css
+    css: [epub-styles.css, book-design-epub.css]
