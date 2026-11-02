@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -42,14 +45,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -80,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -443,6 +447,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../appendices/defender-dossier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Defender’s Dossier</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/further-reading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Further Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../about-author.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About the Author</span></a>
   </div>
@@ -460,16 +476,18 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#what-this-chapter-covers" id="toc-what-this-chapter-covers" class="nav-link active" data-scroll-target="#what-this-chapter-covers"><span class="header-section-number">7.1</span> What this chapter covers</a></li>
-  <li><a href="#the-network-as-an-attack-surface" id="toc-the-network-as-an-attack-surface" class="nav-link" data-scroll-target="#the-network-as-an-attack-surface"><span class="header-section-number">7.2</span> The network as an attack surface</a></li>
-  <li><a href="#scanning-mapping-the-target" id="toc-scanning-mapping-the-target" class="nav-link" data-scroll-target="#scanning-mapping-the-target"><span class="header-section-number">7.3</span> Scanning: mapping the target</a></li>
-  <li><a href="#sniffing-reading-the-wire" id="toc-sniffing-reading-the-wire" class="nav-link" data-scroll-target="#sniffing-reading-the-wire"><span class="header-section-number">7.4</span> Sniffing: reading the wire</a></li>
-  <li><a href="#attacks-in-the-middle" id="toc-attacks-in-the-middle" class="nav-link" data-scroll-target="#attacks-in-the-middle"><span class="header-section-number">7.5</span> Attacks in the middle</a></li>
-  <li><a href="#why-the-local-attacker-is-special" id="toc-why-the-local-attacker-is-special" class="nav-link" data-scroll-target="#why-the-local-attacker-is-special"><span class="header-section-number">7.6</span> Why the local attacker is special</a></li>
-  <li><a href="#defences-making-the-wire-private-again" id="toc-defences-making-the-wire-private-again" class="nav-link" data-scroll-target="#defences-making-the-wire-private-again"><span class="header-section-number">7.7</span> Defences: making the wire private again</a></li>
-  <li><a href="#where-this-connects" id="toc-where-this-connects" class="nav-link" data-scroll-target="#where-this-connects"><span class="header-section-number">7.8</span> Where this connects</a></li>
-  <li><a href="#questions-to-consider" id="toc-questions-to-consider" class="nav-link" data-scroll-target="#questions-to-consider"><span class="header-section-number">7.9</span> Questions to consider</a></li>
+  <li><a href="#a-small-network-primer" id="toc-a-small-network-primer" class="nav-link" data-scroll-target="#a-small-network-primer"><span class="header-section-number">7.2</span> A small network primer</a></li>
+  <li><a href="#the-network-as-an-attack-surface" id="toc-the-network-as-an-attack-surface" class="nav-link" data-scroll-target="#the-network-as-an-attack-surface"><span class="header-section-number">7.3</span> The network as an attack surface</a></li>
+  <li><a href="#scanning-mapping-the-target" id="toc-scanning-mapping-the-target" class="nav-link" data-scroll-target="#scanning-mapping-the-target"><span class="header-section-number">7.4</span> Scanning: mapping the target</a></li>
+  <li><a href="#sniffing-reading-the-wire" id="toc-sniffing-reading-the-wire" class="nav-link" data-scroll-target="#sniffing-reading-the-wire"><span class="header-section-number">7.5</span> Sniffing: reading the wire</a></li>
+  <li><a href="#attacks-in-the-middle" id="toc-attacks-in-the-middle" class="nav-link" data-scroll-target="#attacks-in-the-middle"><span class="header-section-number">7.6</span> Attacks in the middle</a></li>
+  <li><a href="#why-the-local-attacker-is-special" id="toc-why-the-local-attacker-is-special" class="nav-link" data-scroll-target="#why-the-local-attacker-is-special"><span class="header-section-number">7.7</span> Why the local attacker is special</a></li>
+  <li><a href="#defences-making-the-wire-private-again" id="toc-defences-making-the-wire-private-again" class="nav-link" data-scroll-target="#defences-making-the-wire-private-again"><span class="header-section-number">7.8</span> Defences: making the wire private again</a></li>
+  <li><a href="#where-this-connects" id="toc-where-this-connects" class="nav-link" data-scroll-target="#where-this-connects"><span class="header-section-number">7.9</span> Where this connects</a></li>
+  <li><a href="#questions-to-consider" id="toc-questions-to-consider" class="nav-link" data-scroll-target="#questions-to-consider"><span class="header-section-number">7.10</span> Questions to consider</a></li>
+  <li><a href="#state-what-an-observer-can-see" id="toc-state-what-an-observer-can-see" class="nav-link" data-scroll-target="#state-what-an-observer-can-see"><span class="header-section-number">7.11</span> State what an observer can see</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/assume-breach"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -496,9 +514,9 @@ ul.task-list li input[type="checkbox"] {
 
 <p><img src="../images/ch07-opener.png" class="img-fluid" alt="Pixel-art illustration: a row of signal-lit watchtowers along a castle rampart road at night."></p>
 <blockquote class="blockquote">
-<p><em>Everything you send crosses wires you don’t control. This chapter is about what’s visible there, and what to do about it.</em></p>
+<p><em>What an observer can learn from traffic depends on where they can see it and how it is protected.</em></p>
 </blockquote>
-<p>Up to now we’ve mostly defended individual systems. But systems rarely stand alone. They talk to each other across networks, and every conversation crosses cables, switches, routers, and radio links you do not own and cannot see. That is a shift in the threat model. On a network, an attacker doesn’t have to break into your machine to learn your secrets. They may only have to <em>listen</em>. This chapter is about how attackers map and eavesdrop on networks, why a surprising amount of traffic gives itself away, and what turns an open wire back into a private one.</p>
+<p>Harbour’s booking service depends on several network paths: customers reach the web application, staff use a VPN, and the application queries a database. Some traffic crosses infrastructure the centre does not control. An observer on a path may learn from traffic without compromising either endpoint. This chapter explains those observation limits and how to protect a connection.</p>
 <section id="what-this-chapter-covers" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="what-this-chapter-covers"><span class="header-section-number">7.1</span> What this chapter covers</h2>
 <p>By the end you should be able to:</p>
@@ -509,12 +527,17 @@ ul.task-list li input[type="checkbox"] {
 <li>Explain why <strong>encryption in transit</strong> matters, and what segmentation and monitoring add.</li>
 </ul>
 </section>
-<section id="the-network-as-an-attack-surface" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="the-network-as-an-attack-surface"><span class="header-section-number">7.2</span> The network as an attack surface</h2>
-<p>Recall the phases of an attack from the first chapter: reconnaissance, then scanning, then gaining access. Networks are where the first two of those live. Before an attacker can exploit a system, they have to <em>find</em> it and learn what it’s running. A network, by its nature, answers questions. Ask a machine “are you there?” and, unless told otherwise, it politely replies. Ask “what services are you running?” and its open ports announce them. Every device you connect adds to the attack surface, and every one of them is, by default, a little too willing to talk to strangers.</p>
+<section id="a-small-network-primer" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="a-small-network-primer"><span class="header-section-number">7.2</span> A small network primer</h2>
+<p>A <strong>host</strong> is a device or system connected to a network. Its <strong>IP address</strong> helps route packets to it; a <strong>port</strong> helps identify a service on that host. A service is a listening application, such as a web server. <strong>DNS</strong> maps names to addresses. A switch connects devices locally; a router moves traffic between networks. A <strong>subnet</strong> groups addresses for routing purposes.</p>
+<p>A <strong>trust boundary</strong> is where rules about access or trust change, such as between guest Wi-Fi and staff systems. A line on a drawing does not enforce that boundary: routing, filtering and access controls must implement it.</p>
 </section>
-<section id="scanning-mapping-the-target" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="scanning-mapping-the-target"><span class="header-section-number">7.3</span> Scanning: mapping the target</h2>
+<section id="the-network-as-an-attack-surface" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="the-network-as-an-attack-surface"><span class="header-section-number">7.3</span> The network as an attack surface</h2>
+<p>Recall the phases of an attack from the first chapter: reconnaissance, then scanning, then gaining access. Networks are where the first two of those live. Before an attacker can exploit a system, they have to <em>find</em> it and learn what it’s running. A network, by its nature, answers questions. Ask a machine “are you there?” and, unless told otherwise, it politely replies. Ask “what services are you running?” and its open ports announce them. Each reachable service adds an exposure to examine. Defaults vary, and a lack of response does not prove a device or service is absent.</p>
+</section>
+<section id="scanning-mapping-the-target" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="scanning-mapping-the-target"><span class="header-section-number">7.4</span> Scanning: mapping the target</h2>
 <p><strong>Scanning</strong> is how an attacker (or a defender auditing their own network) turns a vague target into a map. It usually happens in layers. First, find the live hosts: a sweep that asks every address on a network “are you there?” and notes who answers. Then, for each live host, find the open <strong>ports</strong>. A port is a numbered doorway, and each open one usually corresponds to a running <strong>service</strong> (a web server, a file share, a remote-login service). Finally, probe those services to learn <em>which software and version</em> is behind them, because a known version can be matched against known vulnerabilities from the software-security chapter.</p>
 <p>The result is a blueprint: here are your machines, here are the doors that are open, here’s the software behind each one. To an attacker, that’s a shopping list. To a defender, the same scan is an audit. That is why the tools are dual-use, and why the defensive instinct is to <em>close the doors you don’t need</em>. Every service you’re not using is a door you can shut, shrinking the blueprint an attacker gets to work from.</p>
 <div id="fig-scanning" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Network diagram: an attacker host and three servers labelled web, app, and files, all connected to a shared subnet 10.2.0.0/24 behind a gateway to the internet.">
@@ -523,30 +546,31 @@ ul.task-list li input[type="checkbox"] {
 <img src="../images/lab-network-map.svg" class="img-fluid figure-img" alt="Network diagram: an attacker host and three servers labelled web, app, and files, all connected to a shared subnet 10.2.0.0/24 behind a gateway to the internet.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scanning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.1: A small network as a scanner sees it: an attacker host and three servers, each answering with the ports it has open. This is the <em>Port Scanning</em> lab from the companion environment, mapping the web, app, and file servers across <code>10.2.0.0/24</code>.
+Figure&nbsp;7.1: A small network as a scanner sees it: an attacker host and three servers, each answering with the ports it has open. This illustrative network maps web, app and file services across <code>10.2.0.0/24</code>; no companion lab is required.
 </figcaption>
 </figure>
 </div>
 </section>
-<section id="sniffing-reading-the-wire" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="sniffing-reading-the-wire"><span class="header-section-number">7.4</span> Sniffing: reading the wire</h2>
-<p>Scanning finds the doors. <strong>Sniffing</strong> reads what goes through them. A network interface normally ignores traffic not addressed to it, but put it into a listening (“promiscuous”) mode and it will capture <em>everything</em> it can hear: a <strong>packet capture</strong> of the raw conversations crossing the wire. A tool to read that capture then reassembles the packets into something human-readable.</p>
-<p>One thing lands hardest the first time someone sees it: <strong>a great deal of network traffic is sent in plain text, and sniffing shows all of it.</strong> Older protocols were designed in a more trusting era and send everything unencrypted: the web’s original HTTP, file transfer with FTP, remote login with Telnet, some email protocols. Capture that traffic and you don’t just see <em>that</em> a conversation happened. You see its contents: the pages requested, the files moved, and the <strong>usernames and passwords typed in the clear</strong>. This is the sniffing that the authentication chapter warned about, made concrete: the strongest password in the world is worthless if it crosses the network in plain text for anyone listening to read. It is unsettling to witness, and it converts “you should use encryption” from advice into an obvious necessity.</p>
+<section id="sniffing-reading-the-wire" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="sniffing-reading-the-wire"><span class="header-section-number">7.5</span> Sniffing: reading the wire</h2>
+<p>Scanning finds the doors. <strong>Sniffing</strong> reads what goes through them. A network interface normally ignores traffic not addressed to it, but put it into a listening (“promiscuous”) mode and it will capture <em>everything</em> it can hear: a <strong>packet capture</strong> of the raw conversations crossing the wire. A tool can decode supported protocols from the captured packets.</p>
+<p>The phrase <em>it can hear</em> matters. On a switched network, another host’s unicast traffic may never reach your capture interface. Promiscuous mode does not make the switch send it there. Wi-Fi capture also depends on the adapter, access-point settings and link protection. Explain the observation point before claiming what a capture reveals. <a href="https://wiki.wireshark.org/capturesetup/Ethernet">Wireshark’s Ethernet guidance</a> sets out these limits.</p>
+<p>One thing lands hardest the first time someone sees it: <strong>unencrypted application traffic can expose its contents to a listener at a suitable capture point.</strong> Older protocols were designed in a more trusting era and send everything unencrypted: the web’s original HTTP, file transfer with FTP, remote login with Telnet, some email protocols. Capture that traffic and you don’t just see <em>that</em> a conversation happened. You see its contents: the pages requested, the files moved, and the <strong>usernames and passwords typed in the clear</strong>. This is the sniffing that the authentication chapter warned about, made concrete: the strongest password in the world is worthless if it crosses the network in plain text for anyone listening to read. It is unsettling to witness, and it converts “you should use encryption” from advice into an obvious necessity.</p>
 </section>
-<section id="attacks-in-the-middle" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="attacks-in-the-middle"><span class="header-section-number">7.5</span> Attacks in the middle</h2>
+<section id="attacks-in-the-middle" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="attacks-in-the-middle"><span class="header-section-number">7.6</span> Attacks in the middle</h2>
 <p>Listening is passive. Network attacks get more dangerous when the attacker stops observing and starts <em>interfering</em>.</p>
 <p><strong>Spoofing</strong> is forging an identity on the network: sending traffic that claims to come from an address that isn’t yours. An attacker might spoof a trusted machine’s address to slip past a filter, or forge the source of an attack to hide their tracks. The network’s willingness to believe what packets <em>claim</em> about themselves is the weakness being exploited.</p>
-<p>The more powerful move is the <strong>man-in-the-middle</strong> (or on-path) attack: the attacker positions themselves <em>between</em> two parties, so that everything each side sends passes through them first. Now they can read the conversation, and worse, <em>alter</em> it: changing a bank account number in transit, injecting malicious content, or capturing credentials as they flow past. Two common techniques get an attacker into that position on a local network. <strong>ARP spoofing</strong> tricks nearby machines into routing their traffic through the attacker by lying about which hardware address belongs to which machine. <strong>DNS spoofing</strong> answers a name lookup with the wrong address, so the victim connects to the attacker’s server while believing it’s the real one. The details matter less than the shape: the attacker exploits the small, trusting mechanisms that make a network convenient, and turns them into a wiretap.</p>
+<p>The more powerful move is the <strong>man-in-the-middle</strong> (or on-path) attack: the attacker positions themselves <em>between</em> two parties, so that everything each side sends passes through them first. If the protocol lacks effective authenticated protection, they may read or alter the conversation: changing a bank account number in transit, injecting malicious content, or capturing credentials as they flow past. Two common techniques get an attacker into that position on a local network. <strong>ARP spoofing</strong> tricks nearby machines into routing their traffic through the attacker by lying about which hardware address belongs to which machine. <strong>DNS spoofing</strong> answers a name lookup with the wrong address, so the victim connects to the attacker’s server while believing it’s the real one. The details matter less than the shape: the attacker exploits the small, trusting mechanisms that make a network convenient, and turns them into a wiretap.</p>
 </section>
-<section id="why-the-local-attacker-is-special" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="why-the-local-attacker-is-special"><span class="header-section-number">7.6</span> Why the local attacker is special</h2>
-<p>Notice that ARP spoofing and casual sniffing both require the attacker to be <em>on the same network</em>. This is why an attacker who has gained a foothold on your local network, or who is sharing the coffee-shop Wi-Fi, can do things a purely remote attacker cannot. They can hear the local chatter, impersonate local machines, and slip into the middle of local conversations in ways that someone out on the wider internet, several routers away, cannot manage. It’s a concrete reason the <em>inside</em> of a network can never be treated as automatically safe. This is the assume-breach mindset applied to your own LAN. (That difference is the second question at the end; it’s worth being able to explain crisply.)</p>
+<section id="why-the-local-attacker-is-special" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="why-the-local-attacker-is-special"><span class="header-section-number">7.7</span> Why the local attacker is special</h2>
+<p>Notice that ARP spoofing and casual sniffing both require the attacker to be <em>on the same network</em>. This is why an attacker who has gained a foothold on your local network, or who is sharing the coffee-shop Wi-Fi, can do things a purely remote attacker cannot. They can hear the local chatter, impersonate local machines, and slip into the middle of local conversations in ways that someone out on the wider internet, several routers away, cannot manage. It’s a concrete reason the <em>inside</em> of a network can never be treated as automatically safe. This is the assume-breach mindset applied to your own LAN.</p>
 </section>
-<section id="defences-making-the-wire-private-again" class="level2" data-number="7.7">
-<h2 data-number="7.7" class="anchored" data-anchor-id="defences-making-the-wire-private-again"><span class="header-section-number">7.7</span> Defences: making the wire private again</h2>
+<section id="defences-making-the-wire-private-again" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="defences-making-the-wire-private-again"><span class="header-section-number">7.8</span> Defences: making the wire private again</h2>
 <p>The good news is that the central weakness, traffic readable by anyone listening, has a decisive fix, and you already met it.</p>
-<p><strong>Encryption in transit</strong> is the answer to sniffing. When traffic is encrypted (the web’s HTTPS, which is HTTP wrapped in the TLS scheme from the cryptography chapter), an eavesdropper still captures the packets but sees only unreadable ciphertext. The credentials, the page contents, the files: all gibberish to anyone without the key. This single change neutralises passive sniffing. That is why the migration of the web from HTTP to HTTPS was one of the most important security improvements of the last decade, and why sending anything sensitive over an unencrypted protocol is now indefensible.</p>
+<p><strong>Encryption in transit</strong> is the answer to sniffing. When traffic is encrypted (the web’s HTTPS, which is HTTP wrapped in the TLS scheme from the cryptography chapter), an eavesdropper still captures the packets but sees only unreadable ciphertext. The credentials, the page contents, the files: all gibberish to anyone without the key. It protects the encrypted contents, but packet timing, sizes and some addressing information remain observable. Protocol and configuration choices determine what else is visible. TLS must also authenticate the intended endpoint to resist an active impostor; ignoring certificate errors undermines that check. That is why the migration of the web from HTTP to HTTPS was one of the most important security improvements of the last decade, and why sending anything sensitive over an unencrypted protocol is now indefensible.</p>
 <p>Two more layers back it up. <strong>Segmentation</strong> divides a network into zones with controlled routes between them, so that a foothold in one part doesn’t grant free movement across the whole. It’s the same idea that starves a worm (from the malware chapter) and contains an incident (from the planning chapter). <strong>Monitoring</strong> watches network traffic for the tell-tale signs of trouble (a host scanning its neighbours, traffic to a known-bad address, a volume spike), so that the intrusion you couldn’t prevent is at least <em>detected</em>, feeding straight into the incident response of the previous chapter. Encryption hides the contents, segmentation limits the movement, and monitoring catches what gets through. No single one is enough.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -562,17 +586,22 @@ Figure&nbsp;7.1: A small network as a scanner sees it: an attacker host and thre
 </div>
 </div>
 </section>
-<section id="where-this-connects" class="level2" data-number="7.8">
-<h2 data-number="7.8" class="anchored" data-anchor-id="where-this-connects"><span class="header-section-number">7.8</span> Where this connects</h2>
-<p>The credentials a sniffer harvests are the ones <strong>authentication</strong> taught you to protect, and encryption in transit is what stops them leaking. That encryption is the hybrid TLS scheme from <strong>cryptography</strong>, in action. And the next chapter, <strong>VPN and firewalls</strong>, covers the two defences that build on this one: a firewall to control what traffic is allowed, and a VPN to protect it end to end.</p>
+<section id="where-this-connects" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="where-this-connects"><span class="header-section-number">7.9</span> Where this connects</h2>
+<p>The credentials a sniffer harvests are the ones <strong>authentication</strong> taught you to protect, and encryption in transit is what stops them leaking. That encryption is the hybrid TLS scheme from <strong>cryptography</strong>, in action. And the next chapter, <strong>VPN and firewalls</strong>, covers the two defences that build on this one: a firewall to control what traffic is allowed, and a VPN to protect traffic within its configured tunnel.</p>
 </section>
-<section id="questions-to-consider" class="level2" data-number="7.9">
-<h2 data-number="7.9" class="anchored" data-anchor-id="questions-to-consider"><span class="header-section-number">7.9</span> Questions to consider</h2>
+<section id="questions-to-consider" class="level2" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="questions-to-consider"><span class="header-section-number">7.10</span> Questions to consider</h2>
 <ol type="1">
 <li>Name one everyday thing you do online that would be <strong>visible in plaintext</strong> to someone sniffing the network, and one that wouldn’t. What’s the difference between them?</li>
 <li>Why can an attacker on the <em>same</em> network do things a purely remote attacker can’t?</li>
 <li>Imagine you captured your own device’s traffic for one minute. What do you think you’d be able to read, and what would be hidden? What does that difference tell you about how you should send sensitive information?</li>
 </ol>
+</section>
+<section id="state-what-an-observer-can-see" class="level2" data-number="7.11">
+<h2 data-number="7.11" class="anchored" data-anchor-id="state-what-an-observer-can-see"><span class="header-section-number">7.11</span> State what an observer can see</h2>
+<p>In 10 minutes, draw Harbour’s public, staff, guest and database boundaries. For a passive observer at the guest access point, distinguish encrypted content from routing/timing information and unknown visibility. Do not assume the observer receives every staff packet. Name a boundary test you would request from an authorised administrator; do not run it yourself.</p>
+<p>Case inputs and checks: <a href="../appendices/defender-dossier.html">Harbour dossier</a>.</p>
 
 
 </section>

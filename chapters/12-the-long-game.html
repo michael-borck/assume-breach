@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -42,14 +45,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -80,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -443,6 +447,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../appendices/defender-dossier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Defender’s Dossier</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/further-reading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Further Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../about-author.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About the Author</span></a>
   </div>
@@ -459,12 +475,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#joining-the-dots" id="toc-joining-the-dots" class="nav-link active" data-scroll-target="#joining-the-dots"><span class="header-section-number">12.1</span> Joining the dots</a></li>
-  <li><a href="#why-assume-breach-is-not-defeatism" id="toc-why-assume-breach-is-not-defeatism" class="nav-link" data-scroll-target="#why-assume-breach-is-not-defeatism"><span class="header-section-number">12.2</span> Why “assume breach” is not defeatism</a></li>
-  <li><a href="#the-skill-that-matters" id="toc-the-skill-that-matters" class="nav-link" data-scroll-target="#the-skill-that-matters"><span class="header-section-number">12.3</span> The skill that matters</a></li>
-  <li><a href="#questions-to-consider" id="toc-questions-to-consider" class="nav-link" data-scroll-target="#questions-to-consider"><span class="header-section-number">12.4</span> Questions to consider</a></li>
+  <li><a href="#what-this-chapter-covers" id="toc-what-this-chapter-covers" class="nav-link active" data-scroll-target="#what-this-chapter-covers"><span class="header-section-number">12.1</span> What this chapter covers</a></li>
+  <li><a href="#joining-the-dots" id="toc-joining-the-dots" class="nav-link" data-scroll-target="#joining-the-dots"><span class="header-section-number">12.2</span> Joining the dots</a></li>
+  <li><a href="#complete-the-independent-case" id="toc-complete-the-independent-case" class="nav-link" data-scroll-target="#complete-the-independent-case"><span class="header-section-number">12.3</span> Complete the independent case</a></li>
+  <li><a href="#check-and-transfer" id="toc-check-and-transfer" class="nav-link" data-scroll-target="#check-and-transfer"><span class="header-section-number">12.4</span> Check and transfer</a></li>
+  <li><a href="#questions-to-consider" id="toc-questions-to-consider" class="nav-link" data-scroll-target="#questions-to-consider"><span class="header-section-number">12.5</span> Questions to consider</a></li>
+  <li><a href="#carry-the-decision-forward" id="toc-carry-the-decision-forward" class="nav-link" data-scroll-target="#carry-the-decision-forward"><span class="header-section-number">12.6</span> Carry the decision forward</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/assume-breach"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -491,27 +509,35 @@ ul.task-list li input[type="checkbox"] {
 
 <p><img src="../images/ch12-opener.png" class="img-fluid" alt="Pixel-art illustration: an armoured watchman on a high rampart overlooking a castle and distant hills at sunset."></p>
 <blockquote class="blockquote">
-<p><em>You do not secure a system the way you paint a fence: once, and it’s done. Security has no finish line. That is not bad news; it’s the whole idea.</em></p>
+<p><em>A defence plan should make its limits as visible as its controls.</em></p>
 </blockquote>
-<p>You’ve reached the end of the concepts. The temptation now is to leave with a checklist: a tidy list of controls to apply and boxes to tick. Resist it, because every chapter of this book has argued against the checklist. Confidentiality, integrity, and availability pull against each other, so there is no setting that maximises all three. Controls fail, so no single one can be trusted. People slip, so no technology closes the last gap. Threats evolve, so yesterday’s defence is not tomorrow’s. A checklist assumes the work can be finished. The honest picture is different: security is a <strong>cycle you keep turning</strong>, not a state you reach.</p>
-<section id="joining-the-dots" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="joining-the-dots"><span class="header-section-number">12.1</span> Joining the dots</h2>
-<p>Everything in this book fits into one continuous loop. Walk it once, and watch the chapters fall into place:</p>
+<p>You now have the pieces of a defender’s dossier. The final test changes the budget and recovery target. It asks whether you can recognise an unresolved risk and explain it to the person authorised to decide. A polished plan that hides a failed test is less useful than a short one that exposes it.</p>
+<section id="what-this-chapter-covers" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="what-this-chapter-covers"><span class="header-section-number">12.1</span> What this chapter covers</h2>
+<p>By the end you should be able to:</p>
 <ul>
-<li>You <strong>design</strong> a system and decide what matters: which information, which assets, which trade-offs you’re willing to make. <em>(The CIA triad; network architecture.)</em></li>
-<li>You <strong>harden</strong> it, layer by layer, knowing each layer will eventually fail. <em>(Defence in depth; software security; authentication; cryptography; firewalls; web security.)</em></li>
-<li>You <strong>detect</strong>, because you assumed breach: you watch for the intrusion you could not prevent, on the wire and in the logs. <em>(Network security.)</em></li>
-<li>You <strong>respond</strong> when it comes, reading the attack and containing it before it spreads. <em>(Incident response.)</em></li>
-<li>You <strong>recover</strong>, keeping the business alive and meeting your obligations under the clock. <em>(Disaster recovery.)</em></li>
-<li>You <strong>investigate</strong> what happened, how far it went, and who was behind it, without destroying the evidence in the process. <em>(Cybercrime and forensics.)</em></li>
-<li>You <strong>audit and learn</strong>, measuring the gaps honestly and feeding what you find back into the design. <em>(Risk management; the assessment mindset behind frameworks like the Essential Eight.)</em></li>
-<li>And running through every one of those stages is the <strong>human</strong>: the analyst making the call, the user clicking the link, the board deciding what risk to accept. <em>(Human factors.)</em></li>
+<li>Connect assets, controls, evidence and recovery decisions in one plan.</li>
+<li>Check whether a changed requirement invalidates an earlier answer.</li>
+<li>Distinguish a justified decision from a claim that everything is secure.</li>
+<li>Assign responsibility for unresolved risk and future review.</li>
 </ul>
-<p>Then you begin again, because the system changed, the threats changed, and the last turn of the loop taught you something. That is the whole-of-life view: a set of things you keep <em>doing</em>, in order, forever, rather than a list of things to have.</p>
 </section>
-<section id="why-assume-breach-is-not-defeatism" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="why-assume-breach-is-not-defeatism"><span class="header-section-number">12.2</span> Why “assume breach” is not defeatism</h2>
-<p>It might sound bleak to assume you’ll be breached. It isn’t. It’s the assumption that makes the loop turn. If you believed you could build one perfect wall, you would stop after hardening; detection, response, recovery, and investigation would all be wasted effort on a wall that never fails. It’s <em>because</em> you assume the wall fails that you build the rest. Assume breach is not surrender. It is the reason a defender’s job is a whole lifecycle and not a single act. And it is what separates security that survives contact with reality from security that only looks good on the marketing page.</p>
+<section id="joining-the-dots" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="joining-the-dots"><span class="header-section-number">12.2</span> Joining the dots</h2>
+<p>Return to the seven activities introduced in chapter 1: design, harden, detect, respond, recover, investigate, and audit/learn. Human decisions run through every activity. These are overlapping tasks, not seven departments that hand an incident along in a fixed sequence.</p>
+<p>At Harbour, permissions influence whether a login can become a bulk export. Logging affects what the response lead can establish. Recovery credentials affect whether backups survive. A notification assessment may still be open after the service is restored. Those connections are what the dossier should make visible.</p>
+<p>A checklist can help an authorised responder avoid missing a necessary step. It needs an owner, a context and testing. The failure is treating checked boxes as proof that the service can meet its obligations under changed conditions.</p>
+</section>
+<section id="complete-the-independent-case" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="complete-the-independent-case"><span class="header-section-number">12.3</span> Complete the independent case</h2>
+<p>Use <a href="../appendices/defender-dossier.html#sec-transfer">Harbour’s weekend programme</a>. Allow 30–45 minutes, working alone without AI. The appendix supplies every changed fact and an eight-point check. Write your answer before reading the comparison.</p>
+<p>Your one-page decision needs the assets and permissions, an affordable control choice, risk arithmetic, allowed and denied tests, both recovery checks, an evidence-preserving response and a privacy escalation. End with what is ready, what is not, who can decide, and what evidence is needed next.</p>
+<p>You are not required to make the constraints fit. If the stated recovery time misses the target or the budget leaves a known boundary weakness, say so. Do not create an imaginary free control to make the answer look complete. An explicit request for a changed budget, a tested improvement or a deferred launch is a legitimate result.</p>
+</section>
+<section id="check-and-transfer" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="check-and-transfer"><span class="header-section-number">12.4</span> Check and transfer</h2>
+<p>Compare your answer with the <a href="../appendices/defender-dossier.html#sec-transfer-check">reasoning check</a>. Aim for seven of eight criteria, with no unsafe testing, unsupported readiness claim or missed recovery-target failure. If you disagree with the worked choice, identify the constraint and evidence that make your alternative defensible.</p>
+<p>For a second attempt, ask another reader to change one supplied constraint. Predict which section of your dossier must change before recalculating it. That is a stronger test of understanding than repeating the original answer.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -525,19 +551,19 @@ ul.task-list li input[type="checkbox"] {
 <p>Every stage in that loop is easier to <em>understand</em> than to <em>do</em>. Doing it, under time and budget pressure, is where the judgement lives. <em>Incident Zero</em>, the free print-and-play game referenced throughout these chapters, has a full campaign that runs this entire lifecycle end to end: design a network, harden it, detect and respond to a breach, recover from the disaster, and investigate what happened. Playing it is the closest thing to <em>living</em> a security cycle in an afternoon. If this book gave you the map, the campaign lets you walk the ground. → <a href="https://incidentzero.retroverse.studio/">incidentzero.retroverse.studio</a></p>
 </div>
 </div>
+<p>The game is optional group enrichment. Its current <a href="https://incidentzero.retroverse.studio/">landing page</a> describes the player, printing and time requirements. The paper dossier above is a complete solo route and does not reproduce the game’s materials.</p>
 </section>
-<section id="the-skill-that-matters" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="the-skill-that-matters"><span class="header-section-number">12.3</span> The skill that matters</h2>
-<p>If there is one thing to carry out of a first course in defensive security, it is not the contents of any single chapter. It is the shape of the loop, and the discipline to keep it turning honestly. Anyone can learn a control. The defender’s real skill is holding the whole lifecycle in view: designing for failure, watching for the breach, responding without panic, recovering with obligations met, learning from every incident, and starting the next cycle wiser than the last.</p>
-<p>That’s the long game. It has no finish line, and that is by design.</p>
-</section>
-<section id="questions-to-consider" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="questions-to-consider"><span class="header-section-number">12.4</span> Questions to consider</h2>
+<section id="questions-to-consider" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="questions-to-consider"><span class="header-section-number">12.5</span> Questions to consider</h2>
 <ol type="1">
-<li>Pick a system you use every day (your phone, a bank app, your workplace network). Walk it once around the loop: where is it <em>designed</em>, <em>hardened</em>, <em>watched</em>, and <em>recovered</em>? Which stage looks weakest?</li>
-<li>“Assume breach” changes what you build. Name one thing a team would do differently if they assumed they’d be breached, versus one that assumed they could keep everyone out.</li>
-<li>Of the eight stages in the loop, which do organisations most often neglect, and why do you think that particular one gets skipped?</li>
+<li>Which supplied fact most changed your control choice, and why?</li>
+<li>Which conclusion depends on evidence you do not yet have?</li>
+<li>What should trigger a new review after an initially acceptable plan?</li>
 </ol>
+</section>
+<section id="carry-the-decision-forward" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="carry-the-decision-forward"><span class="header-section-number">12.6</span> Carry the decision forward</h2>
+<p>Keep the dossier as a record of a decision under stated conditions. When the system, staff, evidence or obligations change, revisit it. The useful habit is to explain what a control does, demonstrate it where possible, and make the remaining uncertainty visible to the right decision-maker.</p>
 
 
 </section>

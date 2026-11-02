@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -42,14 +45,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -80,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -443,6 +447,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../appendices/defender-dossier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Defender’s Dossier</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/further-reading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Further Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../about-author.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About the Author</span></a>
   </div>
@@ -469,8 +485,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#testing-the-plan" id="toc-testing-the-plan" class="nav-link" data-scroll-target="#testing-the-plan"><span class="header-section-number">6.8</span> Testing the plan</a></li>
   <li><a href="#where-this-connects" id="toc-where-this-connects" class="nav-link" data-scroll-target="#where-this-connects"><span class="header-section-number">6.9</span> Where this connects</a></li>
   <li><a href="#questions-to-consider" id="toc-questions-to-consider" class="nav-link" data-scroll-target="#questions-to-consider"><span class="header-section-number">6.10</span> Questions to consider</a></li>
+  <li><a href="#rehearse-the-first-decisions" id="toc-rehearse-the-first-decisions" class="nav-link" data-scroll-target="#rehearse-the-first-decisions"><span class="header-section-number">6.11</span> Rehearse the first decisions</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/assume-breach"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -499,7 +516,7 @@ ul.task-list li input[type="checkbox"] {
 <blockquote class="blockquote">
 <p><em>The question isn’t whether something will go wrong, but whether you’re ready when it does.</em></p>
 </blockquote>
-<p>This is the chapter where <em>assume breach</em> stops being a slogan and becomes a plan. Everything so far has been about lowering the odds: hardening, controls, cryptography, spending where the risk is highest. But the honest premise of this whole book is that, sooner or later, across a large enough system and enough time, a defence fails and something gets through. The organisations that survive that moment are not the ones that believed it couldn’t happen; they’re the ones that decided <em>in advance</em> what they would do when it did. Planning for failure is the most practical form of optimism there is.</p>
+<p>At Harbour, an unexpected login prompt and a bulk-export event arrive within minutes of each other. Who can suspend access, preserve the logs, talk to the service provider and decide what the centre tells participants? This chapter turns those questions into a response plan. Preparation and recovery tests belong before the first incident.</p>
 <section id="what-this-chapter-covers" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="what-this-chapter-covers"><span class="header-section-number">6.1</span> What this chapter covers</h2>
 <p>By the end you should be able to:</p>
@@ -512,17 +529,19 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="when-prevention-runs-out" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="when-prevention-runs-out"><span class="header-section-number">6.2</span> When prevention runs out</h2>
-<p>A defender who assumes they can keep every attacker out will, reasonably, put every dollar into prevention and none into what happens after. That is a trap. Prevention has a ceiling. Zero-days exist, people slip, controls fail. Past that ceiling, the only thing that helps is <em>preparation to respond</em>. This is why the security lifecycle has a second half: because you assumed breach, you build detection, response, and recovery <em>before</em> you need them, when you’re calm and thinking clearly, rather than inventing them at 3 a.m. during the worst day of the company’s year.</p>
+<p>Patching and access controls lower the chance of compromise. Detection, response and recovery reduce harm when prevention fails. They also help with mistakes and outages unrelated to an attacker.</p>
+<p>Preparation means deciding authority, keeping contact information available, and testing recovery while there is time to correct a failure. A response plan should work when the usual administrator is absent and the primary communication system is unavailable.</p>
 </section>
 <section id="incident-response-the-lifecycle" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="incident-response-the-lifecycle"><span class="header-section-number">6.3</span> Incident response: the lifecycle</h2>
-<p>An <strong>incident</strong> is a security event that matters: a confirmed compromise, a breach, an outage caused by an attack. <strong>Incident response</strong> is the disciplined process of handling it, and a good process runs through recognisable stages:</p>
+<p>An <strong>incident</strong> involves an actual or imminent threat to security. A suspicious event needs triage; staff should not wait for certainty before reporting it. A response process turns incomplete observations into proportionate action:</p>
 <ul>
-<li><strong>Detect.</strong> You cannot respond to what you cannot see, which is why monitoring and logging, covered in the network chapter, exist. The faster you detect, the less damage is done. The time an attacker sits undiscovered (“dwell time”) is often measured in weeks, and every day of it costs.</li>
-<li><strong>Respond.</strong> Contain the incident before it spreads: isolate the affected systems, cut the attacker’s access, stop the bleeding. This is triage: the goal is to limit the damage, not yet to understand every detail.</li>
-<li><strong>Recover.</strong> Restore normal operations safely: rebuild compromised systems (remember the rootkit: deeply compromised machines are rebuilt, not cleaned), restore data, and verify the attacker is gone before reconnecting.</li>
-<li><strong>Learn.</strong> This is the stage everyone skips and no one should. Afterwards, honestly review what happened, what worked, and what didn’t, then feed those lessons back into your defences. An incident you learn nothing from is one you’ve paid for twice.</li>
+<li><strong>Detect and assess.</strong> Record the observation, time and affected service. Decide urgency and scope, distinguishing facts from assumptions.</li>
+<li><strong>Respond.</strong> Contain damage under assigned authority. Preserve useful evidence where feasible while restricting compromised access. Record actions that change or destroy evidence and why they were necessary.</li>
+<li><strong>Recover.</strong> Address the cause and persistence, restore or rebuild from an acceptable state, and validate access and integrity before reconnecting. A successful restore is not proof the attacker has been removed.</li>
+<li><strong>Learn.</strong> Review controls, decisions and communication. Assign improvements and check that they are completed.</li>
 </ul>
+<p>These activities overlap. Evidence collection and analysis begin during response, not only after restoration. Do not indiscriminately wipe a system before consulting the response lead; equally, do not leave serious harm continuing solely to obtain perfect evidence. <a href="https://csrc.nist.gov/pubs/sp/800/61/r3/final">NIST SP 800-61 Rev.&nbsp;3</a> places incident response within continuing risk management.</p>
 <p>Two things make or break response in practice, and neither is technical. <strong>Roles</strong> must be decided in advance (who declares an incident, who talks to whom, who has the authority to take a critical system offline), because a crisis is the worst possible time to be working out the org chart. And <strong>communication</strong> must be planned: internal coordination, and the harder question of what you tell customers, regulators, and the public, and when.</p>
 </section>
 <section id="business-continuity-and-disaster-recovery" class="level2" data-number="6.4">
@@ -534,19 +553,22 @@ ul.task-list li input[type="checkbox"] {
 <section id="the-two-numbers-that-drive-the-plan-rto-and-rpo" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="the-two-numbers-that-drive-the-plan-rto-and-rpo"><span class="header-section-number">6.5</span> The two numbers that drive the plan: RTO and RPO</h2>
 <p>Disaster recovery turns on two deceptively simple targets, and getting them straight is the most useful thing in this chapter.</p>
-<p><strong>Recovery Time Objective (RTO)</strong> is <em>how long you can afford to be down</em>: the maximum tolerable time to get a system back before the harm becomes unacceptable. A trading platform’s RTO might be minutes; an internal wiki’s might be days.</p>
+<p><strong>Recovery Time Objective (RTO)</strong> is the target elapsed time for restoring an agreed service level after disruption. Set it within the organisation’s maximum tolerable disruption, allowing for dependencies and validation. A trading platform’s RTO might be minutes; an internal wiki’s might be days.</p>
 <p><strong>Recovery Point Objective (RPO)</strong> is <em>how much data you can afford to lose</em>: the maximum tolerable gap between your last good backup and the moment of failure. An RPO of one hour means you can lose at most an hour’s work; an RPO of a day means losing a day’s is acceptable.</p>
-<p>The RPO, in particular, <em>dictates your backup schedule</em>. This is where plans contradict themselves. If a company declares an RPO of one hour but backs up only once a night, the plan is broken on its face: a failure just before the nightly backup could lose nearly twenty-four hours of data, not one. The stated goal and the actual practice don’t match, and no one notices until the day it matters. (That mismatch is the second question at the end. It’s a trap worth internalising, because real organisations fall into it constantly.)</p>
+<p>The RPO constrains your recovery design, including backup or replication frequency and the availability of usable recovery points. This is where plans contradict themselves. If a company declares an RPO of one hour but backs up only once a night, the plan is broken on its face: a failure just before the nightly backup could lose nearly twenty-four hours of data, not one. The stated goal and the actual practice don’t match, and no one notices until the day it matters. Test the gap using a failure time near the end of the backup interval. A copied but corrupt or compromised backup does not meet the target. <a href="https://www.nist.gov/privacy-framework/nist-sp-800-34">NIST’s contingency-planning guidance</a> helps distinguish recovery objectives from tolerable disruption.</p>
 </section>
 <section id="backups-and-alternate-sites" class="level2" data-number="6.6">
 <h2 data-number="6.6" class="anchored" data-anchor-id="backups-and-alternate-sites"><span class="header-section-number">6.6</span> Backups and alternate sites</h2>
-<p>Backups are the foundation of recovery, and the durable rule of thumb is <strong>3-2-1</strong>: keep at least <strong>three</strong> copies of important data, on <strong>two</strong> different types of media, with <strong>one</strong> kept off-site (or offline). The off-site, offline copy is the one that matters most against modern threats. Ransomware that can reach your backups can encrypt them too, and a backup the attacker can also destroy is no backup at all. This is the concrete payoff of the ransomware threat from the malware chapter: the organisation with good, tested, isolated backups can refuse to pay and restore; the one without them is at the attacker’s mercy.</p>
+<p>Backups support recovery. The <strong>3-2-1</strong> rule of thumb means three copies, on two types of media, with one off-site. Geographic separation protects against a local disaster. <strong>Offline or appropriately immutable protection</strong> addresses a different problem: an attacker modifying or deleting backups.</p>
+<p>An off-site copy reachable with the same compromised administrator account may still be lost. Separate administration, retention controls and tested restoration matter. Check that recovery documentation and required keys remain available during an outage. Neither a backup job’s success message nor a provider’s promise substitutes for an observed restore test.</p>
+<p>Good backups can reduce pressure to pay for decryption. They do not erase data already stolen, resolve legal obligations or guarantee a clean recovery. <a href="https://www.cisa.gov/stopransomware/ransomware-guide">CISA’s ransomware guide</a> covers prevention, data theft and recovery together.</p>
 <p>For systems that can’t tolerate much downtime, recovery relies on an <strong>alternate site</strong>, a second location ready to take over. These come in flavours by cost and readiness: a <strong>hot site</strong> is fully equipped and running, ready in minutes; a <strong>cold site</strong> is just space and power you’d have to build out, cheap but slow; a <strong>warm site</strong> sits in between. Which you choose is a risk-and-cost decision: the cost-benefit reasoning of the previous chapter, applied to recovery.</p>
 </section>
 <section id="the-clock-and-the-crowd" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="the-clock-and-the-crowd"><span class="header-section-number">6.7</span> The clock and the crowd</h2>
-<p>A modern breach is a legal and reputational problem as much as a technical one, and both run on clocks. Many jurisdictions now have <strong>mandatory breach-notification</strong> rules. The best-known, the EU’s General Data Protection Regulation (GDPR), requires reporting certain breaches within <strong>72 hours</strong>. Recovery happens under a regulatory deadline, with penalties for silence. Meanwhile the <em>crowd</em> (customers, staff, media, regulators) wants to know what happened, and how you communicate under pressure can matter as much as the technical fix. Handled well, honest and timely disclosure preserves trust; handled badly, a cover-up turns a breach into a scandal.</p>
-<p>The sharpest version of this pressure is the <strong>ransom decision</strong>: pay the attacker for the decryption key, or refuse? It looks like a simple cost calculation, but it is not. Paying funds criminal enterprises and may be illegal, offers no guarantee the data comes back, and marks you as willing to pay again. Refusing may mean a longer, costlier recovery, bearable only if your backups are good. There is rarely a clean answer, which is why it must be thought through <em>before</em> the moment arrives, not decided in a panic with the clock running.</p>
+<p>A response plan needs separate owners for technical recovery, communication and legal assessment. Do not promise that “every breach has a 72-hour clock”. Under GDPR, the controller’s regulator-notification deadline generally runs from awareness of a personal-data breach, with a risk-based exception; communication to affected people has a different threshold. Australia’s NDB scheme uses its own coverage, serious-harm and assessment rules. <a href="../chapters/09-web-security-and-data-protection.html">Web Security and Data Protection</a> sets out the distinction and primary sources.</p>
+<p>Record when relevant facts became known and escalate promptly to the responsible adviser. Investigation may continue while notification duties are addressed. Customers need accurate information about what is known, what is uncertain and what they should do.</p>
+<p>A ransom demand adds pressure. Payment does not guarantee restored data or deletion of stolen copies, and legal restrictions may apply. The authorised decision-makers need technical and legal advice for the actual circumstances. This book’s exercises do not ask the reader to negotiate or decide a real ransom payment.</p>
 </section>
 <section id="testing-the-plan" class="level2" data-number="6.8">
 <h2 data-number="6.8" class="anchored" data-anchor-id="testing-the-plan"><span class="header-section-number">6.8</span> Testing the plan</h2>
@@ -567,7 +589,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="where-this-connects" class="level2" data-number="6.9">
 <h2 data-number="6.9" class="anchored" data-anchor-id="where-this-connects"><span class="header-section-number">6.9</span> Where this connects</h2>
-<p>This chapter is what you do when a risk from <strong>risk management</strong> happens anyway, and the hot, warm, and cold-site choice is that chapter’s cost-benefit reasoning applied. Once an incident is contained, the investigation of <em>how</em> it happened is a discipline of its own, taken up in <strong>cybercrime, botnets and forensics</strong>. And the breach-notification obligations here are grounded in the data-protection law of <strong>web security and data protection</strong>.</p>
+<p>This chapter is what you do when a risk from <strong>risk management</strong> happens anyway, and the hot, warm, and cold-site choice is that chapter’s cost-benefit reasoning applied. Investigation starts alongside containment; its evidence and attribution methods are taken up in <strong>cybercrime, botnets and forensics</strong>. And the breach-notification obligations here are grounded in the data-protection law of <strong>web security and data protection</strong>.</p>
 </section>
 <section id="questions-to-consider" class="level2" data-number="6.10">
 <h2 data-number="6.10" class="anchored" data-anchor-id="questions-to-consider"><span class="header-section-number">6.10</span> Questions to consider</h2>
@@ -576,6 +598,11 @@ ul.task-list li input[type="checkbox"] {
 <li>A company backs up nightly. Their RPO is “no more than one hour of data lost.” What’s wrong, and what would you change?</li>
 <li>Why do so many disaster-recovery plans fail at the moment they’re needed? What single practice would most reduce that?</li>
 </ol>
+</section>
+<section id="rehearse-the-first-decisions" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="rehearse-the-first-decisions"><span class="header-section-number">6.11</span> Rehearse the first decisions</h2>
+<p>Use Harbour’s evidence cards for a 15-minute paper tabletop. Decide who acts at 09:15, 09:20 and 09:25; distinguish reporting from attribution. Calculate the rehearsal’s recovery time and both printed recovery-point gaps. State what still needs checking before reconnecting. Success requires preservation alongside containment and separate treatment of exported data.</p>
+<p>Case inputs and checks: <a href="../appendices/defender-dossier.html">Harbour dossier</a>.</p>
 
 
 </section>

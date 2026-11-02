@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -42,14 +45,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -80,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -443,6 +447,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../appendices/defender-dossier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Defender’s Dossier</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/further-reading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Further Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../about-author.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About the Author</span></a>
   </div>
@@ -468,10 +484,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#controls-and-defence-in-depth" id="toc-controls-and-defence-in-depth" class="nav-link" data-scroll-target="#controls-and-defence-in-depth"><span class="header-section-number">1.4</span> Controls and defence in depth</a></li>
   <li><a href="#the-phases-of-an-attack" id="toc-the-phases-of-an-attack" class="nav-link" data-scroll-target="#the-phases-of-an-attack"><span class="header-section-number">1.5</span> The phases of an attack</a></li>
   <li><a href="#ethical-hacking-and-the-line" id="toc-ethical-hacking-and-the-line" class="nav-link" data-scroll-target="#ethical-hacking-and-the-line"><span class="header-section-number">1.6</span> Ethical hacking, and the line</a></li>
-  <li><a href="#where-this-connects" id="toc-where-this-connects" class="nav-link" data-scroll-target="#where-this-connects"><span class="header-section-number">1.7</span> Where this connects</a></li>
-  <li><a href="#questions-to-consider" id="toc-questions-to-consider" class="nav-link" data-scroll-target="#questions-to-consider"><span class="header-section-number">1.8</span> Questions to consider</a></li>
+  <li><a href="#a-lifecycle-to-revisit" id="toc-a-lifecycle-to-revisit" class="nav-link" data-scroll-target="#a-lifecycle-to-revisit"><span class="header-section-number">1.7</span> A lifecycle to revisit</a></li>
+  <li><a href="#where-this-connects" id="toc-where-this-connects" class="nav-link" data-scroll-target="#where-this-connects"><span class="header-section-number">1.8</span> Where this connects</a></li>
+  <li><a href="#questions-to-consider" id="toc-questions-to-consider" class="nav-link" data-scroll-target="#questions-to-consider"><span class="header-section-number">1.9</span> Questions to consider</a></li>
+  <li><a href="#map-an-asset" id="toc-map-an-asset" class="nav-link" data-scroll-target="#map-an-asset"><span class="header-section-number">1.10</span> Map an asset</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/assume-breach"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -500,13 +518,13 @@ ul.task-list li input[type="checkbox"] {
 <blockquote class="blockquote">
 <p><em>What are we protecting, from whom, and how would we even know if we’d succeeded?</em></p>
 </blockquote>
-<p>This first chapter sets up the ideas the rest of the book builds on. There is nothing to install yet. Just read it, and hold on to the questions at the end. They are worth returning to as the later chapters give you more to answer them with.</p>
+<p>Begin with a system you can describe, then ask what a failure would harm. This chapter gives names to the protection goals and introduces the learning map used throughout the book. The first paper task starts your dossier.</p>
 <section id="what-this-chapter-covers" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="what-this-chapter-covers"><span class="header-section-number">1.1</span> What this chapter covers</h2>
 <p>By the end you should be able to:</p>
 <ul>
 <li>Define information security and explain the <strong>CIA triad</strong>: confidentiality, integrity, availability.</li>
-<li>Explain why those three pull against each other, and what “balancing CIA” means in practice.</li>
+<li>Explain when those three can conflict, and what “balancing CIA” means in practice.</li>
 <li>Say what a <strong>security control</strong> is, and what <strong>defence in depth</strong> buys you.</li>
 <li>Walk through the <strong>phases of an attack</strong>, and explain why a defender studies them.</li>
 <li>Distinguish <strong>ethical</strong> security work from malicious hacking, and see where the line sits.</li>
@@ -514,7 +532,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="security-is-a-property-not-a-product" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="security-is-a-property-not-a-product"><span class="header-section-number">1.2</span> Security is a property, not a product</h2>
-<p>You cannot buy security in a box. There is no single product, no switch, no certificate that makes a system “secure.” Security is not a thing a system <em>has</em>. It is a property of how the whole system behaves, including the people using it. A bank vault with the door propped open is not secure no matter how thick the steel. A perfectly configured server whose administrator uses “password1” is not secure either. Security is the emergent result of many choices, and it holds only as long as the weakest of them holds.</p>
+<p>You cannot buy security in a box. There is no single product, no switch, no certificate that makes a system “secure.” Security is not a thing a system <em>has</em>. It is a property of how the whole system behaves, including the people using it. A bank vault with the door propped open is not secure no matter how thick the steel. A perfectly configured server whose administrator uses “password1” is not secure either. Security depends on how those choices interact. A weakness may expose one asset while other controls limit the damage.</p>
 <p>That is why this book keeps returning to a defender’s habit of mind rather than a checklist. Checklists go stale. The habit of asking “what am I protecting, from whom, and how would I know if it failed?” does not.</p>
 </section>
 <section id="the-cia-triad" class="level2" data-number="1.3">
@@ -525,16 +543,15 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Availability</strong> is keeping information and systems there when they are needed. A system nobody can reach is no more useful than one that was deleted. Availability is the property attacked by a denial-of-service, threatened by a <strong>single point of failure</strong>, and protected by backups, redundancy, and capacity planning. It is the property people forget until the day the system is down and the business stops.</p>
 <section id="balancing-cia" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="balancing-cia"><span class="header-section-number">1.3.1</span> Balancing CIA</h3>
-<p>Here is the part that separates a defender from a checklist-follower: <strong>the three properties work against each other.</strong> You cannot turn all three up to maximum.</p>
-<p>Maximise confidentiality (encrypt everything, demand three approvals for every access) and you damage availability, because legitimate users now wait, forget keys, and get locked out. Maximise availability (copy the data everywhere, let anyone read it instantly) and you have made confidentiality much harder. Lock a system down so hard that no change is ever allowed, and you have protected integrity at the cost of a system too rigid to use.</p>
-<p>Real security is about the right balance for this information, this organisation, this risk. The balance a hospital strikes for patient records is not the one a newspaper strikes for tomorrow’s front page, and both are defensible. Learning to reason about that trade-off, rather than reaching for maximum everything, is the first real skill of the subject.</p>
-<p>A fourth idea often sits alongside the triad: <strong>non-repudiation</strong>, the property that someone cannot credibly deny having done something. When a system can prove <em>who</em> made a change and <em>when</em>, disputes end and accountability begins. It is what turns “someone transferred the money” into “this account, at this time, authorised the transfer.”</p>
+<p>The CIA properties can conflict, but they do not inevitably work against each other. A tested backup can improve both integrity and availability. Well-managed access can protect confidentiality while helping authorised users find the right information.</p>
+<p>Trade-offs arise in particular designs. Extra approval steps may delay urgent access. More replicas improve availability but create more copies to protect. Preventing every change would preserve an old record while making a booking system unusable. Ask which harm matters, who is affected, and what evidence shows the control meets the need. A hospital’s emergency-access arrangement can be different from a newspaper’s embargo process without either abandoning security.</p>
+<p>A fourth idea often sits alongside the triad: <strong>non-repudiation</strong>, the property that someone cannot credibly deny having done something. An audit trail and a digital signature can support a claim about an action. They still depend on trustworthy identity binding, key control and records. An account identifier alone does not prove which human acted or settle a dispute.</p>
 </section>
 </section>
 <section id="controls-and-defence-in-depth" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="controls-and-defence-in-depth"><span class="header-section-number">1.4</span> Controls and defence in depth</h2>
 <p>A <strong>security control</strong> is anything you put between an asset and a threat to reduce risk: a password, a firewall, a locked door, a policy, a training session, a backup. Controls come in familiar flavours: some <strong>prevent</strong> (a lock stops entry), some <strong>detect</strong> (an alarm notices it), and some <strong>correct</strong> (a backup restores what was lost). A good defence uses all three, because prevention eventually fails.</p>
-<p>This is the idea the book is named for. <strong>Defence in depth</strong> means never trusting a single control to be enough. You assume each layer <em>will</em> fail, and you put another behind it. A castle did not rely on the outer wall alone. It had a moat, then a wall, then a gate, then an inner keep, so that breaching one defence still left the attacker facing the next. A modern system is the same: a firewall <em>and</em> patched software <em>and</em> least-privilege accounts <em>and</em> monitoring <em>and</em> backups. No one layer is trusted, so no one failure is fatal.</p>
+<p>This is the idea the book is named for. <strong>Defence in depth</strong> means never trusting a single control to be enough. You assume each layer <em>will</em> fail, and you put another behind it. A castle did not rely on the outer wall alone. It had a moat, then a wall, then a gate, then an inner keep, so that breaching one defence still left the attacker facing the next. A modern system is the same: a firewall <em>and</em> patched software <em>and</em> least-privilege accounts <em>and</em> monitoring <em>and</em> backups. Layers reduce dependence on any one control. Shared credentials, a common administrator or a shared power supply can still defeat several layers together.</p>
 <p>This is the practical face of <strong>assume breach</strong>. If you assume the attacker will get past your first control, you stop asking “is this wall strong enough?” and start asking “when this fails, what catches it?” That question builds better systems than the search for one perfect wall ever could.</p>
 </section>
 <section id="the-phases-of-an-attack" class="level2" data-number="1.5">
@@ -542,7 +559,7 @@ ul.task-list li input[type="checkbox"] {
 <p>To defend against attackers, you have to understand how they work. You are not learning this to imitate them. You study each step to see what it <em>needs</em>, so you can take that away. Most intrusions move through recognisable phases:</p>
 <ol type="1">
 <li><strong>Reconnaissance.</strong> The attacker gathers information about the target from the outside: who works there, what systems they run, what’s exposed. Quiet, often legal, and easy to overlook.</li>
-<li><strong>Scanning.</strong> They probe the target directly for live systems, open ports, and running services, mapping the attack surface. (This is what you’ll do, from the defender’s side, in an early lab.)</li>
+<li><strong>Scanning.</strong> They probe the target directly for live systems, open ports, and running services, mapping the attack surface. In this book you can reason from supplied observations without probing any real system.</li>
 <li><strong>Gaining access.</strong> They exploit a weakness (a flaw, a weak password, a tricked user) to get a foothold.</li>
 <li><strong>Maintaining access.</strong> They entrench, so a reboot or a changed password doesn’t lock them out.</li>
 <li><strong>Clearing tracks.</strong> They cover their trail, deleting logs and hiding activity to delay discovery.</li>
@@ -551,7 +568,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="ethical-hacking-and-the-line" class="level2" data-number="1.6">
 <h2 data-number="1.6" class="anchored" data-anchor-id="ethical-hacking-and-the-line"><span class="header-section-number">1.6</span> Ethical hacking, and the line</h2>
-<p>Much of what you’ll learn in this book is, in mechanism, identical to what an attacker does: scanning systems, cracking passwords, capturing traffic. The difference is <strong>permission and purpose.</strong> An ethical practitioner acts with the owner’s authorisation, within an agreed scope, to <em>find and fix</em> weaknesses before a real attacker exploits them. The same action, without permission, is an offence.</p>
+<p>Much of what you’ll learn in this book is, in mechanism, identical to what an attacker does: scanning systems, cracking passwords, capturing traffic. The difference is <strong>permission and purpose.</strong> An ethical practitioner acts with the owner’s authorisation, within an agreed scope, to <em>find and fix</em> weaknesses before a real attacker exploits them. Unapproved testing may be unlawful and can harm others. Treat explicit permission and agreed scope as prerequisites, not optional courtesy.</p>
 <p>This is where the old “hats” come from. A <strong>white hat</strong> works with authorisation, to find and fix. A <strong>black hat</strong> breaks in for their own gain or to cause harm. A <strong>grey hat</strong> acts without permission while believing the intent is good. Good intentions do not move the line. What separates the three is authorisation.</p>
 <p>That line is sharp and it matters. Practise only in an environment you own or are explicitly authorised to use. The skills are dual-use. Your professionalism is what makes them defensive.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -564,21 +581,30 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you want to practise as you read, set up a safe, isolated environment now: a disposable virtual machine or a set of containers, kept off your main network, so later chapters’ exercises have somewhere to run. Never practise on systems you do not own or have explicit permission to test. The <a href="../appendices/lab-environment.html">practice-environment appendix</a> lists some options.</p>
+<p>Begin with the fictional, paper-based <a href="../appendices/defender-dossier.html">Harbour case</a>. Optional technical practice requires an explicitly authorised environment with checked boundaries. The <a href="../appendices/lab-environment.html">practice appendix</a> explains why a VM, NAT connection or container does not itself establish isolation.</p>
 </div>
 </div>
 </section>
-<section id="where-this-connects" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="where-this-connects"><span class="header-section-number">1.7</span> Where this connects</h2>
+<section id="a-lifecycle-to-revisit" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="a-lifecycle-to-revisit"><span class="header-section-number">1.7</span> A lifecycle to revisit</h2>
+<p>Use seven activities as a learning map: design, harden, detect, respond, recover, investigate, and audit/learn. People and decisions run through all seven. Activities overlap: evidence collection can begin during response, and a recovery test can reveal a design flaw before any breach occurs. This is the book’s teaching map, not a mandated sequence. <a href="https://csrc.nist.gov/pubs/sp/800/61/r3/final">NIST’s incident-response guidance</a> places incident work within continuing risk management.</p>
+</section>
+<section id="where-this-connects" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="where-this-connects"><span class="header-section-number">1.8</span> Where this connects</h2>
 <p>The <strong>CIA triad</strong> and <strong>defence in depth</strong> are the lenses for the whole book. Almost every later control exists to protect one leg of the triad or to add one more layer. The next chapter begins the technical detail, looking at where software goes wrong and the malware that walks through the gaps.</p>
 </section>
-<section id="questions-to-consider" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="questions-to-consider"><span class="header-section-number">1.8</span> Questions to consider</h2>
+<section id="questions-to-consider" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="questions-to-consider"><span class="header-section-number">1.9</span> Questions to consider</h2>
 <ol type="1">
 <li>Give a real situation where <strong>confidentiality</strong> matters most, one where <strong>integrity</strong> matters most, and one where <strong>availability</strong> matters most. Use three different examples.</li>
 <li>“More security is always better.” Describe one case where tightening security actually made things <em>worse</em>. What was traded away?</li>
 <li>Why would a <em>defender</em> bother learning the phases of an attack? What specifically do you gain by understanding how an attacker thinks?</li>
 </ol>
+</section>
+<section id="map-an-asset" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="map-an-asset"><span class="header-section-number">1.10</span> Map an asset</h2>
+<p>Read Harbour’s facts. In 10 minutes, choose one asset and write a four-column row: harm, plausible threat, control, and evidence that the control works. Then name one residual failure. A good row connects a specific harm to a test; “use encryption” without saying what it protects is not enough.</p>
+<p>Case inputs and checks: <a href="../appendices/defender-dossier.html">Harbour dossier</a>.</p>
 
 
 </section>

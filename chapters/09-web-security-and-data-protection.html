@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -42,14 +45,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -80,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -443,6 +447,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../appendices/defender-dossier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Defender’s Dossier</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/further-reading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Further Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../about-author.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About the Author</span></a>
   </div>
@@ -464,15 +480,18 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#injection-when-data-becomes-commands" id="toc-injection-when-data-becomes-commands" class="nav-link" data-scroll-target="#injection-when-data-becomes-commands"><span class="header-section-number">9.3</span> Injection: when data becomes commands</a></li>
   <li><a href="#cross-site-scripting-running-attacker-code-in-your-browser" id="toc-cross-site-scripting-running-attacker-code-in-your-browser" class="nav-link" data-scroll-target="#cross-site-scripting-running-attacker-code-in-your-browser"><span class="header-section-number">9.4</span> Cross-site scripting: running attacker code in your browser</a></li>
   <li><a href="#authentication-and-session-weaknesses" id="toc-authentication-and-session-weaknesses" class="nav-link" data-scroll-target="#authentication-and-session-weaknesses"><span class="header-section-number">9.5</span> Authentication and session weaknesses</a></li>
-  <li><a href="#the-other-side-protecting-the-data" id="toc-the-other-side-protecting-the-data" class="nav-link" data-scroll-target="#the-other-side-protecting-the-data"><span class="header-section-number">9.6</span> The other side: protecting the data</a>
+  <li><a href="#a-valid-login-is-not-permission" id="toc-a-valid-login-is-not-permission" class="nav-link" data-scroll-target="#a-valid-login-is-not-permission"><span class="header-section-number">9.6</span> A valid login is not permission</a></li>
+  <li><a href="#the-other-side-protecting-the-data" id="toc-the-other-side-protecting-the-data" class="nav-link" data-scroll-target="#the-other-side-protecting-the-data"><span class="header-section-number">9.7</span> The other side: protecting the data</a>
   <ul class="collapse">
-  <li><a href="#when-it-breaks-breach-notification" id="toc-when-it-breaks-breach-notification" class="nav-link" data-scroll-target="#when-it-breaks-breach-notification"><span class="header-section-number">9.6.1</span> When it breaks: breach notification</a></li>
+  <li><a href="#when-it-breaks-breach-notification" id="toc-when-it-breaks-breach-notification" class="nav-link" data-scroll-target="#when-it-breaks-breach-notification"><span class="header-section-number">9.7.1</span> When it breaks: breach notification</a></li>
   </ul></li>
-  <li><a href="#a-web-flaw-is-a-privacy-incident" id="toc-a-web-flaw-is-a-privacy-incident" class="nav-link" data-scroll-target="#a-web-flaw-is-a-privacy-incident"><span class="header-section-number">9.7</span> A web flaw is a privacy incident</a></li>
-  <li><a href="#where-this-connects" id="toc-where-this-connects" class="nav-link" data-scroll-target="#where-this-connects"><span class="header-section-number">9.8</span> Where this connects</a></li>
-  <li><a href="#questions-to-consider" id="toc-questions-to-consider" class="nav-link" data-scroll-target="#questions-to-consider"><span class="header-section-number">9.9</span> Questions to consider</a></li>
+  <li><a href="#from-a-web-flaw-to-a-decision" id="toc-from-a-web-flaw-to-a-decision" class="nav-link" data-scroll-target="#from-a-web-flaw-to-a-decision"><span class="header-section-number">9.8</span> From a web flaw to a decision</a></li>
+  <li><a href="#where-this-connects" id="toc-where-this-connects" class="nav-link" data-scroll-target="#where-this-connects"><span class="header-section-number">9.9</span> Where this connects</a></li>
+  <li><a href="#questions-to-consider" id="toc-questions-to-consider" class="nav-link" data-scroll-target="#questions-to-consider"><span class="header-section-number">9.10</span> Questions to consider</a></li>
+  <li><a href="#separate-three-decisions" id="toc-separate-three-decisions" class="nav-link" data-scroll-target="#separate-three-decisions"><span class="header-section-number">9.11</span> Separate three decisions</a></li>
+  <li><a href="#take-it-to-the-ai" id="toc-take-it-to-the-ai" class="nav-link" data-scroll-target="#take-it-to-the-ai"><span class="header-section-number">9.12</span> Take it to the AI</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/assume-breach"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -499,9 +518,9 @@ ul.task-list li input[type="checkbox"] {
 
 <p><img src="../images/ch09-opener.png" class="img-fluid" alt="Pixel-art illustration: a bustling medieval market square just inside an open castle gate."></p>
 <blockquote class="blockquote">
-<p><em>The web is where most of us are attacked, because it’s where most of us are. And behind every web app is data someone is legally obliged to protect.</em></p>
+<p><em>A web request should expose only the data and actions its user is authorised to access.</em></p>
 </blockquote>
-<p>Almost everything now runs through a web browser: banking, work, government, shopping, social life. That makes web applications the single largest attack surface most organisations have. It is also the place where ordinary people are most likely to meet an attack. This chapter has two halves that turn out to be one story. The first is <em>how web applications get attacked</em>, the handful of flaws behind a huge share of real breaches. The second is <em>what the law requires of the data behind them</em>. When a web flaw leaks personal information, it stops being only a technical problem and becomes a legal one. A web vulnerability is also a privacy incident.</p>
+<p>Harbour lets customers view bookings through a browser. A mistake in how the application handles a request could expose someone else’s information. This chapter connects web weaknesses to access controls and personal-data responsibilities. A vulnerability can lead to a privacy incident; discovering a flaw alone does not establish that personal data was compromised or notification is required.</p>
 <section id="what-this-chapter-covers" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="what-this-chapter-covers"><span class="header-section-number">9.1</span> What this chapter covers</h2>
 <p>By the end you should be able to:</p>
@@ -514,7 +533,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="why-the-web-is-the-front-line" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="why-the-web-is-the-front-line"><span class="header-section-number">9.2</span> Why the web is the front line</h2>
-<p>A web application is, almost by definition, exposed: it exists to accept requests from strangers over the internet. Every input field, URL, and uploaded file is a place where untrusted data enters your system, and the browser on the other end is a universal client you don’t control. The core weakness behind most web attacks is a single recurring mistake: <strong>trusting input that should never be trusted.</strong> Data arriving from a user is treated as if it were safe, and the attacker’s craft is to make that data do something it was never meant to.</p>
+<p>A web application is, almost by definition, exposed: it exists to accept requests from strangers over the internet. Every input field, URL, and uploaded file is a place where untrusted data enters your system, and the browser on the other end is a universal client you don’t control. One recurring weakness is <strong>trusting input that should never be trusted</strong>. Another is failing to check what an authenticated user is allowed to do. Data arriving from a user is treated as if it were safe, and the attacker’s craft is to make that data do something it was never meant to.</p>
 </section>
 <section id="injection-when-data-becomes-commands" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="injection-when-data-becomes-commands"><span class="header-section-number">9.3</span> Injection: when data becomes commands</h2>
@@ -524,35 +543,56 @@ ul.task-list li input[type="checkbox"] {
 <section id="cross-site-scripting-running-attacker-code-in-your-browser" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="cross-site-scripting-running-attacker-code-in-your-browser"><span class="header-section-number">9.4</span> Cross-site scripting: running attacker code in your browser</h2>
 <p><strong>Cross-site scripting (XSS)</strong> is injection aimed at the <em>other</em> users of a site rather than its database. It is worth understanding because it explains how an attacker ends up running code in <em>your</em> browser without ever touching your machine.</p>
-<p>A site lets users submit content (a comment, a profile, a message) and displays it back to other users. If the site fails to treat that content as untrusted, an attacker can submit a small <strong>script</strong> instead of ordinary text. When another user views the page, their browser receives that script <em>as part of the trusted site’s page</em> and runs it in the site’s context, with the victim’s session. Now the attacker’s code, executing as if it were the site itself, can read the victim’s session token, act as them, redirect them, or deface what they see. The victim did nothing wrong except visit a page they had every reason to trust. (Tracing that path in your own words is the first question at the end. It is the clearest way to show you understand XSS.) The defence mirrors injection: treat all user content as untrusted, and <strong>encode it on the way out</strong> so the browser renders it as text to display rather than code to run.</p>
+<p>A site lets users submit content (a comment, a profile, a message) and displays it back to other users. If the site fails to treat that content as untrusted, an attacker can submit a small <strong>script</strong> instead of ordinary text. When another user views the page, their browser receives that script <em>as part of the trusted site’s page</em> and runs it in the site’s context, with the victim’s session. Now the attacker’s code, executing as if it were the site itself, may read an accessible session token, act as them, redirect them, or deface what they see. The victim did nothing wrong except visit a page they had every reason to trust. The defence mirrors injection: treat all user content as untrusted, and <strong>encode it for the output context</strong> so the browser treats it as data. HTML text, attributes, URLs and scripts have different rules; safe framework facilities and sanitisation are needed where rich content is deliberately allowed. <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html">OWASP’s XSS guidance</a> explains why one universal escaping function is insufficient.</p>
 </section>
 <section id="authentication-and-session-weaknesses" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="authentication-and-session-weaknesses"><span class="header-section-number">9.5</span> Authentication and session weaknesses</h2>
-<p>The web has a structural quirk that creates its own class of attacks. The protocol underneath is <strong>stateless</strong>: each request stands alone, with no memory of the last. So after you log in, the server issues a <strong>session token</strong> (usually stored in a cookie) that your browser sends with every subsequent request to say “it’s still me.” That token <em>is</em> your authenticated session. Anyone who steals it can impersonate you <strong>without ever knowing your password</strong>. This is <strong>session hijacking</strong>, and it’s why the sniffing and XSS attacks in this book are so dangerous: they’re often after the token rather than the password. A related trick, <strong>session fixation</strong>, has the attacker plant a session identifier they already know, then wait for the victim to log in under it. The defences are concrete: send tokens only over HTTPS so they can’t be sniffed, flag cookies so scripts can’t read them and they don’t leak, issue a fresh token at login, and expire sessions so a stolen one doesn’t last forever.</p>
+<p>The web has a structural quirk that creates its own class of attacks. The protocol underneath is <strong>stateless</strong>: each request stands alone, with no memory of the last. So after you log in, the server issues a <strong>session token</strong> (usually stored in a cookie) that your browser sends with every subsequent request to say “it’s still me.” That token <em>is</em> your authenticated session. Anyone who steals it can impersonate you <strong>without ever knowing your password</strong>. This is <strong>session hijacking</strong>, and it’s why the sniffing and XSS attacks in this book are so dangerous: they’re often after the token rather than the password. A related trick, <strong>session fixation</strong>, has the attacker plant a session identifier they already know, then wait for the victim to log in under it. The defences are concrete: send tokens only over HTTPS so they can’t be sniffed, flag cookies so scripts can’t read them and they don’t leak, issue a fresh token at login, and expire and revoke sessions so a stolen one does not remain useful indefinitely. An HttpOnly cookie prevents JavaScript reading that cookie; injected code may still cause authenticated actions. Cookie flags do not make an XSS flaw harmless.</p>
 </section>
-<section id="the-other-side-protecting-the-data" class="level2" data-number="9.6">
-<h2 data-number="9.6" class="anchored" data-anchor-id="the-other-side-protecting-the-data"><span class="header-section-number">9.6</span> The other side: protecting the data</h2>
-<p>Behind every one of these attacks is <em>data</em>. Increasingly it is personal data, and the law now requires its protection. Modern <strong>data-protection</strong> law sets out principles for handling personal information that recur across jurisdictions: collect only what you need and only lawfully; use it only for the purpose you stated; keep it accurate; <strong>secure it</strong>; don’t retain it longer than necessary; and let people see and correct what you hold about them. Australia codifies these as the <strong>Australian Privacy Principles (APPs)</strong> under its Privacy Act; the EU’s <strong>GDPR</strong> is another version of the same pattern; other countries have their own. The names differ; the shape is consistent. The point for a defender is that <em>security is written into the law</em>. Failing to protect personal data breaches a legal obligation.</p>
-<section id="when-it-breaks-breach-notification" class="level3" data-number="9.6.1">
-<h3 data-number="9.6.1" class="anchored" data-anchor-id="when-it-breaks-breach-notification"><span class="header-section-number">9.6.1</span> When it breaks: breach notification</h3>
-<p>The law also dictates what happens when protection fails. Most modern regimes include a <strong>mandatory breach-notification</strong> duty: if personal data is compromised in a way likely to cause serious harm, the organisation <em>must</em> tell the regulator and the affected people, often within a tight deadline. Australia’s <strong>Notifiable Data Breaches (NDB)</strong> scheme requires it; the GDPR sets a <strong>72-hour</strong> clock, which is why the incident-planning chapter’s crisis ran against that deadline. These rules exist for two reasons: so affected people can <em>protect themselves</em> (change passwords, watch their accounts, freeze their credit) and to create an <em>incentive</em> for organisations to secure data properly, since a breach can no longer be buried. The second question at the end asks about this. Notification turns a private failure into a public, accountable one by design.</p>
+<section id="a-valid-login-is-not-permission" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="a-valid-login-is-not-permission"><span class="header-section-number">9.6</span> A valid login is not permission</h2>
+<p>Suppose Harbour’s customer page accepts a booking identifier. A customer changes that identifier and receives another person’s booking. The login may be genuine and the query parameter safely handled; the missing check is whether this customer is allowed to access that record.</p>
+<p>Enforce ownership and role checks server-side on every relevant request. Hiding a button is not access control. Test both a permitted action and an attempt by a different account that should be denied. <a href="https://top10.owasp.org/2025/A01_2025-Broken_Access_Control/">OWASP’s access-control guidance</a> describes this distinction.</p>
+</section>
+<section id="the-other-side-protecting-the-data" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="the-other-side-protecting-the-data"><span class="header-section-number">9.7</span> The other side: protecting the data</h2>
+<p>Behind every one of these attacks is <em>data</em>. Increasingly it is personal data, and the law now requires its protection. Modern <strong>data-protection</strong> law sets out principles for handling personal information that recur across jurisdictions: collect only what you need and only lawfully; use it only for the purpose you stated; keep it accurate; <strong>secure it</strong>; don’t retain it longer than necessary; and let people see and correct what you hold about them. Australia codifies these as the <strong>Australian Privacy Principles (APPs)</strong> under its Privacy Act; the EU’s <strong>GDPR</strong> is another version of the same pattern; other countries have their own. The names differ; the shape is consistent. The point for a defender is that <em>security is written into the law</em>. The applicable duties depend on the organisation, data and jurisdiction. A breach warrants investigation; its occurrence alone does not establish that every relevant legal duty was violated.</p>
+<section id="when-it-breaks-breach-notification" class="level3" data-number="9.7.1">
+<h3 data-number="9.7.1" class="anchored" data-anchor-id="when-it-breaks-breach-notification"><span class="header-section-number">9.7.1</span> When it breaks: breach notification</h3>
+<p>A technical finding starts an assessment, not an automatic notification verdict. Identify the information, the affected people, what occurred, and which laws cover the organisation. Record uncertainty and involve the responsible privacy adviser promptly.</p>
+<p><strong>Australia: NDB scheme.</strong> For covered entities, an eligible breach generally involves unauthorised access or disclosure, or loss likely to lead to it, where serious harm to an individual is likely. Successful remedial action and exceptions can affect notification. Suspected eligible breaches need assessment: take all reasonable steps to complete it within 30 calendar days. Once there are reasonable grounds to believe an eligible breach occurred, notify the OAIC and relevant individuals as soon as practicable. Thirty days is not a general waiting period. <a href="https://www.oaic.gov.au/privacy/notifiable-data-breaches/preventing-preparing-for-and-responding-to-data-breaches/data-breach-preparation-and-response/part-4-notifiable-data-breach-ndb-scheme">OAIC’s guidance</a></p>
+<p><strong>EU: GDPR.</strong> A controller notifies the supervisory authority without undue delay and, where feasible, within 72 hours of becoming aware of a personal-data breach, unless it is unlikely to pose a risk to people’s rights and freedoms. A likely <em>high risk</em> generally requires communication to affected individuals without undue delay, subject to exceptions. Processors notify the controller without undue delay. Document breaches and decisions even where regulator notification is not required. <a href="https://www.edpb.europa.eu/documents/guideline/guidelines-92022-on-personal-data-breach-notification-under-gdpr_en">EDPB’s notification guidance</a></p>
+<p>These educational summaries were checked in September 2026. They are not a complete statement of the law; other sectoral or contractual obligations may also apply. For a real incident, use the current rules and authorised legal advice.</p>
 </section>
 </section>
-<section id="a-web-flaw-is-a-privacy-incident" class="level2" data-number="9.7">
-<h2 data-number="9.7" class="anchored" data-anchor-id="a-web-flaw-is-a-privacy-incident"><span class="header-section-number">9.7</span> A web flaw is a privacy incident</h2>
-<p>A single injection or XSS flaw that spills a customer database is, in the same instant, a technical failure <em>and</em> a legal event: it triggers the notification clock, exposes the organisation to regulatory penalty, and damages the trust that is the acquired value from the risk chapter. This is why web security and data protection belong in one chapter. The vulnerability and the consequence are two faces of one event. A defender who sees only the code half, or only the legal half, misses how the whole thing plays out.</p>
+<section id="from-a-web-flaw-to-a-decision" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="from-a-web-flaw-to-a-decision"><span class="header-section-number">9.8</span> From a web flaw to a decision</h2>
+<p>A report that one customer can read another’s booking establishes an access control problem. Logs showing an unauthorised bulk export add evidence of exposure. Whether notification is required still depends on coverage, information involved, risk or harm thresholds and remedial action.</p>
+<p>At Harbour, preserve the export evidence and escalate to the privacy adviser. Do not equate a successful restore with resolution of disclosure, or a lack of actor attribution with a lack of harm. The task is to make a supported, timely decision while technical investigation continues.</p>
 </section>
-<section id="where-this-connects" class="level2" data-number="9.8">
-<h2 data-number="9.8" class="anchored" data-anchor-id="where-this-connects"><span class="header-section-number">9.8</span> Where this connects</h2>
+<section id="where-this-connects" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="where-this-connects"><span class="header-section-number">9.9</span> Where this connects</h2>
 <p>This chapter connects to several others. <strong>Authentication</strong> is central because the session tokens attacked here are how the web remembers you are logged in, and stealing one sidesteps the password. <strong>Network security</strong> matters because sniffing and man-in-the-middle attacks are common ways session tokens get stolen, which is why HTTPS matters. <strong>Incident &amp; disaster planning</strong> shares the breach-notification clock here, the same one that drives a real breach response.</p>
 </section>
-<section id="questions-to-consider" class="level2" data-number="9.9">
-<h2 data-number="9.9" class="anchored" data-anchor-id="questions-to-consider"><span class="header-section-number">9.9</span> Questions to consider</h2>
+<section id="questions-to-consider" class="level2" data-number="9.10">
+<h2 data-number="9.10" class="anchored" data-anchor-id="questions-to-consider"><span class="header-section-number">9.10</span> Questions to consider</h2>
 <ol type="1">
 <li>In plain words, how does a <strong>cross-site scripting</strong> attack end up running an attacker’s code in <em>your</em> browser, on a site you trust?</li>
 <li>A company is breached and customer data leaks. Under a mandatory breach-notification scheme, what are they obliged to do, and why does that obligation exist at all?</li>
 <li>If an attacker steals your active <strong>session token</strong>, what can they do that they couldn’t with just your username, and what, if anything, can they still <em>not</em> do?</li>
 </ol>
+</section>
+<section id="separate-three-decisions" class="level2" data-number="9.11">
+<h2 data-number="9.11" class="anchored" data-anchor-id="separate-three-decisions"><span class="header-section-number">9.11</span> Separate three decisions</h2>
+<p>In 15 minutes, distinguish a reported access-control flaw, the supplied bulk-export evidence, and a legally notifiable breach. Record what Harbour’s privacy adviser knows and must still establish. Then contrast the Australian and EU paths using the sources above. Success means no automatic 72-hour rule for every incident, and no claim that a restore resolves disclosure.</p>
+<p>Case inputs and checks: <a href="../appendices/defender-dossier.html">Harbour dossier</a>.</p>
+</section>
+<section id="take-it-to-the-ai" class="level2" data-number="9.12">
+<h2 data-number="9.12" class="anchored" data-anchor-id="take-it-to-the-ai"><span class="header-section-number">9.12</span> Take it to the AI</h2>
+<p>Optional: attempt the paper task first. Use only the fictional case, never real messages, credentials, personal information or internal logs. Check any external claims against the primary sources; do not deploy generated rules.</p>
+<blockquote class="blockquote">
+<p>Act as a reviewer of an educational notification decision, not as my legal adviser. Use Harbour’s fictional facts. Separate what is known, what remains uncertain, and which current regulator source addresses the uncertainty. Do not turn a vulnerability report into proof of a notifiable breach. Ask me to justify my decision before offering your assessment.</p>
+</blockquote>
 
 
 </section>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -42,14 +45,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -80,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -443,6 +447,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../appendices/defender-dossier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Defender’s Dossier</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/further-reading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Further Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../about-author.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About the Author</span></a>
   </div>
@@ -468,8 +484,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#defence-in-depth-again" id="toc-defence-in-depth-again" class="nav-link" data-scroll-target="#defence-in-depth-again"><span class="header-section-number">8.7</span> Defence in depth, again</a></li>
   <li><a href="#where-this-connects" id="toc-where-this-connects" class="nav-link" data-scroll-target="#where-this-connects"><span class="header-section-number">8.8</span> Where this connects</a></li>
   <li><a href="#questions-to-consider" id="toc-questions-to-consider" class="nav-link" data-scroll-target="#questions-to-consider"><span class="header-section-number">8.9</span> Questions to consider</a></li>
+  <li><a href="#test-both-directions-of-the-policy" id="toc-test-both-directions-of-the-policy" class="nav-link" data-scroll-target="#test-both-directions-of-the-policy"><span class="header-section-number">8.10</span> Test both directions of the policy</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/assume-breach"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -519,7 +536,7 @@ ul.task-list li input[type="checkbox"] {
 <img src="../images/firewall-inside-outside.svg" class="img-fluid figure-img" alt="Network diagram: a firewall between an inside subnet 10.1.1.0/24 with hosts pc1 to pc4 and a dns server, and an outside subnet 10.1.2.0/24, controlling routing and filtering between the two.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-firewall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.1: A firewall between two zones: an <em>inside</em> network it protects and an <em>outside</em> it distrusts. Everything crossing between <code>10.1.1.0/24</code> and <code>10.1.2.0/24</code> passes through the firewall’s routes and filters. This is the <em>Firewalls</em> lab from the companion environment.
+Figure&nbsp;8.1: A firewall between two zones: an <em>inside</em> network it protects and an <em>outside</em> it distrusts. Everything crossing between <code>10.1.1.0/24</code> and <code>10.1.2.0/24</code> passes through the firewall’s routes and filters. This is an illustrative topology, not a required companion lab.
 </figcaption>
 </figure>
 </div>
@@ -529,40 +546,40 @@ Figure&nbsp;8.1: A firewall between two zones: an <em>inside</em> network it pro
 <p>Firewalls differ in how deeply they look at traffic, and the progression is worth knowing because each level trades speed for insight.</p>
 <p>A <strong>packet-filtering</strong> firewall is the simplest: it examines each packet’s headers in isolation (source and destination address, port, protocol) and permits or blocks based on those alone. It’s fast, but it has no memory. Because it looks at each packet on its own, it can’t tell whether a packet is a legitimate reply to a request you made or an unsolicited probe from an attacker; both look the same in isolation.</p>
 <p>A <strong>stateful</strong> firewall fixes that by tracking the <em>state</em> of connections. It remembers that you opened a connection to a web server, so it knows to allow that server’s replies back in, while still blocking unsolicited inbound traffic you never asked for. This connection awareness makes it more useful, and it’s the modern default for most purposes.</p>
-<p>An <strong>application-layer</strong> firewall (or proxy) goes deeper still: it understands the actual protocol (the structure of an HTTP request, for instance) and can make decisions based on the <em>content</em>, not just the addresses. A web application firewall that blocks a malicious-looking request is working at this level. It’s the most powerful and the slowest, because understanding traffic costs more than routing it.</p>
+<p>An <strong>application-layer</strong> firewall (or proxy) goes deeper still: it understands the actual protocol (the structure of an HTTP request, for instance) and can make decisions based on the <em>content</em>, not just the addresses. A web application firewall that blocks a malicious-looking request is working at this level. Deeper inspection has processing and configuration costs. Capabilities and performance depend on implementation, and encrypted content may be unavailable unless the design explicitly provides authorised inspection.</p>
 </section>
 <section id="writing-the-rules" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="writing-the-rules"><span class="header-section-number">8.4</span> Writing the rules</h2>
-<p>The single most important decision in a firewall policy is its <strong>default stance</strong>, and it comes in two flavours. <strong>Default-deny</strong> blocks everything and permits only what you explicitly allow: a guest list. <strong>Default-allow</strong> permits everything and blocks only what you explicitly forbid: a banned list. Default-deny is more secure and is the professional’s choice, for a subtle but decisive reason: with a banned list you can only block the threats you <em>thought of</em>, and attackers make their living on the ones you didn’t. A guest list fails safe: anything unforeseen is denied by default. A banned list fails open, letting the unforeseen straight through. The trade-off is friction: default-deny means every legitimate need must be anticipated and allowed, which is more work and more support tickets. That tension, security versus convenience, is the first question at the end, and it never goes away.</p>
-<p>Two more subtleties bite people constantly. <strong>Order matters:</strong> firewalls evaluate rules top to bottom and usually act on the first match, so a broad “allow” placed above a specific “deny” silently defeats the deny. The packet matches the allow first and is waved through before the deny is ever considered. And <strong>specificity matters:</strong> one rule written too broadly can open a hole nobody notices, and a large rule set becomes so complex that mistakes hide in it. The cost of a bad rule is not abstract; a single misordered or over-broad line is how real networks end up exposed while everyone believes the firewall has them covered.</p>
+<p>The single most important decision in a firewall policy is its <strong>default stance</strong>, and it comes in two flavours. <strong>Default-deny</strong> blocks everything and permits only what you explicitly allow: a guest list. <strong>Default-allow</strong> permits everything and blocks only what you explicitly forbid: a banned list. Default-deny limits unexpected access at a defined boundary: with a banned list you can only block the threats you <em>thought of</em>, and attackers make their living on the ones you didn’t. A guest list fails safe: anything unforeseen is denied by default. A banned list fails open, letting the unforeseen straight through. The trade-off is friction: default-deny means every legitimate need must be anticipated and allowed, which is more work and more support tickets. Test necessary service use as well as prohibited access.</p>
+<p>Two more subtleties bite people constantly. <strong>Order matters:</strong> in the first-match model used for our paper exercise, rules are evaluated top to bottom, so a broad “allow” placed above a specific “deny” silently defeats the deny. The packet matches the allow first and is waved through before the deny is ever considered. And <strong>specificity matters:</strong> one rule written too broadly can open a hole nobody notices, and a large rule set becomes so complex that mistakes hide in it. The cost of a bad rule is not abstract; a single misordered or over-broad line is how real networks end up exposed while everyone believes the firewall has them covered.</p>
 </section>
 <section id="vpns-a-private-tunnel-over-a-public-network" class="level2" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="vpns-a-private-tunnel-over-a-public-network"><span class="header-section-number">8.5</span> VPNs: a private tunnel over a public network</h2>
-<p>A firewall controls <em>what can pass</em>. A <strong>VPN</strong> (virtual private network) protects <em>what’s already passing</em>. It solves the plaintext problem from the last chapter by building an encrypted <strong>tunnel</strong> between your device and a VPN server: everything you send is encrypted before it leaves your machine and only decrypted at the far end. To anyone listening in between (the attacker on the coffee-shop Wi-Fi, the operator of an untrusted network), your traffic is just ciphertext. The VPN gives you confidentiality and integrity across a network you don’t trust, which is what an untrusted wire otherwise denies you.</p>
+<p>A firewall controls <em>what can pass</em>. A <strong>VPN</strong> (virtual private network) protects <em>what’s already passing</em>. It solves the plaintext problem from the last chapter by building an encrypted <strong>tunnel</strong> between configured endpoints. Traffic selected for that tunnel is protected until it reaches the other endpoint. A full-tunnel configuration and split tunnelling cover different traffic; do not assume every application, DNS request or fallback path is included. To anyone listening in between (the attacker on the coffee-shop Wi-Fi, the operator of an untrusted network), your traffic is just ciphertext. The VPN gives you confidentiality and integrity across a network you don’t trust, which is what an untrusted wire otherwise denies you.</p>
 <div id="fig-vpn" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Network diagram: an office subnet 10.11.0.0/24 and a datacentre subnet 10.11.1.0/24 connected through gateways, with an eavesdropper positioned on the path between them.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vpn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/vpn-office-datacentre.svg" class="img-fluid figure-img" alt="Network diagram: an office subnet 10.11.0.0/24 and a datacentre subnet 10.11.1.0/24 connected through gateways, with an eavesdropper positioned on the path between them.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vpn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.2: The problem a VPN solves: a client in the office reaches a server in the datacentre across a path an eavesdropper can read. The tunnel turns that middle section into ciphertext. This is the <em>VPN</em> lab, joining office <code>10.11.0.0/24</code> to datacentre <code>10.11.1.0/24</code>.
+Figure&nbsp;8.2: The problem a VPN solves: a client in the office reaches a server in the datacentre across a path an eavesdropper can read. The tunnel turns that middle section into ciphertext. This illustration joins office <code>10.11.0.0/24</code> to datacentre <code>10.11.1.0/24</code>; it is not an instruction to connect a lab.
 </figcaption>
 </figure>
 </div>
-<p>Under the hood, a VPN is the cryptography chapter made practical: it uses asymmetric cryptography to establish trust and exchange keys, fast symmetric encryption for the bulk of the traffic, and integrity checks to ensure nothing was altered in transit. If that hybrid scheme sounds familiar, it should. It’s the same pattern that secures the web.</p>
+<p>A secure VPN protocol authenticates peers, establishes keys and protects selected traffic against disclosure and undetected alteration. The mechanisms vary by protocol and configuration; some use pre-shared credentials. The cryptography chapter explains why authentication and integrity matter alongside confidentiality.</p>
 </section>
 <section id="what-a-vpn-does-not-do" class="level2" data-number="8.6">
 <h2 data-number="8.6" class="anchored" data-anchor-id="what-a-vpn-does-not-do"><span class="header-section-number">8.6</span> What a VPN does not do</h2>
-<p>VPNs are also the most over-sold tool in consumer security, so it’s worth being precise about their limits. The second question at the end turns on this.</p>
-<p>A VPN protects the link between you and the VPN server. It does <strong>not</strong> make you anonymous: your traffic still emerges from the VPN server toward its real destination, and that destination still knows what you did there. It does <strong>not</strong> secure your device: malware already on your machine is unaffected by an encrypted tunnel. And it does <strong>not</strong> protect the leg <em>beyond</em> the VPN server. If that onward traffic is unencrypted, it’s exposed again once it leaves the tunnel (which is why a VPN is not a substitute for HTTPS; you want both). A VPN also doesn’t remove trust; it <em>relocates</em> it. You’ve stopped trusting the local network and started trusting the VPN provider, who can now see your traffic. That can be a good trade on hostile Wi-Fi and a bad one with a shady provider, but “a VPN makes you safe” is a marketing line rather than a security fact.</p>
+<p>VPNs are also the most over-sold tool in consumer security, so it’s worth being precise about their limits.</p>
+<p>A VPN protects the link between you and the VPN server. It does <strong>not</strong> make you anonymous: your traffic still emerges from the VPN server toward its real destination, and that destination still knows what you did there. It does <strong>not</strong> secure your device: malware already on your machine is unaffected by an encrypted tunnel. And it does <strong>not</strong> protect the leg <em>beyond</em> the VPN server. If that onward traffic is unencrypted, it’s exposed again once it leaves the tunnel. A VPN is not a substitute for HTTPS. Whether a separate VPN is useful depends on the access requirement and threat model. A VPN also doesn’t remove trust; it <em>relocates</em> it. You’ve stopped trusting the local network and started trusting the VPN provider, which sees routing information and any unencrypted onward traffic. Properly protected HTTPS content remains encrypted to the website; leaving the VPN tunnel does not itself reveal that content. That can be a good trade on hostile Wi-Fi and a bad one with a shady provider, but “a VPN makes you safe” is a marketing line rather than a security fact.</p>
 </section>
 <section id="defence-in-depth-again" class="level2" data-number="8.7">
 <h2 data-number="8.7" class="anchored" data-anchor-id="defence-in-depth-again"><span class="header-section-number">8.7</span> Defence in depth, again</h2>
-<p>Neither tool is sufficient alone, and by now you can predict the conclusion. A firewall controls what traffic is allowed but can’t judge the intent behind traffic it permits. Malware happily tunnels out over the same port 443 your firewall allows for ordinary web browsing. A VPN protects traffic in transit but does nothing about what happens at either end. So they join the layers from the last chapter: the firewall decides what’s allowed, the VPN protects what’s in motion, segmentation limits how far a foothold spreads, and monitoring catches the malicious traffic that slips through a permitted door. Each covers a gap the others leave. The answer to “what catches what the firewall misses?” is always another layer rather than a single better wall.</p>
+<p>Consider what each tool leaves outside its scope. A firewall controls what traffic is allowed but can’t judge the intent behind traffic it permits. Malware happily tunnels out over the same port 443 your firewall allows for ordinary web browsing. A VPN protects traffic in transit but does nothing about what happens at either end. So they join the layers from the last chapter: the firewall decides what’s allowed, the VPN protects what’s in motion, segmentation limits how far a foothold spreads, and monitoring catches the malicious traffic that slips through a permitted door. Check that these controls fail independently where possible, and test the paths between them. More layers do not help if they share the same unchecked administrator access.</p>
 </section>
 <section id="where-this-connects" class="level2" data-number="8.8">
 <h2 data-number="8.8" class="anchored" data-anchor-id="where-this-connects"><span class="header-section-number">8.8</span> Where this connects</h2>
-<p>A firewall and a VPN are the two defences against the scanning, sniffing, and man-in-the-middle attacks of the previous chapter, <strong>network security</strong>. A VPN’s tunnel is the hybrid encryption scheme from <strong>cryptography</strong>, deployed. And the monitoring that backs up a firewall feeds the detection stage of incident response in <strong>incident and disaster planning</strong>.</p>
+<p>A firewall and a VPN are the two defences against the scanning, sniffing, and man-in-the-middle attacks of the previous chapter, <strong>network security</strong>. A secure tunnel applies the key and authentication ideas from <strong>cryptography</strong>. And the monitoring that backs up a firewall feeds the detection stage of incident response in <strong>incident and disaster planning</strong>.</p>
 </section>
 <section id="questions-to-consider" class="level2" data-number="8.9">
 <h2 data-number="8.9" class="anchored" data-anchor-id="questions-to-consider"><span class="header-section-number">8.9</span> Questions to consider</h2>
@@ -571,6 +588,11 @@ Figure&nbsp;8.2: The problem a VPN solves: a client in the office reaches a serv
 <li>A VPN “makes you anonymous / makes you safe.” What does it actually protect, and what does it <em>not</em>?</li>
 <li>Give one example of a second layer catching something a firewall alone would miss.</li>
 </ol>
+</section>
+<section id="test-both-directions-of-the-policy" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="test-both-directions-of-the-policy"><span class="header-section-number">8.10</span> Test both directions of the policy</h2>
+<p>In 15 minutes, trace all seven flows in Harbour’s paper firewall exercise. Explain the rule that decides each one. Repair the policy and repeat the tests, including legitimate service use. Success means four expected allows and three expected denies, with no broad rule defeating a later restriction. This notation is for reasoning only, not deployment.</p>
+<p>Case inputs and checks: <a href="../appendices/defender-dossier.html">Harbour dossier</a>.</p>
 
 
 </section>

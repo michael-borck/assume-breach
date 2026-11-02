@@ -2,22 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Michael Borck">
-<meta name="dcterms.date" content="2026-07-21">
+<meta name="dcterms.date" content="2026-11-02">
 
 <title>Assume Breach</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -43,14 +46,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -81,6 +84,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -444,6 +448,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./appendices/defender-dossier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Defender’s Dossier</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendices/further-reading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Further Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./about-author.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About the Author</span></a>
   </div>
@@ -462,13 +478,13 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#introduction-assume-breach" id="toc-introduction-assume-breach" class="nav-link active" data-scroll-target="#introduction-assume-breach">Introduction: Assume Breach</a>
   <ul class="collapse">
-  <li><a href="#the-unlocked-door-behind-the-badge" id="toc-the-unlocked-door-behind-the-badge" class="nav-link" data-scroll-target="#the-unlocked-door-behind-the-badge">The unlocked door behind the badge</a></li>
-  <li><a href="#how-to-think-like-a-defender" id="toc-how-to-think-like-a-defender" class="nav-link" data-scroll-target="#how-to-think-like-a-defender">How to think like a defender</a></li>
-  <li><a href="#who-this-is-for-and-how-to-read-it" id="toc-who-this-is-for-and-how-to-read-it" class="nav-link" data-scroll-target="#who-this-is-for-and-how-to-read-it">Who this is for, and how to read it</a></li>
-  <li><a href="#a-word-on-using-ai" id="toc-a-word-on-using-ai" class="nav-link" data-scroll-target="#a-word-on-using-ai">A word on using AI</a></li>
+  <li><a href="#who-this-book-is-for" id="toc-who-this-book-is-for" class="nav-link" data-scroll-target="#who-this-book-is-for">Who this book is for</a></li>
+  <li><a href="#how-the-chapters-build" id="toc-how-the-chapters-build" class="nav-link" data-scroll-target="#how-the-chapters-build">How the chapters build</a></li>
+  <li><a href="#optional-ai-conversations" id="toc-optional-ai-conversations" class="nav-link" data-scroll-target="#optional-ai-conversations">Optional AI conversations</a></li>
+  <li><a href="#reading-claims-and-sources" id="toc-reading-claims-and-sources" class="nav-link" data-scroll-target="#reading-claims-and-sources">Reading claims and sources</a></li>
   </ul></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/assume-breach"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -494,7 +510,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 21, 2026</p>
+      <p class="date">November 2, 2026</p>
     </div>
   </div>
   
@@ -508,31 +524,64 @@ ul.task-list li input[type="checkbox"] {
 
 
 <section id="introduction-assume-breach" class="level1 unnumbered">
-<h1 class="unnumbered">Introduction: Assume Breach</h1><p><img src="images/cover.png" title="Assume Breach" class="quarto-cover-image nolightbox img-fluid"></p>
-<blockquote class="blockquote">
-<p><em>The old question was “how do we keep attackers out?” The better one is “what do we do given that, sooner or later, they get in?” That shift in assumption changes everything.</em></p>
-</blockquote>
-<section id="the-unlocked-door-behind-the-badge" class="level2">
-<h2 class="anchored" data-anchor-id="the-unlocked-door-behind-the-badge">The unlocked door behind the badge</h2>
-<p>Every organisation says its systems are secure. It puts a padlock icon on the login page, a privacy policy in the footer, and an “enterprise-grade encryption” line on the marketing site. Then, somewhere behind all of that, there is a server no one has patched in eleven months, a password four people share, and a staff member about to click a link they shouldn’t. The claim and the reality are two different things. The gap between them is where information security lives.</p>
-<p>Modern security starts from an uncomfortable premise: <strong>assume breach.</strong> Assume the perimeter will fail, the patch will be late, and someone will click the link. Across a large enough system and enough time, they will. A defender who assumes they can keep every attacker out builds one wall and trusts it. A defender who assumes breach builds in depth, watches for the intrusion, limits how far it spreads, and plans to recover. This is not pessimism. It is how real systems are defended.</p>
-<p>This book is a first course in that mindset. It will not turn you into a hacker or a penetration tester in twelve weeks. It will do something more useful: teach you to <em>think like a defender</em>. That means looking at a system and seeing, before anything goes wrong, where it could go wrong, what it would cost, and what to do about it. That habit of mind is the thing you take into any job, in any industry, for the rest of your career.</p>
+<h1 class="unnumbered">Introduction: Assume Breach</h1><p><img src="cover.png" title="Assume Breach" class="quarto-cover-image nolightbox img-fluid"></p>
+<p>A security control can fail. A supplier account can be misused, a patch can arrive late, or a colleague can approve an unexpected login request. A defender plans for those possibilities while still trying to prevent them. <strong>Assume breach</strong> means designing detection, containment and recovery into the system.</p>
+<section id="who-this-book-is-for" class="level2">
+<h2 class="anchored" data-anchor-id="who-this-book-is-for">Who this book is for</h2>
+<p>This is a first course for students, people moving into security, and curious professionals. It assumes basic familiarity with a browser and files, but no security background or programming. The core reading and exercises require no software installation, paid service, AI account or group.</p>
+<p>By the end, you should be able to take a small system description, identify important assets and plausible threats, choose layered controls within a budget, specify tests of those controls, and defend a response/recovery decision with its uncertainties. This is introductory judgement, not authorisation to test other people’s systems or a qualification to run a production incident alone.</p>
 </section>
-<section id="how-to-think-like-a-defender" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-think-like-a-defender">How to think like a defender</h2>
-<p>Defenders reason in a particular way, and the whole book is built to grow that habit. Assume nothing is safe until it is shown to be: a control that looks fine on paper is only a claim until you have reason to trust it. Understand the attacker in order to protect against them. You cannot defend what you do not understand, so we spend time on how attacks work, studying them to see what they need so you can take it away. Weigh the cost, because perfect security is unaffordable and unusable. Every control is a trade-off, and a defender’s skill is deciding which ones are worth it. And never forget the human. Most breaches do not defeat the technology; they walk past it through a person. The human factor is often the whole story.</p>
+<section id="how-the-chapters-build" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-chapters-build">How the chapters build</h2>
+<p>Read in order on your first pass. Each part contributes to a short <strong>defender’s dossier</strong>, using the fictional Harbour Community Centre in <a href="./appendices/defender-dossier.html">The Defender’s Dossier</a>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Part</th>
+<th>What you should be able to do afterwards</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>I: Foundations</td>
+<td>Identify assets, threats, permissions and appropriate protection mechanisms</td>
+</tr>
+<tr class="even">
+<td>II: Managing Risk</td>
+<td>Justify a control choice and check a recovery plan against stated targets</td>
+</tr>
+<tr class="odd">
+<td>III: Systems and Networks</td>
+<td>Trace a trust boundary and test permitted and forbidden actions</td>
+</tr>
+<tr class="even">
+<td>IV: People and Threats</td>
+<td>Separate evidence from inference and design a usable verification process</td>
+</tr>
+<tr class="odd">
+<td>V: Putting It Together</td>
+<td>Defend a complete plan for a changed case and identify what is not ready</td>
+</tr>
+</tbody>
+</table>
+<p>Every chapter has questions to consider and a short applied task. Try the task before reading the worked dossier. The final chapter gives an independent variant and success criteria. Definitions alone are not evidence that you can use them.</p>
+<p>The network primer is in chapter 7. NTLM, cryptographic attack models and named tools provide optional depth; you do not need to configure them to complete the dossier. The <a href="./appendices/lab-environment.html">practice appendix</a> explains boundaries for optional hands-on work. It does not claim that a generic VM or container setting creates a safe lab.</p>
+<p>Several chapters link <em>Incident Zero</em>, an optional print-and-play group game. It offers a different experience of making decisions under pressure. The book’s solo exercises provide a complete route if you never play.</p>
 </section>
-<section id="who-this-is-for-and-how-to-read-it" class="level2">
-<h2 class="anchored" data-anchor-id="who-this-is-for-and-how-to-read-it">Who this is for, and how to read it</h2>
-<p>This is a first book on defensive security, for anyone meeting the subject for the first time: a student, someone moving into security from another part of IT, or a curious professional who wants the mental model without the jargon. It assumes no prior security background.</p>
-<p>The chapters build in a deliberate order. The early ones establish the foundations: how security is measured, where software goes wrong, how identity and secrets are protected. The middle turns to managing risk and surviving incidents. The later ones defend systems and networks, and end where security always ends: with people. You will get the most from reading in order, because each chapter leans on the ones before it, but each is self-contained enough to revisit on its own.</p>
-<p>The book carries the <em>concepts</em>. It stays tool-agnostic: it explains what is true on any system rather than which button to click, so it doesn’t go out of date the moment a tool does. Where practice helps, a <strong>Try it yourself</strong> note points you at the kind of hands-on exercise the ideas invite, and the <a href="./appendices/lab-environment.html">practice-environment appendix</a> shows how to set up somewhere safe to do it. Each chapter ends with a few <strong>Questions to consider</strong>. They are prompts worth sitting with rather than a test. Several are easier to answer well <em>after</em> a later chapter, which is deliberate.</p>
+<section id="optional-ai-conversations" class="level2">
+<h2 class="anchored" data-anchor-id="optional-ai-conversations">Optional AI conversations</h2>
+<p>An assistant can explain a term, challenge a proposed control or quiz you. Try your own answer first, then ask it to identify an assumption you missed. Keep the evidence trail: a fluent explanation or invented incident is not a verified source. Three chapters include longer conversation prompts; other chapters use calculation, annotation and evidence checks.</p>
+<p>Use fictional inputs from this book. Do not paste real phishing emails, credentials, session tokens, personal information, internal logs or production firewall rules into a public assistant. If you adapt an example, remove sensitive details and follow your organisation’s approved data-handling rules. A generated configuration is a draft to test in an authorised environment, never a ready-to-deploy answer.</p>
+<p>For more on this method, see <a href="https://michael-borck.github.io/conversation-not-delegation/"><em>Conversation, Not Delegation</em></a>. No companion book is required here.</p>
 </section>
-<section id="a-word-on-using-ai" class="level2">
-<h2 class="anchored" data-anchor-id="a-word-on-using-ai">A word on using AI</h2>
-<p>Using AI to learn this material is a good idea, and this book encourages it. Ask an assistant to explain a concept a second way, to quiz you, or to challenge your answer to one of the end-of-chapter questions. What matters is that you stay in the conversation and do the thinking. Use it to understand faster. Do not use it to skip understanding. If you want to get better at that skill itself, the companion volume <a href="https://michael-borck.github.io/conversation-not-delegation/"><em>Conversation, Not Delegation</em></a> is about this: thinking <em>with</em> AI rather than delegating your thinking to it.</p>
-<hr>
-<p><em>This book is open access under a Creative Commons Attribution (CC BY) licence. It is part of the <a href="https://books.borck.education">books.borck.education</a> series.</em></p>
+<section id="reading-claims-and-sources" class="level2">
+<h2 class="anchored" data-anchor-id="reading-claims-and-sources">Reading claims and sources</h2>
+<p>Examples labelled fictional are teaching inputs. Historical incidents and consequential technical claims have nearby sources, with a curated trail in <a href="./appendices/further-reading.html">Further Reading</a>. Legal summaries describe selected regimes as checked in September 2026; applicability and facts matter. For an actual incident, involve the authorised technical and legal advisers.</p>
+<p>This book is open access under the author’s stated Creative Commons Attribution 4.0 International (CC BY 4.0 International) licence; original code examples use MIT. The free edition is the focus, and the <a href="https://books.borck.education">series catalogue</a> links the related books.</p>
 
 
 </section>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -42,14 +45,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -80,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -443,6 +447,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../appendices/defender-dossier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Defender’s Dossier</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/further-reading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Further Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../about-author.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About the Author</span></a>
   </div>
@@ -467,8 +483,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#the-four-things-you-can-do-with-a-risk" id="toc-the-four-things-you-can-do-with-a-risk" class="nav-link" data-scroll-target="#the-four-things-you-can-do-with-a-risk"><span class="header-section-number">5.6</span> The four things you can do with a risk</a></li>
   <li><a href="#where-this-connects" id="toc-where-this-connects" class="nav-link" data-scroll-target="#where-this-connects"><span class="header-section-number">5.7</span> Where this connects</a></li>
   <li><a href="#questions-to-consider" id="toc-questions-to-consider" class="nav-link" data-scroll-target="#questions-to-consider"><span class="header-section-number">5.8</span> Questions to consider</a></li>
+  <li><a href="#calculate-then-challenge" id="toc-calculate-then-challenge" class="nav-link" data-scroll-target="#calculate-then-challenge"><span class="header-section-number">5.9</span> Calculate, then challenge</a></li>
+  <li><a href="#take-it-to-the-ai" id="toc-take-it-to-the-ai" class="nav-link" data-scroll-target="#take-it-to-the-ai"><span class="header-section-number">5.10</span> Take it to the AI</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/assume-breach"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -511,12 +529,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="what-risk-actually-is" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="what-risk-actually-is"><span class="header-section-number">5.2</span> What risk actually is</h2>
 <p>In everyday speech “risk” means danger. In security it means something more precise and useful: risk is the combination of <strong>how likely</strong> something bad is and <strong>how much it would hurt</strong> if it happened. A useful shorthand is <em>risk = likelihood × impact</em>. Neither alone tells you much. A catastrophic event that almost never happens may be a smaller risk than a minor one that happens weekly. Treating them as equal, as a fear-driven approach does, wastes effort on the dramatic and ignores the routine.</p>
-<p>Because risk is about likelihood and impact, it is always relative to a particular organisation. That is where <strong>risk appetite</strong> comes in: how much risk a given organisation is willing to accept in pursuit of its goals. A hospital and a social-media start-up face different threats, value different things, and answer to different regulators, so they will rationally accept different risks. Risk appetite is a deliberate statement of how much uncertainty an organisation will live with. It is neither recklessness nor timidity. Two well-run companies facing the same threat can make opposite, equally defensible decisions. That is the first question at the end of this chapter.</p>
+<p>Because risk is about likelihood and impact, it is always relative to a particular organisation. That is where <strong>risk appetite</strong> comes in: how much risk a given organisation is willing to accept in pursuit of its goals. A hospital and a social-media start-up face different threats, value different things, and answer to different regulators, so they will rationally accept different risks. Risk appetite is a deliberate statement of how much uncertainty an organisation will live with. It is neither recklessness nor timidity. Two well-run companies facing the same threat can make opposite, equally defensible decisions. They should be able to explain the constraints behind those choices.</p>
 </section>
 <section id="what-are-you-protecting-and-whats-it-worth" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="what-are-you-protecting-and-whats-it-worth"><span class="header-section-number">5.3</span> What are you protecting, and what’s it worth?</h2>
 <p>You cannot judge a risk without knowing the value of what’s at stake, and value is subtler than a price tag. An asset has <strong>intrinsic value</strong> (what it is worth in itself, like the replacement cost of a server) and <strong>acquired value</strong> (the worth it takes on from its role and context). A customer database might contain a few dollars of storage, but the acquired value (the trust, the regulatory exposure, the competitive harm if it leaked) can be enormous. Defenders who price only the intrinsic value under-protect the things that matter most, because the damage from losing information usually dwarfs the cost of the hardware holding it.</p>
-<p>Once you can value what’s at stake, you can do <strong>cost-benefit analysis</strong>: weigh what a control <em>costs</em> against the loss it <em>prevents</em>. This is the engine of every good security decision. It has an uncomfortable implication people resist: sometimes the right answer is to <em>not</em> buy the control, because it costs more than the harm it prevents. Security is about protection that’s worth what it costs.</p>
+<p>Once you can value what’s at stake, you can do <strong>cost-benefit analysis</strong>: weigh what a control <em>costs</em> against the loss it <em>prevents</em>. This provides one input to a security decision. It has an uncomfortable implication people resist: sometimes the right answer is to <em>not</em> buy the control, because it costs more than the harm it prevents. That judgement is constrained by legal duties, safety and the organisation’s stated limits. A positive financial return is not the only reason to protect people.</p>
 </section>
 <section id="putting-numbers-on-it-sle-aro-ale" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="putting-numbers-on-it-sle-aro-ale"><span class="header-section-number">5.4</span> Putting numbers on it: SLE, ARO, ALE</h2>
@@ -528,19 +546,19 @@ ul.task-list li input[type="checkbox"] {
 <section id="is-the-control-worth-it" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="is-the-control-worth-it"><span class="header-section-number">5.5</span> Is the control worth it?</h2>
 <p>Now you can judge a control honestly. Say better monitoring and encryption cost <strong>$40,000 a year</strong> and would cut the breach rate to once every twenty years (ARO 0.05). The new annual loss expectancy becomes <code>\$500,000 × 0.05 = \$25,000</code>. So the control <em>reduces</em> your ALE from $100,000 to $25,000, a benefit of <strong>$75,000 a year</strong>, for a cost of $40,000. It saves you $35,000 net, so it is worth buying.</p>
-<p>The rule is that simple, and that powerful: <strong>a control is worth it when the reduction in ALE exceeds the cost of the control.</strong> Turn the numbers around and the answer flips. A $50,000 control that only reduces an ALE from $30,000 to $5,000 <em>loses</em> you money, and buying it out of a vague sense that “more security is better” is the mistake this chapter exists to prevent. (That is the second question at the end. Work it through.)</p>
+<p>For this financial model, <strong>a control has positive expected net benefit when the reduction in ALE exceeds its annual cost.</strong> That is not a complete acceptance rule for safety, privacy or regulatory obligations. Turn the numbers around and the answer flips. A $50,000 control that only reduces an ALE from $30,000 to $5,000 <em>loses</em> you money, and buying it out of a vague sense that “more security is better” is the mistake this chapter exists to prevent.</p>
 <p>Two honest cautions come with the arithmetic. First, notice that even after the good control, $25,000 of annual risk remains: this is <strong>residual risk</strong>, the risk left over after treatment. You almost never reduce risk to zero, and pretending otherwise is how organisations get surprised. Second, these numbers are <em>estimates</em>: SLE and ARO are educated guesses, and some impacts (a ruined reputation, harm to people, loss of life) resist being priced at all. Treat quantitative risk analysis as a discipline for thinking clearly. The numbers structure the judgement; they do not replace it.</p>
 </section>
 <section id="the-four-things-you-can-do-with-a-risk" class="level2" data-number="5.6">
 <h2 data-number="5.6" class="anchored" data-anchor-id="the-four-things-you-can-do-with-a-risk"><span class="header-section-number">5.6</span> The four things you can do with a risk</h2>
 <p>Once a risk is identified and sized, you have four options. They are the vocabulary every security professional shares:</p>
 <ul>
-<li><strong>Avoid.</strong> Don’t do the risky thing at all. Stop offering the feature, don’t collect the data, close the exposure. This is the only way to reduce a risk to zero, and often impractical because the risky activity is the business.</li>
+<li><strong>Avoid.</strong> Don’t do the risky thing at all. Stop offering the feature, don’t collect the data, close the exposure. This can remove the particular exposure, but may introduce other risks. It is often impractical because the activity is part of the business.</li>
 <li><strong>Mitigate.</strong> Reduce the likelihood or the impact with controls. This is most of what the rest of this book is about: patch, encrypt, segment, train, monitor. You rarely eliminate the risk; you shrink it to an acceptable size.</li>
-<li><strong>Transfer.</strong> Make it someone else’s problem to bear, most commonly through <strong>insurance</strong>, or by outsourcing the risky function to a provider who takes on the liability. You still own the consequences, but you’ve shifted the financial hit.</li>
-<li><strong>Accept.</strong> Decide the risk is small enough, or the fix too costly, to live with it. This is a legitimate, deliberate choice, <em>provided</em> it’s made consciously and by someone with the authority to make it. Accepting a risk you’ve measured is professional; ignoring one you never looked at is negligence.</li>
+<li><strong>Transfer.</strong> Share specified financial consequences through <strong>insurance</strong> or a contract. Coverage, exclusions and provider obligations matter. Outsourcing does not automatically transfer your responsibility for customers or legal compliance.</li>
+<li><strong>Accept.</strong> Decide the risk is small enough, or the fix too costly, to live with it. This is a legitimate, deliberate choice, <em>provided</em> it’s made consciously and by someone with the authority to make it. Record the owner, reasoning, residual exposure and review date. An unexamined risk is not the same as deliberate acceptance.</li>
 </ul>
-<p>Real organisations do this at scale using structured frameworks (the <strong>ASD Essential Eight</strong>, <strong>ISO/IEC 27001</strong>, the <strong>NIST Cybersecurity Framework</strong>) that package hard-won judgement about which controls address which risks, so that every organisation doesn’t have to reinvent the analysis. Underneath the framework, though, the logic is always the one in this chapter: size the risk, weigh the control, choose a treatment, and be able to defend the choice.</p>
+<p>Organisations use resources with different purposes: the <strong>ASD Essential Eight</strong> sets out mitigation strategies and maturity expectations; <strong>ISO/IEC 27001</strong> specifies an information-security management system; the <strong>NIST Cybersecurity Framework</strong> organises cybersecurity outcomes. They are not interchangeable pass/fail checklists. The <a href="https://www.nist.gov/cyberframework">NIST CSF</a> provides a starting point for understanding outcomes and governance. Use the framework to structure evidence and responsibilities, then explain how the chosen treatment addresses the organisation’s actual exposure.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -562,10 +580,22 @@ ul.task-list li input[type="checkbox"] {
 <section id="questions-to-consider" class="level2" data-number="5.8">
 <h2 data-number="5.8" class="anchored" data-anchor-id="questions-to-consider"><span class="header-section-number">5.8</span> Questions to consider</h2>
 <ol type="1">
-<li>Two companies face the same threat but treat it differently. One buys insurance, one ignores it. How can both be <em>rational</em>?</li>
+<li>Two companies face the same threat but treat it differently. One buys insurance, one consciously accepts it. How can both be <em>rational</em>?</li>
 <li>A control costs $50k/year and reduces an ALE of $30k/year to $5k/year. Should they buy it? Show your reasoning.</li>
 <li>Give a real risk your own organisation (or somewhere you’ve studied or worked) probably <strong>accepts</strong> rather than fixes. Why is that a defensible choice?</li>
 </ol>
+</section>
+<section id="calculate-then-challenge" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="calculate-then-challenge"><span class="header-section-number">5.9</span> Calculate, then challenge</h2>
+<p>In 15 minutes, calculate Harbour’s expected-loss reduction and net benefit for option A. Repeat for post-control annual rates 0.02 and 0.09. Then choose an affordable set of controls and record what it leaves unresolved. Success requires correct arithmetic, stated assumptions and a named risk owner; a positive estimate alone is not approval to ignore binding duties.</p>
+<p>Case inputs and checks: <a href="../appendices/defender-dossier.html">Harbour dossier</a>.</p>
+</section>
+<section id="take-it-to-the-ai" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="take-it-to-the-ai"><span class="header-section-number">5.10</span> Take it to the AI</h2>
+<p>Optional: attempt the paper task first. Use only the fictional case, never real messages, credentials, personal information or internal logs. Check any external claims against the primary sources; do not deploy generated rules.</p>
+<blockquote class="blockquote">
+<p>Act as a reviewer of my fictional Harbour risk decision. Identify the assumption most likely to change my conclusion. Use only the printed costs and estimates; do not invent product effectiveness. Ask one question, wait for my answer, then explain how I could obtain better evidence.</p>
+</blockquote>
 
 
 </section>

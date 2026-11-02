@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -42,14 +45,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-37a0ccb6f5b9899fcb884e11bb6f7458.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -80,6 +83,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -443,6 +447,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../appendices/defender-dossier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Defender’s Dossier</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/further-reading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Further Reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../about-author.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About the Author</span></a>
   </div>
@@ -475,10 +491,12 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#the-maths-is-rarely-the-weakest-link" id="toc-the-maths-is-rarely-the-weakest-link" class="nav-link" data-scroll-target="#the-maths-is-rarely-the-weakest-link"><span class="header-section-number">3.6</span> The maths is rarely the weakest link</a></li>
   <li><a href="#a-word-on-single-sign-on" id="toc-a-word-on-single-sign-on" class="nav-link" data-scroll-target="#a-word-on-single-sign-on"><span class="header-section-number">3.7</span> A word on single sign-on</a></li>
-  <li><a href="#where-this-connects" id="toc-where-this-connects" class="nav-link" data-scroll-target="#where-this-connects"><span class="header-section-number">3.8</span> Where this connects</a></li>
-  <li><a href="#questions-to-consider" id="toc-questions-to-consider" class="nav-link" data-scroll-target="#questions-to-consider"><span class="header-section-number">3.9</span> Questions to consider</a></li>
+  <li><a href="#permissions-and-recovery-are-part-of-the-design" id="toc-permissions-and-recovery-are-part-of-the-design" class="nav-link" data-scroll-target="#permissions-and-recovery-are-part-of-the-design"><span class="header-section-number">3.8</span> Permissions and recovery are part of the design</a></li>
+  <li><a href="#where-this-connects" id="toc-where-this-connects" class="nav-link" data-scroll-target="#where-this-connects"><span class="header-section-number">3.9</span> Where this connects</a></li>
+  <li><a href="#questions-to-consider" id="toc-questions-to-consider" class="nav-link" data-scroll-target="#questions-to-consider"><span class="header-section-number">3.10</span> Questions to consider</a></li>
+  <li><a href="#separate-login-from-permission" id="toc-separate-login-from-permission" class="nav-link" data-scroll-target="#separate-login-from-permission"><span class="header-section-number">3.11</span> Separate login from permission</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/assume-breach.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/assume-breach.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/assume-breach"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/assume-breach"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://michael-borck.github.io/conversation-not-delegation/"><i class="bi bi-chat-left-text"></i>Companion: Conversation, Not Delegation</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -505,9 +523,9 @@ ul.task-list li input[type="checkbox"] {
 
 <p><img src="../images/ch03-opener.png" class="img-fluid" alt="Pixel-art illustration: a guard at a torch-lit castle gatehouse checking a traveller's keys and sealed pass at the portcullis."></p>
 <blockquote class="blockquote">
-<p><em>A password isn’t stored as a password. Understanding what’s actually kept, and how it’s attacked, is the whole of this chapter.</em></p>
+<p><em>A successful login establishes an identity claim. The next question is what that account is allowed to do.</em></p>
 </blockquote>
-<p>Almost every system begins with the same question: <em>who are you, and are you allowed to be here?</em> Getting that answer right is the foundation of confidentiality and integrity. If the system can’t tell the real you from an impostor, none of its other protections mean much. This chapter is about how systems answer that question, the clever way they store the secret behind it, and the many ways attackers try to defeat both.</p>
+<p>At Harbour, Rae needs to amend a booking but should not be able to export every participant’s details. Checking who signs in and limiting what they can do are separate controls. This chapter follows both, including how systems protect password verifiers, recover accounts and end compromised sessions.</p>
 <section id="what-this-chapter-covers" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="what-this-chapter-covers"><span class="header-section-number">3.1</span> What this chapter covers</h2>
 <p>By the end you should be able to:</p>
@@ -535,28 +553,30 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Something you have</strong>: a phone, a hardware token, a smart card.</li>
 <li><strong>Something you are</strong>: a fingerprint, a face, a voice (biometrics).</li>
 </ul>
-<p>Passwords (“something you know”) dominate because they’re cheap and need no special hardware. They are also the weakest link in most systems. People choose guessable ones, reuse them everywhere, and hand them over when asked nicely. The usual responses help at the margins: complexity rules, minimum lengths, and <strong>lockout policies</strong> that stop an account after too many wrong guesses. But decades of evidence say a password alone is not enough. That is why the industry is moving toward <strong>passwordless</strong> methods, replacing the shared secret with something harder to steal or phish.</p>
+<p>Passwords are widely used because they need little special hardware, but guessing, reuse and phishing make them risky on their own. Long, unique passwords generated and stored with a password manager reduce guessing and reuse. Arbitrary complexity rules can encourage predictable substitutions; rate limiting addresses repeated online guesses. Neither stops a user submitting a password to an impostor.</p>
 <section id="multi-factor-authentication" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="multi-factor-authentication"><span class="header-section-number">3.3.1</span> Multi-factor authentication</h3>
-<p>The strongest single improvement you can make is to require <strong>more than one factor</strong>: <strong>multi-factor authentication (MFA)</strong>. The power comes from <em>combining categories</em>: a password (know) plus a code from your phone (have) means stealing the password alone is no longer enough. The “have” factor takes many forms: a one-time code, a hardware <strong>token</strong> or key fob, or a <strong>smart card</strong> carrying a chip that proves possession. The “are” factor, biometrics, is convenient and hard to forget, but carries a permanent trade-off: you can change a breached password, but you cannot change your fingerprint. MFA is strong, but it is not magic. As the questions at the end ask you to consider, a determined attacker can still phish a one-time code or trick a user into approving a prompt. It raises the bar without removing it.</p>
+<p>One important improvement is to require <strong>more than one factor</strong>: <strong>multi-factor authentication (MFA)</strong>. The power comes from <em>combining categories</em>: a password (know) plus a code from your phone (have) means stealing the password alone is no longer enough. The “have” factor takes many forms: a one-time code, a hardware <strong>token</strong> or key fob, or a <strong>smart card</strong> carrying a chip that proves possession. The “are” factor, biometrics, is convenient and hard to forget, but carries a permanent trade-off: you can change a breached password, but you cannot change your fingerprint. MFA is strong, but it is not magic. An attacker may still phish a one-time code or trick a user into approving a prompt. The type of MFA matters. <strong>Passkeys</strong> and suitable security keys bind an authentication response to the legitimate service, resisting a fake login site in a way a relayed one-time code does not. Their enrolment, device protection and recovery paths still need care. A biometric often unlocks an authenticator locally rather than being sent to the website as a password. <a href="https://pages.nist.gov/800-63-4/sp800-63b/authenticators/">NIST’s authenticator guidance</a> distinguishes these mechanisms.</p>
 </section>
 </section>
 <section id="what-a-system-actually-stores" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="what-a-system-actually-stores"><span class="header-section-number">3.4</span> What a system actually stores</h2>
 <p>Here is the idea that surprises most people, and it is the hinge of the whole chapter: <strong>a well-built system does not store your password.</strong> If it did, anyone who stole the database (or any administrator) would know every user’s secret.</p>
-<p>Instead, the system stores a <strong>cryptographic hash</strong> of your password. A hash function takes any input and produces a fixed-length fingerprint, with two useful properties: the same input always gives the same output, and you cannot run it backwards to recover the input from the output. So when you register, the system hashes your password and stores only the hash. When you log in later, it hashes what you typed and compares the two fingerprints. If they match, you knew the password, and the system verified you <em>without ever storing the password itself</em>. A stolen database of hashes is less catastrophic than a stolen database of passwords.</p>
+<p>Instead, the system stores a <strong>password verifier</strong> produced by a purpose-built password-hashing scheme. At login it derives a verifier from the supplied password and stored parameters, then compares the result. A cryptographic hash is designed to resist inversion, but attackers can still guess inputs.</p>
+<p>The scheme must make each guess expensive through a suitable work factor, and often memory cost. A fast general-purpose hash alone is not appropriate password storage. Libraries implementing schemes such as Argon2id handle these details; do not invent a scheme from hash primitives. <a href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html">OWASP’s password-storage guidance</a> explains the choice and parameters.</p>
 <section id="windows-and-ntlm" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="windows-and-ntlm"><span class="header-section-number">3.4.1</span> Windows and NTLM</h3>
-<p>You’ll see this in practice with Windows authentication. Rather than keep passwords, Windows stores password hashes and uses them in its logon process. The older <strong>NTLM</strong> (NT LAN Manager) scheme, still present for compatibility in many environments, is one such mechanism. The relevant point for a defender (and the reason password-cracking exercises use these) is that an attacker who reaches those stored hashes doesn’t have your password <em>yet</em>, but they have the raw material to try to recover it. That is what the next section is about.</p>
+<p>Windows’ legacy <strong>NTLM</strong> authentication is useful optional background. It uses password-derived credential material in a challenge/response scheme. Stolen NTLM hash material may enable <strong>pass-the-hash</strong> authentication without recovering the plaintext password. Treat it as a credential, not as harmless scrambled data. It is not a model for designing a new password store. <a href="https://learn.microsoft.com/en-us/windows/win32/secauthn/microsoft-ntlm">Microsoft’s NTLM overview</a> describes the protocol, and <a href="https://pages.nist.gov/800-63-4/sp800-63b/security/">NIST’s threat guidance</a> includes reuse of stolen authentication material.</p>
 </section>
 </section>
 <section id="attacking-passwords" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="attacking-passwords"><span class="header-section-number">3.5</span> Attacking passwords</h2>
 <p>If attackers can get the hashes but can’t reverse them, how do they recover passwords? They don’t reverse the hash. They <strong>guess</strong>, hash each guess, and look for a match.</p>
-<p>A <strong>dictionary attack</strong> works through a list of likely passwords (common words, previously leaked passwords, predictable patterns) because real people rarely choose randomly. A <strong>brute-force attack</strong> tries every possible combination. It always works <em>eventually</em>, but “eventually” grows explosively with password length. That is why length beats complexity. The accelerator is a <strong>rainbow table</strong>: a giant precomputed lookup of hashes for enormous numbers of candidate passwords, so the attacker trades storage for speed and skips the recomputation.</p>
+<p>A <strong>dictionary attack</strong> works through a list of likely passwords (common words, previously leaked passwords, predictable patterns) because real people rarely choose randomly. A <strong>brute-force attack</strong> tries every possible combination. For a finite candidate space it can exhaust every candidate, but the work may be infeasible. Length helps when it adds unpredictability; a long, well-known phrase can still be guessed early. The accelerator is a <strong>rainbow table</strong>: a giant precomputed lookup of hashes for enormous numbers of candidate passwords, so the attacker trades storage for speed and skips the recomputation.</p>
 <section id="the-fix-salt" class="level3" data-number="3.5.1">
 <h3 data-number="3.5.1" class="anchored" data-anchor-id="the-fix-salt"><span class="header-section-number">3.5.1</span> The fix: salt</h3>
-<p>Rainbow tables have one fatal weakness, and the fix is elegant. Before hashing, the system adds a unique random value, a <strong>salt</strong>, to each password, and stores the salt alongside the hash. Now two users with the same password have <em>different</em> hashes, and the attacker’s precomputed rainbow table, built without your specific salt, is worthless. Salting doesn’t make any single password harder to <em>guess</em>. It makes the attacker’s shortcut of precomputation impossible, forcing them back to slow, per-account work. It is a small change with an outsized effect, and its absence is one of the clearest signs a system was built without care.</p>
+<p>Rainbow tables have one fatal weakness, and the fix is elegant. Before hashing, the system adds a unique random value, a <strong>salt</strong>, to each password, and stores the salt alongside the hash. Now two users with the same password have <em>different</em> hashes, and the attacker’s precomputed rainbow table, built without your specific salt, is worthless. Salting doesn’t make any single password harder to <em>guess</em>. It prevents useful reuse of the same precomputed table across different salts. The attacker must work separately for each salt. The password-hashing scheme’s cost settings, not the salt alone, make each guess expensive.</p>
+<p>Distinguish <strong>online</strong> guessing against a login service from <strong>offline</strong> guessing against stolen verifiers. Login rate limits and lockouts do not slow an attacker working on their own copy. Long unique passwords, proper verifier storage and protection of the database address that different threat.</p>
 </section>
 </section>
 <section id="the-maths-is-rarely-the-weakest-link" class="level2" data-number="3.6">
@@ -565,19 +585,29 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="a-word-on-single-sign-on" class="level2" data-number="3.7">
 <h2 data-number="3.7" class="anchored" data-anchor-id="a-word-on-single-sign-on"><span class="header-section-number">3.7</span> A word on single sign-on</h2>
-<p>One more idea you’ll meet: <strong>single sign-on (SSO)</strong> lets you authenticate once and gain access to many systems, and <strong>reduced sign-on</strong> is a lighter version of the same convenience. Users love it, and it improves security in one way: fewer passwords means less reuse and fewer sticky notes. But it concentrates risk: that one login now unlocks everything, so it <em>must</em> be protected accordingly. That is a large part of why SSO and strong MFA almost always travel together.</p>
+<p>One more idea you’ll meet: <strong>single sign-on (SSO)</strong> lets you authenticate once and gain access to many systems, and <strong>reduced sign-on</strong> is a lighter version of the same convenience. Users love it, and it improves security in one way: fewer passwords means less reuse and fewer sticky notes. But it concentrates risk: a compromised identity provider or session may expose several services. SSO must still enforce per-service permissions, restricted administration and revocation; it need not give every account access to everything. Protect the identity provider and recovery process with appropriate MFA.</p>
 </section>
-<section id="where-this-connects" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="where-this-connects"><span class="header-section-number">3.8</span> Where this connects</h2>
+<section id="permissions-and-recovery-are-part-of-the-design" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="permissions-and-recovery-are-part-of-the-design"><span class="header-section-number">3.8</span> Permissions and recovery are part of the design</h2>
+<p>A receptionist may need to amend one booking without being allowed to export every participant’s details. Enforce that rule on the server for each action, not just by hiding a button. Review access when duties change or people leave.</p>
+<p>Recovery is another entry path. A help desk that bypasses all checks when a caller sounds urgent can undermine strong login controls. Plan an independent identity check, recovery credentials where appropriate, and revocation of affected sessions. Changing a password alone does not prove that every existing session has ended.</p>
+</section>
+<section id="where-this-connects" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="where-this-connects"><span class="header-section-number">3.9</span> Where this connects</h2>
 <p>The hashing this chapter relies on is the subject of the next chapter, <strong>cryptography</strong>. Sniffing for credentials reappears in <strong>network security</strong>, when we capture packets on the wire. And stolen credentials, as in the Target breach, are how many intrusions begin, a thread running back to <strong>software security and malware</strong>.</p>
 </section>
-<section id="questions-to-consider" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="questions-to-consider"><span class="header-section-number">3.9</span> Questions to consider</h2>
+<section id="questions-to-consider" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="questions-to-consider"><span class="header-section-number">3.10</span> Questions to consider</h2>
 <ol type="1">
 <li>If a website is breached, why is it so much better for you that they stored a <strong>salted hash</strong> of your password rather than the password itself?</li>
 <li>MFA asks for a second factor. Give a realistic example where MFA still fails, where the attacker gets in anyway. What does that tell you about relying on it?</li>
 <li>Why does adding <strong>salt</strong> defeat a rainbow table, when it doesn’t make any single password harder to guess?</li>
 </ol>
+</section>
+<section id="separate-login-from-permission" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="separate-login-from-permission"><span class="header-section-number">3.11</span> Separate login from permission</h2>
+<p>In 10 minutes, write the actions Mara, Rae and a volunteer should be allowed to perform at Harbour. Include one denied action for each role. Add a test for account recovery and session revocation. Success means a legitimate login does not silently confer bulk-export or administrator rights.</p>
+<p>Case inputs and checks: <a href="../appendices/defender-dossier.html">Harbour dossier</a>.</p>
 
 
 </section>
