@@ -67,6 +67,8 @@ For more on this method, see
 [*Conversation, Not Delegation*](https://michael-borck.github.io/conversation-not-delegation/).
 No companion book is required here.
 
+The series trunk is *Conversation, Not Delegation* for method and *The Human Edge* for professional judgement. This book is the branch for defensive security.
+
 ## Reading claims and sources
 
 Examples labelled fictional are teaching inputs. Historical incidents and
